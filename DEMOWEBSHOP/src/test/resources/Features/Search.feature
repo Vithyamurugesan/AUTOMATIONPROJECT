@@ -1,8 +1,6 @@
 Feature: Search Functionality
 
-  As a user,
-  I want to search a item on the search box
-  So that I can view products related to my search keyword
+Description: As a user,I want to search a item on the search box So that I can view products related to my search keyword
 
   Scenario: Search product using valid keyword
     Given user is on the home page
@@ -15,12 +13,6 @@ Feature: Search Functionality
     When user enters invalid product keyword in the search box
     And clicks on Search button
     Then no products message should be displayed
-
-  @skip
-  Scenario: Search without entering keyword
-    Given user is on the home page
-    When user clicks on Search button without entering keyword
-    Then search results page should be displayed
 
   Scenario: Verify search is case insensitive
     Given user is on the home page

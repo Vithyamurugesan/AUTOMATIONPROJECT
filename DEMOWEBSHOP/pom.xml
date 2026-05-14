@@ -148,7 +148,6 @@
                         <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
 
-                    <!-- ❌ REMOVED BROKEN JAVAAGENT -->
 
                     <systemPropertyVariables>
                         <allure.results.directory>

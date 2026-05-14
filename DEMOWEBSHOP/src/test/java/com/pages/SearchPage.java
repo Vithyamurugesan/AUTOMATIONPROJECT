@@ -28,14 +28,10 @@ public class SearchPage {
     @FindBy(css = "input[value='Search']")
     WebElement searchButton;
 
-    // -------- ACTIONS --------
-
     public void enterSearchKeyword(String keyword) {
-
-        if (keyword == null || keyword.trim().isEmpty()) {
+        if (keyword==null||keyword.trim().isEmpty()) {
             throw new IllegalArgumentException("Search keyword is null/empty");
         }
-
         wait.until(ExpectedConditions.visibilityOf(searchBox));
         searchBox.clear();
         searchBox.sendKeys(keyword);
@@ -45,26 +41,24 @@ public class SearchPage {
         searchButton.click();
     }
 
-    // -------- ALERT HANDLER --------
-
     public void acceptAlertIfPresent() {
         try {
             Alert alert = driver.switchTo().alert();
             alert.accept();
-        } catch (Exception ignored) {}
+        }
+        catch (Exception e) {
+        	e.printStackTrace();
+        }
     }
-
-    // -------- VALIDATIONS --------
 
     public boolean isSearchResultsPage() {
 
         acceptAlertIfPresent();
 
         try {
-            return wait.until(
-                    ExpectedConditions.urlContains("search")
-            );
-        } catch (Exception e) {
+            return wait.until(ExpectedConditions.urlContains("search"));
+        }
+        catch (Exception e) {
             return false;
         }
     }
@@ -72,13 +66,11 @@ public class SearchPage {
     public boolean isNoProductMessageDisplayed() {
 
         try {
-            return wait.until(
-                    ExpectedConditions.visibilityOfElementLocated(
-                            By.xpath("//*[contains(text(),'No products were found')]")
-                    )
-            ).isDisplayed();
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'No products were found')]")))
+            .isDisplayed();
 
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             return false;
         }
     }
