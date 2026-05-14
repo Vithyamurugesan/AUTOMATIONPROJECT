@@ -6,7 +6,9 @@ import com.actions.CartAction;
 import com.utilities.HelperClass;
 
 import io.cucumber.datatable.DataTable;
-import io.cucumber.java.en.*;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class CartStepDefinition {
 
