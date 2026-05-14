@@ -8,8 +8,9 @@ import org.testng.Assert;
 
 import com.actions.LoginAction;
 import com.pages.LoginPageLocator;
+import com.utilities.HelperClass;
+import com.utilities.PropertyManager;
 
-import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -27,17 +28,17 @@ public class LoginStepDefinition {
 	@Given("the user is on the Demo Web Shop login page")
 	public void the_user_is_on_the_demo_web_shop_login_page() {
 
-		driver = new ChromeDriver();
+		driver = HelperClass.initDriver();
 
-		driver.manage().window().maximize();
+	    driver.manage().window().maximize();
 
-		driver.get("https://demowebshop.tricentis.com/");
+	    driver.get(PropertyManager.getConfigValue("url"));
 
-		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	    wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-		logaction = new LoginAction(driver);
+	    logaction = new LoginAction(driver);
 
-		login = new LoginPageLocator(driver);
+	    login = new LoginPageLocator(driver);
 	}
 
 	@When("user clicks loginlink")
@@ -215,9 +216,4 @@ public class LoginStepDefinition {
 		Assert.assertTrue(driver.getCurrentUrl().contains("passwordrecovery"));
 	}
 
-	@After
-	public void tearDown() {
-
-		driver.quit();
-	}
 }
