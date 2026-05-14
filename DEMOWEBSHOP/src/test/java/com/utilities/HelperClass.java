@@ -9,7 +9,7 @@ public class HelperClass {
     private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     public static WebDriver initDriver() {
-        WebDriver webDriver = new ChromeDriver();
+        WebDriver webDriver = new EdgeDriver();
         driver.set(webDriver);
         return webDriver;
     }

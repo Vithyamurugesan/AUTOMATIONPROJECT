@@ -2,6 +2,7 @@ package com.actions;
 
 import java.time.Duration;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -30,13 +31,14 @@ public class checkoutAction {
 			mywait.until(ExpectedConditions.visibilityOfElementLocated(cp.password)).sendKeys("123456");
 			mywait.until(ExpectedConditions.visibilityOfElementLocated(cp.loginButton)).click();
 			System.out.println("Login Successful");
+			
 			mywait.until(ExpectedConditions.visibilityOfElementLocated(cp.book)).click();
 			mywait.until(ExpectedConditions.visibilityOfElementLocated(cp.addToCart)).click();
 			mywait.until(ExpectedConditions.visibilityOfElementLocated(cp.cart)).click();
 		}
 	    
 	    public void click_checkBox() {
-	    	mywait.until(ExpectedConditions.visibilityOfElementLocated(cp.checkbox)).click();
+	    	mywait.until(ExpectedConditions.elementToBeClickable(cp.checkbox)).click(); 
 	    
 	    }
 	    
