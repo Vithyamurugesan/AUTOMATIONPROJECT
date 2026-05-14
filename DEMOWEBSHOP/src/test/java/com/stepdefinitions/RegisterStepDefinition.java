@@ -8,10 +8,8 @@ import org.testng.Assert;
 
 public class RegisterStepDefinition {
 
-
     private final RegisterAction registerAction =
             new RegisterAction(HelperClass.getDriver());
-
 
     @Given("User is on Demo Web Shop application")
     public void user_is_on_demo_web_shop_application() {
