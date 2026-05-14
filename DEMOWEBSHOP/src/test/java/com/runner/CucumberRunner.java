@@ -9,8 +9,8 @@ import io.cucumber.testng.CucumberOptions;
         tags=("@smoke"),
         plugin = {
                 "pretty",
-                "html:target/cucumber-report.html",
-                "json:target/cucumber.json",
+                "html:target/cucumber-reports/cucumber.html",
+                "json:target/cucumber-reports/cucumber.json",
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
         },
