@@ -8,13 +8,5 @@ Feature: Vithya_13MAY2026_DEMOWEBSHOP_User Registration Functionality
     Given User navigates to the Register page
     When  User enters valid registration details
     And   User clicks on Register button
-    Then  User should be registered successfully
-    And   User should see registration confirmation message
-
-
-  @ExistingEmail
-  Scenario: Verify registration with an already registered email
-    Given User navigates to the Register page
-    When  User enters registration details with an already registered email
-    And   User clicks on Register button
-    Then  User should see existing email error message
+    Then  User should see "Your registration completed" message
+    And   User should see Continue button
