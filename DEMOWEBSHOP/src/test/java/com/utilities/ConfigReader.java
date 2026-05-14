@@ -22,4 +22,14 @@ public class ConfigReader {
 
 		return prop;
 	}
+	 public static String get(String key) {
+	        if (prop == null) {
+	            loadProperties("src/test/resources/config.properties");
+	        }
+	        String value = prop.getProperty(key);
+	        if (value == null || value.trim().isEmpty()) {
+	            throw new RuntimeException("Key '" + key + "' not found in config.properties");
+	        }
+	        return value.trim();
+	    }
 }
