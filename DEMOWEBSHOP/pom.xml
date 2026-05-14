@@ -161,7 +161,13 @@
 					<suiteXmlFiles>
 						<suiteXmlFile>testng.xml</suiteXmlFile>
 					</suiteXmlFiles>
+
+					<!-- Allure Result Path -->
+					<systemPropertyVariables>
+						<allure.results.directory>target/allure-results</allure.results.directory>
+					</systemPropertyVariables>
 				</configuration>
+
 			</plugin>
 			<plugin>
 				<groupId>io.qameta.allure</groupId>
