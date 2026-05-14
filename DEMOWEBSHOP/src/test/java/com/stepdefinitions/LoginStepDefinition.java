@@ -8,6 +8,7 @@ import org.testng.Assert;
 
 import com.actions.LoginAction;
 import com.pages.LoginPageLocator;
+import com.utilities.HelperClass;
 
 import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
@@ -27,9 +28,7 @@ public class LoginStepDefinition {
 	@Given("the user is on the Demo Web Shop login page")
 	public void the_user_is_on_the_demo_web_shop_login_page() {
 
-		driver = new ChromeDriver();
-
-		driver.manage().window().maximize();
+		 driver = HelperClass.getDriver();
 
 		driver.get("https://demowebshop.tricentis.com/");
 
@@ -150,9 +149,7 @@ public class LoginStepDefinition {
 	@Given("the user is on the Password Recovery page")
 	public void the_user_is_on_the_password_recovery_page() {
 
-		driver = new ChromeDriver();
-
-		driver.manage().window().maximize();
+		 driver = HelperClass.getDriver();
 
 		driver.get("https://demowebshop.tricentis.com/passwordrecovery");
 
