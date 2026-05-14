@@ -1,6 +1,6 @@
 Feature: Haritha_13MAY2025_DEMOWEBSHOP_FeatureFileforLogin
 
-  @login @smoke @positive
+  @login @smoke
   Scenario Outline: Successful login with valid credentials
     Given the user is on the Demo Web Shop login page
     When user clicks loginlink
@@ -15,7 +15,7 @@ Feature: Haritha_13MAY2025_DEMOWEBSHOP_FeatureFileforLogin
       | email               | password |
       | haritha11@gmail.com | haritha  |
 
-  @login @negative
+  @invalid
   Scenario Outline: Login with invalid credentials
     Given the user is on the Demo Web Shop login page
     When user clicks loginlink
@@ -26,13 +26,12 @@ Feature: Haritha_13MAY2025_DEMOWEBSHOP_FeatureFileforLogin
     And the user should remain on the login page
 
     Examples:
-      | email               | password | error message                                                                                          |
-      | haritha@gmail.com   | haritha  | The credentials provided are incorrect |
-      | haritha11@gmail.com | hari     | The credentials provided are incorrect |                                         
-      |                     |          | No customer account found              |                                        
-      |                     | haritha  | No customer account found              |                                        
-      | haritha11@gmail.com |          |Login was unsuccessful. Please correct the errors and try again.|
-                                        
+      | email               | password | error message                                                    |
+      | haritha@gmail.com   | haritha  | The credentials provided are incorrect                           |
+      | haritha11@gmail.com | hari     | The credentials provided are incorrect                           |
+      |                     |          | No customer account found                                        |
+      |                     | haritha  | No customer account found                                        |
+      | haritha11@gmail.com |          | Login was unsuccessful. Please correct the errors and try again. |
 
   @login @navigation
   Scenario: Forgot password link redirects to password recovery page
