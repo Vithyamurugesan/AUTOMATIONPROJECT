@@ -36,11 +36,15 @@ public class checkoutAction {
 		}
 	    
 	    public void click_checkBox() {
-	    	driver.findElement(cp.checkbox).click();
+	    	mywait.until(ExpectedConditions.visibilityOfElementLocated(cp.checkbox)).click();
+	    
 	    }
 	    
 	    public void click_checkout() {
-	    	driver.findElement(cp.checkoutButton).click();
+	    	
+	    	mywait.until(ExpectedConditions.visibilityOfElementLocated(cp.checkoutButton)).click();
+	    	
+	    	
 	    }
 	    
 	    public String checkoutPage() {
