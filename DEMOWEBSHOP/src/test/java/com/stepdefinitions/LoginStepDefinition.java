@@ -215,9 +215,5 @@ public class LoginStepDefinition {
 		Assert.assertTrue(driver.getCurrentUrl().contains("passwordrecovery"));
 	}
 
-	@After
-	public void tearDown() {
-
-		driver.quit();
-	}
+	
 }
