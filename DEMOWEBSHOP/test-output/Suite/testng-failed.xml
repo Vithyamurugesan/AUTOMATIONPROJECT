@@ -6,7 +6,11 @@
       <class name="com.runner.CucumberRunner">
         <methods>
           <include name="setUpClass"/>
+<<<<<<< HEAD
+          <include name="runScenario" invocation-numbers="5"/>
+=======
           <include name="runScenario" invocation-numbers="0 1"/>
+>>>>>>> branch 'main' of https://github.com/Vithyamurugesan/AUTOMATIONPROJECT.git
           <include name="tearDownClass"/>
         </methods>
       </class> <!-- com.runner.CucumberRunner -->
