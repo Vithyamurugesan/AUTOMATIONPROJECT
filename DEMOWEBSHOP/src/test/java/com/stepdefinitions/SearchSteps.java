@@ -40,12 +40,6 @@ public class SearchSteps {
 		searchActions.clickSearch();
 	}
 
-	@When("user clicks on Search button without entering keyword")
-	public void empty_search() {
-		searchActions.clickSearch();
-		searchActions.acceptAlertIfPresent();
-	}
-
 	@Then("user should be redirected to the search results page")
 	public void verify_redirect() {
 		Assert.assertTrue(searchActions.verifySearchResultPage());
@@ -63,6 +57,16 @@ public class SearchSteps {
 
 	@Then("matching products should be displayed")
 	public void verify_products() {
-		Assert.assertTrue(searchActions.verifyProductsDisplayed());
+		Assert.assertTrue(searchActions.verifySearchResultPage());
+	}
+	
+	@When("user clicks on Search button without entering keyword")
+	public void user_clicks_on_search_button_without_entering_keyword() {
+		searchActions.clickSearch();
+	}
+
+	@Then("alert should be shown to the user")
+	public void alert_should_be_shown_to_the_user() {
+		Assert.assertTrue(searchActions.isWarningDisplayed());
 	}
 }
