@@ -39,6 +39,7 @@
 		<!-- slideout menu -->
 		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
 			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+			<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
 			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></a></li>
 		</ul>
 		<!-- report name -->
@@ -48,7 +49,7 @@
 		<!-- nav-right -->
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<a href='#!'>
-			<span class='label blue darken-3 suite-start-time'>May 15, 2026 03:06:21 pm</span>
+			<span class='label blue darken-3 suite-start-time'>May 15, 2026 04:29:11 pm</span>
 			</a>
 		</ul>
 	</div>
@@ -70,6 +71,17 @@
 			</div>
 			<!-- test toggle -->
 			<!-- category toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
+				<i class='material-icons'>local_offer</i> Category
+				</a>
+				<ul id='category-toggle' class='dropdown-content'>
+					<li><a href='#'>@AddToCart</a></li>
+					<li><a href='#'>@MultipleProductsCart</a></li>
+					<li class='divider'></li>
+					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
+				</ul>
+			</div>
 			<!-- category toggle -->
 			<!-- clear filters -->
 			<div class='chip transparent hide'>
@@ -126,7 +138,7 @@
                 </div>
                 <div class='block text-small'>
                     <span class='tooltipped' data-position='top' data-tooltip='100%'>
-                    <span class='strong'>1</span> scenarios passed</span>
+                    <span class='strong'>2</span> scenarios passed</span>
                 </div>
                 <div class='block text-small'>
                     <span class='strong tooltipped' data-position='top' data-tooltip='0%'>
@@ -146,7 +158,7 @@
                 </div>
                 <div class='block text-small'>
                     <span class='tooltipped' data-position='top' data-tooltip='100%'>
-                    <span class='strong'>5</span> steps passed</span>
+                    <span class='strong'>7</span> steps passed</span>
                 </div>
                 <div class='block text-small'>
                     <span class='strong tooltipped' data-position='top' data-tooltip='0%'>
@@ -175,8 +187,8 @@
 			<ul id='test-collection' class='test-collection'>
 				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>To procedure check out page from cart</span>
-						<span class='test-time'>May 15, 2026 03:06:22 pm</span>
+						<span class='test-name'>Shopping Cart Functionality</span>
+						<span class='test-time'>May 15, 2026 04:29:12 pm</span>
 						<span class='test-status right pass'>Pass</span>
 					</div>
 					<div class='test-content hide'>
@@ -186,40 +198,71 @@
 	<a class="btn-floating waves-effect waves-light skip blue" title="skip"><i class='material-icons'>redo</i></a>
 	<a class="btn-floating waves-effect waves-light clear grey" title="clear"><i class='material-icons'>clear</i></a>
 </div>
-	<div class='test-desc'>description: As a user, I want to be able to proceed to the checkout page from the cart so that I can complete my purchase.</div>
+	<div class='test-desc'>  Description:
+  This feature is used to verify shopping cart functions
+  like adding products to cart.</div>
 
 <div class='scenario node' test-id='2' status='pass'>
 
-	<span class='duration right label'>00 00 25.822</span>
+	<span class='duration right label'>00 00 12.059</span>
 	<div class="bdd-test">
-		<div class="scenario-name"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span> Scenario: procedure to checkout as registered user</div>
+		<div class="scenario-name"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span> Scenario: Add product to shopping cart</div>
 	</div>
 	
 	
+		<div class='category-list'>
+				<span class='category label'>@AddToCart</span>
+		</div>
 	
 	<ul class='steps'>
 		<li test-id='4' class='node given Pass' status='Pass'>
-			<div class="step-name" title="(com.stepdefinitions.CheckoutStepDefinition.user_is_on_the_demo_web_page_website())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Given user is on the demoWebPage website</div>
+			<div class="step-name" title="(com.stepdefinitions.CartStepDefinition.user_is_on_demo_web_shop_website())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Given User is on Demo Web Shop Website</div>
 
 
 		</li>
 		<li test-id='5' class='node given Pass' status='Pass'>
-			<div class="step-name" title="(com.stepdefinitions.CheckoutStepDefinition.user_is_login_the_demo_web_shop_website_with_minium_adding_of_one_product())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Given user is login the demo web shop website with minium adding of one product</div>
+			<div class="step-name" title="(com.stepdefinitions.CartStepDefinition.user_is_on_product_details_page())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Given User is on product details page</div>
 
 
 		</li>
 		<li test-id='6' class='node when Pass' status='Pass'>
-			<div class="step-name" title="(com.stepdefinitions.CheckoutStepDefinition.the_user_click_the_checkbox_of_terms_and_conditions())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>When the user click the checkbox of terms and conditions</div>
+			<div class="step-name" title="(com.stepdefinitions.CartStepDefinition.user_clicks_on_add_to_cart_button())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>When User clicks on Add to Cart button</div>
 
 
 		</li>
-		<li test-id='7' class='node and Pass' status='Pass'>
-			<div class="step-name" title="(com.stepdefinitions.CheckoutStepDefinition.the_user_click_the_checkout_button())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And the user click the checkout button</div>
+		<li test-id='7' class='node then Pass' status='Pass'>
+			<div class="step-name" title="(com.stepdefinitions.CartStepDefinition.product_should_be_added_to_shopping_cart())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Then Product should be added to shopping cart</div>
 
 
 		</li>
-		<li test-id='8' class='node then Pass' status='Pass'>
-			<div class="step-name" title="(com.stepdefinitions.CheckoutStepDefinition.the_user_redirect_to_the_checkout_page_and_seen_the_text_of_checkout())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Then the user redirect to the checkout page and seen the text of checkout</div>
+	</ul>
+</div>
+<div class='scenario node' test-id='9' status='pass'>
+
+	<span class='duration right label'>00 00 20.608</span>
+	<div class="bdd-test">
+		<div class="scenario-name"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span> Scenario: Add multiple products to shopping cart</div>
+	</div>
+	
+	
+		<div class='category-list'>
+				<span class='category label'>@MultipleProductsCart</span>
+		</div>
+	
+	<ul class='steps'>
+		<li test-id='11' class='node given Pass' status='Pass'>
+			<div class="step-name" title="(com.stepdefinitions.CartStepDefinition.user_is_on_demo_web_shop_website())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Given User is on Demo Web Shop Website</div>
+
+
+		</li>
+		<li test-id='12' class='node when Pass' status='Pass'>
+			<div class="step-name" title="(com.stepdefinitions.CartStepDefinition.user_adds_multiple_products_to_cart(io.cucumber.datatable.DataTable))"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>When User adds multiple products to cart</div>
+
+
+					<div class="node-step"><table class='markup-table table '><tr><td>productName</td></tr><tr><td>Computing and Internet</td></tr><tr><td>Fiction</td></tr><tr><td>14.1-inch Laptop</td></tr></table></div>
+		</li>
+		<li test-id='13' class='node then Pass' status='Pass'>
+			<div class="step-name" title="(com.stepdefinitions.CartStepDefinition.all_products_should_be_added_to_shopping_cart())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Then All products should be added to shopping cart</div>
 
 
 		</li>
@@ -249,7 +292,100 @@
 	</div>
 	<!-- subview right -->
 </div>
-<!-- test view --><div id='dashboard-view' class='view hide'>
+<!-- test view --><div id='category-view' class='view hide'>
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+				<i class='material-icons'>search</i> Search
+				</a>
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+	<div class='subview-left left'>
+		<div class='view-summary'>
+			<ul id='category-collection' class='category-collection'>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@AddToCart</span>
+						<span class='category-status right'>
+						<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span status="pass" class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>May 15, 2026 04:29:12 pm</td>
+										<td class='linked' test-id='2'>Add product to shopping cart</td>
+										<td><span class='test-status Pass'>Pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@MultipleProductsCart</span>
+						<span class='category-status right'>
+						<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span status="pass" class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>May 15, 2026 04:29:24 pm</td>
+										<td class='linked' test-id='9'>Add multiple products to shopping cart</td>
+										<td><span class='test-status Pass'>Pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='category-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- category view --><div id='dashboard-view' class='view hide'>
 	<div class='card-panel transparent np-v'>
 		<h5>Dashboard</h5>
 
@@ -263,31 +399,31 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Scenarios
-					<div class='panel-lead'>1</div>
+					<div class='panel-lead'>2</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>5</div>
+					<div class='panel-lead'>7</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>May 15, 2026 03:06:21 pm</div>
+					<div class='panel-lead'>May 15, 2026 04:29:11 pm</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>May 15, 2026 03:06:48 pm</div>
+			 		<div class='panel-lead'>May 15, 2026 04:29:45 pm</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>00 00 27.085</div>
+					<div class='panel-lead'>00 00 33.374</div>
 				</div>
 			</div>
 			<div class='col s4'>
@@ -310,6 +446,39 @@
 					</table>
 				</div>
 			</div>
+			<div class='col s6'>
+				<div class='card-panel dashboard-categories'>
+					<span class='right label cyan white-text'>Categories</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Passed</th>
+							<th>Failed</th>
+							<th>Skipped</th>
+							<th>Passed %</th>
+						</tr>
+						<tr>
+							<td>@AddToCart</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@MultipleProductsCart</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
@@ -325,16 +494,16 @@
 				errorParent: 0,
 				warningParent: 0,
 				skipParent: 0,
-				childCount: 1,
-				passChild: 1,
+				childCount: 2,
+				passChild: 2,
 				failChild: 0,
 				fatalChild: 0,
 				errorChild: 0,
 				warningChild: 0,
 				skipChild: 0,
 				infoChild: 0,
-				grandChildCount: 5,
-				passGrandChild: 5,
+				grandChildCount: 7,
+				passGrandChild: 7,
 				failGrandChild: 0,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,
@@ -346,7 +515,7 @@
 		
 		<script>
 			var timeline = {
-			        "To procedure check out page from cart":25.827
+			        "Shopping Cart Functionality":32.689
 			};
 		</script>
 		

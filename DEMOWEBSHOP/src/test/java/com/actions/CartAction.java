@@ -21,8 +21,7 @@ public class CartAction {
 
     public CartAction(WebDriver driver) {
 
-        cartPage = new CartPage();
-    }
+    	cartPage = new CartPage(driver);    }
 
     public void openProductDetailsPage() {
         cartPage.booksMenu.click();
@@ -30,10 +29,16 @@ public class CartAction {
     }
 
     public void addProductToCart() {
-        WebDriverWait wait =new WebDriverWait(HelperClass.getDriver(),Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(cartPage.addToCartButton));
-        
-        cartPage.addToCartButton.click();
+
+        WebDriver driver = HelperClass.getDriver();
+
+        By addToCart = By.xpath("//input[contains(@value,'Add to cart')]");
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        wait.until(ExpectedConditions.elementToBeClickable(addToCart));
+
+        driver.findElement(addToCart).click();
     }
 
     public boolean verifyShoppingCart() {
