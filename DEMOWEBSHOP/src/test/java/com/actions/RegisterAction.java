@@ -1,121 +1,107 @@
 package com.actions;
 
 import com.pages.RegisterPage;
-import com.utilities.PropertyManager;
+import com.utilities.ConfigReader;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class RegisterAction {
 
-	WebDriver driver;
-	RegisterPage registerPage;
+    WebDriver driver;
+    RegisterPage registerPage;
 
-	public RegisterAction(WebDriver driver) {
-		this.driver = driver;
-		registerPage = new RegisterPage(driver);
-	}
+    public RegisterAction(WebDriver driver) {
+        this.driver = driver;
+        registerPage = new RegisterPage(driver);
+    }
 
-	private String generateUniqueEmail() {
-		String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
-		return "vithya_" + timestamp + "@testmail.com";
-	}
+    // -------------------- Utility --------------------
 
-	public void navigateToRegisterPage() {
-		registerPage.clickRegisterLink();
-	}
+    private String generateUniqueEmail() {
+        String timestamp = LocalDateTime.now()
+                .format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
+        return "vithya_" + timestamp + "@testmail.com";
+    }
 
-	public void enterFirstName(String firstName) {
-		registerPage.enterFirstName(firstName);
-	}
+    // -------------------- Actions --------------------
 
-	public void enterLastName(String lastName) {
-		registerPage.enterLastName(lastName);
-	}
+    public void clickRegisterLink() {
+        registerPage.wait.until(ExpectedConditions.elementToBeClickable(registerPage.registerLink));
+        registerPage.registerLink.click();
+    }
 
-	public void enterEmail(String email) {
-		registerPage.enterEmail(email);
-	}
+    public void enterFirstName(String firstName) {
+        registerPage.wait.until(ExpectedConditions.visibilityOf(registerPage.firstNameField));
+        registerPage.firstNameField.clear();
+        registerPage.firstNameField.sendKeys(firstName);
+    }
 
-	public void enterUniqueEmail() {
-		String uniqueEmail = generateUniqueEmail();
-		System.out.println("Generated unique email: " + uniqueEmail);
-		registerPage.enterEmail(uniqueEmail);
-	}
+    public void enterLastName(String lastName) {
+        registerPage.wait.until(ExpectedConditions.visibilityOf(registerPage.lastNameField));
+        registerPage.lastNameField.clear();
+        registerPage.lastNameField.sendKeys(lastName);
+    }
 
-	public void enterPassword(String password) {
-		registerPage.enterPassword(password);
-	}
+    public void enterEmail(String email) {
+        registerPage.wait.until(ExpectedConditions.visibilityOf(registerPage.emailField));
+        registerPage.emailField.clear();
+        registerPage.emailField.sendKeys(email);
+    }
 
-	public void enterConfirmPassword(String confirmPassword) {
-		registerPage.enterConfirmPassword(confirmPassword);
-	}
+    public void enterPassword(String password) {
+        registerPage.wait.until(ExpectedConditions.visibilityOf(registerPage.passwordField));
+        registerPage.passwordField.clear();
+        registerPage.passwordField.sendKeys(password);
+    }
 
-	public void clickRegisterButton() {
-		registerPage.clickRegisterButton();
-	}
+    public void enterConfirmPassword(String confirmPassword) {
+        registerPage.wait.until(ExpectedConditions.visibilityOf(registerPage.confirmPasswordField));
+        registerPage.confirmPasswordField.clear();
+        registerPage.confirmPasswordField.sendKeys(confirmPassword);
+    }
 
-	public void enterValidRegistrationDetailsFromConfig() {
-		enterFirstName(PropertyManager.getTestDataValue("register.valid.firstName"));
-		enterLastName(PropertyManager.getTestDataValue("register.valid.lastName"));
-		enterUniqueEmail();
-		enterPassword(PropertyManager.getTestDataValue("register.valid.password"));
-		enterConfirmPassword(PropertyManager.getTestDataValue("register.valid.confirmPassword"));
-	}
+    public void clickRegisterButton() {
+        registerPage.wait.until(ExpectedConditions.elementToBeClickable(registerPage.registerButton));
+        registerPage.registerButton.click();
+    }
 
-	public void enterExistingEmailRegistrationFromConfig() {
+    public void navigateToRegisterPage() {
+        clickRegisterLink();
+    }
 
-		enterFirstName(PropertyManager.getTestDataValue("register.existing.firstName"));
+    public void enterValidRegistrationDetailsFromConfig() {
+        enterFirstName(ConfigReader.get("register.valid.firstName"));
+        enterLastName(ConfigReader.get("register.valid.lastName"));
+        enterEmail(generateUniqueEmail());
+        enterPassword(ConfigReader.get("register.valid.password"));
+        enterConfirmPassword(ConfigReader.get("register.valid.confirmPassword"));
+    }
 
-		enterLastName(
-				PropertyManager
-						.getTestDataValue("register.existing.lastName"));
+    public String getSuccessMessage() {
+        try {
+            registerPage.wait.until(ExpectedConditions.visibilityOf(registerPage.registrationSuccessMessage));
+            return registerPage.registrationSuccessMessage.getText().trim();
+        } catch (Exception e) {
+            System.out.println("Could not retrieve success message: " + e.getMessage());
+            return "";
+        }
+    }
 
-		enterEmail(
-				PropertyManager
-						.getTestDataValue("register.existing.email"));
+    public boolean isContinueButtonDisplayed() {
+        try {
+            registerPage.wait.until(ExpectedConditions.visibilityOf(registerPage.continueButton));
+            return registerPage.continueButton.isDisplayed();
+        } catch (Exception e) {
+            System.out.println("Continue button not found: " + e.getMessage());
+            return false;
+        }
+    }
 
-		enterPassword(
-				PropertyManager
-						.getTestDataValue("register.existing.password"));
-
-		enterConfirmPassword(
-				PropertyManager
-						.getTestDataValue(
-								"register.existing.confirmPassword"));
-	}
-
-	public boolean isRegistrationSuccessful() {
-
-		return registerPage.isSuccessMessageDisplayed();
-	}
-
-	public String getSuccessMessage() {
-
-		return registerPage.getRegistrationSuccessMessage();
-	}
-
-	public boolean isExistingEmailErrorDisplayed() {
-
-		return registerPage.isExistingEmailErrorDisplayed();
-	}
-
-	public String getExistingEmailErrorMessage() {
-
-		return registerPage.getExistingEmailError();
-	}
-
-	public String getExpectedSuccessMessage() {
-		return PropertyManager
-				.getTestDataValue("register.success.message");
-	}
-
-	public String getExpectedExistingEmailKeyword() {
-
-		return PropertyManager
-				.getTestDataValue(
-						"register.existing.error.keyword");
-	}
+    public String getExpectedSuccessMessage() {
+        return ConfigReader.get("register.success.message");
+    }
 }
