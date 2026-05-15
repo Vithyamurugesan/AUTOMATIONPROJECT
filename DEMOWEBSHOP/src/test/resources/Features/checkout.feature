@@ -10,3 +10,4 @@ Given user is login the demo web shop website with minium adding of one product
 When the user click the checkbox of terms and conditions
 And the user click the checkout button
 Then the user redirect to the checkout page and seen the text of checkout
+
