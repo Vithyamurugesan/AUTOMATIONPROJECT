@@ -1,1 +1,15 @@
-/target/
+.metadata
+.idea
+.project
+.classpath
+com.ecom.iml
+.settings
+.gitignore
+.git
+bin/
+logs/
+
+
+target/
+target-output/
+com.runner/CucumberRunner.java

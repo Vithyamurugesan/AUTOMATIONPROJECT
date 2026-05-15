@@ -21,7 +21,7 @@ public class CartAction {
 
     public CartAction(WebDriver driver) {
 
-        cartPage = new CartPage(driver);
+        cartPage = new CartPage();
     }
 
     public void openProductDetailsPage() {

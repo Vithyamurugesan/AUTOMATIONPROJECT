@@ -7,13 +7,6 @@ import org.openqa.selenium.WebDriver;
 
 public class CartPage {
 
-    WebDriver driver;
-
-    public CartPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
-    }
-
     @FindBy(linkText = "Books")
     public WebElement booksMenu;
 
