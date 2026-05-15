@@ -19,7 +19,7 @@ public class RegisterAction {
         registerPage = new RegisterPage(driver);
     }
 
-    // -------------------- Utility --------------------
+ 
 
     private String generateUniqueEmail() {
         String timestamp = LocalDateTime.now()
@@ -27,7 +27,6 @@ public class RegisterAction {
         return "vithya_" + timestamp + "@testmail.com";
     }
 
-    // -------------------- Actions --------------------
 
     public void clickRegisterLink() {
         registerPage.wait.until(ExpectedConditions.elementToBeClickable(registerPage.registerLink));
