@@ -1,26 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <testng-results ignored="0" total="16" passed="16" failed="0" skipped="0">
+=======
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+>>>>>>> refs/heads/Checkout_JeevaPranesh
   <reporter-output>
   </reporter-output>
+<<<<<<< HEAD
   <suite started-at="2026-05-14T23:55:34 IST" name="Default suite" finished-at="2026-05-14T23:58:26 IST" duration-ms="171200">
+=======
+  <suite started-at="2026-05-15T09:04:42 IST" name="Default suite" finished-at="2026-05-15T09:05:00 IST" duration-ms="18169">
+>>>>>>> refs/heads/Checkout_JeevaPranesh
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.CucumberRunner@5e17553a]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
+<<<<<<< HEAD
     <test started-at="2026-05-14T23:55:34 IST" name="Default test" finished-at="2026-05-14T23:58:26 IST" duration-ms="171200">
+=======
+    <test started-at="2026-05-15T09:04:42 IST" name="Default test" finished-at="2026-05-15T09:05:00 IST" duration-ms="18169">
+>>>>>>> refs/heads/Checkout_JeevaPranesh
       <class name="com.runner.CucumberRunner">
+<<<<<<< HEAD
         <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.runner.CucumberRunner@5e17553a]" started-at="2026-05-14T23:55:34 IST" name="setUpClass" finished-at="2026-05-14T23:55:35 IST" duration-ms="600" status="PASS">
+=======
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.runner.CucumberRunner@5e17553a]" started-at="2026-05-15T09:04:42 IST" name="setUpClass" finished-at="2026-05-15T09:04:43 IST" duration-ms="1366" status="PASS">
+>>>>>>> refs/heads/Checkout_JeevaPranesh
           <params>
             <param index="0">
               <value>
+<<<<<<< HEAD
                 <![CDATA[org.testng.TestRunner@6250d33c]]>
+=======
+                <![CDATA[org.testng.TestRunner@1f9a7684]]>
+>>>>>>> refs/heads/Checkout_JeevaPranesh
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
+<<<<<<< HEAD
         <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.CucumberRunner@5e17553a]" started-at="2026-05-14T23:55:35 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-14T23:55:44 IST" duration-ms="9274" status="PASS">
           <params>
             <param index="0">
@@ -54,21 +75,25 @@
           </reporter-output>
         </test-method> <!-- runScenario -->
         <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.CucumberRunner@5e17553a]" started-at="2026-05-14T23:56:00 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-14T23:56:09 IST" duration-ms="8461" status="PASS">
+=======
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.CucumberRunner@5e17553a]" started-at="2026-05-15T09:04:43 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-15T09:04:57 IST" duration-ms="14036" status="PASS">
+>>>>>>> refs/heads/Checkout_JeevaPranesh
           <params>
             <param index="0">
               <value>
-                <![CDATA["Successful login with valid credentials"]]>
+                <![CDATA["procedure to checkout as registered user"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Haritha_13MAY2025_DEMOWEBSHOP_FeatureFileforLogin"]]>
+                <![CDATA["To procedure check out page from cart"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
+<<<<<<< HEAD
         <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.CucumberRunner@5e17553a]" started-at="2026-05-14T23:56:09 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-14T23:56:19 IST" duration-ms="9636" status="PASS">
           <params>
             <param index="0">
@@ -278,6 +303,9 @@
           </reporter-output>
         </test-method> <!-- runScenario -->
         <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.runner.CucumberRunner@5e17553a]" started-at="2026-05-14T23:58:23 IST" name="tearDownClass" finished-at="2026-05-14T23:58:26 IST" duration-ms="2146" status="PASS">
+=======
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.runner.CucumberRunner@5e17553a]" started-at="2026-05-15T09:04:57 IST" name="tearDownClass" finished-at="2026-05-15T09:05:00 IST" duration-ms="2691" status="PASS">
+>>>>>>> refs/heads/Checkout_JeevaPranesh
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
