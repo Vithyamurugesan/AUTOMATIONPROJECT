@@ -1,7 +1,9 @@
 package com.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class SearchPage {
 
@@ -9,41 +11,34 @@ public class SearchPage {
 
     public SearchPage(WebDriver driver) {
         this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
-    private By searchBox=By.id("small-searchterms");
-    private By searchButton=By.xpath("//input[@value='Search']");
-    private By searchResult=By.className("product-grid");
-    private By noResultMessage=By.xpath("//*[contains(text(),'No products were found')]");
+    @FindBy(id = "small-searchterms")
+    private WebElement searchBox;
 
-	public WebDriver getDriver() {
-		return driver;
-	}
-	public void setDriver(WebDriver driver) {
-		this.driver = driver;
-	}
-	public By getSearchBox() {
-		return searchBox;
-	}
-	public void setSearchBox(By searchBox) {
-		this.searchBox = searchBox;
-	}
-	public By getSearchButton() {
-		return searchButton;
-	}
-	public void setSearchButton(By searchButton) {
-		this.searchButton = searchButton;
-	}
-	public By getSearchResult() {
-		return searchResult;
-	}
-	public void setSearchResult(By searchResult) {
-		this.searchResult = searchResult;
-	}
-	public By getNoResultMessage() {
-		return noResultMessage;
-	}
-	public void setNoResultMessage(By noResultMessage) {
-		this.noResultMessage = noResultMessage;
-	}
+    @FindBy(xpath = "//input[@value='Search']")
+    private WebElement searchButton;
+
+    @FindBy(className = "product-grid")
+    private WebElement searchResult;
+
+    @FindBy(xpath = "//*[contains(text(),'No products were found')]")
+    private WebElement noResultMessage;
+
+    public WebElement getSearchBox() {
+        return searchBox;
+    }
+
+    public WebElement getSearchButton() {
+        return searchButton;
+    }
+
+    public WebElement getSearchResult() {
+        return searchResult;
+    }
+
+    public WebElement getNoResultMessage() {
+        return noResultMessage;
+    }
 }

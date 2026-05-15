@@ -5,22 +5,27 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class HelperClass {
 
-    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+    private static WebDriver driver;
 
     public static WebDriver initDriver() {
-        WebDriver webDriver = new ChromeDriver();
-        driver.set(webDriver);
-        return webDriver;
+    	
+        if (driver==null) {
+            driver=new ChromeDriver();
+            System.out.println("Driver Initialized");
+        }
+        return driver;
     }
 
     public static WebDriver getDriver() {
-        return driver.get();
+        return driver;
     }
 
     public static void quitDriver() {
-        if (driver.get() != null) {
-            driver.get().quit();
-            driver.remove();
+
+        if (driver!=null) {
+            driver.quit();
+            driver=null;
+            System.out.println("Driver Closed");
         }
     }
 }
