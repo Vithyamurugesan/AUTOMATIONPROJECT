@@ -4,6 +4,7 @@ import java.time.Duration;
 
 import com.pages.SearchPage;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -33,12 +34,12 @@ public class SearchActions {
     }
 
     public boolean verifySearchResultPage() {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(searchPage.getSearchResult()))
+        return wait.until(ExpectedConditions.visibilityOfElementLocated((By)searchPage.getSearchResult()))
                 .isDisplayed();
     }
 
     public boolean verifyNoProductMessage() {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(searchPage.getNoResultMessage()))
+        return wait.until(ExpectedConditions.visibilityOfElementLocated((By)searchPage.getNoResultMessage()))
                 .isDisplayed();
     }
     

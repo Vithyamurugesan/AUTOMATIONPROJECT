@@ -10,9 +10,7 @@ public class LoginPageLocator {
 	public WebDriver driver;
 
 	public LoginPageLocator(WebDriver driver) {
-
 		this.driver = driver;
-
 		PageFactory.initElements(driver, this);
 	}
 

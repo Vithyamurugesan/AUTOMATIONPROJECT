@@ -19,8 +19,6 @@ public class RegisterPage {
         PageFactory.initElements(driver, this);
     }
 
-  
-
     @FindBy(xpath = "//a[@class='ico-register']")
     public WebElement registerLink;
 
