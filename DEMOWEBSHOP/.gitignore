@@ -1,15 +1,24 @@
-.metadata
-.idea
+# Eclipse
+.metadata/
 .project
 .classpath
-com.ecom.iml
-.settings
-.gitignore
-.git
+.settings/
+
+# IntelliJ
+.idea/
+*.iml
+
+# Build
 bin/
-logs/
-
-
 target/
 target-output/
-com.runner/CucumberRunner.java
+
+# Logs
+logs/
+*.log
+
+# Reports
+test-output/
+ExtentReports/
+HtmlReport/
+PdfReport/
