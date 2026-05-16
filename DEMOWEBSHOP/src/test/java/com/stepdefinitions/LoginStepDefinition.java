@@ -1,218 +1,197 @@
 package com.stepdefinitions;
+
 import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import com.actions.LoginAction;
 import com.pages.LoginPageLocator;
+import com.utilities.HelperClass;
 
-import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class LoginStepDefinition {
 
-	WebDriver driver;
+    WebDriver driver;
 
-	LoginAction logaction;
+    LoginAction logaction;
 
-	LoginPageLocator login;
+    WebDriverWait wait;
 
-	WebDriverWait wait;
+    @Given("the user is on the Demo Web Shop login page")
+    public void the_user_is_on_the_demo_web_shop_login_page() {
 
-	@Given("the user is on the Demo Web Shop login page")
-	public void the_user_is_on_the_demo_web_shop_login_page() {
+        driver = HelperClass.getDriver();
 
-		driver = new ChromeDriver();
+        driver.get("https://demowebshop.tricentis.com/");
 
-		driver.manage().window().maximize();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-		driver.get("https://demowebshop.tricentis.com/");
+        logaction = new LoginAction(driver);
+    }
 
-		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    @When("user clicks loginlink")
+    public void user_clicks_loginlink() {
 
-		logaction = new LoginAction(driver);
+        logaction.clicklogin();
+    }
 
-		login = new LoginPageLocator(driver);
-	}
+    @When("the user enters a registered email {string}")
+    public void the_user_enters_a_registered_email(String email) {
 
-	@When("user clicks loginlink")
-	public void user_clicks_loginlink() {
-		logaction.clicklogin();
-	}
-	@When("the user enters a registered email {string}")
-	public void the_user_enters_a_registered_email(String email) {
+        logaction.userEmail(email);
+    }
 
-		logaction.userEmail(email);
-	}
+    @When("the user enters a valid password {string}")
+    public void the_user_enters_a_valid_password(String password) {
 
-	@When("the user enters a valid password {string}")
-	public void the_user_enters_a_valid_password(String password) {
+        logaction.userPassword(password);
+    }
 
-		logaction.userPassword(password);
-	}
+    @When("the user clicks the Log in button")
+    public void the_user_clicks_the_log_in_button() {
 
-	@When("the user clicks the Log in button")
-	public void the_user_clicks_the_log_in_button() {
+        logaction.clickloginbtn();
+    }
 
-		logaction.clickloginbtn();
-	}
+    @Then("the user should be redirected to the homepage")
+    public void the_user_should_be_redirected_to_the_homepage() {
 
-	@Then("the user should be redirected to the homepage")
-	public void the_user_should_be_redirected_to_the_homepage() {
+        Assert.assertTrue(driver.getCurrentUrl().contains("demowebshop"));
+    }
 
-		logaction.waitforhomepage(wait);
+    @Then("the logged-in user email should be displayed in the header")
+    public void the_logged_in_user_email_should_be_displayed_in_the_header() {
 
-		Assert.assertTrue(driver.getCurrentUrl().contains("demowebshop"));
-	}
+        String actual = logaction.loggedUser();
 
-	@Then("the logged-in user email should be displayed in the header")
-	public void the_logged_in_user_email_should_be_displayed_in_the_header() {
+        Assert.assertEquals(actual, "haritha11@gmail.com");
+    }
 
-		String actual = logaction.loggedUser();
+    @Then("the Log out link should be visible")
+    public void the_log_out_link_should_be_visible() {
 
-		Assert.assertEquals(actual, "haritha11@gmail.com");
-	}
+        Assert.assertTrue(logaction.logout());
+    }
 
-	@Then("the Log out link should be visible")
-	public void the_log_out_link_should_be_visible() {
+    @When("the user enters the email {string}")
+    public void the_user_enters_the_email(String email) {
 
-		Assert.assertTrue(logaction.logout());
-	}
+        logaction.userEmail(email);
+    }
 
-	@When("the user enters the email {string}")
-	public void the_user_enters_the_email(String email) {
+    @When("the user enters the password {string}")
+    public void the_user_enters_the_password(String password) {
 
-		logaction.userEmail(email);
-	}
+        logaction.userPassword(password);
+    }
 
-	@When("the user enters the password {string}")
-	public void the_user_enters_the_password(String password) {
+    @Then("an error message {string} should be displayed")
+    public void an_error_message_should_be_displayed(String message) {
 
-		logaction.userPassword(password);
-	}
+        String actualMessage = logaction.getLoginErrorMessage();
 
-	@Then("an error message {string} should be displayed")
-	public void an_error_message_should_be_displayed(String message) {
+        System.out.println("Actual Message: " + actualMessage);
 
-	    String actualMessage = login.loginErrorMessage.getText();
+        Assert.assertTrue(actualMessage.contains(message));
+    }
 
-	    System.out.println("Actual Message: " + actualMessage);
+    @Then("the user should remain on the login page")
+    public void the_user_should_remain_on_the_login_page() {
 
-	    Assert.assertTrue(actualMessage.contains(message));
-	}
+        Assert.assertTrue(driver.getCurrentUrl().contains("login"));
+    }
 
-	@Then("the user should remain on the login page")
-	public void the_user_should_remain_on_the_login_page() {
+    @Given("the Forgot password? link is visible")
+    public void the_forgot_password_link_is_visible() {
 
-		Assert.assertTrue(driver.getCurrentUrl().contains("login"));
-	}
+        Assert.assertTrue(logaction.waitForVisibility(LoginPageLocator.forgotpasswordlink).isDisplayed());
+    }
 
-	@Given("the Forgot password? link is visible")
-	public void the_forgot_password_link_is_visible() {
+    @When("the user clicks the Forgot password? link")
+    public void the_user_clicks_the_forgot_password_link() {
 
-		Assert.assertTrue(login.forgotpasswordlink.isDisplayed());
-	}
+        logaction.forgotpasswordclick();
+    }
 
-	@When("the user clicks the Forgot password? link")
-	public void the_user_clicks_the_forgot_password_link() {
+    @Then("the user should be redirected to the password recovery page")
+    public void the_user_should_be_redirected_to_the_password_recovery_page() {
 
-		logaction.forgotpasswordclick();
-	}
+        Assert.assertTrue(driver.getCurrentUrl().contains("passwordrecovery"));
+    }
 
-	@Then("the user should be redirected to the password recovery page")
-	public void the_user_should_be_redirected_to_the_password_recovery_page() {
+    @Then("the page title should display {string}")
+    public void the_page_title_should_display(String title) {
 
-		Assert.assertTrue(driver.getCurrentUrl().contains("passwordrecovery"));
-	}
+        String actualTitle = driver.getTitle();
+        System.out.println(actualTitle);
+        Assert.assertTrue(actualTitle.toLowerCase().contains(title.toLowerCase()));
+    }
 
-	@Then("the page title should display {string}")
-	public void the_page_title_should_display(String title) {
+    @Then("the Email input field should be visible")
+    public void the_email_input_field_should_be_visible() {
 
-	    String actualTitle = driver.getTitle();
+        Assert.assertTrue(logaction.waitForVisibility(LoginPageLocator.recoveryemail).isDisplayed());
+    }
 
-	    System.out.println(actualTitle);
+    @Given("the user is on the Password Recovery page")
+    public void the_user_is_on_the_password_recovery_page() {
 
-	    Assert.assertTrue(actualTitle.toLowerCase()
-	            .contains(title.toLowerCase()));
-	}
+        driver = HelperClass.getDriver();
+        driver.get("https://demowebshop.tricentis.com/passwordrecovery");
+        logaction = new LoginAction(driver);
+    }
 
-	@Then("the Email input field should be visible")
-	public void the_email_input_field_should_be_visible() {
+    @When("the user enters a recovery email {string}")
+    public void the_user_enters_a_recovery_email(String email) {
+        logaction.recoveryEmail(email);
+    }
 
-		Assert.assertTrue(login.recoveryemail.isDisplayed());
-	}
+    @When("the user clicks the Recover button")
+    public void the_user_clicks_the_recover_button() {
+        logaction.recoverbutton();
+    }
 
-	@Given("the user is on the Password Recovery page")
-	public void the_user_is_on_the_password_recovery_page() {
+    @Then("a success message {string} should be displayed")
+    public void a_success_message_should_be_displayed(String message) {
 
-		driver = new ChromeDriver();
+        String actual = logaction.getRecoverySuccessMessage();
+        Assert.assertEquals(actual, message);
+    }
 
-		driver.manage().window().maximize();
+    @When("the user enters an invalid email {string}")
+    public void the_user_enters_an_invalid_email(String email) {
 
-		driver.get("https://demowebshop.tricentis.com/passwordrecovery");
+        logaction.recoveryEmail(email);
+    }
 
-		logaction = new LoginAction(driver);
+    @Then("the system should display an error message {string}")
+    public void the_system_should_display_an_error_message(String message) {
 
-		login = new LoginPageLocator(driver);
-	}
+        String actual = logaction.getValidationMessage();
+        Assert.assertTrue(actual.contains(message));
+    }
 
-	@When("the user enters a recovery email {string}")
-	public void the_user_enters_a_recovery_email(String email) {
+    @When("the user clicks the Recover button without entering an email")
+    public void the_user_clicks_the_recover_button_without_entering_an_email() {
 
-		logaction.recoveryEmail(email);
-	}
+        logaction.recoverbutton();
+    }
 
-	@When("the user clicks the Recover button")
-	public void the_user_clicks_the_recover_button() {
+    @Then("a validation message {string} should be displayed")
+    public void a_validation_message_should_be_displayed(String message) {
 
-		logaction.recoverbutton();
-	}
+        String actual = logaction.getValidationMessage();
+        Assert.assertTrue(actual.contains(message));
+    }
 
-	@Then("a success message {string} should be displayed")
-	public void a_success_message_should_be_displayed(String message) {
+    @Then("the user should remain on the Password Recovery page")
+    public void the_user_should_remain_on_the_password_recovery_page() {
 
-		String actual = logaction.getRecoverySuccessMessage();
-
-		Assert.assertEquals(actual, message);
-	}
-
-	@When("the user enters an invalid email {string}")
-	public void the_user_enters_an_invalid_email(String email) {
-
-		logaction.recoveryEmail(email);
-	}
-
-	@Then("the system should display an error message {string}")
-	public void the_system_should_display_an_error_message(String message) {
-
-		String actual = logaction.getValidationMessage();
-
-		Assert.assertTrue(actual.contains(message));
-	}
-
-	@When("the user clicks the Recover button without entering an email")
-	public void the_user_clicks_the_recover_button_without_entering_an_email() {
-
-		logaction.recoverbutton();
-	}
-
-	@Then("a validation message {string} should be displayed")
-	public void a_validation_message_should_be_displayed(String message) {
-
-		String actual = logaction.getValidationMessage();
-
-		Assert.assertTrue(actual.contains(message));
-	}
-
-	@Then("the user should remain on the Password Recovery page")
-	public void the_user_should_remain_on_the_password_recovery_page() {
-
-		Assert.assertTrue(driver.getCurrentUrl().contains("passwordrecovery"));
-	}
-
+        Assert.assertTrue(driver.getCurrentUrl().contains("passwordrecovery"));
+    }
 }
