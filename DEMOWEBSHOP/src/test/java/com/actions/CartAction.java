@@ -6,7 +6,6 @@ import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -15,120 +14,119 @@ import com.utilities.HelperClass;
 
 import io.cucumber.datatable.DataTable;
 
-public class CartAction {
+public class CartAction extends BaseAction {
+	CartPage cartPage;
 
-    CartPage cartPage;
+	public CartAction(WebDriver driver) {
+		super(driver);
+		cartPage = new CartPage(driver);
+	}
 
-    public CartAction(WebDriver driver) {
+	public void openBookPage() {
+		click(cartPage.getBooks());
+		click(cartPage.getComputingBook());
+	}
 
-    	cartPage = new CartPage(driver);    }
+	public void addCart() {
+		By addBtn = By.xpath("//input[contains(@value,'Add to cart')]");
+		click(addBtn);
+	}
 
-    public void openProductDetailsPage() {
-        cartPage.booksMenu.click();
-        cartPage.computingBook.click();
-    }
+	public boolean checkCart() {
+		click(cartPage.getShoppingCart());
+		return HelperClass.getDriver()
+				.findElements(By.cssSelector("table.cart"))
+				.size() > 0;
+	}
 
-    public void addProductToCart() {
+	public void addManyProducts(DataTable dataTable) {
+		List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
+		WebDriver driver = HelperClass.getDriver();
 
-        WebDriver driver = HelperClass.getDriver();
+		for (Map<String, String> value : data) {
+			String product = value.get("productName");
+			driver.get("https://demowebshop.tricentis.com/");
 
-        By addToCart = By.xpath("//input[contains(@value,'Add to cart')]");
+			type(cartPage.getSearchBox(), product);
+			click(cartPage.getSearchButton());
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+			By productLink = By.partialLinkText(product);
+			WebDriverWait wait =new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait.until(ExpectedConditions.elementToBeClickable(productLink));
+			driver.findElement(productLink).click();
+			
+			By addBtn = By.xpath("//input[contains(@value,'Add to cart')]");
+			click(addBtn);
+		}
+	}
 
-        wait.until(ExpectedConditions.elementToBeClickable(addToCart));
+	public void openCart() {
+		click(cartPage.getShoppingCart());
+	}
 
-        driver.findElement(addToCart).click();
-    }
+	public boolean checkProducts() {
+		String qty = getText(cartPage.getCartQty());
+		return !qty.contains("(0)");
+	}
 
-    public boolean verifyShoppingCart() {
-    	
-        WebDriverWait wait =new WebDriverWait(HelperClass.getDriver(),Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(cartPage.shoppingCart));
-        
-        cartPage.shoppingCart.click();
-        return HelperClass.getDriver().findElements(By.cssSelector("table.cart")).size() > 0;
-    }
+	public boolean checkTotal() {
+		return waitForVisibility(cartPage.getSubtotal()).isDisplayed();
+	}
 
-    public void addMultipleProducts(DataTable dataTable) {
+	public void openEmptyCart() {
+		HelperClass.getDriver().get("https://demowebshop.tricentis.com/cart");
+	}
 
-        List<Map<String, String>> products =dataTable.asMaps(String.class, String.class);
-        WebDriver driver = HelperClass.getDriver();
+	public String getEmptyMsg() {
+		return getText(cartPage.getEmptyCartMsg());
+	}
 
-        for (Map<String, String> product : products) {
-            String productName =product.get("productName");
+	public void addOneProduct() {
+		openBookPage();
+		addCart();
+	}
 
-            driver.get("https://demowebshop.tricentis.com/");
+	public void enterCoupon(String code) {
+		type(cartPage.getCouponBox(), code);
+	}
 
-            WebDriverWait wait =new WebDriverWait(driver,Duration.ofSeconds(10));
+	public void clickCoupon() {
+		click(cartPage.getCouponButton());
+	}
 
-            wait.until(ExpectedConditions.visibilityOf(cartPage.searchBox));
+	public void enterGift(String code) {
+		type(cartPage.getGiftCardBox(), code);
+	}
 
-            cartPage.searchBox.clear();
+	public void clickGift() {
+		click(cartPage.getGiftCardButton());
+	}
 
-            cartPage.searchBox.sendKeys(productName);
+	public String getMsg() {
+		return getText(cartPage.getMessage());
+	}
+	
+	public void updateQuantity(String qty) {
+		waitForVisibility(cartPage.getQuantityBox()).clear();
+		type(cartPage.getQuantityBox(), qty);
+	}
 
-            cartPage.searchButton.click();
+	public void clickUpdateCart() {
+		click(cartPage.getUpdateCartButton());
+	}
 
-            By productLink =By.partialLinkText(productName);
+	public boolean checkUpdatedQty(String expectedQty) {
+		String actualQuantity =waitForVisibility(cartPage.getQuantityBox()).getAttribute("value");
+		return actualQuantity.equals(expectedQty);
+		        
+	}
 
-            wait.until(ExpectedConditions.elementToBeClickable(productLink));
+	public void removeProduct() {
+		click(cartPage.getRemoveCheckBox());
+	}
 
-            driver.findElement(productLink).click();
-
-            By addToCart =By.xpath("//input[contains(@value,'Add to cart')]");
-
-            wait.until(ExpectedConditions.elementToBeClickable(addToCart));
-
-            driver.findElement(addToCart).click();
-        }
-    }
-    
-    public void openShoppingCart() {
-        cartPage.shoppingCart.click();
-    }
-
-    public boolean verifyProductsAdded() {
-        String qty = cartPage.cartQuantity.getText();
-        return !qty.contains("(0)");
-    }
-
-    public boolean verifyTotalAmount() {
-        return cartPage.subtotal.isDisplayed();
-    }
-
-    public void openEmptyCartPage() {
-        HelperClass.getDriver().get("https://demowebshop.tricentis.com/cart");
-    }
-
-    public String getEmptyCartMessage() {
-        return cartPage.emptyCartMessage.getText();
-    }
-
-    public void addSingleProduct() {
-        openProductDetailsPage();
-        addProductToCart();
-    }
-
-    public void enterCouponCode(String coupon) {
-        cartPage.couponTextBox.clear();
-        cartPage.couponTextBox.sendKeys(coupon);
-    }
-
-    public void clickApplyCoupon() {
-        cartPage.applyCouponButton.click();
-    }
-
-    public void enterGiftCardCode(String gift) {
-        cartPage.giftCardTextBox.clear();
-        cartPage.giftCardTextBox.sendKeys(gift);
-    }
-
-    public void clickApplyGiftCard() {
-        cartPage.applyGiftCardButton.click();
-    }
-
-    public String getValidationMessage() {
-        return cartPage.validationMessage.getText();
-    }
+	public boolean checkRemovedProduct() {
+		String message = getText(cartPage.getEmptyCartMsg());
+		return message.contains("Your Shopping Cart is empty!");
+	}
 }

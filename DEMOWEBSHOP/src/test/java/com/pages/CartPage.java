@@ -1,61 +1,94 @@
 package com.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class CartPage {
 
-    WebDriver driver;
+	WebDriver driver;
 
-    public CartPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
-    }
+	public CartPage(WebDriver driver) {
+		this.driver = driver;
+	}
 
-    @FindBy(linkText = "Books")
-    public WebElement booksMenu;
+	private By books = By.linkText("Books");
+	private By computingBook = By.linkText("Computing and Internet");
+	private By shoppingCart = By.linkText("Shopping cart");
+	private By searchBox = By.id("small-searchterms");
+	private By searchButton = By.xpath("//input[@value='Search']");
+	private By cartQty = By.className("cart-qty");
+	private By subtotal = By.xpath("//span[@class='product-price order-total']");
+	private By couponBox = By.name("discountcouponcode");
+	private By couponButton = By.name("applydiscountcouponcode");
+	private By giftCardBox = By.name("giftcardcouponcode");
+	private By giftCardButton = By.name("applygiftcardcouponcode");
+	private By message = By.cssSelector("div.message");
+	private By emptyCartMsg = By.xpath("//div[@class='order-summary-content']");
+	private By quantityBox = By.className("qty-input");
+	private By updateCartButton = By.name("updatecart");
+	private By removeCheckBox = By.name("removefromcart");
 
-    @FindBy(linkText = "Computing and Internet")
-    public WebElement computingBook;
+	public By getBooks() {
+		return books;
+	}
 
-    @FindBy(id = "add-to-cart-button-13")
-    public WebElement addToCartButton;
+	public By getComputingBook() {
+		return computingBook;
+	}
 
-    @FindBy(linkText = "Shopping cart")
-    public WebElement shoppingCart;
+	public By getShoppingCart() {
+		return shoppingCart;
+	}
 
-    @FindBy(id = "small-searchterms")
-    public WebElement searchBox;
+	public By getSearchBox() {
+		return searchBox;
+	}
 
-    @FindBy(xpath = "//input[@value='Search']")
-    public WebElement searchButton;
-    
-    @FindBy(className = "cart-qty")
-    public WebElement cartQuantity;
+	public By getSearchButton() {
+		return searchButton;
+	}
 
-    @FindBy(xpath = "//span[@class='product-price order-total']")
-    public WebElement subtotal;
-    
-    @FindBy(xpath = "//span[@class='product-subtotal']")
-    public WebElement totalAmount;
+	public By getCartQty() {
+		return cartQty;
+	}
 
-    @FindBy(name = "discountcouponcode")
-    public WebElement couponTextBox;
+	public By getSubtotal() {
+		return subtotal;
+	}
 
-    @FindBy(name = "applydiscountcouponcode")
-    public WebElement applyCouponButton;
+	public By getCouponBox() {
+		return couponBox;
+	}
 
-    @FindBy(name = "giftcardcouponcode")
-    public WebElement giftCardTextBox;
+	public By getCouponButton() {
+		return couponButton;
+	}
 
-    @FindBy(name = "applygiftcardcouponcode")
-    public WebElement applyGiftCardButton;
+	public By getGiftCardBox() {
+		return giftCardBox;
+	}
 
-    @FindBy(css = "div.message")
-    public WebElement validationMessage;
+	public By getGiftCardButton() {
+		return giftCardButton;
+	}
 
-    @FindBy(xpath = "//div[@class='order-summary-content']")
-    public WebElement emptyCartMessage;
+	public By getMessage() {
+		return message;
+	}
+
+	public By getEmptyCartMsg() {
+		return emptyCartMsg;
+	}
+	
+	public By getQuantityBox() {
+		return quantityBox;
+	}
+
+	public By getUpdateCartButton() {
+		return updateCartButton;
+	}
+
+	public By getRemoveCheckBox() {
+		return removeCheckBox;
+	}
 }
