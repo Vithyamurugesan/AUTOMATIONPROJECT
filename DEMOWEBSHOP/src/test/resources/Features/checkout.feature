@@ -65,7 +65,7 @@ When the user select the Address from the dropdown and select "<Address>"
 And the user click the continue button in shipping section
 Then the user move to the Shipping method and seen the text of Ground
  
- Example:
+ Examples:
 |Address|
 |0		|
 

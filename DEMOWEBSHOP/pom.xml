@@ -1,222 +1,392 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-	https://maven.apache.org/xsd/maven-4.0.0.xsd">
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="
+http://maven.apache.org/POM/4.0.0
+https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-	<modelVersion>4.0.0</modelVersion>
+<modelVersion>4.0.0</modelVersion>
 
-	<groupId>DEMOWEBSHOP</groupId>
-	<artifactId>DEMOWEBSHOP</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-
-	<dependencies>
-
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<version>4.43.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.testng</groupId>
-			<artifactId>testng</artifactId>
-			<version>7.12.0</version>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>io.cucumber</groupId>
-			<artifactId>cucumber-java</artifactId>
-			<version>7.34.3</version>
-		</dependency>
-
-		<dependency>
-			<groupId>io.cucumber</groupId>
-			<artifactId>cucumber-testng</artifactId>
-			<version>7.34.3</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.aventstack</groupId>
-			<artifactId>extentreports</artifactId>
-			<version>5.1.2</version>
-		</dependency>
-
-		<dependency>
-			<groupId>tech.grasshopper</groupId>
-			<artifactId>extentreports-cucumber7-adapter</artifactId>
-			<version>1.14.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjweaver</artifactId>
-			<version>1.9.25.1</version>
-			<scope>runtime</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>io.qameta.allure</groupId>
-			<artifactId>allure-cucumber7-jvm</artifactId>
-			<version>2.34.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>io.qameta.allure</groupId>
-			<artifactId>allure-testng</artifactId>
-			<version>2.34.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi</artifactId>
-			<version>5.5.1</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi-scratchpad</artifactId>
-			<version>5.5.1</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi-ooxml</artifactId>
-			<version>5.5.1</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi-ooxml-schemas</artifactId>
-			<version>4.1.2</version>
-		</dependency>
-
-		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>2.21.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-core</artifactId>
-			<version>2.25.4</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-api</artifactId>
-			<version>2.25.4</version>
-		</dependency>
-
-	</dependencies>
+<groupId>DEMOWEBSHOP</groupId>
+<artifactId>DEMOWEBSHOP</artifactId>
+<version>0.0.1-SNAPSHOT</version>
 
 
-	<build>
+<properties>
 
-		<plugins>
+<maven.compiler.source>11</maven.compiler.source>
+<maven.compiler.target>11</maven.compiler.target>
 
-			<plugin>
+<selenium.version>4.43.0</selenium.version>
 
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.11.0</version>
+<testng.version>7.12.0</testng.version>
 
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
+<cucumber.version>7.34.3</cucumber.version>
 
-			</plugin>
+<allure.version>2.34.0</allure.version>
+
+</properties>
 
 
-			<plugin>
 
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.5.4</version>
+<dependencies>
 
-				<configuration>
+    <!-- Selenium -->
 
-					<suiteXmlFiles>
+    <dependency>
 
-						<suiteXmlFile>
-							testng.xml
-						</suiteXmlFile>
+        <groupId>org.seleniumhq.selenium</groupId>
 
-					</suiteXmlFiles>
+        <artifactId>selenium-java</artifactId>
 
-					<systemPropertyVariables>
+        <version>${selenium.version}</version>
 
-						<allure.results.directory>
-							target/allure-results
-						</allure.results.directory>
-
-					</systemPropertyVariables>
-
-				</configuration>
-
-			</plugin>
+    </dependency>
 
 
-			<!-- Added for rerun support -->
+    <!-- WebDriver Manager -->
 
-			<plugin>
+    <dependency>
 
-				<groupId>
-					org.apache.maven.plugins
-				</groupId>
+        <groupId>io.github.bonigarcia</groupId>
 
-				<artifactId>
-					maven-failsafe-plugin
-				</artifactId>
+        <artifactId>webdrivermanager</artifactId>
 
-				<version>
-					3.5.4
-				</version>
+        <version>6.0.1</version>
 
-				<executions>
-
-					<execution>
-
-						<goals>
-
-							<goal>
-								integration-test
-							</goal>
-
-							<goal>
-								verify
-							</goal>
-
-						</goals>
-
-					</execution>
-
-				</executions>
-
-			</plugin>
+    </dependency>
 
 
-			<plugin>
 
-				<groupId>io.qameta.allure</groupId>
-				<artifactId>allure-maven</artifactId>
-				<version>2.13.0</version>
+    <!-- TestNG -->
 
-				<configuration>
+    <dependency>
 
-					<reportVersion>
-						2.27.0
-					</reportVersion>
+        <groupId>org.testng</groupId>
 
-				</configuration>
+        <artifactId>testng</artifactId>
 
-			</plugin>
+        <version>${testng.version}</version>
 
-		</plugins>
+        <scope>test</scope>
 
-	</build>
+    </dependency>
+
+
+
+    <!-- Cucumber -->
+
+    <dependency>
+
+        <groupId>io.cucumber</groupId>
+
+        <artifactId>cucumber-java</artifactId>
+
+        <version>${cucumber.version}</version>
+
+    </dependency>
+
+
+    <dependency>
+
+        <groupId>io.cucumber</groupId>
+
+        <artifactId>cucumber-testng</artifactId>
+
+        <version>${cucumber.version}</version>
+
+    </dependency>
+
+
+
+    <!-- Extent -->
+
+    <dependency>
+
+        <groupId>com.aventstack</groupId>
+
+        <artifactId>extentreports</artifactId>
+
+        <version>5.1.2</version>
+
+    </dependency>
+
+
+    <dependency>
+
+        <groupId>tech.grasshopper</groupId>
+
+        <artifactId>extentreports-cucumber7-adapter</artifactId>
+
+        <version>1.14.0</version>
+
+    </dependency>
+
+
+
+    <!-- Allure -->
+
+    <dependency>
+
+        <groupId>io.qameta.allure</groupId>
+
+        <artifactId>allure-cucumber7-jvm</artifactId>
+
+        <version>${allure.version}</version>
+
+    </dependency>
+
+
+    <dependency>
+
+        <groupId>io.qameta.allure</groupId>
+
+        <artifactId>allure-testng</artifactId>
+
+        <version>${allure.version}</version>
+
+    </dependency>
+
+
+
+    <!-- Apache POI -->
+
+    <dependency>
+
+        <groupId>org.apache.poi</groupId>
+
+        <artifactId>poi</artifactId>
+
+        <version>5.5.1</version>
+
+    </dependency>
+
+
+    <dependency>
+
+        <groupId>org.apache.poi</groupId>
+
+        <artifactId>poi-ooxml</artifactId>
+
+        <version>5.5.1</version>
+
+    </dependency>
+
+
+
+    <!-- Commons IO -->
+
+    <dependency>
+
+        <groupId>commons-io</groupId>
+
+        <artifactId>commons-io</artifactId>
+
+        <version>2.21.0</version>
+
+    </dependency>
+
+
+
+    <!-- Log4j -->
+
+    <dependency>
+
+        <groupId>org.apache.logging.log4j</groupId>
+
+        <artifactId>log4j-api</artifactId>
+
+        <version>2.25.4</version>
+
+    </dependency>
+
+
+    <dependency>
+
+        <groupId>org.apache.logging.log4j</groupId>
+
+        <artifactId>log4j-core</artifactId>
+
+        <version>2.25.4</version>
+
+    </dependency>
+
+
+
+    <!-- SLF4J -->
+
+    <dependency>
+
+        <groupId>org.slf4j</groupId>
+
+        <artifactId>slf4j-simple</artifactId>
+
+        <version>2.0.17</version>
+
+    </dependency>
+
+</dependencies>
+
+
+
+
+<build>
+
+<plugins>
+
+
+    <!-- Clean -->
+
+    <plugin>
+
+        <groupId>org.apache.maven.plugins</groupId>
+
+        <artifactId>maven-clean-plugin</artifactId>
+
+        <version>3.4.1</version>
+
+    </plugin>
+
+
+
+    <!-- Compiler -->
+
+    <plugin>
+
+        <groupId>org.apache.maven.plugins</groupId>
+
+        <artifactId>maven-compiler-plugin</artifactId>
+
+        <version>3.13.0</version>
+
+
+        <configuration>
+
+            <source>11</source>
+
+            <target>11</target>
+
+        </configuration>
+
+    </plugin>
+
+
+
+    <!-- TestNG -->
+
+    <plugin>
+
+        <groupId>org.apache.maven.plugins</groupId>
+
+        <artifactId>maven-surefire-plugin</artifactId>
+
+        <version>3.5.4</version>
+
+
+        <configuration>
+
+            <suiteXmlFiles>
+
+                <suiteXmlFile>
+
+                    testng.xml
+
+                </suiteXmlFile>
+
+            </suiteXmlFiles>
+
+
+            <systemPropertyVariables>
+
+                <allure.results.directory>
+
+                ${project.build.directory}/allure-results
+
+                </allure.results.directory>
+
+            </systemPropertyVariables>
+
+        </configuration>
+
+    </plugin>
+
+
+
+    <!-- Failed Test Rerun -->
+
+    <plugin>
+
+        <groupId>
+
+        org.apache.maven.plugins
+
+        </groupId>
+
+
+        <artifactId>
+
+        maven-failsafe-plugin
+
+        </artifactId>
+
+
+        <version>3.5.4</version>
+
+
+        <executions>
+
+            <execution>
+
+                <goals>
+
+                    <goal>
+
+                    integration-test
+
+                    </goal>
+
+
+                    <goal>
+
+                    verify
+
+                    </goal>
+
+                </goals>
+
+            </execution>
+
+        </executions>
+
+    </plugin>
+
+
+
+    <!-- Allure -->
+
+    <plugin>
+
+        <groupId>
+
+        io.qameta.allure
+
+        </groupId>
+
+
+        <artifactId>
+
+        allure-maven
+
+        </artifactId>
+
+
+        <version>2.13.0</version>
+
+    </plugin>
+
+
+
+</plugins>
+
+</build>
 
 </project>
