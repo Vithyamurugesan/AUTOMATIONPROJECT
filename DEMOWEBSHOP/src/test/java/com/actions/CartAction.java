@@ -40,7 +40,7 @@ public class CartAction extends BaseAction {
 	}
 
 	public void addManyProducts(DataTable dataTable) {
-		List<Map<String, String>> data =dataTable.asMaps(String.class, String.class);
+		List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
 		WebDriver driver = HelperClass.getDriver();
 
 		for (Map<String, String> value : data) {
@@ -55,7 +55,7 @@ public class CartAction extends BaseAction {
 			wait.until(ExpectedConditions.elementToBeClickable(productLink));
 			driver.findElement(productLink).click();
 			
-			By addBtn =By.xpath("//input[contains(@value,'Add to cart')]");
+			By addBtn = By.xpath("//input[contains(@value,'Add to cart')]");
 			click(addBtn);
 		}
 	}
@@ -104,5 +104,29 @@ public class CartAction extends BaseAction {
 
 	public String getMsg() {
 		return getText(cartPage.getMessage());
+	}
+	
+	public void updateQuantity(String qty) {
+		waitForVisibility(cartPage.getQuantityBox()).clear();
+		type(cartPage.getQuantityBox(), qty);
+	}
+
+	public void clickUpdateCart() {
+		click(cartPage.getUpdateCartButton());
+	}
+
+	public boolean checkUpdatedQty(String expectedQty) {
+		String actualQuantity =waitForVisibility(cartPage.getQuantityBox()).getAttribute("value");
+		return actualQuantity.equals(expectedQty);
+		        
+	}
+
+	public void removeProduct() {
+		click(cartPage.getRemoveCheckBox());
+	}
+
+	public boolean checkRemovedProduct() {
+		String message = getText(cartPage.getEmptyCartMsg());
+		return message.contains("Your Shopping Cart is empty!");
 	}
 }

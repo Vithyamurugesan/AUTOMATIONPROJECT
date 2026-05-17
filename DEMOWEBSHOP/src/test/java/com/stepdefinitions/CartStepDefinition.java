@@ -109,4 +109,28 @@ public class CartStepDefinition {
 	public void user_clicks_on_apply_gift_card_button() {
 		cartAction.clickGift();
 	}
+	@When("User updates product quantity")
+	public void user_updates_product_quantity() {
+		cartAction.updateQuantity("2");
+	}
+
+	@When("User clicks on Update Shopping Cart button")
+	public void user_clicks_on_update_shopping_cart_button() {
+		cartAction.clickUpdateCart();
+	}
+
+	@Then("Updated quantity should be displayed in shopping cart")
+	public void updated_quantity_should_be_displayed_in_shopping_cart() {
+		Assert.assertTrue(cartAction.checkUpdatedQty("2"));
+	}
+
+	@When("User removes product from shopping cart")
+	public void user_removes_product_from_shopping_cart() {
+		cartAction.removeProduct();
+	}
+
+	@Then("Product should be removed from shopping cart")
+	public void product_should_be_removed_from_shopping_cart() {
+		Assert.assertTrue(cartAction.checkRemovedProduct());
+	}
 }

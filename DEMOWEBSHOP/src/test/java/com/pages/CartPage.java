@@ -24,6 +24,9 @@ public class CartPage {
 	private By giftCardButton = By.name("applygiftcardcouponcode");
 	private By message = By.cssSelector("div.message");
 	private By emptyCartMsg = By.xpath("//div[@class='order-summary-content']");
+	private By quantityBox = By.className("qty-input");
+	private By updateCartButton = By.name("updatecart");
+	private By removeCheckBox = By.name("removefromcart");
 
 	public By getBooks() {
 		return books;
@@ -75,5 +78,17 @@ public class CartPage {
 
 	public By getEmptyCartMsg() {
 		return emptyCartMsg;
+	}
+	
+	public By getQuantityBox() {
+		return quantityBox;
+	}
+
+	public By getUpdateCartButton() {
+		return updateCartButton;
+	}
+
+	public By getRemoveCheckBox() {
+		return removeCheckBox;
 	}
 }

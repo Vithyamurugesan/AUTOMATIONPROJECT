@@ -1,4 +1,4 @@
-Feature: Sowndariya_13MAY2025_DEMOWEBSHOP_Shopping Cart Functionality
+Feature: Shopping Cart Functionality
 
   Description:
   This feature is used to verify shopping cart functions
@@ -67,3 +67,22 @@ Scenario Outline: Verify invalid gift card code validation
 Examples:
   | giftcard         |
   | gift1234         |
+  
+  @UpdateCart
+Scenario: Verify cart quantity update
+
+  Given User added product to shopping cart
+  And User navigates to shopping cart page
+  When User updates product quantity
+  And User clicks on Update Shopping Cart button
+  Then Updated quantity should be displayed in shopping cart
+  
+  
+  @RemoveCart
+Scenario: Verify remove product from shopping cart
+
+  Given User added product to shopping cart
+  And User navigates to shopping cart page
+  When User removes product from shopping cart
+  And User clicks on Update Shopping Cart button
+  Then Product should be removed from shopping cart
