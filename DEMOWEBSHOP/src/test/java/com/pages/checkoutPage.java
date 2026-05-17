@@ -3,7 +3,7 @@ package com.pages;
 import java.time.Duration ;
 
 import org.openqa.selenium.By;
-
+//pages
 
 public class checkoutPage {
 
