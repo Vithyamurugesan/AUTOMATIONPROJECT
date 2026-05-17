@@ -1,1 +1,30 @@
-/target/
+# Eclipse
+.metadata/
+.project
+.classpath
+.settings/
+
+# IntelliJ
+.idea/
+*.iml
+
+# Build
+bin/
+target/
+target-output/
+
+# Logs
+logs/
+*.log
+
+# Reports
+test-output/
+ExtentReports/
+HtmlReport/
+PdfReport/
+
+# Generated Files
+*.html
+*.pdf
+*.png
+allure-results/
