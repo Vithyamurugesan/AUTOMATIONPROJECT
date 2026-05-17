@@ -10,3 +10,5 @@ Feature: Vithya_13MAY2026_DEMOWEBSHOP_User Registration Functionality
     And   User clicks on Register button
     Then  User should see "Your registration completed" message
     And   User should see Continue button
+    
+    

@@ -39,6 +39,7 @@
 		<!-- slideout menu -->
 		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
 			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+			<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
 			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></a></li>
 		</ul>
 		<!-- report name -->
@@ -48,7 +49,7 @@
 		<!-- nav-right -->
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<a href='#!'>
-			<span class='label blue darken-3 suite-start-time'>May 15, 2026 03:09:38 pm</span>
+			<span class='label blue darken-3 suite-start-time'>May 17, 2026 12:30:24 pm</span>
 			</a>
 		</ul>
 	</div>
@@ -70,6 +71,16 @@
 			</div>
 			<!-- test toggle -->
 			<!-- category toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
+				<i class='material-icons'>local_offer</i> Category
+				</a>
+				<ul id='category-toggle' class='dropdown-content'>
+					<li><a href='#'>@scenario_9</a></li>
+					<li class='divider'></li>
+					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
+				</ul>
+			</div>
 			<!-- category toggle -->
 			<!-- clear filters -->
 			<div class='chip transparent hide'>
@@ -146,7 +157,7 @@
                 </div>
                 <div class='block text-small'>
                     <span class='tooltipped' data-position='top' data-tooltip='100%'>
-                    <span class='strong'>5</span> steps passed</span>
+                    <span class='strong'>8</span> steps passed</span>
                 </div>
                 <div class='block text-small'>
                     <span class='strong tooltipped' data-position='top' data-tooltip='0%'>
@@ -176,7 +187,7 @@
 				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
 					<div class='test-heading'>
 						<span class='test-name'>To procedure check out page from cart</span>
-						<span class='test-time'>May 15, 2026 03:09:39 pm</span>
+						<span class='test-time'>May 17, 2026 12:30:26 pm</span>
 						<span class='test-status right pass'>Pass</span>
 					</div>
 					<div class='test-content hide'>
@@ -190,12 +201,15 @@
 
 <div class='scenario node' test-id='2' status='pass'>
 
-	<span class='duration right label'>00 00 27.526</span>
+	<span class='duration right label'>00 00 27.503</span>
 	<div class="bdd-test">
-		<div class="scenario-name"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span> Scenario: procedure to checkout as registered user</div>
+		<div class="scenario-name"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span> Scenario: selecting a credit card in the payment section</div>
 	</div>
 	
 	
+		<div class='category-list'>
+				<span class='category label'>@scenario_9</span>
+		</div>
 	
 	<ul class='steps'>
 		<li test-id='4' class='node given Pass' status='Pass'>
@@ -204,22 +218,38 @@
 
 		</li>
 		<li test-id='5' class='node given Pass' status='Pass'>
-			<div class="step-name" title="(com.stepdefinitions.CheckoutStepDefinition.user_is_login_the_demo_web_shop_website_with_minium_adding_of_one_product())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Given user is login the demo web shop website with minium adding of one product</div>
+			<div class="step-name" title="(com.stepdefinitions.CheckoutStepDefinition.the_user_is_in_the_checkout_page_of_payment_method_section())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Given the user is in the checkout page of payment method section</div>
 
 
 		</li>
 		<li test-id='6' class='node when Pass' status='Pass'>
-			<div class="step-name" title="(com.stepdefinitions.CheckoutStepDefinition.the_user_click_the_checkbox_of_terms_and_conditions())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>When the user click the checkbox of terms and conditions</div>
+			<div class="step-name" title="(com.stepdefinitions.CheckoutStepDefinition.the_user_is_click_the_credit_card_checkout_in_the_payment_section())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>When the user is click the credit card checkout in the payment section</div>
 
 
 		</li>
 		<li test-id='7' class='node and Pass' status='Pass'>
-			<div class="step-name" title="(com.stepdefinitions.CheckoutStepDefinition.the_user_click_the_checkout_button())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And the user click the checkout button</div>
+			<div class="step-name" title="(com.stepdefinitions.CheckoutStepDefinition.the_user_click_the_continue_button_of_payment_section())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And the user click the continue button of payment section</div>
 
 
 		</li>
 		<li test-id='8' class='node then Pass' status='Pass'>
-			<div class="step-name" title="(com.stepdefinitions.CheckoutStepDefinition.the_user_redirect_to_the_checkout_page_and_seen_the_text_of_checkout())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Then the user redirect to the checkout page and seen the text of checkout</div>
+			<div class="step-name" title="(com.stepdefinitions.CheckoutStepDefinition.the_user_should_see_the_select_credit_card_text())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Then the user should see the select credit card text</div>
+
+
+		</li>
+		<li test-id='9' class='node when Pass' status='Pass'>
+			<div class="step-name" title="(com.stepdefinitions.CheckoutStepDefinition.the_user_fill_the_credit_card_infomation(io.cucumber.datatable.DataTable))"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>When the user fill the credit card infomation</div>
+
+
+					<div class="node-step"><table class='markup-table table '><tr><td>cardholder_name</td><td>card_number</td><td>card_code</td></tr><tr><td>Jeeva Pranesh</td><td>4111111111111111</td><td>123</td></tr></table></div>
+		</li>
+		<li test-id='10' class='node and Pass' status='Pass'>
+			<div class="step-name" title="(com.stepdefinitions.CheckoutStepDefinition.the_user_click_the_continue_after_select_the_credit_card_details())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And the user click the continue After Select the credit card details</div>
+
+
+		</li>
+		<li test-id='11' class='node then Pass' status='Pass'>
+			<div class="step-name" title="(com.stepdefinitions.CheckoutStepDefinition.the_order_conformation_page_is_dispayed_and_seen_the_text_of_total())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Then the order conformation page is dispayed and seen the  text of total</div>
 
 
 		</li>
@@ -249,7 +279,67 @@
 	</div>
 	<!-- subview right -->
 </div>
-<!-- test view --><div id='dashboard-view' class='view hide'>
+<!-- test view --><div id='category-view' class='view hide'>
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+				<i class='material-icons'>search</i> Search
+				</a>
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+	<div class='subview-left left'>
+		<div class='view-summary'>
+			<ul id='category-collection' class='category-collection'>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@scenario_9</span>
+						<span class='category-status right'>
+						<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span status="pass" class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>May 17, 2026 12:30:26 pm</td>
+										<td class='linked' test-id='2'>selecting a credit card in the payment section</td>
+										<td><span class='test-status Pass'>Pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='category-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- category view --><div id='dashboard-view' class='view hide'>
 	<div class='card-panel transparent np-v'>
 		<h5>Dashboard</h5>
 
@@ -269,25 +359,25 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>5</div>
+					<div class='panel-lead'>8</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>May 15, 2026 03:09:38 pm</div>
+					<div class='panel-lead'>May 17, 2026 12:30:24 pm</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>May 15, 2026 03:10:07 pm</div>
+			 		<div class='panel-lead'>May 17, 2026 12:30:53 pm</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>00 00 28.823</div>
+					<div class='panel-lead'>00 00 29.033</div>
 				</div>
 			</div>
 			<div class='col s4'>
@@ -307,6 +397,30 @@
 								<td>os</td>
 								<td>windows</td>
 							</tr>
+					</table>
+				</div>
+			</div>
+			<div class='col s6'>
+				<div class='card-panel dashboard-categories'>
+					<span class='right label cyan white-text'>Categories</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Passed</th>
+							<th>Failed</th>
+							<th>Skipped</th>
+							<th>Passed %</th>
+						</tr>
+						<tr>
+							<td>@scenario_9</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
 					</table>
 				</div>
 			</div>
@@ -333,8 +447,8 @@
 				warningChild: 0,
 				skipChild: 0,
 				infoChild: 0,
-				grandChildCount: 5,
-				passGrandChild: 5,
+				grandChildCount: 8,
+				passGrandChild: 8,
 				failGrandChild: 0,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,
@@ -346,7 +460,7 @@
 		
 		<script>
 			var timeline = {
-			        "To procedure check out page from cart":27.531
+			        "To procedure check out page from cart":27.507
 			};
 		</script>
 		

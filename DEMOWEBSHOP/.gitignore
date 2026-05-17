@@ -9,7 +9,11 @@ com.ecom.iml
 bin/
 logs/
 
-
+.factorypath
+src/test/java/com/runner/CucumberRunner.java
 target/
-target-output/
-com.runner/CucumberRunner.java
+test-output/
+allure-results/
+ExtentReports/
+HtmlReport/
+PdfReport/
