@@ -1,4 +1,4 @@
-Feature: Shopping Cart Functionality
+Feature: Sowndariya_13MAY2025_DEMOWEBSHOP_Shopping Cart Functionality
 
   Description:
   This feature is used to verify shopping cart functions
