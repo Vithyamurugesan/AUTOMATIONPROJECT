@@ -23,9 +23,8 @@ public class BaseAction {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
     
-    
     public void click(By locator) {
-        waitForVisibility(locator).click();
+        wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
     }
 
     public void type(By locator, String text) {

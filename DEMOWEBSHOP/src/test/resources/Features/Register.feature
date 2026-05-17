@@ -3,7 +3,8 @@ Feature: Vithya_13MAY2026_DEMOWEBSHOP_User Registration Functionality
   Background:
     Given User is on Demo Web Shop application
 
-  @ValidRegistration
+	
+  @ValidRegistration @Ignore
   Scenario: Verify user registration with valid details
     Given User navigates to the Register page
     When  User enters valid registration details

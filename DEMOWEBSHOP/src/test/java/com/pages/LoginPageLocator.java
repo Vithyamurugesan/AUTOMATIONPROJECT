@@ -16,4 +16,5 @@ public class LoginPageLocator {
     public static By loginErrorMessage = By.cssSelector(".validation-summary-errors");
     public static By recoverySuccessMessage = By.cssSelector(".result");
     public static By validationMessage = By.cssSelector(".field-validation-error");
+
 }

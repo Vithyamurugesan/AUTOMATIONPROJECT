@@ -22,3 +22,9 @@ test-output/
 ExtentReports/
 HtmlReport/
 PdfReport/
+
+# Generated Files
+*.html
+*.pdf
+*.png
+allure-results/
