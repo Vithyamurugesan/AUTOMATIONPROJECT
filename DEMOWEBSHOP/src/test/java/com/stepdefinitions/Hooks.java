@@ -11,13 +11,13 @@ public class Hooks {
 
     @Before
     public void setup() {
-        HelperClass.initDriver();
+        HelperClass.setUpDriver();
         HelperClass.getDriver().manage().window().maximize();
         HelperClass.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     @After
     public void tearDown() {
-        HelperClass.quitDriver();
+        HelperClass.tearDown();
     }
 }

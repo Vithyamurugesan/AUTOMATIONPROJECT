@@ -1,44 +1,32 @@
 package com.pages;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.By;
 
 public class SearchPage {
 
-    WebDriver driver;
-
-    public SearchPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
-    }
-
-    @FindBy(id = "small-searchterms")
-    private WebElement searchBox;
-
-    @FindBy(xpath = "//input[@value='Search']")
-    private WebElement searchButton;
-
-    @FindBy(className = "product-grid")
-    private WebElement searchResult;
-
-    @FindBy(xpath = "//*[contains(text(),'No products were found')]")
-    private WebElement noResultMessage;
-
-    public WebElement getSearchBox() {
+    private By searchBox=By.id("small-searchterms");
+    private By searchButton=By.xpath("//input[@value='Search']");
+    private By searchResult=By.className("product-grid");
+    private By noResultMessage=By.xpath("//*[contains(text(),'No products were found')]");
+    private By warningMessage=By.cssSelector(".warning");
+    
+    public By getSearchBox() {
         return searchBox;
     }
 
-    public WebElement getSearchButton() {
+    public By getSearchButton() {
         return searchButton;
     }
 
-    public WebElement getSearchResult() {
+    public By getSearchResult() {
         return searchResult;
     }
 
-    public WebElement getNoResultMessage() {
+    public By getNoResultMessage() {
         return noResultMessage;
+    }
+
+    public By getWarningMessage() {
+        return warningMessage;
     }
 }

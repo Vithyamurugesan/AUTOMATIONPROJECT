@@ -21,8 +21,7 @@ public class CartAction {
 
     public CartAction(WebDriver driver) {
 
-        cartPage = new CartPage(driver);
-    }
+    	cartPage = new CartPage(driver);    }
 
     public void openProductDetailsPage() {
         cartPage.booksMenu.click();
@@ -30,10 +29,16 @@ public class CartAction {
     }
 
     public void addProductToCart() {
-        WebDriverWait wait =new WebDriverWait(HelperClass.getDriver(),Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(cartPage.addToCartButton));
-        
-        cartPage.addToCartButton.click();
+
+        WebDriver driver = HelperClass.getDriver();
+
+        By addToCart = By.xpath("//input[contains(@value,'Add to cart')]");
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        wait.until(ExpectedConditions.elementToBeClickable(addToCart));
+
+        driver.findElement(addToCart).click();
     }
 
     public boolean verifyShoppingCart() {
@@ -77,5 +82,53 @@ public class CartAction {
 
             driver.findElement(addToCart).click();
         }
+    }
+    
+    public void openShoppingCart() {
+        cartPage.shoppingCart.click();
+    }
+
+    public boolean verifyProductsAdded() {
+        String qty = cartPage.cartQuantity.getText();
+        return !qty.contains("(0)");
+    }
+
+    public boolean verifyTotalAmount() {
+        return cartPage.subtotal.isDisplayed();
+    }
+
+    public void openEmptyCartPage() {
+        HelperClass.getDriver().get("https://demowebshop.tricentis.com/cart");
+    }
+
+    public String getEmptyCartMessage() {
+        return cartPage.emptyCartMessage.getText();
+    }
+
+    public void addSingleProduct() {
+        openProductDetailsPage();
+        addProductToCart();
+    }
+
+    public void enterCouponCode(String coupon) {
+        cartPage.couponTextBox.clear();
+        cartPage.couponTextBox.sendKeys(coupon);
+    }
+
+    public void clickApplyCoupon() {
+        cartPage.applyCouponButton.click();
+    }
+
+    public void enterGiftCardCode(String gift) {
+        cartPage.giftCardTextBox.clear();
+        cartPage.giftCardTextBox.sendKeys(gift);
+    }
+
+    public void clickApplyGiftCard() {
+        cartPage.applyGiftCardButton.click();
+    }
+
+    public String getValidationMessage() {
+        return cartPage.validationMessage.getText();
     }
 }

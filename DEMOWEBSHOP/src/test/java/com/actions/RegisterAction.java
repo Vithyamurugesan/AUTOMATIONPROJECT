@@ -15,8 +15,8 @@ public class RegisterAction {
     RegisterPage registerPage;
 
     public RegisterAction(WebDriver driver) {
-        this.driver = driver;
-        registerPage = new RegisterPage(driver);
+		this.driver = driver;
+        registerPage = new RegisterPage();
     }
 
     // -------------------- Utility --------------------

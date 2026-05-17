@@ -1,4 +1,4 @@
-Feature: Search Functionality
+Feature:  Vetrivel_13MAY2025_DEMOWEBSHOP_FeatureFileforLogin
 
   Description: As a user, I want to search an item in the search box
   so that I can view products related to my search keyword
@@ -8,7 +8,7 @@ Feature: Search Functionality
 
   @ValidSearch
   Scenario: Search product using valid keyword
-    When user enters valid product keyword in the search box
+    When user enters product keyword in the search box
       | keyword |
       | Laptop  |
     And clicks on Search button
@@ -16,7 +16,7 @@ Feature: Search Functionality
 
   @InvalidSearch
   Scenario: Search using invalid keyword
-    When user enters invalid product keyword in the search box
+    When user enters product keyword in the search box
       | keyword |
       | abcxyz  |
     And clicks on Search button
@@ -24,7 +24,7 @@ Feature: Search Functionality
 
   @Insensitive
   Scenario: Verify search is case insensitive
-    When user enters product keyword in uppercase
+    When user enters product keyword in the search box
       | keyword  |
       | COMPUTER |
     And clicks on Search button

@@ -1,9 +1,9 @@
 package com.pages;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.WebDriver;
 
 public class CartPage {
 
@@ -31,4 +31,31 @@ public class CartPage {
 
     @FindBy(xpath = "//input[@value='Search']")
     public WebElement searchButton;
+    
+    @FindBy(className = "cart-qty")
+    public WebElement cartQuantity;
+
+    @FindBy(xpath = "//span[@class='product-price order-total']")
+    public WebElement subtotal;
+    
+    @FindBy(xpath = "//span[@class='product-subtotal']")
+    public WebElement totalAmount;
+
+    @FindBy(name = "discountcouponcode")
+    public WebElement couponTextBox;
+
+    @FindBy(name = "applydiscountcouponcode")
+    public WebElement applyCouponButton;
+
+    @FindBy(name = "giftcardcouponcode")
+    public WebElement giftCardTextBox;
+
+    @FindBy(name = "applygiftcardcouponcode")
+    public WebElement applyGiftCardButton;
+
+    @FindBy(css = "div.message")
+    public WebElement validationMessage;
+
+    @FindBy(xpath = "//div[@class='order-summary-content']")
+    public WebElement emptyCartMessage;
 }

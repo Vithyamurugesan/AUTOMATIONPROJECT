@@ -1,92 +1,75 @@
 package com.actions;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.pages.LoginPageLocator;
 
-public class LoginAction {
+public class LoginAction extends BaseAction {
 
-	WebDriver driver;
+    WebDriver driver;
 
-	LoginPageLocator login;
+    public LoginAction(WebDriver driver) {
+        super(driver);
+        this.driver = driver;
+    }
 
-	public LoginAction(WebDriver driver) {
+    public void clicklogin() {
 
-		this.driver = driver;
+        click(LoginPageLocator.loginLink);
+    }
 
-		login = new LoginPageLocator(driver);
-	}
+    public void userEmail(String userEmail) {
 
-	public void clicklogin() {
+        type(LoginPageLocator.email, userEmail);
+    }
 
-		login.loginLink.click();
-	}
+    public void userPassword(String userPassword) {
 
-	public void userEmail(String userEmail) {
+        type(LoginPageLocator.password, userPassword);
+    }
 
-		login.Email.clear();
+    public void clickloginbtn() {
 
-		login.Email.sendKeys(userEmail);
-	}
+        click(LoginPageLocator.loginbtn);
+    }
 
-	public void userPassword(String userPassword) {
+    public String loggedUser() {
 
-		login.password.clear();
+        return getText(LoginPageLocator.useraccountname);
+    }
 
-		login.password.sendKeys(userPassword);
-	}
+    public boolean logout() {
 
-	public void clickloginbtn() {
+        return waitForVisibility(LoginPageLocator.logoutLink).isDisplayed();
+    }
 
-		login.loginbtn.click();
-	}
+    public void forgotpasswordclick() {
 
-	public void waitforhomepage(WebDriverWait wait) {
+        click(LoginPageLocator.forgotpasswordlink);
+    }
 
-		wait.until(ExpectedConditions.visibilityOf(login.useraccountname));
-	}
+    public void recoveryEmail(String email) {
 
-	public String loggedUser() {
+        type(LoginPageLocator.recoveryemail, email);
+    }
 
-		return login.useraccountname.getText();
-	}
+    public void recoverbutton() {
 
-	public boolean logout() {
+        click(LoginPageLocator.recoverbtn);
+    }
 
-		return login.logoutLink.isDisplayed();
-	}
+    public String getLoginErrorMessage() {
 
-	public void forgotpasswordclick() {
+        return getText(LoginPageLocator.loginErrorMessage);
+    }
 
-		login.forgotpasswordlink.click();
-	}
+    public String getRecoverySuccessMessage() {
 
-	public void recoveryEmail(String email) {
+        return getText(LoginPageLocator.recoverySuccessMessage);
+    }
 
-		login.recoveryemail.clear();
+    public String getValidationMessage() {
 
-		login.recoveryemail.sendKeys(email);
-	}
-
-	public void recoverbutton() {
-
-		login.recoverbtn.click();
-	}
-
-	public String getLoginErrorMessage() {
-
-		return login.loginErrorMessage.getText();
-	}
-
-	public String getRecoverySuccessMessage() {
-
-		return login.recoverySuccessMessage.getText();
-	}
-
-	public String getValidationMessage() {
-
-		return login.validationMessage.getText();
-	}
+        return getText(LoginPageLocator.validationMessage);
+    }
 }
