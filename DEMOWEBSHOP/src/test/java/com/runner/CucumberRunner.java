@@ -4,7 +4,8 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-        features ="src/test/resources/Features/ProductDetails.feature",
+
+        features = "src/test/resources/Features/",
         glue = "com.stepdefinitions",
         plugin = {
                 "pretty",
@@ -13,7 +14,7 @@ import io.cucumber.testng.CucumberOptions;
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
         },
-        monochrome = true
+        monochrome = true,tags="not @Ignore"
 )
 public class CucumberRunner extends AbstractTestNGCucumberTests {
 
