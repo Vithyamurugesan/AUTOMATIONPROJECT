@@ -2,7 +2,7 @@ package com.pages;
 
 import org.openqa.selenium.By;
 
-public class LoginPageLocator {
+public class LoginPage {
 
     public static By loginLink = By.cssSelector(".ico-login");
     public static By email = By.id("Email");
