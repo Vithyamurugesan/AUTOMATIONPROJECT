@@ -1,187 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="10" passed="10" failed="0" skipped="0">
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-05-18T14:14:39 IST" name="Default suite" finished-at="2026-05-18T14:16:32 IST" duration-ms="112529">
+  <suite started-at="2026-05-18T20:15:58 IST" name="Default suite" finished-at="2026-05-18T20:16:27 IST" duration-ms="29743">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.CucumberRunner@f58853c]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.CucumberRunner@565f390]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2026-05-18T14:14:39 IST" name="Default test" finished-at="2026-05-18T14:16:32 IST" duration-ms="112529">
+    <test started-at="2026-05-18T20:15:58 IST" name="Default test" finished-at="2026-05-18T20:16:27 IST" duration-ms="29743">
       <class name="com.runner.CucumberRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.runner.CucumberRunner@f58853c]" started-at="2026-05-18T14:14:39 IST" name="setUpClass" finished-at="2026-05-18T14:14:40 IST" duration-ms="962" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.runner.CucumberRunner@565f390]" started-at="2026-05-18T20:15:58 IST" name="setUpClass" finished-at="2026-05-18T20:15:59 IST" duration-ms="1231" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@393e7546]]>
+                <![CDATA[org.testng.TestRunner@35ceec81]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.CucumberRunner@f58853c]" started-at="2026-05-18T14:14:40 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-18T14:14:51 IST" duration-ms="11210" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.CucumberRunner@565f390]" started-at="2026-05-18T20:15:59 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-18T20:16:07 IST" duration-ms="8325" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Add product to wishlist"]]>
+                <![CDATA["Search product using valid keyword"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Vetrivel_17MAY2026_DEMOWEBSHOP_FeatureFileforWishlist"]]>
+                <![CDATA["Vetrivel_13MAY2025_DEMOWEBSHOP_FeatureFileforLogin"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.CucumberRunner@f58853c]" started-at="2026-05-18T14:14:51 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-18T14:15:02 IST" duration-ms="10674" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.CucumberRunner@565f390]" started-at="2026-05-18T20:16:07 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-18T20:16:13 IST" duration-ms="5691" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Add product to wishlist"]]>
+                <![CDATA["Search using invalid keyword"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Vetrivel_17MAY2026_DEMOWEBSHOP_FeatureFileforWishlist"]]>
+                <![CDATA["Vetrivel_13MAY2025_DEMOWEBSHOP_FeatureFileforLogin"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.CucumberRunner@f58853c]" started-at="2026-05-18T14:15:02 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-18T14:15:13 IST" duration-ms="10996" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.CucumberRunner@565f390]" started-at="2026-05-18T20:16:13 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-18T20:16:19 IST" duration-ms="5912" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Add product to wishlist"]]>
+                <![CDATA["Verify search is case insensitive"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Vetrivel_17MAY2026_DEMOWEBSHOP_FeatureFileforWishlist"]]>
+                <![CDATA["Vetrivel_13MAY2025_DEMOWEBSHOP_FeatureFileforLogin"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.CucumberRunner@f58853c]" started-at="2026-05-18T14:15:13 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-18T14:15:24 IST" duration-ms="10564" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.CucumberRunner@565f390]" started-at="2026-05-18T20:16:19 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-18T20:16:24 IST" duration-ms="5323" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Add product to wishlist"]]>
+                <![CDATA["Search without entering keyword"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Vetrivel_17MAY2026_DEMOWEBSHOP_FeatureFileforWishlist"]]>
+                <![CDATA["Vetrivel_13MAY2025_DEMOWEBSHOP_FeatureFileforLogin"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.CucumberRunner@f58853c]" started-at="2026-05-18T14:15:24 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-18T14:15:35 IST" duration-ms="11430" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["Remove product from wishlist"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Vetrivel_17MAY2026_DEMOWEBSHOP_FeatureFileforWishlist"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.CucumberRunner@f58853c]" started-at="2026-05-18T14:15:35 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-18T14:15:45 IST" duration-ms="10407" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["Remove product from wishlist"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Vetrivel_17MAY2026_DEMOWEBSHOP_FeatureFileforWishlist"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.CucumberRunner@f58853c]" started-at="2026-05-18T14:15:45 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-18T14:15:58 IST" duration-ms="12272" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["Add wishlist product to shopping cart"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Vetrivel_17MAY2026_DEMOWEBSHOP_FeatureFileforWishlist"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.CucumberRunner@f58853c]" started-at="2026-05-18T14:15:58 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-18T14:16:10 IST" duration-ms="12019" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["Add wishlist product to shopping cart"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Vetrivel_17MAY2026_DEMOWEBSHOP_FeatureFileforWishlist"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.CucumberRunner@f58853c]" started-at="2026-05-18T14:16:10 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-18T14:16:19 IST" duration-ms="9552" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["Verify added product is displayed in wishlist"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Vetrivel_17MAY2026_DEMOWEBSHOP_FeatureFileforWishlist"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.CucumberRunner@f58853c]" started-at="2026-05-18T14:16:19 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-18T14:16:29 IST" duration-ms="9408" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["Verify added product is displayed in wishlist"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Vetrivel_17MAY2026_DEMOWEBSHOP_FeatureFileforWishlist"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.runner.CucumberRunner@f58853c]" started-at="2026-05-18T14:16:29 IST" name="tearDownClass" finished-at="2026-05-18T14:16:32 IST" duration-ms="2926" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.runner.CucumberRunner@565f390]" started-at="2026-05-18T20:16:24 IST" name="tearDownClass" finished-at="2026-05-18T20:16:27 IST" duration-ms="3148" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

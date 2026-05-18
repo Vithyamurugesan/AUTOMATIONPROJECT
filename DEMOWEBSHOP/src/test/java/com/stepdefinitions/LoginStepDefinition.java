@@ -134,7 +134,6 @@ public class LoginStepDefinition {
 
     @Then("the Email input field should be visible")
     public void the_email_input_field_should_be_visible() {
-
         Assert.assertTrue(logaction.waitForVisibility(LoginPage.getRecoveryemail()).isDisplayed());
     }
 

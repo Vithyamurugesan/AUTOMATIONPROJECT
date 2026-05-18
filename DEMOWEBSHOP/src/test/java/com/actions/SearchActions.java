@@ -1,24 +1,20 @@
 package com.actions;
 
-import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.Alert;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.pages.SearchPage;
 
 public class SearchActions extends BaseAction {
 
-    WebDriver driver;
-    WebDriverWait wait;
     SearchPage searchPage;
 
-    public SearchActions(WebDriver driver) {
+    public SearchActions(org.openqa.selenium.WebDriver driver) {
         super(driver);
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         this.searchPage = new SearchPage();
     }
 
@@ -31,34 +27,48 @@ public class SearchActions extends BaseAction {
         click(searchPage.getSearchButton());
     }
 
-    public boolean verifySearchResultPage() {
-        return waitForVisibility(searchPage.getSearchResult()).isDisplayed();
+    public boolean verifySearchRedirect() {
+        return driver.getCurrentUrl().contains("search");
     }
 
-    public boolean verifyNoProductMessage() {
-        return waitForVisibility(searchPage.getNoResultMessage()).isDisplayed();
+    public boolean verifyResultsNotEmpty() {
+        List<WebElement> results=driver.findElements(By.cssSelector(".product-item"));
+        return results.size()>0;
     }
+    
+    public boolean verifyResultsContainKeyword(String keyword) {
 
-    public boolean acceptAlertIfPresent() {
+        List<WebElement> titles=driver.findElements(By.cssSelector(".product-title"));
 
-        try {
-            Alert alert=wait.until(ExpectedConditions.alertIsPresent());
-            System.out.println(alert.getText());
-
-            alert.accept();
-            return true;
+        for (WebElement element : titles) {
+            String text = element.getText().toLowerCase();
+            if (text.contains(keyword.toLowerCase())) {
+                return true;
+            }
         }
-        catch (Exception e) {
-            System.out.println("No alert present");
-        }
-        
         return false;
     }
 
+    public boolean verifyNoProductMessage() {
+        return waitForVisibility(searchPage.getNoResultMessage())
+                .isDisplayed();
+    }
+
     public boolean isWarningDisplayed() {
+        return waitForVisibility(searchPage.getWarningMessage())
+                .isDisplayed();
+    }
+    
+    public boolean handleAlertIfPresent() {
 
         try {
-            return waitForVisibility(searchPage.getWarningMessage()).isDisplayed();
+            Alert alert=wait.until(ExpectedConditions.alertIsPresent());
+
+            String text = alert.getText();
+            System.out.println("Alert message: "+text);
+
+            alert.accept();
+            return true;
         }
         catch (Exception e) {
             return false;

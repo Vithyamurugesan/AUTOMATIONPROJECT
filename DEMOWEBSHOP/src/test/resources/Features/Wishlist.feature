@@ -1,59 +1,32 @@
-Feature: Vetrivel_17MAY2026_DEMOWEBSHOP_FeatureFileforWishlist
-
-  Description:
-  As a user,
-  I want to add searched products to wishlist
-  so that I can save products for future purchase
+Feature: Wishlist Functionality
 
   Background:
     Given user is on the home page
 
   @AddWishlist
-  Scenario Outline: Add product to wishlist
+  Scenario: Add product to wishlist
 
-    When user searches and adds product "<product>" to wishlist
-    Then message "The product has been added to your wishlist" should be displayed
+    When user searches and adds wishlist product from excel
+    Then wishlist success message should be displayed
     And searched product should be added to the wishlist
 
-    Examples:
-      | product                     |
-      | Health Book                 |
-      | Fiction EX                  |
-      | Smartphone                  |
-      | Black & White Diamond Heart |
-
   @RemoveWishlist
-  Scenario Outline: Remove product from wishlist
+  Scenario: Remove product from wishlist
 
-    When user searches and adds product "<product>" to wishlist
+    When user searches and adds wishlist product from excel
     And user removes the product from wishlist
     Then wishlist should be empty
 
-    Examples:
-      | product     |
-      | Health Book |
-      | Fiction EX  |
-
   @WishlistToCart
-  Scenario Outline: Add wishlist product to shopping cart
+  Scenario: Add wishlist product to shopping cart
 
-    When user searches and adds product "<product>" to wishlist
+    When user searches and adds wishlist product from excel
     And user moves wishlist product to cart
     Then product should be added to shopping cart
 
-    Examples:
-      | product     |
-      | Health Book |
-      | Smartphone  |
-
   @DisplayWishlist
-  Scenario Outline: Verify added product is displayed in wishlist
+  Scenario: Verify product displayed in wishlist
 
-    When user searches and adds product "<product>" to wishlist
+    When user searches and adds wishlist product from excel
     And user navigates to wishlist page
     Then product should be displayed in wishlist
-
-    Examples:
-      | product                     |
-      | Health Book                 |
-      | Black & White Diamond Heart |
