@@ -168,50 +168,46 @@ public class checkoutAction extends BaseAction {
     	return getText(cp.regCompleted);
     }
 
-    public void billingForm(String str1,String str2,String str3,String str4,String str5,String str6,String str7,String str8,String str9,String str10,String str11,String str12) {
+    public void billingForm(String str1,String str2,String str3,
+        String str4,String str5,String str6,String str7,
+        String str8,String str9,String str10,String str11,
+        String str12) {
 
-    	try {
-    		
-    		Select dropdown1 = new Select(waitForVisibility(cp.existAddress));
-    		dropdown1.selectByVisibleText("New Address");
+    try {
 
-    		clear(cp.billFirstName);
-    		type(cp.billFirstName,str1);
-    		clear(cp.billLastName);
-            type(cp.billLastName,str2);
-            clear(cp.billEmail);
-            type(cp.billEmail,str3); 
-    	type(cp.billCompany, str4);
+        Select dropdown1 = new Select(waitForVisibility(cp.existAddress));
+        dropdown1.selectByVisibleText("New Address");
 
-    	Select dropdown = new Select(waitForVisibility(cp.billCountry));
-    	dropdown.selectByValue(str5);
+        clear(cp.billFirstName);
+        type(cp.billFirstName, str1);
+        clear(cp.billLastName);
+        type(cp.billLastName, str2);
+        clear(cp.billEmail);
+        type(cp.billEmail, str3);
+        type(cp.billCompany, str4);
+        Select country =  new Select(waitForVisibility(cp.billCountry));
+        country.selectByValue(str5);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement stateElement = wait.until( ExpectedConditions.visibilityOfElementLocated(By.id("BillingNewAddress_StateProvinceId")));
+        Select state = new Select(stateElement);
+          wait.until(driver -> state.getOptions().size() > 0);
+        state.selectByValue(str6); 
+        type(cp.billCity, str7);
+        type(cp.billAddress1, str8);
+        type(cp.billAddress2, str9);
+        type(cp.billZip, str10);
+        type(cp.billNumber, str11);
+        type(cp.billFax, str12);
 
-    	WebDriverWait wait =  new WebDriverWait(driver, Duration.ofSeconds(10));
+        log.info("billing fill completed");
 
-    	WebElement stateDropdown =
-    	        wait.until(
-    	        ExpectedConditions.elementToBeClickable(
-    	        By.id("BillingNewAddress_StateProvinceId")));
-
-    	Select dropdown2 =
-    	        new Select(stateDropdown);
-
-    	dropdown2.selectByValue(str6);
-
-    	type(cp.billCity,str7);
-    	type(cp.billAddress1,str8);
-    	type(cp.billAddress2,str9);
-    	type(cp.billZip, str10);
-    	type(cp.billNumber,str11);
-    	type(cp.billFax, str12);
-
-    	log.info("billing fill completed");
-    	}
-    	catch(Exception e) {
-    		log.error("billing fail",e);
-    		throw e;
-    	}
     }
+    catch(Exception e) {
+
+        log.error("billing fail", e);
+        throw e;
+    }
+}
 
 	public void BillContinue() {
 		try {
