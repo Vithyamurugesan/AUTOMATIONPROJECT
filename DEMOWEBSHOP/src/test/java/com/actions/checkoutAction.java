@@ -23,10 +23,15 @@ public class checkoutAction extends BaseAction {
 
     checkoutPage cp;
 
-    Actions ac = new Actions(driver);
+    Actions ac;
     CartAction cart;
     LoginAction login;
     Logger log = LogManager.getLogger(checkoutAction.class);
+    
+    public void actionClick(By locator) {
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
+        ac.moveToElement(element).click().perform();
+    }
 
 
     public checkoutAction(WebDriver driver) {
@@ -34,6 +39,7 @@ public class checkoutAction extends BaseAction {
 		cp = new checkoutPage();
 		cart= new CartAction(driver);
 		login = new LoginAction(driver);
+		ac = new Actions(driver);
 		log.info("browser open");
 	}
 
@@ -72,16 +78,18 @@ public class checkoutAction extends BaseAction {
     }
 
     public void click_checkBox() {
-        jsClick(cp.checkbox);
+        actionClick(cp.checkbox);
     }
 
     public void click_checkout() {
-        jsClick(cp.checkoutButton);
+        actionClick(cp.checkoutButton);
     }
 
     public String checkoutPage() {
         return getText(cp.checkoutText);
     }
+
+   
 
 
     public void addAproductGuest() {
@@ -237,12 +245,12 @@ public class checkoutAction extends BaseAction {
 		return getText(cp.wrongEmail);
 	}
 
-	public void ShippingAddress(int str) {
+public void ShippingAddress() {
 
-		try {
+	try {
 
 		Select dropdown = new Select(waitForVisibility(cp.ShippingDrop));
-		dropdown.selectByIndex(str);
+		dropdown.selectByIndex(1);
 
 		log.info("shipping address selected");
 		}
@@ -270,7 +278,7 @@ public class checkoutAction extends BaseAction {
 	}
 
 	public void shippingCheckbox() {
-		click(cp.shippingcheckbox);
+		actionClick(cp.shippingcheckbox);
 	}
 
 	public String paymentText() {
@@ -281,7 +289,7 @@ public class checkoutAction extends BaseAction {
 
 		try {
 
-		click(cp.cashOnMethod);
+		actionClick(cp.cashOnMethod);
 		log.info("cash on delivery selected");
 		}
 		catch(Exception e) {

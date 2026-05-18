@@ -209,11 +209,10 @@ public void the_user_in_the_checkout_pages_of_shipping_section() {
 
     System.out.println("User reached Shipping Address page");
 }
-//......................
-@When("the user select the Address from the dropdown and select {string}")
-public void the_user_select_the_address_from_the_dropdown_and_select(String string) {
-	int address = Integer.parseInt(string);
-	AC.ShippingAddress(address);
+
+@When("the user selects the first address from the dropdown")
+public void the_user_selects_the_first_address_from_the_dropdown() {
+	AC.ShippingAddress();
 }
 	
 	
