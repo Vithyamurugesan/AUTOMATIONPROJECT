@@ -16,7 +16,7 @@ import io.cucumber.testng.CucumberOptions;
                 "html:target/rerun-report.html",
                 "json:target/rerun.json"
         },
-
+       
         monochrome = true
 )
 

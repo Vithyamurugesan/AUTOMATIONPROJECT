@@ -165,10 +165,16 @@ public class checkoutAction extends BaseAction {
     public void billingForm(String str1,String str2,String str3,String str4,String str5,String str6,String str7,String str8,String str9,String str10,String str11,String str12) {
 
     	try {
+    		
+    		Select dropdown1 = new Select(waitForVisibility(cp.existAddress));
+    		dropdown1.selectByVisibleText("New Address");
 
-    	type(cp.billFirstName,str1);
-    	type(cp.billLastName,str2);
-    	type(cp.billEmail,str3);
+    		clear(cp.billFirstName);
+    		type(cp.billFirstName,str1);
+    		clear(cp.billLastName);
+            type(cp.billLastName,str2);
+            clear(cp.billEmail);
+            type(cp.billEmail,str3); 
     	type(cp.billCompany, str4);
 
     	Select dropdown = new Select(waitForVisibility(cp.billCountry));

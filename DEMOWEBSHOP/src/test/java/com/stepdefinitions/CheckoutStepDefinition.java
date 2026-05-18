@@ -97,12 +97,10 @@ public void the_user_click_continue_button() {
 
 @Given("the user is in the checkout page")
 public void the_user_is_in_the_checkout_page() {
-    
 
-    AC.addAproductGuest();      // add product
-    AC.click_checkBox();        // accept terms
-    AC.click_checkout();        // click checkout
-    AC.GuestLogin();            // checkout as guest
+    AC.productAddInCart();      // ✔ Login flow
+    AC.click_checkBox();
+    AC.click_checkout();
 
     String act = AC.checkoutPage();
     String exp = "Checkout";

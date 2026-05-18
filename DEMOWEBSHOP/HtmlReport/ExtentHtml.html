@@ -49,7 +49,7 @@
 		<!-- nav-right -->
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<a href='#!'>
-			<span class='label blue darken-3 suite-start-time'>May 18, 2026 02:14:39 pm</span>
+			<span class='label blue darken-3 suite-start-time'>May 18, 2026 08:20:28 pm</span>
 			</a>
 		</ul>
 	</div>
@@ -76,10 +76,7 @@
 				<i class='material-icons'>local_offer</i> Category
 				</a>
 				<ul id='category-toggle' class='dropdown-content'>
-					<li><a href='#'>@WishlistToCart</a></li>
-					<li><a href='#'>@RemoveWishlist</a></li>
-					<li><a href='#'>@AddWishlist</a></li>
-					<li><a href='#'>@DisplayWishlist</a></li>
+					<li><a href='#'>@scenario_7</a></li>
 					<li class='divider'></li>
 					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
 				</ul>
@@ -140,7 +137,7 @@
                 </div>
                 <div class='block text-small'>
                     <span class='tooltipped' data-position='top' data-tooltip='100%'>
-                    <span class='strong'>10</span> scenarios passed</span>
+                    <span class='strong'>1</span> scenarios passed</span>
                 </div>
                 <div class='block text-small'>
                     <span class='strong tooltipped' data-position='top' data-tooltip='0%'>
@@ -160,7 +157,7 @@
                 </div>
                 <div class='block text-small'>
                     <span class='tooltipped' data-position='top' data-tooltip='100%'>
-                    <span class='strong'>40</span> steps passed</span>
+                    <span class='strong'>5</span> steps passed</span>
                 </div>
                 <div class='block text-small'>
                     <span class='strong tooltipped' data-position='top' data-tooltip='0%'>
@@ -189,8 +186,8 @@
 			<ul id='test-collection' class='test-collection'>
 				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>Vetrivel_17MAY2026_DEMOWEBSHOP_FeatureFileforWishlist</span>
-						<span class='test-time'>May 18, 2026 02:14:41 pm</span>
+						<span class='test-name'>JeevaPranesh_13MAY2026_To procedure check out page from cart</span>
+						<span class='test-time'>May 18, 2026 08:20:29 pm</span>
 						<span class='test-status right pass'>Pass</span>
 					</div>
 					<div class='test-content hide'>
@@ -200,318 +197,45 @@
 	<a class="btn-floating waves-effect waves-light skip blue" title="skip"><i class='material-icons'>redo</i></a>
 	<a class="btn-floating waves-effect waves-light clear grey" title="clear"><i class='material-icons'>clear</i></a>
 </div>
-	<div class='test-desc'>  Description: As a user, I want to add searched products to wishlist
-  so that I can save products for future purchase</div>
+	<div class='test-desc'>description: As a user, I want to be able to proceed to the checkout page from the cart so that I can complete my purchase.</div>
 
-<div class='scenario outline node' test-id='2' status='pass'>
+<div class='scenario node' test-id='2' status='pass'>
 
-	<span class='duration right label'>00 00 43.074</span>
+	<span class='duration right label'>00 00 24.952</span>
 	<div class="bdd-test">
-		<div class="scenario-name"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span> Scenario Outline: Add product to wishlist</div>
+		<div class="scenario-name"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span> Scenario: selecting in-store pickup checkout</div>
 	</div>
 	
-		<div class='node-desc'><br><br><table class='markup-table table '><tr><td>product</td></tr><tr><td>Health Book</td></tr><tr><td>Fiction EX</td></tr><tr><td>Smartphone</td></tr><tr><td>Black & White Diamond Heart</td></tr></table></div>
 	
-	
-	<ul class='steps'>
-		<li test-id='3' class='node scenario Pass' status='Pass'>
-			<div class="step-name" title="()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Add product to wishlist</div>
-
-				<div class='category-list'>
-						<span class='category label'>@AddWishlist</span>
-				</div>
-
-			<ul class='gc steps'>
-				<li test-id='5' class='gc given Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.SearchStepDefinition.user_is_on_the_home_page()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Given user is on the home page</h6>
-
-				</li>
-				<li test-id='6' class='gc when Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.WishlistStepDefinition.user_searches_and_adds_product_to_wishlist(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>When user searches and adds product "Health Book" to wishlist</h6>
-
-				</li>
-				<li test-id='7' class='gc then Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.WishlistStepDefinition.message_should_be_displayed(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Then message "The product has been added to your wishlist" should be displayed</h6>
-
-				</li>
-				<li test-id='8' class='gc and Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.WishlistStepDefinition.searched_product_should_be_added_to_the_wishlist()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And searched product should be added to the wishlist</h6>
-
-				</li>
-			</ul>
-		</li>
-		<li test-id='10' class='node scenario Pass' status='Pass'>
-			<div class="step-name" title="()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Add product to wishlist</div>
-
-				<div class='category-list'>
-						<span class='category label'>@AddWishlist</span>
-				</div>
-
-			<ul class='gc steps'>
-				<li test-id='12' class='gc given Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.SearchStepDefinition.user_is_on_the_home_page()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Given user is on the home page</h6>
-
-				</li>
-				<li test-id='13' class='gc when Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.WishlistStepDefinition.user_searches_and_adds_product_to_wishlist(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>When user searches and adds product "Fiction EX" to wishlist</h6>
-
-				</li>
-				<li test-id='14' class='gc then Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.WishlistStepDefinition.message_should_be_displayed(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Then message "The product has been added to your wishlist" should be displayed</h6>
-
-				</li>
-				<li test-id='15' class='gc and Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.WishlistStepDefinition.searched_product_should_be_added_to_the_wishlist()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And searched product should be added to the wishlist</h6>
-
-				</li>
-			</ul>
-		</li>
-		<li test-id='17' class='node scenario Pass' status='Pass'>
-			<div class="step-name" title="()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Add product to wishlist</div>
-
-				<div class='category-list'>
-						<span class='category label'>@AddWishlist</span>
-				</div>
-
-			<ul class='gc steps'>
-				<li test-id='19' class='gc given Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.SearchStepDefinition.user_is_on_the_home_page()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Given user is on the home page</h6>
-
-				</li>
-				<li test-id='20' class='gc when Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.WishlistStepDefinition.user_searches_and_adds_product_to_wishlist(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>When user searches and adds product "Smartphone" to wishlist</h6>
-
-				</li>
-				<li test-id='21' class='gc then Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.WishlistStepDefinition.message_should_be_displayed(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Then message "The product has been added to your wishlist" should be displayed</h6>
-
-				</li>
-				<li test-id='22' class='gc and Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.WishlistStepDefinition.searched_product_should_be_added_to_the_wishlist()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And searched product should be added to the wishlist</h6>
-
-				</li>
-			</ul>
-		</li>
-		<li test-id='24' class='node scenario Pass' status='Pass'>
-			<div class="step-name" title="()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Add product to wishlist</div>
-
-				<div class='category-list'>
-						<span class='category label'>@AddWishlist</span>
-				</div>
-
-			<ul class='gc steps'>
-				<li test-id='26' class='gc given Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.SearchStepDefinition.user_is_on_the_home_page()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Given user is on the home page</h6>
-
-				</li>
-				<li test-id='27' class='gc when Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.WishlistStepDefinition.user_searches_and_adds_product_to_wishlist(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>When user searches and adds product "Black & White Diamond Heart" to wishlist</h6>
-
-				</li>
-				<li test-id='28' class='gc then Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.WishlistStepDefinition.message_should_be_displayed(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Then message "The product has been added to your wishlist" should be displayed</h6>
-
-				</li>
-				<li test-id='29' class='gc and Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.WishlistStepDefinition.searched_product_should_be_added_to_the_wishlist()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And searched product should be added to the wishlist</h6>
-
-				</li>
-			</ul>
-		</li>
-	</ul>
-</div>
-<div class='scenario outline node' test-id='31' status='pass'>
-
-	<span class='duration right label'>00 00 21.829</span>
-	<div class="bdd-test">
-		<div class="scenario-name"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span> Scenario Outline: Remove product from wishlist</div>
-	</div>
-	
-		<div class='node-desc'><br><br><table class='markup-table table '><tr><td>product</td></tr><tr><td>Health Book</td></tr><tr><td>Fiction EX</td></tr></table></div>
-	
+		<div class='category-list'>
+				<span class='category label'>@scenario_7</span>
+		</div>
 	
 	<ul class='steps'>
-		<li test-id='32' class='node scenario Pass' status='Pass'>
-			<div class="step-name" title="()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Remove product from wishlist</div>
+		<li test-id='4' class='node given Pass' status='Pass'>
+			<div class="step-name" title="(com.stepdefinitions.CheckoutStepDefinition.user_is_on_the_demo_web_page_website())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Given user is on the demoWebPage website</div>
 
-				<div class='category-list'>
-						<span class='category label'>@RemoveWishlist</span>
-				</div>
 
-			<ul class='gc steps'>
-				<li test-id='34' class='gc given Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.SearchStepDefinition.user_is_on_the_home_page()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Given user is on the home page</h6>
-
-				</li>
-				<li test-id='35' class='gc when Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.WishlistStepDefinition.user_searches_and_adds_product_to_wishlist(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>When user searches and adds product "Health Book" to wishlist</h6>
-
-				</li>
-				<li test-id='36' class='gc and Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.WishlistStepDefinition.user_removes_the_product_from_wishlist()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And user removes the product from wishlist</h6>
-
-				</li>
-				<li test-id='37' class='gc then Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.WishlistStepDefinition.wishlist_should_be_empty()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Then wishlist should be empty</h6>
-
-				</li>
-			</ul>
 		</li>
-		<li test-id='39' class='node scenario Pass' status='Pass'>
-			<div class="step-name" title="()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Remove product from wishlist</div>
+		<li test-id='5' class='node given Pass' status='Pass'>
+			<div class="step-name" title="(com.stepdefinitions.CheckoutStepDefinition.the_user_in_the_checkout_pages_of_shipping_section())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Given the user in the checkout pages of shipping section</div>
 
-				<div class='category-list'>
-						<span class='category label'>@RemoveWishlist</span>
-				</div>
 
-			<ul class='gc steps'>
-				<li test-id='41' class='gc given Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.SearchStepDefinition.user_is_on_the_home_page()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Given user is on the home page</h6>
-
-				</li>
-				<li test-id='42' class='gc when Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.WishlistStepDefinition.user_searches_and_adds_product_to_wishlist(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>When user searches and adds product "Fiction EX" to wishlist</h6>
-
-				</li>
-				<li test-id='43' class='gc and Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.WishlistStepDefinition.user_removes_the_product_from_wishlist()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And user removes the product from wishlist</h6>
-
-				</li>
-				<li test-id='44' class='gc then Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.WishlistStepDefinition.wishlist_should_be_empty()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Then wishlist should be empty</h6>
-
-				</li>
-			</ul>
 		</li>
-	</ul>
-</div>
-<div class='scenario outline node' test-id='46' status='pass'>
+		<li test-id='6' class='node when Pass' status='Pass'>
+			<div class="step-name" title="(com.stepdefinitions.CheckoutStepDefinition.the_user_click_the_check_box_of_in_store_pickup())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>When the user click the checkBox of In-Store Pickup</div>
 
-	<span class='duration right label'>00 00 24.283</span>
-	<div class="bdd-test">
-		<div class="scenario-name"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span> Scenario Outline: Add wishlist product to shopping cart</div>
-	</div>
-	
-		<div class='node-desc'><br><br><table class='markup-table table '><tr><td>product</td></tr><tr><td>Health Book</td></tr><tr><td>Smartphone</td></tr></table></div>
-	
-	
-	<ul class='steps'>
-		<li test-id='47' class='node scenario Pass' status='Pass'>
-			<div class="step-name" title="()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Add wishlist product to shopping cart</div>
 
-				<div class='category-list'>
-						<span class='category label'>@WishlistToCart</span>
-				</div>
-
-			<ul class='gc steps'>
-				<li test-id='49' class='gc given Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.SearchStepDefinition.user_is_on_the_home_page()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Given user is on the home page</h6>
-
-				</li>
-				<li test-id='50' class='gc when Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.WishlistStepDefinition.user_searches_and_adds_product_to_wishlist(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>When user searches and adds product "Health Book" to wishlist</h6>
-
-				</li>
-				<li test-id='51' class='gc and Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.WishlistStepDefinition.user_moves_wishlist_product_to_cart()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And user moves wishlist product to cart</h6>
-
-				</li>
-				<li test-id='52' class='gc then Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.WishlistStepDefinition.product_should_be_added_to_shopping_cart()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Then product should be added to shopping cart</h6>
-
-				</li>
-			</ul>
 		</li>
-		<li test-id='54' class='node scenario Pass' status='Pass'>
-			<div class="step-name" title="()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Add wishlist product to shopping cart</div>
+		<li test-id='7' class='node and Pass' status='Pass'>
+			<div class="step-name" title="(com.stepdefinitions.CheckoutStepDefinition.the_user_click_the_continue_button_in_shipping_section())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And the user click the continue button in shipping section</div>
 
-				<div class='category-list'>
-						<span class='category label'>@WishlistToCart</span>
-				</div>
 
-			<ul class='gc steps'>
-				<li test-id='56' class='gc given Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.SearchStepDefinition.user_is_on_the_home_page()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Given user is on the home page</h6>
-
-				</li>
-				<li test-id='57' class='gc when Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.WishlistStepDefinition.user_searches_and_adds_product_to_wishlist(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>When user searches and adds product "Smartphone" to wishlist</h6>
-
-				</li>
-				<li test-id='58' class='gc and Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.WishlistStepDefinition.user_moves_wishlist_product_to_cart()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And user moves wishlist product to cart</h6>
-
-				</li>
-				<li test-id='59' class='gc then Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.WishlistStepDefinition.product_should_be_added_to_shopping_cart()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Then product should be added to shopping cart</h6>
-
-				</li>
-			</ul>
 		</li>
-	</ul>
-</div>
-<div class='scenario outline node' test-id='61' status='pass'>
+		<li test-id='8' class='node then Pass' status='Pass'>
+			<div class="step-name" title="(com.stepdefinitions.CheckoutStepDefinition.the_user_move_to_direct_to_the_payment_method())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Then the user move to direct to the Payment method</div>
 
-	<span class='duration right label'>00 00 18.951</span>
-	<div class="bdd-test">
-		<div class="scenario-name"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span> Scenario Outline: Verify added product is displayed in wishlist</div>
-	</div>
-	
-		<div class='node-desc'><br><br><table class='markup-table table '><tr><td>product</td></tr><tr><td>Health Book</td></tr><tr><td>Black & White Diamond Heart</td></tr></table></div>
-	
-	
-	<ul class='steps'>
-		<li test-id='62' class='node scenario Pass' status='Pass'>
-			<div class="step-name" title="()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Verify added product is displayed in wishlist</div>
 
-				<div class='category-list'>
-						<span class='category label'>@DisplayWishlist</span>
-				</div>
-
-			<ul class='gc steps'>
-				<li test-id='64' class='gc given Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.SearchStepDefinition.user_is_on_the_home_page()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Given user is on the home page</h6>
-
-				</li>
-				<li test-id='65' class='gc when Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.WishlistStepDefinition.user_searches_and_adds_product_to_wishlist(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>When user searches and adds product "Health Book" to wishlist</h6>
-
-				</li>
-				<li test-id='66' class='gc and Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.WishlistStepDefinition.user_navigates_to_wishlist_page()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And user navigates to wishlist page</h6>
-
-				</li>
-				<li test-id='67' class='gc then Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.WishlistStepDefinition.product_should_be_displayed_in_wishlist()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Then product should be displayed in wishlist</h6>
-
-				</li>
-			</ul>
-		</li>
-		<li test-id='69' class='node scenario Pass' status='Pass'>
-			<div class="step-name" title="()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Verify added product is displayed in wishlist</div>
-
-				<div class='category-list'>
-						<span class='category label'>@DisplayWishlist</span>
-				</div>
-
-			<ul class='gc steps'>
-				<li test-id='71' class='gc given Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.SearchStepDefinition.user_is_on_the_home_page()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Given user is on the home page</h6>
-
-				</li>
-				<li test-id='72' class='gc when Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.WishlistStepDefinition.user_searches_and_adds_product_to_wishlist(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>When user searches and adds product "Black & White Diamond Heart" to wishlist</h6>
-
-				</li>
-				<li test-id='73' class='gc and Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.WishlistStepDefinition.user_navigates_to_wishlist_page()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And user navigates to wishlist page</h6>
-
-				</li>
-				<li test-id='74' class='gc then Pass' status='Pass'>
-					<h6 class="step-name" title="com.stepdefinitions.WishlistStepDefinition.product_should_be_displayed_in_wishlist()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Then product should be displayed in wishlist</h6>
-
-				</li>
-			</ul>
 		</li>
 	</ul>
 </div>
@@ -559,14 +283,14 @@
 			<ul id='category-collection' class='category-collection'>
 				<li class='category displayed active'>
 					<div class='category-heading'>
-						<span class='category-name'>@WishlistToCart</span>
+						<span class='category-name'>@scenario_7</span>
 						<span class='category-status right'>
-						<span class='label pass'>2</span>
+						<span class='label pass'>1</span>
 						</span>
 					</div>
 					<div class='category-content hide'>
 						<div class='category-status-counts'>
-							<span status="pass" class='label green accent-4 white-text'>Passed: 2</span>
+							<span status="pass" class='label green accent-4 white-text'>Passed: 1</span>
 							
 							
 						</div>
@@ -581,137 +305,8 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>May 18, 2026 02:15:45 pm</td>
-										<td class='linked' test-id='47'>Add wishlist product to shopping cart</td>
-										<td><span class='test-status Pass'>Pass</span></td>
-									</tr>
-									<tr>
-										<td>May 18, 2026 02:15:58 pm</td>
-										<td class='linked' test-id='54'>Add wishlist product to shopping cart</td>
-										<td><span class='test-status Pass'>Pass</span></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</li>
-				<li class='category displayed active'>
-					<div class='category-heading'>
-						<span class='category-name'>@RemoveWishlist</span>
-						<span class='category-status right'>
-						<span class='label pass'>2</span>
-						</span>
-					</div>
-					<div class='category-content hide'>
-						<div class='category-status-counts'>
-							<span status="pass" class='label green accent-4 white-text'>Passed: 2</span>
-							
-							
-						</div>
-						<div class='category-tests'>
-							<table class='bordered table-results'>
-								<thead>
-									<tr>
-										<th>Timestamp</th>
-										<th>TestName</th>
-										<th>Status</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>May 18, 2026 02:15:24 pm</td>
-										<td class='linked' test-id='32'>Remove product from wishlist</td>
-										<td><span class='test-status Pass'>Pass</span></td>
-									</tr>
-									<tr>
-										<td>May 18, 2026 02:15:35 pm</td>
-										<td class='linked' test-id='39'>Remove product from wishlist</td>
-										<td><span class='test-status Pass'>Pass</span></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</li>
-				<li class='category displayed active'>
-					<div class='category-heading'>
-						<span class='category-name'>@AddWishlist</span>
-						<span class='category-status right'>
-						<span class='label pass'>4</span>
-						</span>
-					</div>
-					<div class='category-content hide'>
-						<div class='category-status-counts'>
-							<span status="pass" class='label green accent-4 white-text'>Passed: 4</span>
-							
-							
-						</div>
-						<div class='category-tests'>
-							<table class='bordered table-results'>
-								<thead>
-									<tr>
-										<th>Timestamp</th>
-										<th>TestName</th>
-										<th>Status</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>May 18, 2026 02:14:41 pm</td>
-										<td class='linked' test-id='3'>Add product to wishlist</td>
-										<td><span class='test-status Pass'>Pass</span></td>
-									</tr>
-									<tr>
-										<td>May 18, 2026 02:14:51 pm</td>
-										<td class='linked' test-id='10'>Add product to wishlist</td>
-										<td><span class='test-status Pass'>Pass</span></td>
-									</tr>
-									<tr>
-										<td>May 18, 2026 02:15:02 pm</td>
-										<td class='linked' test-id='17'>Add product to wishlist</td>
-										<td><span class='test-status Pass'>Pass</span></td>
-									</tr>
-									<tr>
-										<td>May 18, 2026 02:15:13 pm</td>
-										<td class='linked' test-id='24'>Add product to wishlist</td>
-										<td><span class='test-status Pass'>Pass</span></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</li>
-				<li class='category displayed active'>
-					<div class='category-heading'>
-						<span class='category-name'>@DisplayWishlist</span>
-						<span class='category-status right'>
-						<span class='label pass'>2</span>
-						</span>
-					</div>
-					<div class='category-content hide'>
-						<div class='category-status-counts'>
-							<span status="pass" class='label green accent-4 white-text'>Passed: 2</span>
-							
-							
-						</div>
-						<div class='category-tests'>
-							<table class='bordered table-results'>
-								<thead>
-									<tr>
-										<th>Timestamp</th>
-										<th>TestName</th>
-										<th>Status</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>May 18, 2026 02:16:10 pm</td>
-										<td class='linked' test-id='62'>Verify added product is displayed in wishlist</td>
-										<td><span class='test-status Pass'>Pass</span></td>
-									</tr>
-									<tr>
-										<td>May 18, 2026 02:16:19 pm</td>
-										<td class='linked' test-id='69'>Verify added product is displayed in wishlist</td>
+										<td>May 18, 2026 08:20:29 pm</td>
+										<td class='linked' test-id='2'>selecting in-store pickup checkout</td>
 										<td><span class='test-status Pass'>Pass</span></td>
 									</tr>
 								</tbody>
@@ -742,31 +337,31 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Scenarios
-					<div class='panel-lead'>10</div>
+					<div class='panel-lead'>1</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>40</div>
+					<div class='panel-lead'>5</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>May 18, 2026 02:14:39 pm</div>
+					<div class='panel-lead'>May 18, 2026 08:20:28 pm</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>May 18, 2026 02:16:29 pm</div>
+			 		<div class='panel-lead'>May 18, 2026 08:20:54 pm</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>00 01 49.276</div>
+					<div class='panel-lead'>00 00 26.232</div>
 				</div>
 			</div>
 			<div class='col s4'>
@@ -802,35 +397,8 @@
 							<th>Passed %</th>
 						</tr>
 						<tr>
-							<td>@WishlistToCart</td>
-							<td>2</td>
-							<td>0</td>
-							<td>0</td>
-							<td>
-									100%
-							</td>
-						</tr>
-						<tr>
-							<td>@RemoveWishlist</td>
-							<td>2</td>
-							<td>0</td>
-							<td>0</td>
-							<td>
-									100%
-							</td>
-						</tr>
-						<tr>
-							<td>@AddWishlist</td>
-							<td>4</td>
-							<td>0</td>
-							<td>0</td>
-							<td>
-									100%
-							</td>
-						</tr>
-						<tr>
-							<td>@DisplayWishlist</td>
-							<td>2</td>
+							<td>@scenario_7</td>
+							<td>1</td>
 							<td>0</td>
 							<td>0</td>
 							<td>
@@ -855,16 +423,16 @@
 				errorParent: 0,
 				warningParent: 0,
 				skipParent: 0,
-				childCount: 10,
-				passChild: 10,
+				childCount: 1,
+				passChild: 1,
 				failChild: 0,
 				fatalChild: 0,
 				errorChild: 0,
 				warningChild: 0,
 				skipChild: 0,
 				infoChild: 0,
-				grandChildCount: 40,
-				passGrandChild: 40,
+				grandChildCount: 5,
+				passGrandChild: 5,
 				failGrandChild: 0,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,
@@ -876,7 +444,7 @@
 		
 		<script>
 			var timeline = {
-			        "Vetrivel_17MAY2026_DEMOWEBSHOP_FeatureFileforWishlist":108.179
+			        "JeevaPranesh_13MAY2026_To procedure check out page from cart":24.956
 			};
 		</script>
 		
