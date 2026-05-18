@@ -1,4 +1,7 @@
-Feature: Haritha_13MAY2025_DEMOWEBSHOP_FeatureFileforLogin
+Feature: Haritha_13MAY2025_DEMOWEBSHOP_Feature File for Login
+Description:
+This feature verifies login authentication, invalid login handling, forgot password navigation,
+and password recovery functionality in the Demo Web Shop application.
 
   @login @smoke
   Scenario Outline: Successful login with valid credentials
@@ -11,10 +14,10 @@ Feature: Haritha_13MAY2025_DEMOWEBSHOP_FeatureFileforLogin
     And the logged-in user email should be displayed in the header
     And the Log out link should be visible
 
-    Examples:
-      | email               | password |
-      | haritha11@gmail.com | haritha  |
 
+Examples:
+| email | password |
+| dummy | dummy    |
   @invalid
   Scenario Outline: Login with invalid credentials
     Given the user is on the Demo Web Shop login page
@@ -43,35 +46,15 @@ Feature: Haritha_13MAY2025_DEMOWEBSHOP_FeatureFileforLogin
     And the page title should display "Password recovery"
     And the Email input field should be visible
 
-  @password-recovery @positive
-  Scenario Outline: Password recovery request submitted successfully
+  @password-recovery
+  Scenario Outline: Verify password recovery functionality
     Given the user is on the Password Recovery page
     When the user enters a recovery email "<email>"
     And the user clicks the Recover button
-    Then a success message "<message>" should be displayed
+    Then the system should display recovery message "<message>"
 
     Examples:
       | email               | message                                       |
       | haritha11@gmail.com | Email with instructions has been sent to you. |
-
-  @password-recovery @negative
-  Scenario Outline: Password recovery attempted with invalid email
-    Given the user is on the Password Recovery page
-    When the user enters an invalid email "<email>"
-    And the user clicks the Recover button
-    Then the system should display an error message "<message>"
-
-    Examples:
-      | email            | message     |
-      | harithagmail.com | Wrong email |
-
-  @password-recovery @validation
-  Scenario Outline: Validation shown when email field is empty on recovery page
-    Given the user is on the Password Recovery page
-    When the user clicks the Recover button without entering an email
-    Then a validation message "<message>" should be displayed
-    And the user should remain on the Password Recovery page
-
-    Examples:
-      | message          |
-      | Enter your email |
+      | harithagmail.com    | Wrong email                                   |
+      |                     | Enter your email                              |
