@@ -5,7 +5,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
 
-        features = "src/test/resources/Features/",
+        features = "src/test/resources/Features/checkout.feature",
         glue = "com.stepdefinitions",
         plugin = {
                 "pretty",
@@ -15,12 +15,9 @@ import io.cucumber.testng.CucumberOptions;
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
                 "rerun:target/failed_scenarios.txt"
         },
-<<<<<<< HEAD
-        //tags="@scenario_9",
+       tags = "@scenario_6",
         monochrome = true
-=======
-        monochrome = true,tags="not @Ignore"
->>>>>>> 52d1f6d5f2217b9ca1bd0d5a85c41a687f3d3cf3
+
 )
 public class CucumberRunner extends AbstractTestNGCucumberTests {
 

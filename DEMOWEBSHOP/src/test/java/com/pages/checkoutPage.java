@@ -14,7 +14,8 @@ public class checkoutPage {
 	public By loginButton = By.xpath("//input[@value='Log in']");
 	public By book = By.xpath("//ul[@class='top-menu']//a[normalize-space()='Books']");
 
-	public By addToCart = By.xpath("//body[1]/div[4]/div[1]/div[4]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[2]/div[3]/div[2]/input[1]");
+	public By addToCart =
+			By.xpath("(//input[@value='Add to cart'])[1]");
 	public By cart = By.xpath("//a[@class='ico-cart']");
 	public By checkbox = By.xpath("//input[@id='termsofservice']");
 	public By checkoutButton = By.xpath("//button[@id='checkout']");
@@ -61,7 +62,7 @@ public class checkoutPage {
 	public By ShippingDrop= By.xpath("//select[@id='shipping-address-select']");
 	public By shippingContinue =By.xpath("//input[@onclick='Shipping.save()']");
 	public By ShippingMethodtext = By.xpath("//label[normalize-space()='Ground (0.00)']");
-	
+	public By addSuccess = By.xpath("//p[contains(text(),'The product has been added to your shopping cart')]");
 	
 	//scenario-6
 	public By shippingcheckbox = By.xpath("//input[@id='PickUpInStore']");

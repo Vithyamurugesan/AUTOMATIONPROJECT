@@ -6,6 +6,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import com.pages.checkoutPage;
@@ -13,6 +15,7 @@ import com.pages.checkoutPage;
 public class checkoutAction extends BaseAction {
 
     checkoutPage cp;
+    Actions ac = new Actions(driver);
 
     Logger log = LogManager.getLogger(checkoutAction.class);
 
@@ -32,8 +35,15 @@ public class checkoutAction extends BaseAction {
         click(cp.loginButton);
         log.info("login successful");
         click(cp.book);
+       
         click(cp.addToCart);
+
+        wait.until(
+        ExpectedConditions.visibilityOf(
+        waitForVisibility(cp.cart)));
+
         jsClick(cp.cart);
+		
 
         log.info("product add in cart");
     	}
@@ -76,8 +86,13 @@ public class checkoutAction extends BaseAction {
     	try {
 		click(cp.book);
 		click(cp.addToCart);
+
+		wait.until(
+		ExpectedConditions.visibilityOf(
+		waitForVisibility(cp.cart)));
+
 		jsClick(cp.cart);
-		waitForVisibility(cp.checkbox);
+		
 
 		log.info("guest product add");
     	}
