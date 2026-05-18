@@ -186,20 +186,24 @@ public class checkoutAction extends BaseAction {
     	Select dropdown = new Select(waitForVisibility(cp.billCountry));
     	dropdown.selectByValue(str5);
 
-    	WebDriverWait wait =  new WebDriverWait(driver, Duration.ofSeconds(10));
+	By stateLocator = cp.billstate;
+	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
-    	WebElement stateDropdown =
-    	        wait.until(
-    	        ExpectedConditions.elementToBeClickable(
-    	        By.id("BillingNewAddress_StateProvinceId")));
+	wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(stateLocator)));
+	Select dropdown2 = new Select(waitForVisibility(stateLocator));
 
-    	Select dropdown2 =
-    	        new Select(stateDropdown);
+	if (str6 != null && !str6.trim().isEmpty() && !"0".equals(str6.trim())) {
+		try {
+			dropdown2.selectByValue(str6);
+		} catch (org.openqa.selenium.NoSuchElementException e) {
+			dropdown2.selectByVisibleText(str6);
+		}
+	} else {
+		log.info("Billing state selection skipped because value is placeholder '{}'.", str6);
+	}
 
-    	dropdown2.selectByValue(str6);
-
-    	type(cp.billCity,str7);
-    	type(cp.billAddress1,str8);
+	type(cp.billCity,str7);
+	type(cp.billAddress1,str8);
     	type(cp.billAddress2,str9);
     	type(cp.billZip, str10);
     	type(cp.billNumber,str11);
