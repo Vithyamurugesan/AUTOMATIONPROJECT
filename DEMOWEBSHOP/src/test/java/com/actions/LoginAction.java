@@ -2,7 +2,7 @@ package com.actions;
 
 import org.openqa.selenium.WebDriver;
 
-import com.pages.LoginPageLocator;
+import com.pages.LoginPage;
 
 public class LoginAction extends BaseAction {
 
@@ -15,61 +15,61 @@ public class LoginAction extends BaseAction {
 
     public void clicklogin() {
 
-        click(LoginPageLocator.loginLink);
+        click(LoginPage.loginLink);
     }
 
     public void userEmail(String userEmail) {
 
-        type(LoginPageLocator.email, userEmail);
+        type(LoginPage.email, userEmail);
     }
 
     public void userPassword(String userPassword) {
 
-        type(LoginPageLocator.password, userPassword);
+        type(LoginPage.password, userPassword);
     }
 
     public void clickloginbtn() {
 
-        click(LoginPageLocator.loginbtn);
+        click(LoginPage.loginbtn);
     }
 
     public String loggedUser() {
 
-        return getText(LoginPageLocator.useraccountname);
+        return getText(LoginPage.useraccountname);
     }
 
     public boolean logout() {
 
-        return waitForVisibility(LoginPageLocator.logoutLink).isDisplayed();
+        return waitForVisibility(LoginPage.logoutLink).isDisplayed();
     }
 
     public void forgotpasswordclick() {
 
-        click(LoginPageLocator.forgotpasswordlink);
+        click(LoginPage.forgotpasswordlink);
     }
 
     public void recoveryEmail(String email) {
 
-        type(LoginPageLocator.recoveryemail, email);
+        type(LoginPage.recoveryemail, email);
     }
 
     public void recoverbutton() {
 
-        click(LoginPageLocator.recoverbtn);
+        click(LoginPage.recoverbtn);
     }
 
     public String getLoginErrorMessage() {
 
-        return getText(LoginPageLocator.loginErrorMessage);
+        return getText(LoginPage.loginErrorMessage);
     }
 
     public String getRecoverySuccessMessage() {
 
-        return getText(LoginPageLocator.recoverySuccessMessage);
+        return getText(LoginPage.recoverySuccessMessage);
     }
 
     public String getValidationMessage() {
 
-        return getText(LoginPageLocator.validationMessage);
+        return getText(LoginPage.validationMessage);
     }
 }

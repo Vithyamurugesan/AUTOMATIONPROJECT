@@ -2,7 +2,7 @@ package com.pages;
 
 import org.openqa.selenium.By;
 
-public class OrderPageLocator {
+public class OrderPage {
 	
 	public static By orderlink=By.xpath("//a[text()='Orders']");
 	public static By orders = By.xpath("//div[@class='section order-item']");
