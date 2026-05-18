@@ -1,59 +1,84 @@
 package com.actions;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
 import com.pages.ProductDetailsPage;
 
 public class ProductDetailsAction extends BaseAction {
 
-    ProductDetailsPage page;
+	ProductDetailsPage productDetailsPage;
+	SearchActions searchActions;
 
-    public ProductDetailsAction(WebDriver driver) {
-        super(driver);
-        page = new ProductDetailsPage(driver);
-    }
+	public ProductDetailsAction(WebDriver driver) {
 
-    public void openBooks() {
-        click(page.booksCategory());
-    }
+		super(driver);
+		productDetailsPage = new ProductDetailsPage();
+		searchActions = new SearchActions(driver);
+	}
 
-    public void selectProduct() {
-        click(page.product());
-    }
+	public void openCategory(String category) {
 
-    public boolean isNameDisplayed() {
-        return waitForVisibility(page.name()).isDisplayed();
-    }
+		click(By.linkText(category));
+	}
 
-    public boolean isPriceDisplayed() {
-        return waitForVisibility(page.price()).isDisplayed();
-    }
+	public void selectProduct(String productName) {
 
-    public boolean isDescDisplayed() {
-        return waitForVisibility(page.desc()).isDisplayed();
-    }
+		searchActions.searchProduct(productName);
+		searchActions.clickSearch();
 
-    public boolean isImageDisplayed() {
-        return waitForVisibility(page.image()).isDisplayed();
-    }
+		click(By.linkText(productName));
+	}
 
-    public String getAvailability() {
-        try {
-            return waitForVisibility(page.availability()).getText();
-        } catch (Exception e) {
-            return "Not Found";
-        }
-    }
+	public boolean checkProductPage() {
 
-    public void enterQty(String qty) {
-        waitForVisibility(page.quantity()).clear();
-        type(page.quantity(), qty);
-    }
+		return waitForVisibility(productDetailsPage.getProductName()).isDisplayed();
+	}
 
-    public void addToCart() {
-        click(page.addToCart());
-    }
+	public boolean checkProductName() {
 
-    public boolean isQtyError() {
-        return driver.getPageSource().contains("Quantity");
-    }
+		return waitForVisibility(productDetailsPage.getProductName()).isDisplayed();
+	}
+
+	public boolean checkProductPrice() {
+
+		return waitForVisibility(productDetailsPage.getProductPrice()).isDisplayed();
+	}
+
+	public boolean checkProductDescription() {
+
+		return waitForVisibility(productDetailsPage.getProductDesc()).isDisplayed();
+	}
+
+	public boolean checkProductImage() {
+
+		return waitForVisibility(productDetailsPage.getProductImage()).isDisplayed();
+	}
+
+	public String getAvailabilityLabel() {
+
+		return getText(productDetailsPage.getAvailabilityLabel());
+	}
+
+	public String getAvailabilityValue() {
+
+		return getText(productDetailsPage.getAvailabilityValue());
+	}
+
+	public void enterQuantity(String qty) {
+
+		waitForVisibility(productDetailsPage.getQuantityBox()).clear();
+
+		type(productDetailsPage.getQuantityBox(), qty);
+	}
+
+	public void clickAddToCart() {
+
+		click(productDetailsPage.getAddToCartButton());
+	}
+
+	public String getNotificationMessage() {
+
+		return getText(productDetailsPage.getNotificationMessage());
+	}
 }
