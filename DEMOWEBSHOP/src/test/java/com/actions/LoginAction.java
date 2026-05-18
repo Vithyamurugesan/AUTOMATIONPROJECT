@@ -15,61 +15,61 @@ public class LoginAction extends BaseAction {
 
     public void clicklogin() {
 
-        click(LoginPage.loginLink);
+        click(LoginPage.getLoginLink());
     }
 
     public void userEmail(String userEmail) {
 
-        type(LoginPage.email, userEmail);
+        type(LoginPage.getEmail(), userEmail);
     }
 
     public void userPassword(String userPassword) {
 
-        type(LoginPage.password, userPassword);
+        type(LoginPage.getPassword(), userPassword);
     }
 
     public void clickloginbtn() {
 
-        click(LoginPage.loginbtn);
+        click(LoginPage.getLoginbtn());
     }
 
     public String loggedUser() {
 
-        return getText(LoginPage.useraccountname);
+        return getText(LoginPage.getUseraccountname());
     }
 
     public boolean logout() {
 
-        return waitForVisibility(LoginPage.logoutLink).isDisplayed();
+        return waitForVisibility(LoginPage.getLogoutLink()).isDisplayed();
     }
 
     public void forgotpasswordclick() {
 
-        click(LoginPage.forgotpasswordlink);
+        click(LoginPage.getForgotpasswordlink());
     }
 
     public void recoveryEmail(String email) {
 
-        type(LoginPage.recoveryemail, email);
+        type(LoginPage.getRecoveryemail(), email);
     }
 
     public void recoverbutton() {
 
-        click(LoginPage.recoverbtn);
+        click(LoginPage.getRecoverbtn());
     }
 
     public String getLoginErrorMessage() {
 
-        return getText(LoginPage.loginErrorMessage);
+        return getText(LoginPage.getLoginErrorMessage());
     }
 
     public String getRecoverySuccessMessage() {
 
-        return getText(LoginPage.recoverySuccessMessage);
+        return getText(LoginPage.getRecoverySuccessMessage());
     }
 
     public String getValidationMessage() {
 
-        return getText(LoginPage.validationMessage);
+        return getText(LoginPage.getValidationMessage());
     }
 }

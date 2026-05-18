@@ -14,38 +14,38 @@ public class OrderAction extends BaseAction {
 	}
 	
 	public void waitfororderlink() {
-		waitForVisibility(OrderPage.orderlink).isDisplayed();
+		waitForVisibility(OrderPage.getOrderlink()).isDisplayed();
 	}
 	public void clickOrder() {
-		click(OrderPage.orderlink);
+		click(OrderPage.getOrderlink());
 	}
 
 	public int countoforders() {
-	    return driver.findElements(OrderPage.orders).size();
+	    return driver.findElements(OrderPage.getOrdersCount()).size();
 	}
 	
 	public void clickDetailsButton() {
-	    driver.findElements(OrderPage.deatilsButton).get(0).click();
+	    driver.findElements(OrderPage.getDeatilsButton()).get(0).click();
 	}
 	
 	public void waitforpoductName() {
-		waitForVisibility(OrderPage.productname).isDisplayed();
+		waitForVisibility(OrderPage.getProductname()).isDisplayed();
 	}
 	public String getProductText() {
-		return getText(OrderPage.productname);
+		return getText(OrderPage.getProductname());
 	}
 	
 	public void clickReorder() {
-		click(OrderPage.Reorder);
+		click(OrderPage.getReorder());
 	}
 	
 	public void clickPDF() {
-		click(OrderPage.pdf);
+		click(OrderPage.getPdf());
 	}
 	public String getProductId() {
-	    return getText(OrderPage.productId);
+	    return getText(OrderPage.getProductId());
 	} 
     public String cartProductName() {
-    	return getText(OrderPage.cartproductName);
+    	return getText(OrderPage.getCartproductName());
     }
 }

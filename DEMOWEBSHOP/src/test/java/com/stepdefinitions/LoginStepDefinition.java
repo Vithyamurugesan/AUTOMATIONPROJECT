@@ -109,7 +109,7 @@ public class LoginStepDefinition {
     @Given("the Forgot password? link is visible")
     public void the_forgot_password_link_is_visible() {
 
-        Assert.assertTrue(logaction.waitForVisibility(LoginPage.forgotpasswordlink).isDisplayed());
+        Assert.assertTrue(logaction.waitForVisibility(LoginPage.getForgotpasswordlink()).isDisplayed());
     }
 
     @When("the user clicks the Forgot password? link")
@@ -135,7 +135,7 @@ public class LoginStepDefinition {
     @Then("the Email input field should be visible")
     public void the_email_input_field_should_be_visible() {
 
-        Assert.assertTrue(logaction.waitForVisibility(LoginPage.recoveryemail).isDisplayed());
+        Assert.assertTrue(logaction.waitForVisibility(LoginPage.getRecoveryemail()).isDisplayed());
     }
 
     @Given("the user is on the Password Recovery page")
