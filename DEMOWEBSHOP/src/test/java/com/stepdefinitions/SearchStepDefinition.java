@@ -6,6 +6,7 @@ import java.util.Map;
 import org.testng.Assert;
 
 import com.actions.SearchActions;
+import com.utilities.ConfigReader;
 import com.utilities.HelperClass;
 
 import io.cucumber.datatable.DataTable;
@@ -17,17 +18,22 @@ public class SearchStepDefinition {
 
     SearchActions searchActions;
 
+    public static String searchedProduct;
+
     @Given("user is on the home page")
     public void user_is_on_the_home_page() {
-        HelperClass.getDriver().get("https://demowebshop.tricentis.com/");
+        HelperClass.getDriver().get(ConfigReader.get("app.url"));
         searchActions=new SearchActions(HelperClass.getDriver());
     }
 
     @When("user enters product keyword in the search box")
     public void user_enters_product_keyword_in_the_search_box(DataTable dataTable) {
-    	
+
         List<Map<String, String>> data=dataTable.asMaps(String.class, String.class);
-        String keyword = data.get(0).get("keyword");
+
+        String keyword=data.get(0).get("keyword");
+        
+        searchedProduct=keyword;
         searchActions.searchProduct(keyword);
     }
 

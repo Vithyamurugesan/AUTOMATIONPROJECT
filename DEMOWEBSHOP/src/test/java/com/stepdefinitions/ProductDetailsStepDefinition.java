@@ -1,75 +1,126 @@
 package com.stepdefinitions;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import org.testng.Assert;
+
 import com.actions.ProductDetailsAction;
 import com.utilities.HelperClass;
 
-import io.cucumber.java.en.*;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class ProductDetailsStepDefinition {
 
-    ProductDetailsAction action = new ProductDetailsAction(HelperClass.getDriver());
+	private static final Logger logger = LogManager.getLogger(ProductDetailsStepDefinition.class);
 
-    @Given("User launches Demo Web Shop application")
-    public void launch_app() {
-        HelperClass.getDriver().get("https://demowebshop.tricentis.com/");
-    }
+	ProductDetailsAction productDetailsAction;
 
-    @When("User clicks Books category")
-    public void click_books() {
-        action.openBooks();
-    }
+	@Given("User launches Demo Web Shop application")
+	public void launch_app() {
 
-    @When("User selects {string} product")
-    public void select_product(String product) {
-        action.selectProduct();
-    }
+		logger.info("Launching Demo Web Shop application");
 
-    @Then("Product details page should be opened")
-    public void product_page() {
-        Assert.assertTrue(action.isNameDisplayed());
-    }
+		HelperClass.getDriver().get("https://demowebshop.tricentis.com/");
 
-    @Then("Product name should be displayed as {string}")
-    public void name(String name) {
-        Assert.assertTrue(action.isNameDisplayed());
-    }
+		productDetailsAction = new ProductDetailsAction(HelperClass.getDriver());
+	}
 
-    @Then("Product price should be displayed")
-    public void price() {
-        Assert.assertTrue(action.isPriceDisplayed());
-    }
+	@When("User clicks category {string}")
+	public void click_category(String category) {
 
-    @Then("Product description should be displayed")
-    public void desc() {
-        Assert.assertTrue(action.isDescDisplayed());
-    }
+		logger.info("Opening category: " + category);
 
-    @Then("Product image should be displayed")
-    public void image() {
-        Assert.assertTrue(action.isImageDisplayed());
-    }
+		productDetailsAction.openCategory(category);
+	}
 
-    @Then("Product availability should be {string}")
-    public void availability(String status) {
-        String actual = action.getAvailability();
-        Assert.assertTrue(actual.contains("In stock") || actual.contains("Out of stock"),
-            "Availability not displayed correctly. Actual: " + actual
-        );
-    }
+	@When("User selects product {string}")
+	public void select_product(String product) {
 
-    @When("User enters quantity {string}")
-    public void qty(String qty) {
-        action.enterQty(qty);
-    }
+		logger.info("Selecting product: " + product);
 
-    @When("User clicks add to cart button")
-    public void add() {
-        action.addToCart();
-    }
+		productDetailsAction.selectProduct(product);
+	}
 
-    @Then("User should see validation message {string}")
-    public void validate(String msg) {
-        Assert.assertTrue(action.isQtyError());
-    }
+	@Then("Product details page should be opened")
+	public void product_page() {
+
+		logger.info("Checking product details page");
+
+		Assert.assertTrue(productDetailsAction.checkProductPage());
+	}
+
+	@Then("Product name should be displayed as {string}")
+	public void name(String name) {
+
+		logger.info("Checking product name: " + name);
+
+		Assert.assertTrue(productDetailsAction.checkProductName());
+	}
+
+	@Then("Product price should be displayed")
+	public void price() {
+
+		logger.info("Checking product price");
+
+		Assert.assertTrue(productDetailsAction.checkProductPrice());
+	}
+
+	@Then("Product description should be displayed")
+	public void desc() {
+
+		logger.info("Checking product description");
+
+		Assert.assertTrue(productDetailsAction.checkProductDescription());
+	}
+
+	@Then("Product image should be displayed")
+	public void image() {
+
+		logger.info("Checking product image");
+
+		Assert.assertTrue(productDetailsAction.checkProductImage());
+	}
+
+	@Then("Product availability should be displayed as {string}")
+	public void availability(String expectedValue) {
+
+		logger.info("Checking product availability");
+
+		String actualLabel = productDetailsAction.getAvailabilityLabel();
+
+		String actualValue = productDetailsAction.getAvailabilityValue();
+
+		Assert.assertEquals(actualLabel, "Availability:");
+
+		Assert.assertEquals(actualValue, expectedValue);
+	}
+
+	@When("User enters quantity {string}")
+	public void qty(String qty) {
+
+		logger.info("Entering quantity: " + qty);
+
+		productDetailsAction.enterQuantity(qty);
+	}
+
+	@When("User clicks add to cart button")
+	public void add() {
+
+		logger.info("Clicking add to cart button");
+
+		productDetailsAction.clickAddToCart();
+	}
+
+	@Then("User should see validation message {string}")
+	public void validate(String expectedMessage) {
+
+		logger.info("Checking validation message");
+
+		String actualMessage = productDetailsAction.getNotificationMessage();
+
+		Assert.assertTrue(actualMessage.contains(expectedMessage));
+	}
 }

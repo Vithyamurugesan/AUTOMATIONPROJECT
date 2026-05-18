@@ -1,35 +1,59 @@
 Feature: Vetrivel_17MAY2026_DEMOWEBSHOP_FeatureFileforWishlist
 
-  Description: As a user, I want to add and manage products in wishlist
+  Description:
+  As a user,
+  I want to add searched products to wishlist
   so that I can save products for future purchase
 
   Background:
     Given user is on the home page
 
-  @AddToWishlist
-  Scenario: Add product to wishlist
-    When user navigates to a product page
-    And clicks on Add to wishlist button
-    Then success message should be displayed
-    And product should be added to the wishlist
+  @AddWishlist
+  Scenario Outline: Add product to wishlist
 
-  @DisplayWishlistProduct
-  Scenario: Verify added product is displayed in wishlist
-    When user adds a product to wishlist
-    And user navigates to wishlist page
-    Then added product should be displayed in the wishlist
+    When user searches and adds product "<product>" to wishlist
+    Then message "The product has been added to your wishlist" should be displayed
+    And searched product should be added to the wishlist
 
-  @RemoveWishlistProduct
-  Scenario: Remove product from wishlist
-    When user adds a product to wishlist
-    And user navigates to wishlist page
+    Examples:
+      | product                     |
+      | Health Book                 |
+      | Fiction EX                  |
+      | Smartphone                  |
+      | Black & White Diamond Heart |
+
+  @RemoveWishlist
+  Scenario Outline: Remove product from wishlist
+
+    When user searches and adds product "<product>" to wishlist
     And user removes the product from wishlist
-    Then wishlist should display empty message
+    Then wishlist should be empty
 
-  @AddWishlistProductToCart
-  Scenario: Add wishlist product to shopping cart
-    When user adds a product to wishlist
+    Examples:
+      | product     |
+      | Health Book |
+      | Fiction EX  |
+
+  @WishlistToCart
+  Scenario Outline: Add wishlist product to shopping cart
+
+    When user searches and adds product "<product>" to wishlist
+    And user moves wishlist product to cart
+    Then product should be added to shopping cart
+
+    Examples:
+      | product     |
+      | Health Book |
+      | Smartphone  |
+
+  @DisplayWishlist
+  Scenario Outline: Verify added product is displayed in wishlist
+
+    When user searches and adds product "<product>" to wishlist
     And user navigates to wishlist page
-    And user selects the product for adding to cart
-    And clicks on Add to cart button
-    Then product should be added to the shopping cart
+    Then product should be displayed in wishlist
+
+    Examples:
+      | product                     |
+      | Health Book                 |
+      | Black & White Diamond Heart |
