@@ -1,6 +1,8 @@
 Feature: Vetrivel_17MAY2026_DEMOWEBSHOP_FeatureFileforWishlist
 
-  Description: As a user, I want to add searched products to wishlist
+  Description:
+  As a user,
+  I want to add searched products to wishlist
   so that I can save products for future purchase
 
   Background:
