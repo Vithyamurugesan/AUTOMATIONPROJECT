@@ -22,7 +22,7 @@ public class EmailAFriendStepDefinition {
     @Given("user is logged in and on the laptop product page")
     public void user_is_logged_in_and_on_the_laptop_product_page() {
         emailAFriendActions = new EmailAFriendActions(HelperClass.getDriver());
-        HelperClass.getDriver().get(ConfigReader.get("app.url") + "/14-1-inch-laptop");
+        HelperClass.getDriver().get(ConfigReader.get("app.url") + ConfigReader.get("laptop.url"));
         log.info("User navigated to 14.1-inch Laptop product page");
     }
 
@@ -42,6 +42,7 @@ public class EmailAFriendStepDefinition {
     public void user_enters_friend_email_and_personal_message(String email, String message) {
         log.info("Entering friend email: {} and personal message", email);
         emailAFriendActions.enterFriendEmail(email);
+        emailAFriendActions.enterYourEmail();
         emailAFriendActions.enterPersonalMessage(message);
     }
 

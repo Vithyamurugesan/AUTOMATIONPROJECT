@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
 import com.pages.EmailAFriendPage;
+import com.utilities.ConfigReader;
 
 public class EmailAFriendActions extends BaseAction {
 
@@ -43,6 +44,12 @@ public class EmailAFriendActions extends BaseAction {
             log.error("Email a friend page title not found: {}", e.getMessage());
             return false;
         }
+    }
+    
+    public void enterYourEmail() {
+        waitForVisibility(emailAFriendPage.getYourEmailDisplay()).clear();
+        type(emailAFriendPage.getYourEmailDisplay(), ConfigReader.get("app.username"));
+        log.info("Your email entered");
     }
 
     public void enterFriendEmail(String email) {

@@ -14,6 +14,6 @@ Feature: Vithya_18MAY2026_DEMOWEBSHOP_FeatureFileforPromotions
     Then "<expectedResult>" should be displayed
 
     Examples:
-      | friendEmail            | message                  | expectedResult  |
-      | testfriend@gmail.com   | Check out this laptop!   | success         |
-      |                        |                          | error           |
+      | friendEmail          | message                | expectedResult |
+      | jessy123@gmail.com   | Check out this laptop! | success        |
+      |                      |                        | error          |
