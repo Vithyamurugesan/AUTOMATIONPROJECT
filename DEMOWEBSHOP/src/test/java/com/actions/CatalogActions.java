@@ -69,7 +69,8 @@ public class CatalogActions extends BaseAction {
             boolean displayed = waitForVisibility(catalogPage.getProductGrid()).isDisplayed();
             log.info("Product grid displayed: {}", displayed);
             return displayed;
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             log.error("Product grid not visible: {}", e.getMessage());
             return false;
         }

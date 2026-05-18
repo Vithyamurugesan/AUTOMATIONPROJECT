@@ -1,6 +1,8 @@
 Feature: Vetrivel_13MAY2025_DEMOWEBSHOP_FeatureFileforLogin
 
-  Description: As a user, I want to search an item in the search box
+  Description: 
+  As a user,
+  I want to search an item in the search box
   so that I can view products related to my search keyword
 
   Background:
