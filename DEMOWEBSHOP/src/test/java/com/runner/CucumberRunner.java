@@ -6,7 +6,6 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
 
         features ="src/test/resources/Features/Cart.feature",
-
         glue = "com.stepdefinitions",
         plugin = {
                 "pretty",
