@@ -1,27 +1,94 @@
 package com.pages;
 
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class CartPage {
 
-    @FindBy(linkText = "Books")
-    public WebElement booksMenu;
+	WebDriver driver;
 
-    @FindBy(linkText = "Computing and Internet")
-    public WebElement computingBook;
+	public CartPage(WebDriver driver) {
+		this.driver = driver;
+	}
 
-    @FindBy(id = "add-to-cart-button-13")
-    public WebElement addToCartButton;
+	private By books = By.linkText("Books");
+	private By computingBook = By.linkText("Computing and Internet");
+	private By shoppingCart = By.linkText("Shopping cart");
+	private By searchBox = By.id("small-searchterms");
+	private By searchButton = By.xpath("//input[@value='Search']");
+	private By cartQty = By.className("cart-qty");
+	private By subtotal = By.xpath("//span[@class='product-price order-total']");
+	private By couponBox = By.name("discountcouponcode");
+	private By couponButton = By.name("applydiscountcouponcode");
+	private By giftCardBox = By.name("giftcardcouponcode");
+	private By giftCardButton = By.name("applygiftcardcouponcode");
+	private By message = By.cssSelector("div.message");
+	private By emptyCartMsg = By.xpath("//div[@class='order-summary-content']");
+	private By quantityBox = By.className("qty-input");
+	private By updateCartButton = By.name("updatecart");
+	private By removeCheckBox = By.name("removefromcart");
 
-    @FindBy(linkText = "Shopping cart")
-    public WebElement shoppingCart;
+	public By getBooks() {
+		return books;
+	}
 
-    @FindBy(id = "small-searchterms")
-    public WebElement searchBox;
+	public By getComputingBook() {
+		return computingBook;
+	}
 
-    @FindBy(xpath = "//input[@value='Search']")
-    public WebElement searchButton;
+	public By getShoppingCart() {
+		return shoppingCart;
+	}
+
+	public By getSearchBox() {
+		return searchBox;
+	}
+
+	public By getSearchButton() {
+		return searchButton;
+	}
+
+	public By getCartQty() {
+		return cartQty;
+	}
+
+	public By getSubtotal() {
+		return subtotal;
+	}
+
+	public By getCouponBox() {
+		return couponBox;
+	}
+
+	public By getCouponButton() {
+		return couponButton;
+	}
+
+	public By getGiftCardBox() {
+		return giftCardBox;
+	}
+
+	public By getGiftCardButton() {
+		return giftCardButton;
+	}
+
+	public By getMessage() {
+		return message;
+	}
+
+	public By getEmptyCartMsg() {
+		return emptyCartMsg;
+	}
+	
+	public By getQuantityBox() {
+		return quantityBox;
+	}
+
+	public By getUpdateCartButton() {
+		return updateCartButton;
+	}
+
+	public By getRemoveCheckBox() {
+		return removeCheckBox;
+	}
 }

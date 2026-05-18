@@ -27,9 +27,13 @@ public class BaseAction {
     public WebElement waitForVisibility(By locator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
+<<<<<<< HEAD
         
+=======
+    
+>>>>>>> 52d1f6d5f2217b9ca1bd0d5a85c41a687f3d3cf3
     public void click(By locator) {
-        waitForVisibility(locator).click();
+        wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
     }
 
     public void type(By locator, String text) {

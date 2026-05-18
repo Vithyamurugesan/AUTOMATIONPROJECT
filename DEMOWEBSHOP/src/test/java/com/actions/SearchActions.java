@@ -1,37 +1,67 @@
 package com.actions;
 
-import com.pages.SearchPage;
+import java.time.Duration;
+
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class SearchActions {
+import com.pages.SearchPage;
 
+public class SearchActions extends BaseAction {
+
+    WebDriver driver;
+    WebDriverWait wait;
     SearchPage searchPage;
 
     public SearchActions(WebDriver driver) {
-        searchPage = new SearchPage(driver);
+        super(driver);
+        this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        this.searchPage = new SearchPage();
     }
 
     public void searchProduct(String keyword) {
-        searchPage.enterSearchKeyword(keyword);
+        waitForVisibility(searchPage.getSearchBox()).clear();
+        type(searchPage.getSearchBox(), keyword);
     }
 
     public void clickSearch() {
-        searchPage.clickSearch();
+        click(searchPage.getSearchButton());
     }
 
     public boolean verifySearchResultPage() {
-        return searchPage.isSearchResultsPage();
+        return waitForVisibility(searchPage.getSearchResult()).isDisplayed();
     }
 
     public boolean verifyNoProductMessage() {
-        return searchPage.isNoProductMessageDisplayed();
+        return waitForVisibility(searchPage.getNoResultMessage()).isDisplayed();
     }
 
-    public boolean verifyProductsDisplayed() {
-        return searchPage.isSearchResultsPage();
+    public boolean acceptAlertIfPresent() {
+
+        try {
+            Alert alert=wait.until(ExpectedConditions.alertIsPresent());
+            System.out.println(alert.getText());
+
+            alert.accept();
+            return true;
+        }
+        catch (Exception e) {
+            System.out.println("No alert present");
+        }
+        
+        return false;
     }
 
-    public void acceptAlertIfPresent() {
-        searchPage.acceptAlertIfPresent();
+    public boolean isWarningDisplayed() {
+
+        try {
+            return waitForVisibility(searchPage.getWarningMessage()).isDisplayed();
+        }
+        catch (Exception e) {
+            return false;
+        }
     }
 }

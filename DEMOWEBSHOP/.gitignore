@@ -1,12 +1,16 @@
-.metadata
-.idea
+# Eclipse
+.metadata/
 .project
 .classpath
-com.ecom.iml
-.settings
-.gitignore
-.git
+.settings/
+
+# IntelliJ
+.idea/
+*.iml
+
+# Build
 bin/
+<<<<<<< HEAD
 logs/
 
 .factorypath
@@ -17,3 +21,23 @@ allure-results/
 ExtentReports/
 HtmlReport/
 PdfReport/
+=======
+target/
+target-output/
+
+# Logs
+logs/
+*.log
+
+# Reports
+test-output/
+ExtentReports/
+HtmlReport/
+PdfReport/
+
+# Generated Files
+*.html
+*.pdf
+*.png
+allure-results/
+>>>>>>> 52d1f6d5f2217b9ca1bd0d5a85c41a687f3d3cf3

@@ -6,7 +6,6 @@ import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -15,67 +14,119 @@ import com.utilities.HelperClass;
 
 import io.cucumber.datatable.DataTable;
 
-public class CartAction {
+public class CartAction extends BaseAction {
+	CartPage cartPage;
 
-    CartPage cartPage;
+	public CartAction(WebDriver driver) {
+		super(driver);
+		cartPage = new CartPage(driver);
+	}
 
-    public CartAction(WebDriver driver) {
+	public void openBookPage() {
+		click(cartPage.getBooks());
+		click(cartPage.getComputingBook());
+	}
 
-        cartPage = new CartPage();
-    }
+	public void addCart() {
+		By addBtn = By.xpath("//input[contains(@value,'Add to cart')]");
+		click(addBtn);
+	}
 
-    public void openProductDetailsPage() {
-        cartPage.booksMenu.click();
-        cartPage.computingBook.click();
-    }
+	public boolean checkCart() {
+		click(cartPage.getShoppingCart());
+		return HelperClass.getDriver()
+				.findElements(By.cssSelector("table.cart"))
+				.size() > 0;
+	}
 
-    public void addProductToCart() {
-        WebDriverWait wait =new WebDriverWait(HelperClass.getDriver(),Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(cartPage.addToCartButton));
-        
-        cartPage.addToCartButton.click();
-    }
+	public void addManyProducts(DataTable dataTable) {
+		List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
+		WebDriver driver = HelperClass.getDriver();
 
-    public boolean verifyShoppingCart() {
-    	
-        WebDriverWait wait =new WebDriverWait(HelperClass.getDriver(),Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(cartPage.shoppingCart));
-        
-        cartPage.shoppingCart.click();
-        return HelperClass.getDriver().findElements(By.cssSelector("table.cart")).size() > 0;
-    }
+		for (Map<String, String> value : data) {
+			String product = value.get("productName");
+			driver.get("https://demowebshop.tricentis.com/");
 
-    public void addMultipleProducts(DataTable dataTable) {
+			type(cartPage.getSearchBox(), product);
+			click(cartPage.getSearchButton());
 
-        List<Map<String, String>> products =dataTable.asMaps(String.class, String.class);
-        WebDriver driver = HelperClass.getDriver();
+			By productLink = By.partialLinkText(product);
+			WebDriverWait wait =new WebDriverWait(driver, Duration.ofSeconds(10));
+			wait.until(ExpectedConditions.elementToBeClickable(productLink));
+			driver.findElement(productLink).click();
+			
+			By addBtn = By.xpath("//input[contains(@value,'Add to cart')]");
+			click(addBtn);
+		}
+	}
 
-        for (Map<String, String> product : products) {
-            String productName =product.get("productName");
+	public void openCart() {
+		click(cartPage.getShoppingCart());
+	}
 
-            driver.get("https://demowebshop.tricentis.com/");
+	public boolean checkProducts() {
+		String qty = getText(cartPage.getCartQty());
+		return !qty.contains("(0)");
+	}
 
-            WebDriverWait wait =new WebDriverWait(driver,Duration.ofSeconds(10));
+	public boolean checkTotal() {
+		return waitForVisibility(cartPage.getSubtotal()).isDisplayed();
+	}
 
-            wait.until(ExpectedConditions.visibilityOf(cartPage.searchBox));
+	public void openEmptyCart() {
+		HelperClass.getDriver().get("https://demowebshop.tricentis.com/cart");
+	}
 
-            cartPage.searchBox.clear();
+	public String getEmptyMsg() {
+		return getText(cartPage.getEmptyCartMsg());
+	}
 
-            cartPage.searchBox.sendKeys(productName);
+	public void addOneProduct() {
+		openBookPage();
+		addCart();
+	}
 
-            cartPage.searchButton.click();
+	public void enterCoupon(String code) {
+		type(cartPage.getCouponBox(), code);
+	}
 
-            By productLink =By.partialLinkText(productName);
+	public void clickCoupon() {
+		click(cartPage.getCouponButton());
+	}
 
-            wait.until(ExpectedConditions.elementToBeClickable(productLink));
+	public void enterGift(String code) {
+		type(cartPage.getGiftCardBox(), code);
+	}
 
-            driver.findElement(productLink).click();
+	public void clickGift() {
+		click(cartPage.getGiftCardButton());
+	}
 
-            By addToCart =By.xpath("//input[contains(@value,'Add to cart')]");
+	public String getMsg() {
+		return getText(cartPage.getMessage());
+	}
+	
+	public void updateQuantity(String qty) {
+		waitForVisibility(cartPage.getQuantityBox()).clear();
+		type(cartPage.getQuantityBox(), qty);
+	}
 
-            wait.until(ExpectedConditions.elementToBeClickable(addToCart));
+	public void clickUpdateCart() {
+		click(cartPage.getUpdateCartButton());
+	}
 
-            driver.findElement(addToCart).click();
-        }
-    }
+	public boolean checkUpdatedQty(String expectedQty) {
+		String actualQuantity =waitForVisibility(cartPage.getQuantityBox()).getAttribute("value");
+		return actualQuantity.equals(expectedQty);
+		        
+	}
+
+	public void removeProduct() {
+		click(cartPage.getRemoveCheckBox());
+	}
+
+	public boolean checkRemovedProduct() {
+		String message = getText(cartPage.getEmptyCartMsg());
+		return message.contains("Your Shopping Cart is empty!");
+	}
 }
