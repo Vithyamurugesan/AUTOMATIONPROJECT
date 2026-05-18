@@ -11,10 +11,9 @@ Feature: Haritha_13MAY2025_DEMOWEBSHOP_FeatureFileforLogin
     And the logged-in user email should be displayed in the header
     And the Log out link should be visible
 
-    
-Examples:
-| email               | password |
-| jenny04@gmail.com   | 123456   |
+    Examples:
+      | email               | password |
+      | haritha11@gmail.com | haritha  |
 
   @invalid
   Scenario Outline: Login with invalid credentials
@@ -28,11 +27,11 @@ Examples:
 
     Examples:
       | email               | password | error message                                                    |
-      | jen@gmail.com      | jen      | The credentials provided are incorrect                           |
-      | jenny04@gmail.com   | jen      | The credentials provided are incorrect                           |
+      | haritha@gmail.com   | haritha  | The credentials provided are incorrect                           |
+      | haritha11@gmail.com | hari     | The credentials provided are incorrect                           |
       |                     |          | No customer account found                                        |
-      |                     | 123456   | No customer account found                                        |
-      | jenny04@gmail.com   |          | Login was unsuccessful. Please correct the errors and try again. |
+      |                     | haritha  | No customer account found                                        |
+      | haritha11@gmail.com |          | Login was unsuccessful. Please correct the errors and try again. |
 
   @login @navigation
   Scenario: Forgot password link redirects to password recovery page
@@ -53,7 +52,7 @@ Examples:
 
     Examples:
       | email               | message                                       |
-      | jenny04@gmail.com   | Email with instructions has been sent to you. |
+      | haritha11@gmail.com | Email with instructions has been sent to you. |
 
   @password-recovery @negative
   Scenario Outline: Password recovery attempted with invalid email
@@ -62,10 +61,9 @@ Examples:
     And the user clicks the Recover button
     Then the system should display an error message "<message>"
 
-
-Examples:
-| email               | password |
-| jenny04@gmail.com   | 123456   |
+    Examples:
+      | email            | message     |
+      | harithagmail.com | Wrong email |
 
   @password-recovery @validation
   Scenario Outline: Validation shown when email field is empty on recovery page

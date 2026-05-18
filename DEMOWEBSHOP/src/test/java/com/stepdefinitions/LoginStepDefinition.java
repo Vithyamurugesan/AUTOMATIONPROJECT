@@ -70,7 +70,7 @@ public class LoginStepDefinition {
 
         String actual = logaction.loggedUser();
 
-        Assert.assertEquals(actual, ConfigReader.get("app.username"));
+        Assert.assertEquals(actual, "haritha11@gmail.com");
     }
 
     @Then("the Log out link should be visible")

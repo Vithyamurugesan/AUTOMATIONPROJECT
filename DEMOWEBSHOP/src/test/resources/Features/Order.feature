@@ -12,10 +12,9 @@ And the logged-in user email should be displayed in the header
 When the user clicks the Orders link
 Then the user should see the previously ordered details
 
-
 Examples:
 | email               | password |
-| jenny04@gmail.com   | 123456   |
+| haritha11@gmail.com | haritha  |
 
 
 @History @Unregister
@@ -40,10 +39,9 @@ Then the user should see the previously ordered details
 When the user clicks the Details button
 Then the user should see the ordered product information
 
-
 Examples:
 | email               | password |
-| jenny04@gmail.com   | 123456   |
+| haritha11@gmail.com | haritha  |
 
 
 @PDF
@@ -62,10 +60,9 @@ When the user clicks the Details button
 When the user clicks the PDF Invoice button
 Then the invoice PDF should be downloaded successfully
 
-
 Examples:
 | email               | password |
-| jenny04@gmail.com   | 123456   |
+| haritha11@gmail.com | haritha  |
 
 
 
@@ -85,7 +82,6 @@ Then the user should see the ordered product information
 When the user clicks the Re-order button
 And the previously ordered products should be added to the cart
 
-
 Examples:
 | email               | password |
-| jenny04@gmail.com   | 123456   |
+| haritha11@gmail.com | haritha  |
