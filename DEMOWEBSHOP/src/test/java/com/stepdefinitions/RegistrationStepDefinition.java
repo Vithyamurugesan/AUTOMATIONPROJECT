@@ -3,11 +3,12 @@ package com.stepdefinitions;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 
 import com.actions.RegistrationActions;
 import com.utilities.ConfigReader;
-import com.utilities.ExcelReader;
 import com.utilities.HelperClass;
 import com.utilities.TestDataReader;
 
@@ -19,198 +20,228 @@ import io.cucumber.java.en.When;
 
 public class RegistrationStepDefinition {
 
-    RegistrationActions registrationActions;
+	private static final Logger logger = LogManager.getLogger(RegistrationStepDefinition.class);
 
-    String path =System.getProperty("user.dir")+ "\\TestData\\TestData.xlsx";
+	RegistrationActions registrationActions;
 
-    String sheetName = "Sheet2";
+	String path = System.getProperty("user.dir") + "\\TestData\\TestData.xlsx";
 
+	String sheetName = "Sheet2";
 
-    @Given("the user is on the DemoWebShop homepage")
-    public void the_user_is_on_the_demo_web_shop_homepage() {
+	@Given("the user is on the DemoWebShop homepage")
+	public void the_user_is_on_the_demo_web_shop_homepage() {
 
-        HelperClass.getDriver()
-                .get(ConfigReader.get("app.url"));
+		logger.info("Launching DemoWebShop application");
 
-        registrationActions =
-                new RegistrationActions(
-                        HelperClass.getDriver());
-    }
+		HelperClass.getDriver().get(ConfigReader.get("app.url"));
 
+		registrationActions = new RegistrationActions(HelperClass.getDriver());
 
-    @When("the user clicks the {string} link")
-    public void the_user_clicks_the_link(String link) {
+		logger.info("DemoWebShop homepage launched successfully");
+	}
 
-        if(link.equalsIgnoreCase("Register")) {
+	@When("the user clicks the {string} link")
+	public void the_user_clicks_the_link(String link) {
 
-            registrationActions.clickRegisterLink();
-        }
-    }
+		logger.info("User clicks on link: " + link);
 
+		if (link.equalsIgnoreCase("Register")) {
 
-    @And("the user enters firstname {string}")
-    public void the_user_enters_firstname(String firstname) {
+			registrationActions.clickRegisterLink();
 
-        registrationActions.enterFirstName(firstname);
-    }
+			logger.info("Register link clicked successfully");
+		}
+	}
 
+	@And("the user enters firstname {string}")
+	public void the_user_enters_firstname(String firstname) {
 
-    @And("the user enters lastname {string}")
-    public void the_user_enters_lastname(String lastname) {
+		logger.info("Entering firstname: " + firstname);
 
-        registrationActions.enterLastName(lastname);
-    }
+		registrationActions.enterFirstName(firstname);
+	}
 
+	@And("the user enters lastname {string}")
+	public void the_user_enters_lastname(String lastname) {
 
-    @And("the user enters email {string}")
-    public void the_user_enters_email(String email) {
+		logger.info("Entering lastname: " + lastname);
 
-        registrationActions.enterEmail(email);
-    }
+		registrationActions.enterLastName(lastname);
+	}
 
+	@And("the user enters email {string}")
+	public void the_user_enters_email(String email) {
 
-    @And("the user enters password {string}")
-    public void the_user_enters_password(String password) {
+		logger.info("Entering email: " + email);
 
-        registrationActions.enterPassword(password);
-    }
+		registrationActions.enterEmail(email);
+	}
 
+	@And("the user enters password {string}")
+	public void the_user_enters_password(String password) {
 
-    @And("the user enters confirm password {string}")
-    public void the_user_enters_confirm_password(
-            String confirmPassword) {
+		logger.info("Entering password");
 
-        registrationActions
-                .enterConfirmPassword(confirmPassword);
-    }
+		registrationActions.enterPassword(password);
+	}
 
+	@And("the user enters confirm password {string}")
+	public void the_user_enters_confirm_password(String confirmPassword) {
 
-    @And("the user enters registration details from excel row {string}")
-    public void the_user_enters_registration_details_from_excel_row(
-            String rowValue) {
+		logger.info("Entering confirm password");
 
-        int row = Integer.parseInt(rowValue);
+		registrationActions.enterConfirmPassword(confirmPassword);
+	}
 
-        registrationActions.enterRegistrationDetailsFromExcel(path,sheetName,row);
-    }
+	@And("the user enters registration details from excel row {string}")
+	public void the_user_enters_registration_details_from_excel_row(String rowValue) {
 
+		logger.info("Entering registration details from excel row: " + rowValue);
 
-    @And("the user enters existing user data from properties file")
-    public void the_user_enters_existing_user_data_from_properties_file() {
+		int row = Integer.parseInt(rowValue);
 
-        registrationActions.enterFirstName(TestDataReader.get("firstname"));
+		registrationActions.enterRegistrationDetailsFromExcel(path, sheetName, row);
 
-        registrationActions.enterLastName(TestDataReader.get("lastname"));
+		logger.info("Excel data entered successfully");
+	}
 
-        registrationActions.enterEmail(TestDataReader.get("existingemail"));
+	@And("the user enters existing user data from properties file")
+	public void the_user_enters_existing_user_data_from_properties_file() {
 
-        registrationActions.enterPassword(TestDataReader.get("password"));
+		logger.info("Entering existing user data from properties file");
 
-        registrationActions.enterConfirmPassword(TestDataReader.get("confirmPassword"));
-    }
+		registrationActions.enterFirstName(TestDataReader.get("firstname"));
 
+		registrationActions.enterLastName(TestDataReader.get("lastname"));
 
-    @And("the user clicks the {string} button")
-    public void the_user_clicks_the_button(String button) {
+		registrationActions.enterEmail(TestDataReader.get("existingemail"));
 
-        if(button.equalsIgnoreCase("Register")) {
+		registrationActions.enterPassword(TestDataReader.get("password"));
 
-            registrationActions.clickRegisterButton();
-        }
+		registrationActions.enterConfirmPassword(TestDataReader.get("confirmPassword"));
 
-        else if(button.equalsIgnoreCase("Continue")) {
+		logger.info("Existing user data entered successfully");
+	}
 
-            registrationActions.clickContinueButton();
-        }
-    }
+	@And("the user clicks the {string} button")
+	public void the_user_clicks_the_button(String button) {
 
+		logger.info("User clicks button: " + button);
 
-    @Then("the page should display the message Your registration completed")
-    public void the_page_should_display_the_message() {
+		if (button.equalsIgnoreCase("Register")) {
 
-        Assert.assertEquals(
-                registrationActions
-                        .getRegistrationSuccessMessage(),
+			registrationActions.clickRegisterButton();
 
-                TestDataReader.get("successmessage"));
-    }
+			logger.info("Register button clicked successfully");
+		}
 
+		else if (button.equalsIgnoreCase("Continue")) {
 
-    @Then("the email error message {string} should be displayed")
-    public void the_email_error_message_should_be_displayed(
-            String expectedMessage) {
+			registrationActions.clickContinueButton();
 
-        Assert.assertEquals(
+			logger.info("Continue button clicked successfully");
+		}
+	}
 
-                registrationActions.getEmailErrorMessage(),
+	@Then("the page should display the message Your registration completed")
+	public void the_page_should_display_the_message() {
 
-                expectedMessage);
-    }
+		logger.info("Validating registration success message");
 
+		Assert.assertEquals(registrationActions.getRegistrationSuccessMessage(),
 
-    @Then("the confirm password error message {string} should be displayed")
-    public void the_confirm_password_error_message_should_be_displayed(
-            String expectedMessage) {
+				TestDataReader.get("successmessage"));
 
-        Assert.assertEquals(
+		logger.info("Registration success message validated successfully");
+	}
 
-                registrationActions
-                        .getConfirmPasswordErrorMessage(),
+	@Then("the email error message {string} should be displayed")
+	public void the_email_error_message_should_be_displayed(String expectedMessage) {
 
-                expectedMessage);
-    }
+		logger.info("Validating email error message");
 
+		Assert.assertEquals(
 
-    @Then("the page should display the error The specified email already exists")
-    public void the_page_should_display_the_existing_email_error() {
+				registrationActions.getEmailErrorMessage(),
 
-        Assert.assertEquals(
+				expectedMessage);
 
-                registrationActions
-                        .getExistingEmailErrorMessage(),
+		logger.info("Email error message validated successfully");
+	}
 
-                TestDataReader.get("existingemailerror"));
-    }
+	@Then("the confirm password error message {string} should be displayed")
+	public void the_confirm_password_error_message_should_be_displayed(String expectedMessage) {
 
+		logger.info("Validating confirm password error message");
 
-    @Then("the following validation messages should be displayed")
-    public void the_following_validation_messages_should_be_displayed(
-            DataTable dataTable) {
+		Assert.assertEquals(registrationActions.getConfirmPasswordErrorMessage(),expectedMessage);
 
-        List<Map<String, String>> data =
+		logger.info("Confirm password error message validated successfully");
+	}
 
-                dataTable.asMaps(String.class,
-                        String.class);
+	@Then("the page should display the error The specified email already exists")
+	public void the_page_should_display_the_existing_email_error() {
 
-        for(Map<String, String> row : data) {
+		logger.info("Validating existing email error message");
 
-            String field =
-                    row.get("Field");
+		Assert.assertEquals(registrationActions.getExistingEmailErrorMessage(),TestDataReader.get("existingemailerror"));
 
-            String expectedMessage =
-                    row.get("Message");
+		logger.info("Existing email error validated successfully");
+	}
 
-            switch(field) {
+	@Then("the following validation messages should be displayed")
+	public void the_following_validation_messages_should_be_displayed(DataTable dataTable) {
 
-                case "FirstName":
-                    Assert.assertEquals(registrationActions.getFirstNameErrorMessage(),expectedMessage);
-                    break;
+		logger.info("Validating mandatory field error messages");
 
+		List<Map<String, String>> data =
 
-                case "LastName":
-                    Assert.assertEquals(registrationActions.getLastNameErrorMessage(),expectedMessage);
-                    break;
+				dataTable.asMaps(String.class, String.class);
 
-                case "Email":
+		for (Map<String, String> row : data) {
 
-                    Assert.assertEquals(registrationActions.getEmailErrorMessage(),expectedMessage);
-                    break;
+			String field = row.get("Field");
 
-                case "Password":
+			String expectedMessage = row.get("Message");
 
-                    Assert.assertEquals( registrationActions .getPasswordErrorMessage(),expectedMessage);
-                    break;
-            }
-        }
-    }
+			logger.info("Validating field: " + field);
+
+			switch (field) {
+
+			case "FirstName":
+
+				Assert.assertEquals(registrationActions.getFirstNameErrorMessage(),expectedMessage);
+
+				logger.info("FirstName validation passed");
+
+				break;
+
+			case "LastName":
+
+				Assert.assertEquals(registrationActions.getLastNameErrorMessage(),expectedMessage);
+
+				logger.info("LastName validation passed");
+
+				break;
+
+			case "Email":
+
+				Assert.assertEquals(registrationActions.getEmailErrorMessage(),expectedMessage);
+
+				logger.info("Email validation passed");
+
+				break;
+
+			case "Password":
+
+				Assert.assertEquals(registrationActions.getPasswordErrorMessage(),expectedMessage);
+
+				logger.info("Password validation passed");
+
+				break;
+			}
+		}
+
+		logger.info("All validation messages verified successfully");
+	}
 }
