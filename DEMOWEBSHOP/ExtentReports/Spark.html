@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary"></span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">May 18, 2026 11:11:28 pm</span></a>
+<a href="#"><span class="badge badge-primary">May 18, 2026 11:33:28 pm</span></a>
 </li>
 </ul>
 </div>
@@ -79,7 +79,7 @@
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tag"></i></a>
 <ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
-<a class="dropdown-item" href="#">@WishlistToCart</a><a class="dropdown-item" href="#">@RemoveWishlist</a><a class="dropdown-item" href="#">@DisplayWishlist</a><a class="dropdown-item" href="#">@AddWishlist</a>
+<a class="dropdown-item" href="#">@Insensitive</a><a class="dropdown-item" href="#">@ValidSearch</a><a class="dropdown-item" href="#">@InvalidSearch</a><a class="dropdown-item" href="#">@WithoutKeyword</a>
 </ul>
 </li>
 </ul>
@@ -90,9 +90,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">Vetrivel_17MAY2025_DEMOWEBSHOP_FeatureFileForWishlist</p>
+            <p class="name">Vetrivel_13MAY2025_DEMOWEBSHOP_FeatureFileforLogin</p>
             <p class="text-sm">
-              <span>11:11:29 pm</span> / <span>00:00:45:180</span>
+              <span>11:33:30 pm</span> / <span>00:00:24:266</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -100,23 +100,26 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">Vetrivel_17MAY2025_DEMOWEBSHOP_FeatureFileForWishlist</h5>
-<span class='badge badge-success'>05.18.2026 11:11:29 pm</span>
-<span class='badge badge-danger'>05.18.2026 11:12:15 pm</span>
-<span class='badge badge-default'>00:00:45:180</span>
+<h5 class="test-status text-pass">Vetrivel_13MAY2025_DEMOWEBSHOP_FeatureFileforLogin</h5>
+<span class='badge badge-success'>05.18.2026 11:33:30 pm</span>
+<span class='badge badge-danger'>05.18.2026 11:33:54 pm</span>
+<span class='badge badge-default'>00:00:24:266</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
-<div class="m-t-10 m-l-5"></div>
+<div class="m-t-10 m-l-5"> Description:
+As a user,
+I want to search an item in the search box
+so that I can view products related to my search keyword</div>
 </div>
 </div>
 <div class="accordion mt-4">
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>Add product to wishlist</div>
+        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>Search product using valid keyword</div>
       </div>
     </div>
         <div class="collapse">
@@ -126,18 +129,18 @@
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.stepdefinitions.WishlistStepDefinition.user_searches_and_adds_scenario_product_from_excel_to_wishlist(java.lang.String)">
-                <span>When user searches and adds "AddWishlist" scenario product from excel to wishlist</span>
+              <div class="step pass-bg" title="com.stepdefinitions.SearchStepDefinition.user_enters_keyword_from_csv(java.lang.String)">
+                <span>When user enters "valid" type keyword from csv in the search box</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.stepdefinitions.WishlistStepDefinition.message_for_scenario_should_be_displayed(java.lang.String)">
-                <span>Then message for "AddWishlist" scenario should be displayed</span>
+              <div class="step pass-bg" title="com.stepdefinitions.SearchStepDefinition.click_search()">
+                <span>And clicks on Search button</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.stepdefinitions.WishlistStepDefinition.searched_product_should_be_added_to_the_wishlist()">
-                <span>And searched product should be added to the wishlist</span>
+              <div class="step pass-bg" title="com.stepdefinitions.SearchStepDefinition.verify_redirect()">
+                <span>Then user should be redirected to the search results page</span>
       <div>
       </div>
               </div>
@@ -147,7 +150,7 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="9"><span class="badge log pass-bg mr-2">Pass</span>Remove product from wishlist</div>
+        <div class="node" id="9"><span class="badge log pass-bg mr-2">Pass</span>Search using invalid keyword</div>
       </div>
     </div>
         <div class="collapse">
@@ -157,18 +160,18 @@
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.stepdefinitions.WishlistStepDefinition.user_searches_and_adds_scenario_product_from_excel_to_wishlist(java.lang.String)">
-                <span>When user searches and adds "RemoveWishlist" scenario product from excel to wishlist</span>
+              <div class="step pass-bg" title="com.stepdefinitions.SearchStepDefinition.user_enters_keyword_from_csv(java.lang.String)">
+                <span>When user enters "invalid" type keyword from csv in the search box</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.stepdefinitions.WishlistStepDefinition.user_removes_the_product_from_wishlist()">
-                <span>And user removes the product from wishlist</span>
+              <div class="step pass-bg" title="com.stepdefinitions.SearchStepDefinition.click_search()">
+                <span>And clicks on Search button</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.stepdefinitions.WishlistStepDefinition.wishlist_should_be_empty()">
-                <span>Then wishlist should be empty</span>
+              <div class="step pass-bg" title="com.stepdefinitions.SearchStepDefinition.verify_no_products()">
+                <span>Then no products message should be displayed</span>
       <div>
       </div>
               </div>
@@ -178,7 +181,7 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="16"><span class="badge log pass-bg mr-2">Pass</span>Add wishlist product to shopping cart</div>
+        <div class="node" id="16"><span class="badge log pass-bg mr-2">Pass</span>Verify search is case insensitive</div>
       </div>
     </div>
         <div class="collapse">
@@ -188,18 +191,18 @@
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.stepdefinitions.WishlistStepDefinition.user_searches_and_adds_scenario_product_from_excel_to_wishlist(java.lang.String)">
-                <span>When user searches and adds "WishlistToCart" scenario product from excel to wishlist</span>
+              <div class="step pass-bg" title="com.stepdefinitions.SearchStepDefinition.user_enters_keyword_from_csv(java.lang.String)">
+                <span>When user enters "insensitive" type keyword from csv in the search box</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.stepdefinitions.WishlistStepDefinition.user_moves_wishlist_product_to_cart()">
-                <span>And user moves wishlist product to cart</span>
+              <div class="step pass-bg" title="com.stepdefinitions.SearchStepDefinition.click_search()">
+                <span>And clicks on Search button</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.stepdefinitions.WishlistStepDefinition.product_should_be_added_to_shopping_cart()">
-                <span>Then product should be added to shopping cart</span>
+              <div class="step pass-bg" title="com.stepdefinitions.SearchStepDefinition.verify_products()">
+                <span>Then matching products should be displayed</span>
       <div>
       </div>
               </div>
@@ -209,7 +212,7 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="23"><span class="badge log pass-bg mr-2">Pass</span>Verify product displayed in wishlist</div>
+        <div class="node" id="23"><span class="badge log pass-bg mr-2">Pass</span>Search without entering keyword</div>
       </div>
     </div>
         <div class="collapse">
@@ -219,18 +222,13 @@
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.stepdefinitions.WishlistStepDefinition.user_searches_and_adds_scenario_product_from_excel_to_wishlist(java.lang.String)">
-                <span>When user searches and adds "DisplayWishlist" scenario product from excel to wishlist</span>
+              <div class="step pass-bg" title="com.stepdefinitions.SearchStepDefinition.user_clicks_on_search_button_without_entering_keyword()">
+                <span>When user clicks on Search button without entering keyword</span>
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.stepdefinitions.WishlistStepDefinition.user_navigates_to_wishlist_page()">
-                <span>And user navigates to wishlist page</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="com.stepdefinitions.WishlistStepDefinition.product_should_be_displayed_in_wishlist()">
-                <span>Then product should be displayed in wishlist</span>
+              <div class="step pass-bg" title="com.stepdefinitions.SearchStepDefinition.warning_message_should_be_displayed_to_the_user()">
+                <span>Then warning message should be displayed to the user</span>
       <div>
       </div>
               </div>
@@ -262,12 +260,12 @@
 <span class="meta">
 <span class='badge log pass-bg'>1</span>
 </span>
-<p class="name">@WishlistToCart</p>
+<p class="name">@Insensitive</p>
 <p class="duration text-sm">1 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>@WishlistToCart</h4>
+<h4>@Insensitive</h4>
 <span status="pass" class='badge log pass-bg'>1 passed</span>
 </div>
 <table class='table table-sm mt-4'>
@@ -281,11 +279,11 @@
 <tbody>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>23:11:52 pm</td>
+<td>23:33:44 pm</td>
 <td>
-<a href="#" class="linked" test-id='1' id='16'>Add wishlist product to shopping cart</a>
+<a href="#" class="linked" test-id='1' id='16'>Verify search is case insensitive</a>
 <div class="">
-<span class="badge badge-default">Vetrivel_17MAY2025_DEMOWEBSHOP_FeatureFileForWishlist.Add wishlist product to shopping cart</span>
+<span class="badge badge-default">Vetrivel_13MAY2025_DEMOWEBSHOP_FeatureFileforLogin.Verify search is case insensitive</span>
 </div>
 </td>
 </tr>
@@ -298,12 +296,12 @@
 <span class="meta">
 <span class='badge log pass-bg'>1</span>
 </span>
-<p class="name">@RemoveWishlist</p>
+<p class="name">@ValidSearch</p>
 <p class="duration text-sm">1 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>@RemoveWishlist</h4>
+<h4>@ValidSearch</h4>
 <span status="pass" class='badge log pass-bg'>1 passed</span>
 </div>
 <table class='table table-sm mt-4'>
@@ -317,11 +315,11 @@
 <tbody>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>23:11:41 pm</td>
+<td>23:33:30 pm</td>
 <td>
-<a href="#" class="linked" test-id='1' id='9'>Remove product from wishlist</a>
+<a href="#" class="linked" test-id='1' id='2'>Search product using valid keyword</a>
 <div class="">
-<span class="badge badge-default">Vetrivel_17MAY2025_DEMOWEBSHOP_FeatureFileForWishlist.Remove product from wishlist</span>
+<span class="badge badge-default">Vetrivel_13MAY2025_DEMOWEBSHOP_FeatureFileforLogin.Search product using valid keyword</span>
 </div>
 </td>
 </tr>
@@ -334,12 +332,12 @@
 <span class="meta">
 <span class='badge log pass-bg'>1</span>
 </span>
-<p class="name">@DisplayWishlist</p>
+<p class="name">@InvalidSearch</p>
 <p class="duration text-sm">1 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>@DisplayWishlist</h4>
+<h4>@InvalidSearch</h4>
 <span status="pass" class='badge log pass-bg'>1 passed</span>
 </div>
 <table class='table table-sm mt-4'>
@@ -353,11 +351,11 @@
 <tbody>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>23:12:06 pm</td>
+<td>23:33:38 pm</td>
 <td>
-<a href="#" class="linked" test-id='1' id='23'>Verify product displayed in wishlist</a>
+<a href="#" class="linked" test-id='1' id='9'>Search using invalid keyword</a>
 <div class="">
-<span class="badge badge-default">Vetrivel_17MAY2025_DEMOWEBSHOP_FeatureFileForWishlist.Verify product displayed in wishlist</span>
+<span class="badge badge-default">Vetrivel_13MAY2025_DEMOWEBSHOP_FeatureFileforLogin.Search using invalid keyword</span>
 </div>
 </td>
 </tr>
@@ -370,12 +368,12 @@
 <span class="meta">
 <span class='badge log pass-bg'>1</span>
 </span>
-<p class="name">@AddWishlist</p>
+<p class="name">@WithoutKeyword</p>
 <p class="duration text-sm">1 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>@AddWishlist</h4>
+<h4>@WithoutKeyword</h4>
 <span status="pass" class='badge log pass-bg'>1 passed</span>
 </div>
 <table class='table table-sm mt-4'>
@@ -389,11 +387,11 @@
 <tbody>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>23:11:29 pm</td>
+<td>23:33:50 pm</td>
 <td>
-<a href="#" class="linked" test-id='1' id='2'>Add product to wishlist</a>
+<a href="#" class="linked" test-id='1' id='23'>Search without entering keyword</a>
 <div class="">
-<span class="badge badge-default">Vetrivel_17MAY2025_DEMOWEBSHOP_FeatureFileForWishlist.Add product to wishlist</span>
+<span class="badge badge-default">Vetrivel_13MAY2025_DEMOWEBSHOP_FeatureFileforLogin.Search without entering keyword</span>
 </div>
 </td>
 </tr>
@@ -414,13 +412,13 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>May 18, 2026 11:11:28 pm</h3>
+<h3>May 18, 2026 11:33:28 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>May 18, 2026 11:12:15 pm</h3>
+<h3>May 18, 2026 11:33:54 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -491,7 +489,7 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>16</b> steps passed</small></div>
+<div><small data-tooltip='100%'><b>15</b> steps passed</small></div>
 <div>
 <small data-tooltip='0%'><b>0</b> steps failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
@@ -510,7 +508,7 @@
 </div></div>
 <script>
 var timeline = {
-"Vetrivel_17MAY2025_DEMOWEBSHOP_FeatureFileForWishlist":45.18
+"Vetrivel_13MAY2025_DEMOWEBSHOP_FeatureFileforLogin":24.266
 };
 </script>
 <div class="row">
@@ -520,7 +518,7 @@ var timeline = {
 <div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
 <thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
 <tr>
-<td>@WishlistToCart</td>
+<td>@Insensitive</td>
 <td>1</td>
 <td>0</td>
 <td>0</td>
@@ -528,7 +526,7 @@ var timeline = {
 <td>100%</td>
 </tr>
 <tr>
-<td>@RemoveWishlist</td>
+<td>@ValidSearch</td>
 <td>1</td>
 <td>0</td>
 <td>0</td>
@@ -536,7 +534,7 @@ var timeline = {
 <td>100%</td>
 </tr>
 <tr>
-<td>@DisplayWishlist</td>
+<td>@InvalidSearch</td>
 <td>1</td>
 <td>0</td>
 <td>0</td>
@@ -544,7 +542,7 @@ var timeline = {
 <td>100%</td>
 </tr>
 <tr>
-<td>@AddWishlist</td>
+<td>@WithoutKeyword</td>
 <td>1</td>
 <td>0</td>
 <td>0</td>
@@ -589,7 +587,7 @@ warningChild: 0,
 skipChild: 0,
 infoChild: 0,
 grandChildCount: 5,
-passGrandChild: 16,
+passGrandChild: 15,
 failGrandChild: 0,
 warningGrandChild: 0,
 skipGrandChild: 0,
