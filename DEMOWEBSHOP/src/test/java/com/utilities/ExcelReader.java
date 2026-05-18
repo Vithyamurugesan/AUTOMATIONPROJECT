@@ -86,8 +86,10 @@ public class ExcelReader {
             workbook.close();
         }
         catch (Exception e) {
-
+        	
             System.out.println(e.getMessage());
+            throw new RuntimeException("Unable to read excel file: "+ filePath, e);
+
         }
 
         return data;
