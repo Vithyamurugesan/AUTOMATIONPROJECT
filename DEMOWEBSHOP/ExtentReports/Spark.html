@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary"></span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">May 17, 2026 12:37:43 pm</span></a>
+<a href="#"><span class="badge badge-primary">May 18, 2026 02:14:39 pm</span></a>
 </li>
 </ul>
 </div>
@@ -79,7 +79,7 @@
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tag"></i></a>
 <ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
-<a class="dropdown-item" href="#">@AddToCart</a><a class="dropdown-item" href="#">@InvalidCoupon</a><a class="dropdown-item" href="#">@EmptyCart</a><a class="dropdown-item" href="#">@UpdateCart</a><a class="dropdown-item" href="#">@MultipleProductsCart</a><a class="dropdown-item" href="#">@CartTotal</a><a class="dropdown-item" href="#">@RemoveCart</a><a class="dropdown-item" href="#">@InvalidGiftCard</a>
+<a class="dropdown-item" href="#">@WishlistToCart</a><a class="dropdown-item" href="#">@RemoveWishlist</a><a class="dropdown-item" href="#">@AddWishlist</a><a class="dropdown-item" href="#">@DisplayWishlist</a>
 </ul>
 </li>
 </ul>
@@ -90,9 +90,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">Shopping Cart Functionality</p>
+            <p class="name">Vetrivel_17MAY2026_DEMOWEBSHOP_FeatureFileforWishlist</p>
             <p class="text-sm">
-              <span>12:37:44 pm</span> / <span>00:01:26:913</span>
+              <span>2:14:41 pm</span> / <span>00:01:48:179</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -100,183 +100,138 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">Shopping Cart Functionality</h5>
-<span class='badge badge-success'>05.17.2026 12:37:44 pm</span>
-<span class='badge badge-danger'>05.17.2026 12:39:11 pm</span>
-<span class='badge badge-default'>00:01:26:913</span>
+<h5 class="test-status text-pass">Vetrivel_17MAY2026_DEMOWEBSHOP_FeatureFileforWishlist</h5>
+<span class='badge badge-success'>05.18.2026 2:14:41 pm</span>
+<span class='badge badge-danger'>05.18.2026 2:16:29 pm</span>
+<span class='badge badge-default'>00:01:48:179</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
-<div class="m-t-10 m-l-5"> Description:
-This feature is used to verify shopping cart functions
-like adding products to cart.</div>
+<div class="m-t-10 m-l-5"> Description: As a user, I want to add searched products to wishlist
+so that I can save products for future purchase</div>
 </div>
 </div>
 <div class="accordion mt-4">
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>Add product to shopping cart</div>
-      </div>
-    </div>
-        <div class="collapse">
-          <div class="card-body">
-              <div class="step pass-bg" title="com.stepdefinitions.CartStepDefinition.user_is_on_demo_web_shop_website()">
-                <span>Given User is on Demo Web Shop Website</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="com.stepdefinitions.CartStepDefinition.user_is_on_product_details_page()">
-                <span>Given User is on product details page</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="com.stepdefinitions.CartStepDefinition.user_clicks_on_add_to_cart_button()">
-                <span>When User clicks on Add to Cart button</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="com.stepdefinitions.CartStepDefinition.product_should_be_added_to_shopping_cart()">
-                <span>Then Product should be added to shopping cart</span>
-      <div>
-      </div>
-              </div>
-          </div>
-        </div>
-  </div>
-  <div class="card">
-    <div class="card-header" role="tab">
-      <div class="card-title">
-        <div class="node" id="9"><span class="badge log pass-bg mr-2">Pass</span>Add multiple products to shopping cart</div>
-      </div>
-    </div>
-        <div class="collapse">
-          <div class="card-body">
-              <div class="step pass-bg" title="com.stepdefinitions.CartStepDefinition.user_is_on_demo_web_shop_website()">
-                <span>Given User is on Demo Web Shop Website</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="com.stepdefinitions.CartStepDefinition.user_adds_multiple_products_to_cart(io.cucumber.datatable.DataTable)">
-                <span>When User adds multiple products to cart</span>
-      <div><table class='markup-table table '><tr><td>productName</td></tr><tr><td>Computing and Internet</td></tr><tr><td>Fiction</td></tr><tr><td>14.1-inch Laptop</td></tr></table>
-      </div>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="com.stepdefinitions.CartStepDefinition.all_products_should_be_added_to_shopping_cart()">
-                <span>Then All products should be added to shopping cart</span>
-      <div>
-      </div>
-              </div>
-          </div>
-        </div>
-  </div>
-  <div class="card">
-    <div class="card-header" role="tab">
-      <div class="card-title">
-        <div class="node" id="15"><span class="badge log pass-bg mr-2">Pass</span>Verify shopping cart total amount</div>
-      </div>
-    </div>
-        <div class="collapse">
-          <div class="card-body">
-              <div class="step pass-bg" title="com.stepdefinitions.CartStepDefinition.user_is_on_demo_web_shop_website()">
-                <span>Given User is on Demo Web Shop Website</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="com.stepdefinitions.CartStepDefinition.user_added_multiple_products_to_shopping_cart()">
-                <span>Given User added multiple products to shopping cart</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="com.stepdefinitions.CartStepDefinition.user_navigates_to_shopping_cart_page()">
-                <span>And User navigates to shopping cart page</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="com.stepdefinitions.CartStepDefinition.added_products_should_be_displayed_in_shopping_cart()">
-                <span>Then Added products should be displayed in shopping cart</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="com.stepdefinitions.CartStepDefinition.cart_subtotal_and_total_amount_should_be_displayed_correctly()">
-                <span>And Cart subtotal and total amount should be displayed correctly</span>
-      <div>
-      </div>
-              </div>
-          </div>
-        </div>
-  </div>
-  <div class="card">
-    <div class="card-header" role="tab">
-      <div class="card-title">
-        <div class="node" id="23"><span class="badge log pass-bg mr-2">Pass</span>Verify empty shopping cart message</div>
-      </div>
-    </div>
-        <div class="collapse">
-          <div class="card-body">
-              <div class="step pass-bg" title="com.stepdefinitions.CartStepDefinition.user_is_on_demo_web_shop_website()">
-                <span>Given User is on Demo Web Shop Website</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="com.stepdefinitions.CartStepDefinition.user_navigates_to_shopping_cart_page_without_adding_any_product()">
-                <span>Given User navigates to shopping cart page without adding any product</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="com.stepdefinitions.CartStepDefinition.user_should_see_message_as(java.lang.String)">
-                <span>Then User should see message as "Your Shopping Cart is empty!"</span>
-      <div>
-      </div>
-              </div>
-          </div>
-        </div>
-  </div>
-  <div class="card">
-    <div class="card-header" role="tab">
-      <div class="card-title">
-        <div class="node" id="29"><span class="badge log pass-bg mr-2">Pass</span>Verify invalid coupon code validation</div>
+        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>Add product to wishlist</div>
       </div>
     </div>
         <div class="scenario_outline collapse">
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="30"><span class="badge log pass-bg mr-2">Pass</span>Verify invalid coupon code validation</div>
+                  <div class="node" id="3"><span class="badge log pass-bg mr-2">Pass</span>Add product to wishlist</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
                   <div class="step pass-bg">
-                    <span>Given User is on Demo Web Shop Website</span>
+                    <span>Given user is on the home page</span>
       <div>
       </div>
                   </div>
                   <div class="step pass-bg">
-                    <span>Given User added product to shopping cart</span>
+                    <span>When user searches and adds product "Health Book" to wishlist</span>
       <div>
       </div>
                   </div>
                   <div class="step pass-bg">
-                    <span>And User navigates to shopping cart page</span>
+                    <span>Then message "The product has been added to your wishlist" should be displayed</span>
       <div>
       </div>
                   </div>
                   <div class="step pass-bg">
-                    <span>When User enters invalid coupon code "asdfg123"</span>
+                    <span>And searched product should be added to the wishlist</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="10"><span class="badge log pass-bg mr-2">Pass</span>Add product to wishlist</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given user is on the home page</span>
       <div>
       </div>
                   </div>
                   <div class="step pass-bg">
-                    <span>And User clicks on Apply Coupon button</span>
+                    <span>When user searches and adds product "Fiction EX" to wishlist</span>
       <div>
       </div>
                   </div>
                   <div class="step pass-bg">
-                    <span>Then User should see the invalid message "The coupon code you entered couldn't be applied to your order"</span>
+                    <span>Then message "The product has been added to your wishlist" should be displayed</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And searched product should be added to the wishlist</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="17"><span class="badge log pass-bg mr-2">Pass</span>Add product to wishlist</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given user is on the home page</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When user searches and adds product "Smartphone" to wishlist</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then message "The product has been added to your wishlist" should be displayed</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And searched product should be added to the wishlist</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="24"><span class="badge log pass-bg mr-2">Pass</span>Add product to wishlist</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given user is on the home page</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When user searches and adds product "Black & White Diamond Heart" to wishlist</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then message "The product has been added to your wishlist" should be displayed</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And searched product should be added to the wishlist</span>
       <div>
       </div>
                   </div>
@@ -287,44 +242,63 @@ like adding products to cart.</div>
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="39"><span class="badge log pass-bg mr-2">Pass</span>Verify invalid gift card code validation</div>
+        <div class="node" id="31"><span class="badge log pass-bg mr-2">Pass</span>Remove product from wishlist</div>
       </div>
     </div>
         <div class="scenario_outline collapse">
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="40"><span class="badge log pass-bg mr-2">Pass</span>Verify invalid gift card code validation</div>
+                  <div class="node" id="32"><span class="badge log pass-bg mr-2">Pass</span>Remove product from wishlist</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
                   <div class="step pass-bg">
-                    <span>Given User is on Demo Web Shop Website</span>
+                    <span>Given user is on the home page</span>
       <div>
       </div>
                   </div>
                   <div class="step pass-bg">
-                    <span>Given User added product to shopping cart</span>
+                    <span>When user searches and adds product "Health Book" to wishlist</span>
       <div>
       </div>
                   </div>
                   <div class="step pass-bg">
-                    <span>And User navigates to shopping cart page</span>
+                    <span>And user removes the product from wishlist</span>
       <div>
       </div>
                   </div>
                   <div class="step pass-bg">
-                    <span>When User enters invalid gift card code "gift1234"</span>
+                    <span>Then wishlist should be empty</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="39"><span class="badge log pass-bg mr-2">Pass</span>Remove product from wishlist</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given user is on the home page</span>
       <div>
       </div>
                   </div>
                   <div class="step pass-bg">
-                    <span>And User clicks on Apply Gift Card button</span>
+                    <span>When user searches and adds product "Fiction EX" to wishlist</span>
       <div>
       </div>
                   </div>
                   <div class="step pass-bg">
-                    <span>Then User should see the invalid message "The coupon code you entered couldn't be applied to your order"</span>
+                    <span>And user removes the product from wishlist</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then wishlist should be empty</span>
       <div>
       </div>
                   </div>
@@ -335,83 +309,135 @@ like adding products to cart.</div>
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="49"><span class="badge log pass-bg mr-2">Pass</span>Verify cart quantity update</div>
+        <div class="node" id="46"><span class="badge log pass-bg mr-2">Pass</span>Add wishlist product to shopping cart</div>
       </div>
     </div>
-        <div class="collapse">
-          <div class="card-body">
-              <div class="step pass-bg" title="com.stepdefinitions.CartStepDefinition.user_is_on_demo_web_shop_website()">
-                <span>Given User is on Demo Web Shop Website</span>
+        <div class="scenario_outline collapse">
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="47"><span class="badge log pass-bg mr-2">Pass</span>Add wishlist product to shopping cart</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given user is on the home page</span>
       <div>
       </div>
-              </div>
-              <div class="step pass-bg" title="com.stepdefinitions.CartStepDefinition.user_added_product_to_shopping_cart()">
-                <span>Given User added product to shopping cart</span>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When user searches and adds product "Health Book" to wishlist</span>
       <div>
       </div>
-              </div>
-              <div class="step pass-bg" title="com.stepdefinitions.CartStepDefinition.user_navigates_to_shopping_cart_page()">
-                <span>And User navigates to shopping cart page</span>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And user moves wishlist product to cart</span>
       <div>
       </div>
-              </div>
-              <div class="step pass-bg" title="com.stepdefinitions.CartStepDefinition.user_updates_product_quantity()">
-                <span>When User updates product quantity</span>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then product should be added to shopping cart</span>
       <div>
       </div>
+                  </div>
               </div>
-              <div class="step pass-bg" title="com.stepdefinitions.CartStepDefinition.user_clicks_on_update_shopping_cart_button()">
-                <span>And User clicks on Update Shopping Cart button</span>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="54"><span class="badge log pass-bg mr-2">Pass</span>Add wishlist product to shopping cart</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given user is on the home page</span>
       <div>
       </div>
-              </div>
-              <div class="step pass-bg" title="com.stepdefinitions.CartStepDefinition.updated_quantity_should_be_displayed_in_shopping_cart()">
-                <span>Then Updated quantity should be displayed in shopping cart</span>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When user searches and adds product "Smartphone" to wishlist</span>
       <div>
       </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And user moves wishlist product to cart</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then product should be added to shopping cart</span>
+      <div>
+      </div>
+                  </div>
               </div>
-          </div>
+            </div>
         </div>
   </div>
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="58"><span class="badge log pass-bg mr-2">Pass</span>Verify remove product from shopping cart</div>
+        <div class="node" id="61"><span class="badge log pass-bg mr-2">Pass</span>Verify added product is displayed in wishlist</div>
       </div>
     </div>
-        <div class="collapse">
-          <div class="card-body">
-              <div class="step pass-bg" title="com.stepdefinitions.CartStepDefinition.user_is_on_demo_web_shop_website()">
-                <span>Given User is on Demo Web Shop Website</span>
+        <div class="scenario_outline collapse">
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="62"><span class="badge log pass-bg mr-2">Pass</span>Verify added product is displayed in wishlist</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given user is on the home page</span>
       <div>
       </div>
-              </div>
-              <div class="step pass-bg" title="com.stepdefinitions.CartStepDefinition.user_added_product_to_shopping_cart()">
-                <span>Given User added product to shopping cart</span>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When user searches and adds product "Health Book" to wishlist</span>
       <div>
       </div>
-              </div>
-              <div class="step pass-bg" title="com.stepdefinitions.CartStepDefinition.user_navigates_to_shopping_cart_page()">
-                <span>And User navigates to shopping cart page</span>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And user navigates to wishlist page</span>
       <div>
       </div>
-              </div>
-              <div class="step pass-bg" title="com.stepdefinitions.CartStepDefinition.user_removes_product_from_shopping_cart()">
-                <span>When User removes product from shopping cart</span>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then product should be displayed in wishlist</span>
       <div>
       </div>
+                  </div>
               </div>
-              <div class="step pass-bg" title="com.stepdefinitions.CartStepDefinition.user_clicks_on_update_shopping_cart_button()">
-                <span>And User clicks on Update Shopping Cart button</span>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="69"><span class="badge log pass-bg mr-2">Pass</span>Verify added product is displayed in wishlist</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given user is on the home page</span>
       <div>
       </div>
-              </div>
-              <div class="step pass-bg" title="com.stepdefinitions.CartStepDefinition.product_should_be_removed_from_shopping_cart()">
-                <span>Then Product should be removed from shopping cart</span>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When user searches and adds product "Black & White Diamond Heart" to wishlist</span>
       <div>
       </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And user navigates to wishlist page</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then product should be displayed in wishlist</span>
+      <div>
+      </div>
+                  </div>
               </div>
-          </div>
+            </div>
         </div>
   </div>
 </div>
@@ -430,22 +456,22 @@ like adding products to cart.</div>
 <div class="test-list">
 <div class="test-list-tools">
 <ul class="tools pull-left"><li><a href=""><span class="font-size-14">Category</span></a></li></ul>
-<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">8</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">4</span></a></li></ul>
 </div>
 <div class="test-list-wrapper scrollable">
 <ul class="test-list-item">
 <li class="test-item">
 <div class="test-detail">
 <span class="meta">
-<span class='badge log pass-bg'>1</span>
+<span class='badge log pass-bg'>2</span>
 </span>
-<p class="name">@AddToCart</p>
-<p class="duration text-sm">1 tests</p>
+<p class="name">@WishlistToCart</p>
+<p class="duration text-sm">2 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>@AddToCart</h4>
-<span status="pass" class='badge log pass-bg'>1 passed</span>
+<h4>@WishlistToCart</h4>
+<span status="pass" class='badge log pass-bg'>2 passed</span>
 </div>
 <table class='table table-sm mt-4'>
 <thead>
@@ -458,11 +484,21 @@ like adding products to cart.</div>
 <tbody>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>12:37:44 pm</td>
+<td>14:15:45 pm</td>
 <td>
-<a href="#" class="linked" test-id='1' id='2'>Add product to shopping cart</a>
+<a href="#" class="linked" test-id='1' id='47'>Add wishlist product to shopping cart</a>
 <div class="">
-<span class="badge badge-default">Shopping Cart Functionality.Add product to shopping cart</span>
+<span class="badge badge-default">Vetrivel_17MAY2026_DEMOWEBSHOP_FeatureFileforWishlist.Add wishlist product to shopping cart</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>14:15:58 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='54'>Add wishlist product to shopping cart</a>
+<div class="">
+<span class="badge badge-default">Vetrivel_17MAY2026_DEMOWEBSHOP_FeatureFileforWishlist.Add wishlist product to shopping cart</span>
 </div>
 </td>
 </tr>
@@ -473,15 +509,15 @@ like adding products to cart.</div>
 <li class="test-item">
 <div class="test-detail">
 <span class="meta">
-<span class='badge log pass-bg'>1</span>
+<span class='badge log pass-bg'>2</span>
 </span>
-<p class="name">@InvalidCoupon</p>
-<p class="duration text-sm">1 tests</p>
+<p class="name">@RemoveWishlist</p>
+<p class="duration text-sm">2 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>@InvalidCoupon</h4>
-<span status="pass" class='badge log pass-bg'>1 passed</span>
+<h4>@RemoveWishlist</h4>
+<span status="pass" class='badge log pass-bg'>2 passed</span>
 </div>
 <table class='table table-sm mt-4'>
 <thead>
@@ -494,11 +530,21 @@ like adding products to cart.</div>
 <tbody>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>12:38:34 pm</td>
+<td>14:15:24 pm</td>
 <td>
-<a href="#" class="linked" test-id='1' id='30'>Verify invalid coupon code validation</a>
+<a href="#" class="linked" test-id='1' id='32'>Remove product from wishlist</a>
 <div class="">
-<span class="badge badge-default">Shopping Cart Functionality.Verify invalid coupon code validation</span>
+<span class="badge badge-default">Vetrivel_17MAY2026_DEMOWEBSHOP_FeatureFileforWishlist.Remove product from wishlist</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>14:15:35 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='39'>Remove product from wishlist</a>
+<div class="">
+<span class="badge badge-default">Vetrivel_17MAY2026_DEMOWEBSHOP_FeatureFileforWishlist.Remove product from wishlist</span>
 </div>
 </td>
 </tr>
@@ -509,15 +555,15 @@ like adding products to cart.</div>
 <li class="test-item">
 <div class="test-detail">
 <span class="meta">
-<span class='badge log pass-bg'>1</span>
+<span class='badge log pass-bg'>4</span>
 </span>
-<p class="name">@EmptyCart</p>
-<p class="duration text-sm">1 tests</p>
+<p class="name">@AddWishlist</p>
+<p class="duration text-sm">4 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>@EmptyCart</h4>
-<span status="pass" class='badge log pass-bg'>1 passed</span>
+<h4>@AddWishlist</h4>
+<span status="pass" class='badge log pass-bg'>4 passed</span>
 </div>
 <table class='table table-sm mt-4'>
 <thead>
@@ -530,11 +576,41 @@ like adding products to cart.</div>
 <tbody>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>12:38:28 pm</td>
+<td>14:14:41 pm</td>
 <td>
-<a href="#" class="linked" test-id='1' id='23'>Verify empty shopping cart message</a>
+<a href="#" class="linked" test-id='1' id='3'>Add product to wishlist</a>
 <div class="">
-<span class="badge badge-default">Shopping Cart Functionality.Verify empty shopping cart message</span>
+<span class="badge badge-default">Vetrivel_17MAY2026_DEMOWEBSHOP_FeatureFileforWishlist.Add product to wishlist</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>14:14:51 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='10'>Add product to wishlist</a>
+<div class="">
+<span class="badge badge-default">Vetrivel_17MAY2026_DEMOWEBSHOP_FeatureFileforWishlist.Add product to wishlist</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>14:15:02 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='17'>Add product to wishlist</a>
+<div class="">
+<span class="badge badge-default">Vetrivel_17MAY2026_DEMOWEBSHOP_FeatureFileforWishlist.Add product to wishlist</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>14:15:13 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='24'>Add product to wishlist</a>
+<div class="">
+<span class="badge badge-default">Vetrivel_17MAY2026_DEMOWEBSHOP_FeatureFileforWishlist.Add product to wishlist</span>
 </div>
 </td>
 </tr>
@@ -545,15 +621,15 @@ like adding products to cart.</div>
 <li class="test-item">
 <div class="test-detail">
 <span class="meta">
-<span class='badge log pass-bg'>1</span>
+<span class='badge log pass-bg'>2</span>
 </span>
-<p class="name">@UpdateCart</p>
-<p class="duration text-sm">1 tests</p>
+<p class="name">@DisplayWishlist</p>
+<p class="duration text-sm">2 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>@UpdateCart</h4>
-<span status="pass" class='badge log pass-bg'>1 passed</span>
+<h4>@DisplayWishlist</h4>
+<span status="pass" class='badge log pass-bg'>2 passed</span>
 </div>
 <table class='table table-sm mt-4'>
 <thead>
@@ -566,155 +642,21 @@ like adding products to cart.</div>
 <tbody>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>12:38:53 pm</td>
+<td>14:16:10 pm</td>
 <td>
-<a href="#" class="linked" test-id='1' id='49'>Verify cart quantity update</a>
+<a href="#" class="linked" test-id='1' id='62'>Verify added product is displayed in wishlist</a>
 <div class="">
-<span class="badge badge-default">Shopping Cart Functionality.Verify cart quantity update</span>
+<span class="badge badge-default">Vetrivel_17MAY2026_DEMOWEBSHOP_FeatureFileforWishlist.Verify added product is displayed in wishlist</span>
 </div>
 </td>
 </tr>
-</tbody>
-</table>
-</div>
-</li>
-<li class="test-item">
-<div class="test-detail">
-<span class="meta">
-<span class='badge log pass-bg'>1</span>
-</span>
-<p class="name">@MultipleProductsCart</p>
-<p class="duration text-sm">1 tests</p>
-</div>
-<div class="test-contents d-none">
-<div class="info">
-<h4>@MultipleProductsCart</h4>
-<span status="pass" class='badge log pass-bg'>1 passed</span>
-</div>
-<table class='table table-sm mt-4'>
-<thead>
-<tr>
-<th class="status-col">Status</th>
-<th class="timestamp-col">Timestamp</th>
-<th>TestName</th>
-</tr>
-</thead>
-<tbody>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>12:37:57 pm</td>
+<td>14:16:19 pm</td>
 <td>
-<a href="#" class="linked" test-id='1' id='9'>Add multiple products to shopping cart</a>
+<a href="#" class="linked" test-id='1' id='69'>Verify added product is displayed in wishlist</a>
 <div class="">
-<span class="badge badge-default">Shopping Cart Functionality.Add multiple products to shopping cart</span>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</li>
-<li class="test-item">
-<div class="test-detail">
-<span class="meta">
-<span class='badge log pass-bg'>1</span>
-</span>
-<p class="name">@CartTotal</p>
-<p class="duration text-sm">1 tests</p>
-</div>
-<div class="test-contents d-none">
-<div class="info">
-<h4>@CartTotal</h4>
-<span status="pass" class='badge log pass-bg'>1 passed</span>
-</div>
-<table class='table table-sm mt-4'>
-<thead>
-<tr>
-<th class="status-col">Status</th>
-<th class="timestamp-col">Timestamp</th>
-<th>TestName</th>
-</tr>
-</thead>
-<tbody>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>12:38:19 pm</td>
-<td>
-<a href="#" class="linked" test-id='1' id='15'>Verify shopping cart total amount</a>
-<div class="">
-<span class="badge badge-default">Shopping Cart Functionality.Verify shopping cart total amount</span>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</li>
-<li class="test-item">
-<div class="test-detail">
-<span class="meta">
-<span class='badge log pass-bg'>1</span>
-</span>
-<p class="name">@RemoveCart</p>
-<p class="duration text-sm">1 tests</p>
-</div>
-<div class="test-contents d-none">
-<div class="info">
-<h4>@RemoveCart</h4>
-<span status="pass" class='badge log pass-bg'>1 passed</span>
-</div>
-<table class='table table-sm mt-4'>
-<thead>
-<tr>
-<th class="status-col">Status</th>
-<th class="timestamp-col">Timestamp</th>
-<th>TestName</th>
-</tr>
-</thead>
-<tbody>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>12:39:02 pm</td>
-<td>
-<a href="#" class="linked" test-id='1' id='58'>Verify remove product from shopping cart</a>
-<div class="">
-<span class="badge badge-default">Shopping Cart Functionality.Verify remove product from shopping cart</span>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</li>
-<li class="test-item">
-<div class="test-detail">
-<span class="meta">
-<span class='badge log pass-bg'>1</span>
-</span>
-<p class="name">@InvalidGiftCard</p>
-<p class="duration text-sm">1 tests</p>
-</div>
-<div class="test-contents d-none">
-<div class="info">
-<h4>@InvalidGiftCard</h4>
-<span status="pass" class='badge log pass-bg'>1 passed</span>
-</div>
-<table class='table table-sm mt-4'>
-<thead>
-<tr>
-<th class="status-col">Status</th>
-<th class="timestamp-col">Timestamp</th>
-<th>TestName</th>
-</tr>
-</thead>
-<tbody>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>12:38:43 pm</td>
-<td>
-<a href="#" class="linked" test-id='1' id='40'>Verify invalid gift card code validation</a>
-<div class="">
-<span class="badge badge-default">Shopping Cart Functionality.Verify invalid gift card code validation</span>
+<span class="badge badge-default">Vetrivel_17MAY2026_DEMOWEBSHOP_FeatureFileforWishlist.Verify added product is displayed in wishlist</span>
 </div>
 </td>
 </tr>
@@ -735,13 +677,13 @@ like adding products to cart.</div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>May 17, 2026 12:37:43 pm</h3>
+<h3>May 18, 2026 02:14:39 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>May 17, 2026 12:39:11 pm</h3>
+<h3>May 18, 2026 02:16:29 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -792,7 +734,7 @@ like adding products to cart.</div>
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>8</b> scenarios passed</small></div>
+<div><small data-tooltip='100%'><b>10</b> scenarios passed</small></div>
 <div>
 <small data-tooltip='0%'><b>0</b> scenarios failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
@@ -812,7 +754,7 @@ like adding products to cart.</div>
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>39</b> steps passed</small></div>
+<div><small data-tooltip='100%'><b>40</b> steps passed</small></div>
 <div>
 <small data-tooltip='0%'><b>0</b> steps failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
@@ -831,7 +773,7 @@ like adding products to cart.</div>
 </div></div>
 <script>
 var timeline = {
-"Shopping Cart Functionality":86.913
+"Vetrivel_17MAY2026_DEMOWEBSHOP_FeatureFileforWishlist":108.179
 };
 </script>
 <div class="row">
@@ -841,64 +783,32 @@ var timeline = {
 <div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
 <thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
 <tr>
-<td>@AddToCart</td>
-<td>1</td>
+<td>@WishlistToCart</td>
+<td>2</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
 <td>100%</td>
 </tr>
 <tr>
-<td>@InvalidCoupon</td>
-<td>1</td>
+<td>@RemoveWishlist</td>
+<td>2</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
 <td>100%</td>
 </tr>
 <tr>
-<td>@EmptyCart</td>
-<td>1</td>
+<td>@AddWishlist</td>
+<td>4</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
 <td>100%</td>
 </tr>
 <tr>
-<td>@UpdateCart</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>100%</td>
-</tr>
-<tr>
-<td>@MultipleProductsCart</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>100%</td>
-</tr>
-<tr>
-<td>@CartTotal</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>100%</td>
-</tr>
-<tr>
-<td>@RemoveCart</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>100%</td>
-</tr>
-<tr>
-<td>@InvalidGiftCard</td>
-<td>1</td>
+<td>@DisplayWishlist</td>
+<td>2</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
@@ -936,13 +846,13 @@ failParent: 0,
 warningParent: 0,
 skipParent: 0,
 childCount: 5,
-passChild: 8,
+passChild: 10,
 failChild: 0,
 warningChild: 0,
 skipChild: 0,
 infoChild: 0,
 grandChildCount: 5,
-passGrandChild: 39,
+passGrandChild: 40,
 failGrandChild: 0,
 warningGrandChild: 0,
 skipGrandChild: 0,

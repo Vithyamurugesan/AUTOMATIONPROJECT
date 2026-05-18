@@ -1,5 +1,3 @@
-// WishlistActions.java
-
 package com.actions;
 
 import org.openqa.selenium.WebDriver;
@@ -8,17 +6,15 @@ import com.pages.WishlistPage;
 
 public class WishlistAction extends BaseAction {
 
-	WishlistPage wishlistPage;
-	
-    public WishlistAction(WebDriver driver) {
-		super(driver);
-		this.wishlistPage = new WishlistPage();
-	}
+    WishlistPage wishlistPage;
 
-    public void navigateToProductPage() {
-        click(wishlistPage.getComputersMenu());
-        click(wishlistPage.getDesktopCategory());
-        click(wishlistPage.getProduct());
+    public WishlistAction(WebDriver driver) {
+        super(driver);
+        this.wishlistPage = new WishlistPage();
+    }
+
+    public void openSearchedProduct(String productName) {
+        click(wishlistPage.getProduct(productName));
     }
 
     public void clickAddToWishlist() {

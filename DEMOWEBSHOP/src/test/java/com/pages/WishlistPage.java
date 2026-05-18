@@ -3,13 +3,10 @@ package com.pages;
 import org.openqa.selenium.By;
 
 public class WishlistPage {
-	
-    private By computersMenu=By.xpath("(//a[contains(text(),'Computers')])[1]");
-    private By desktopCategory=By.xpath("(//a[contains(text(),'Desktops')])[1]");
-    private By product=By.xpath("//h2[@class='product-title']/a[contains(text(),'Build your own cheap computer')]");
-    private By addToWishlistButton=By.xpath("//input[@id='add-to-wishlist-button-72']");
+
+    private By addToWishlistButton=By.xpath("//input[contains(@value,'Add to wishlist')]");
     private By successMessage=By.xpath("//p[@class='content']");
-    private By wishlistLink=By.linkText("Wishlist"); 
+    private By wishlistLink=By.linkText("Wishlist");
     private By wishlistProduct=By.xpath("//td[@class='product']/a");
     private By removeCheckbox=By.name("removefromcart");
     private By updateWishlistButton=By.name("updatecart");
@@ -18,17 +15,9 @@ public class WishlistPage {
     private By addToCartButton=By.name("addtocartbutton");
     private By shoppingCartLink=By.linkText("Shopping cart");
     private By cartProduct=By.xpath("//td[@class='product']/a");
-    
-    public By getComputersMenu() {
-		return computersMenu;
-	}
 
-    public By getDesktopCategory() {
-		return desktopCategory;
-	}
-
-	public By getProduct() {
-        return product;
+    public By getProduct(String productName) {
+        return By.linkText(productName);
     }
 
     public By getAddToWishlistButton() {
