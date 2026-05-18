@@ -14,7 +14,7 @@ Then the user should see the previously ordered details
 
 Examples:
 | email               | password |
-| jenny04@gmail.com   | 123456   |
+| haritha11@gmail.com | haritha  |
 
 
 @History @Unregister
@@ -41,7 +41,7 @@ Then the user should see the ordered product information
 
 Examples:
 | email               | password |
-| jenny04@gmail.com   | 123456   |
+| haritha11@gmail.com | haritha  |
 
 
 @PDF
@@ -62,8 +62,7 @@ Then the invoice PDF should be downloaded successfully
 
 Examples:
 | email               | password |
-| jenny04@gmail.com   | 123456   |
-
+| haritha11@gmail.com | haritha  |
 
 
 
@@ -85,4 +84,4 @@ And the previously ordered products should be added to the cart
 
 Examples:
 | email               | password |
-| jenny04@gmail.com   | 123456   |
+| haritha11@gmail.com | haritha  |
