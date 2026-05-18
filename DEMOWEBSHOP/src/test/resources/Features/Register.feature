@@ -5,17 +5,6 @@ Feature: Vithya_13MAY2025_DEMOWEBSHOP_Registration
   Background:
     Given the user is on the DemoWebShop homepage
 
-<<<<<<< HEAD
-  @ValidRegistration
-  Scenario: Verify user registration with valid details
-    Given User navigates to the Register page
-    When  User enters valid registration details
-    And   User clicks on Register button
-    Then  User should see "Your registration completed" message
-    And   User should see Continue button
-    
-    
-=======
   @Registration @Smoke @Ignore 
   Scenario: Successful user registration with mandatory fields
     When the user clicks the "Register" link
@@ -78,4 +67,3 @@ Feature: Vithya_13MAY2025_DEMOWEBSHOP_Registration
       | Confirm Password | priyadev                 |
     And the user clicks the "Register" button
     Then the page should display the error "The specified email already exists"
->>>>>>> 52d1f6d5f2217b9ca1bd0d5a85c41a687f3d3cf3

@@ -2,7 +2,7 @@ package com.actions;
 
 import org.openqa.selenium.WebDriver;
 
-import com.pages.OrderPageLocator;
+import com.pages.OrderPage;
 
 public class OrderAction extends BaseAction {
 
@@ -14,38 +14,38 @@ public class OrderAction extends BaseAction {
 	}
 	
 	public void waitfororderlink() {
-		waitForVisibility(OrderPageLocator.orderlink).isDisplayed();
+		waitForVisibility(OrderPage.getOrderlink()).isDisplayed();
 	}
 	public void clickOrder() {
-		click(OrderPageLocator.orderlink);
+		click(OrderPage.getOrderlink());
 	}
 
 	public int countoforders() {
-	    return driver.findElements(OrderPageLocator.orders).size();
+	    return driver.findElements(OrderPage.getOrdersCount()).size();
 	}
 	
 	public void clickDetailsButton() {
-	    driver.findElements(OrderPageLocator.deatilsButton).get(0).click();
+	    driver.findElements(OrderPage.getDeatilsButton()).get(0).click();
 	}
 	
 	public void waitforpoductName() {
-		waitForVisibility(OrderPageLocator.productname).isDisplayed();
+		waitForVisibility(OrderPage.getProductname()).isDisplayed();
 	}
 	public String getProductText() {
-		return getText(OrderPageLocator.productname);
+		return getText(OrderPage.getProductname());
 	}
 	
 	public void clickReorder() {
-		click(OrderPageLocator.Reorder);
+		click(OrderPage.getReorder());
 	}
 	
 	public void clickPDF() {
-		click(OrderPageLocator.pdf);
+		click(OrderPage.getPdf());
 	}
 	public String getProductId() {
-	    return getText(OrderPageLocator.productId);
+	    return getText(OrderPage.getProductId());
 	} 
     public String cartProductName() {
-    	return getText(OrderPageLocator.cartproductName);
+    	return getText(OrderPage.getCartproductName());
     }
 }

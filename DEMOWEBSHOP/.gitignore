@@ -10,13 +10,21 @@
 
 # Build
 bin/
-logs/
-
-.factorypath
-src/test/java/com/runner/CucumberRunner.java
 target/
+target-output/
+
+# Logs
+logs/
+*.log
+
+# Reports
 test-output/
-allure-results/
 ExtentReports/
 HtmlReport/
 PdfReport/
+
+# Generated Files
+*.html
+*.pdf
+*.png
+allure-results/

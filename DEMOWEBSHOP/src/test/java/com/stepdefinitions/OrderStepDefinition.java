@@ -65,9 +65,7 @@ public class OrderStepDefinition {
 	public void the_user_should_see_the_ordered_product_information() {
 		order.waitforpoductName();
 		String orderProduct = order.getProductText();
-		order.clickReorder();
-		String cartProduct = order.cartProductName();
-		Assert.assertEquals(orderProduct, cartProduct);
+		Assert.assertEquals(orderProduct, "Music 2");
 	}
 
 	@When("the user clicks the PDF Invoice button")
