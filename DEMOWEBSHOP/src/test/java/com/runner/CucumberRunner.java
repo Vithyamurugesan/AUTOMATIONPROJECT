@@ -15,7 +15,11 @@ import io.cucumber.testng.CucumberOptions;
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
                 "rerun:target/failed_scenarios.txt"
         },
+<<<<<<< HEAD
        //tags ="@scenario_7",
+=======
+       
+>>>>>>> 495dc23b195007ecc88775bd773b44a099061eb6
         monochrome = true
 
 )
