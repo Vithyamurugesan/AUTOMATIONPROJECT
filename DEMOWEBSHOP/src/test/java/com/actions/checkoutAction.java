@@ -38,10 +38,10 @@ public class checkoutAction extends BaseAction {
             login.clicklogin();
 
             login.userEmail(
-                ConfigReader.getProperty("app.username"));
+                ConfigReader.get("app.username"));
 
             login.userPassword(
-                ConfigReader.getProperty("app.password"));
+                ConfigReader.get("app.password"));
 
             login.clickloginbtn();
 
