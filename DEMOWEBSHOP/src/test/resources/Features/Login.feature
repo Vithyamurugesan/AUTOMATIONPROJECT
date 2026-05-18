@@ -13,7 +13,7 @@ Feature: Haritha_13MAY2025_DEMOWEBSHOP_FeatureFileforLogin
 
     Examples:
       | email               | password |
-      | haritha11@gmail.com | haritha  |
+      | jenny04@gmail.com   | 123456  |
 
   @invalid
   Scenario Outline: Login with invalid credentials
@@ -27,11 +27,11 @@ Feature: Haritha_13MAY2025_DEMOWEBSHOP_FeatureFileforLogin
 
     Examples:
       | email               | password | error message                                                    |
-      | haritha@gmail.com   | haritha  | The credentials provided are incorrect                           |
-      | haritha11@gmail.com | hari     | The credentials provided are incorrect                           |
+      | jen@gmail.com      | jen      | The credentials provided are incorrect                           |
+      | jenny04@gmail.com   | jen      | The credentials provided are incorrect                           |
       |                     |          | No customer account found                                        |
-      |                     | haritha  | No customer account found                                        |
-      | haritha11@gmail.com |          | Login was unsuccessful. Please correct the errors and try again. |
+      |                     | 123456   | No customer account found                                        |
+      | jenny04@gmail.com   |          | Login was unsuccessful. Please correct the errors and try again. |
 
   @login @navigation
   Scenario: Forgot password link redirects to password recovery page
@@ -52,7 +52,7 @@ Feature: Haritha_13MAY2025_DEMOWEBSHOP_FeatureFileforLogin
 
     Examples:
       | email               | message                                       |
-      | haritha11@gmail.com | Email with instructions has been sent to you. |
+      | jenny04@gmail.com   | Email with instructions has been sent to you. |
 
   @password-recovery @negative
   Scenario Outline: Password recovery attempted with invalid email
@@ -63,7 +63,7 @@ Feature: Haritha_13MAY2025_DEMOWEBSHOP_FeatureFileforLogin
 
     Examples:
       | email            | message     |
-      | harithagmail.com | Wrong email |
+      |jennygmail.com | Wrong email |
 
   @password-recovery @validation
   Scenario Outline: Validation shown when email field is empty on recovery page

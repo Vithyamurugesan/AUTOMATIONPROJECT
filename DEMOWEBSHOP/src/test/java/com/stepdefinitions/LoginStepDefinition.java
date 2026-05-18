@@ -8,6 +8,7 @@ import org.testng.Assert;
 
 import com.actions.LoginAction;
 import com.pages.LoginPage;
+import com.utilities.ConfigReader;
 import com.utilities.HelperClass;
 
 import io.cucumber.java.en.Given;
@@ -27,7 +28,7 @@ public class LoginStepDefinition {
 
         driver = HelperClass.getDriver();
 
-        driver.get("https://demowebshop.tricentis.com/");
+        driver.get(ConfigReader.get("app.url"));
 
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
@@ -69,7 +70,7 @@ public class LoginStepDefinition {
 
         String actual = logaction.loggedUser();
 
-        Assert.assertEquals(actual, "haritha11@gmail.com");
+        Assert.assertEquals(actual, ConfigReader.get("app.username"));
     }
 
     @Then("the Log out link should be visible")
