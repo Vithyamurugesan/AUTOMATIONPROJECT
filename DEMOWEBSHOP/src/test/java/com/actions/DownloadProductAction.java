@@ -17,24 +17,24 @@ public class DownloadProductAction extends BaseAction {
 	}
 
 	public void waitforMyAccountlink() {
-		waitForVisibility(DownloadPage.myaccountLink).isDisplayed();
+		waitForVisibility(DownloadPage.getMyaccountLink()).isDisplayed();
 	}
 
 	public void clickMyAccount() {
-		click(DownloadPage.myaccountLink);
+		click(DownloadPage.getMyaccountLink());
 	}
 
 	public void clickDownload() {
-		click(DownloadPage.downloadProductLink);
+		click(DownloadPage.getDownloadProductLink());
 	}
 
 	public int countofordownloadProduct() {
-		return driver.findElements(DownloadPage.productcount).size();
+		return driver.findElements(DownloadPage.getProductcount()).size();
 	}
 
 	public List<String> getAllProductNames() {
 
-		List<WebElement> products = driver.findElements(DownloadPage.ProductName);
+		List<WebElement> products = driver.findElements(DownloadPage.getProductName());
 
 		List<String> productList = new ArrayList<>();
 
