@@ -5,7 +5,7 @@ description: As a user, I want to be able to proceed to the checkout page from t
 Background: 
 Given user is on the demoWebPage website
 
-@Scenario_1
+@scenario_1
 Scenario: procedure to checkout as registered user
 Given user is login the demo web shop website with minium adding of one product
 When the user click the checkbox of terms and conditions
@@ -13,7 +13,7 @@ And the user click the checkout button
 Then the user redirect to the checkout page and seen the text of checkout 
 
 
-@Scenario_2 
+@scenario_2 
 Scenario: Procedure to checkout as a guest user
 
 Given the user adds at least one product to the cart without logging in

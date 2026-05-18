@@ -1,6 +1,8 @@
 package com.actions;
 
-import java.time.Duration;
+import java.time.Duration; 
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,46 +13,57 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import com.pages.checkoutPage;
+import com.utilities.ConfigReader;
 
 public class checkoutAction extends BaseAction {
 
     checkoutPage cp;
     Actions ac = new Actions(driver);
-
+    CartAction cart;
+    LoginAction login;
     Logger log = LogManager.getLogger(checkoutAction.class);
 
     public checkoutAction(WebDriver driver) {
 		super(driver);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		cp = new checkoutPage();
-
+		cart= new CartAction(driver);
+		login = new LoginAction(driver);
 		log.info("browser open");
 	}
 
     public void productAddInCart() {
-    	try {
-        click(cp.loginLink);
-        type(cp.email, "jenny04@gmail.com");
-        type(cp.password, "123456");
-        click(cp.loginButton);
-        log.info("login successful");
-        click(cp.book);
-       
-        click(cp.addToCart);
 
-        wait.until(
-        ExpectedConditions.visibilityOf(
-        waitForVisibility(cp.cart)));
+        try {
 
-        jsClick(cp.cart);
-		
+            login.clicklogin();
 
-        log.info("product add in cart");
-    	}
-    	catch(Exception e) {
-    		log.error("product add fail",e);
-    		throw e;
-    	}
+            login.userEmail(
+                ConfigReader.getProperty("app.username"));
+
+            login.userPassword(
+                ConfigReader.getProperty("app.password"));
+
+            login.clickloginbtn();
+
+            log.info("login successful");
+
+            waitForVisibility(cp.book);
+
+            click(cp.book);
+            cart.addCart();
+            cart.checkCart();
+
+            log.info("product add in cart");
+
+        
+        }
+
+        catch(Exception e){
+
+            log.error("product add fail",e);
+            throw e;
+        }
     }
 
     public void click_checkBox() {
@@ -84,14 +97,9 @@ public class checkoutAction extends BaseAction {
 
     public void addAproductGuest() {
     	try {
-		click(cp.book);
-		click(cp.addToCart);
-
-		wait.until(
-		ExpectedConditions.visibilityOf(
-		waitForVisibility(cp.cart)));
-
-		jsClick(cp.cart);
+    		cart.openBookPage();
+            cart.addCart();
+            cart.checkCart();
 		
 
 		log.info("guest product add");

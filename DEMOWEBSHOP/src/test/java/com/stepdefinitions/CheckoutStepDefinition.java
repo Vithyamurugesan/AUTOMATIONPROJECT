@@ -99,7 +99,7 @@ public void the_user_click_continue_button() {
 public void the_user_is_in_the_checkout_page() {
     
 
-    AC.addAproductGuest();      // add product
+    AC.addAproductGuest();      
     AC.click_checkBox();        // accept terms
     AC.click_checkout();        // click checkout
     AC.GuestLogin();            // checkout as guest
@@ -181,7 +181,7 @@ public void the_user_should_see_the_error_message_of_wrong_email() {
 @Given("the user in the checkout pages of shipping section")
 public void the_user_in_the_checkout_pages_of_shipping_section() {
 
-    // Reuse checkout flow
+    
     the_user_is_in_the_checkout_page();
 
     // Fill billing address

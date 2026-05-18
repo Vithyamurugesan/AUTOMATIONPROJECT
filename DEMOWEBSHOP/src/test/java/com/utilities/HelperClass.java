@@ -1,36 +1,62 @@
 package com.utilities;
 
-import org.openqa.selenium.WebDriver; 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-
-
 
 public class HelperClass {
 
     private static WebDriver driver;
 
-
     public static WebDriver getDriver() {
+
         return driver;
     }
 
     public static void setUpDriver() {
 
-        ChromeOptions options = new ChromeOptions();
+        ChromeOptions options =
+                new ChromeOptions();
 
-        String headless = ConfigReader.get("headless");
-        
-        if (headless != null && headless.equalsIgnoreCase("true")) {
-            options.addArguments("--headless=new");
-        }
+        Map<String,Object> prefs =
+                new HashMap<>();
 
-        driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
+        // disable Chrome password popup
+        prefs.put(
+                "credentials_enable_service",
+                false);
+
+        prefs.put(
+                "profile.password_manager_enabled",
+                false);
+
+        prefs.put(
+                "profile.password_manager_leak_detection",
+                false);
+
+        options.setExperimentalOption(
+                "prefs",
+                prefs);
+
+        options.addArguments(
+                "--disable-notifications");
+
+        options.addArguments(
+                "--start-maximized");
+
+
+        driver =
+                new ChromeDriver(options);
+
     }
 
-    public static void tearDown() {
-        if (driver != null) {
+    public static void tearDown(){
+
+        if(driver!=null){
+
             driver.quit();
         }
     }
