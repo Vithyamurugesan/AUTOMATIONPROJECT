@@ -5,7 +5,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
 
-        features ="src/test/resources/Features/",
+        features ="src/test/resources/Features/Download.feature",
 
         glue = "com.stepdefinitions",
         plugin = {

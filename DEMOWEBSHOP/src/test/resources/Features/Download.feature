@@ -16,7 +16,7 @@ Then the user should be able to see the previously downloaded product details
 
 Examples:
 | email               | password |
-| haritha11@gmail.com | haritha  |
+| jenny04@gmail.com   | 123456   |
 
 
 @DownloadUnregister

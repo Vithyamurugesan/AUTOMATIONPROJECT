@@ -4,6 +4,7 @@ import io.cucumber.java.en.When;
 
 import java.util.List;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 import com.actions.DownloadProductAction;
@@ -21,6 +22,7 @@ public class DownloadStepDefinition {
 
 	@When("the user clicks the My account link")
 	public void the_user_clicks_the_my_account_link() {
+		driver.switchTo().activeElement().sendKeys(Keys.ENTER);
 		download.waitforMyAccountlink();
 		download.clickMyAccount();
 	}
