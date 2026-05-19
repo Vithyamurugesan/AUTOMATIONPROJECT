@@ -1,4 +1,4 @@
-Feature: Search functionality
+Feature: Vetrivel_14MAY2025_DEMOWEBSHOP_SearchFunctionality
 
   Description:
   As a user,
@@ -7,6 +7,7 @@ Feature: Search functionality
 
   Background:
     Given user is on the home page
+
 
   @ValidSearch
   Scenario: Search product using valid keyword
