@@ -42,9 +42,7 @@ Then the user redirect to the checkout page and seen the text of checkout
 @scenario_4
 Scenario:  Completed a Billing AddressForm with Valid credentials
 Given the user is in the checkout page
-When the user dill the billing address form with valid credentials
-|FirstName|LastName|Email|Company|Country|state|City|Address1|Address2|ZipCode|Phone|Fax number|
-|jeeva|pranesh|jeeva@gmail.com|expleo|1|0|Salem| sivaji nagar| sivaji bagar|636004|9876543210|1234567890|
+When the user fill the billing address form with valid credentials using excel 
 And the user click the Continue button
 Then the user should seen the Shipping Addres form with text of Select a shipping address from your address book or enter a new address.
 
@@ -52,9 +50,7 @@ Then the user should seen the Shipping Addres form with text of Select a shippin
 @scenario_5
 Scenario: fill the billing Address with invalid credentials
 Given the user is in the checkout page
-When the user dill the billing address form with invalid credentials of email
-|FirstName|LastName|Email|Company|Country|state|City|Address1|Address2|ZipCode|Phone|Fax number|
-|jeeva|pranesh|jeevagmail.com|expleo|1|0|Salem| sivaji nagar| sivaji bagar|636004|9876543210|1234567890|
+When the user fill invalid billing data from excel
 And the user click the Continue button
 Then the user should see the error message of Wrong email
 
