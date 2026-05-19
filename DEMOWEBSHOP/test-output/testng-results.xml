@@ -1,91 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+<testng-results ignored="0" total="7" passed="7" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-05-18T20:15:58 IST" name="Default suite" finished-at="2026-05-18T20:16:27 IST" duration-ms="29743">
+  <suite started-at="2026-05-19T06:26:08 IST" name="Default suite" finished-at="2026-05-19T06:27:23 IST" duration-ms="75621">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.CucumberRunner@565f390]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.CucumberRunner@5e21e98f]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2026-05-18T20:15:58 IST" name="Default test" finished-at="2026-05-18T20:16:27 IST" duration-ms="29743">
+    <test started-at="2026-05-19T06:26:08 IST" name="Default test" finished-at="2026-05-19T06:27:23 IST" duration-ms="75621">
       <class name="com.runner.CucumberRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.runner.CucumberRunner@565f390]" started-at="2026-05-18T20:15:58 IST" name="setUpClass" finished-at="2026-05-18T20:15:59 IST" duration-ms="1231" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.runner.CucumberRunner@5e21e98f]" started-at="2026-05-19T06:26:08 IST" name="setUpClass" finished-at="2026-05-19T06:26:09 IST" duration-ms="718" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@35ceec81]]>
+                <![CDATA[org.testng.TestRunner@5737d116]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.CucumberRunner@565f390]" started-at="2026-05-18T20:15:59 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-18T20:16:07 IST" duration-ms="8325" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.CucumberRunner@5e21e98f]" started-at="2026-05-19T06:26:09 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-19T06:26:23 IST" duration-ms="14658" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Search product using valid keyword"]]>
+                <![CDATA["Verify product details page"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Vetrivel_13MAY2025_DEMOWEBSHOP_FeatureFileforLogin"]]>
+                <![CDATA["Sowndariya_17May2026_DEMOWEBSHOP_Product Details Functionality"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.CucumberRunner@565f390]" started-at="2026-05-18T20:16:07 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-18T20:16:13 IST" duration-ms="5691" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.CucumberRunner@5e21e98f]" started-at="2026-05-19T06:26:23 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-19T06:26:35 IST" duration-ms="11599" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Search using invalid keyword"]]>
+                <![CDATA["Verify product details page"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Vetrivel_13MAY2025_DEMOWEBSHOP_FeatureFileforLogin"]]>
+                <![CDATA["Sowndariya_17May2026_DEMOWEBSHOP_Product Details Functionality"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.CucumberRunner@565f390]" started-at="2026-05-18T20:16:13 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-18T20:16:19 IST" duration-ms="5912" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.CucumberRunner@5e21e98f]" started-at="2026-05-19T06:26:35 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-19T06:26:44 IST" duration-ms="9030" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Verify search is case insensitive"]]>
+                <![CDATA["Verify product availability"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Vetrivel_13MAY2025_DEMOWEBSHOP_FeatureFileforLogin"]]>
+                <![CDATA["Sowndariya_17May2026_DEMOWEBSHOP_Product Details Functionality"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.CucumberRunner@565f390]" started-at="2026-05-18T20:16:19 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-18T20:16:24 IST" duration-ms="5323" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.CucumberRunner@5e21e98f]" started-at="2026-05-19T06:26:44 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-19T06:26:53 IST" duration-ms="8660" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Search without entering keyword"]]>
+                <![CDATA["Verify product availability"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Vetrivel_13MAY2025_DEMOWEBSHOP_FeatureFileforLogin"]]>
+                <![CDATA["Sowndariya_17May2026_DEMOWEBSHOP_Product Details Functionality"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.runner.CucumberRunner@565f390]" started-at="2026-05-18T20:16:24 IST" name="tearDownClass" finished-at="2026-05-18T20:16:27 IST" duration-ms="3148" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.CucumberRunner@5e21e98f]" started-at="2026-05-19T06:26:53 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-19T06:27:02 IST" duration-ms="9847" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify quantity validation message"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Sowndariya_17May2026_DEMOWEBSHOP_Product Details Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.CucumberRunner@5e21e98f]" started-at="2026-05-19T06:27:02 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-19T06:27:12 IST" duration-ms="10086" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify quantity validation message"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Sowndariya_17May2026_DEMOWEBSHOP_Product Details Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.runner.CucumberRunner@5e21e98f]" started-at="2026-05-19T06:27:12 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-19T06:27:22 IST" duration-ms="9134" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify quantity validation message"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Sowndariya_17May2026_DEMOWEBSHOP_Product Details Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.runner.CucumberRunner@5e21e98f]" started-at="2026-05-19T06:27:22 IST" name="tearDownClass" finished-at="2026-05-19T06:27:23 IST" duration-ms="1832" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

@@ -49,7 +49,7 @@
 		<!-- nav-right -->
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<a href='#!'>
-			<span class='label blue darken-3 suite-start-time'>May 18, 2026 08:15:58 pm</span>
+			<span class='label blue darken-3 suite-start-time'>May 19, 2026 06:26:08 am</span>
 			</a>
 		</ul>
 	</div>
@@ -76,10 +76,9 @@
 				<i class='material-icons'>local_offer</i> Category
 				</a>
 				<ul id='category-toggle' class='dropdown-content'>
-					<li><a href='#'>@InvalidSearch</a></li>
-					<li><a href='#'>@WithoutKeyword</a></li>
-					<li><a href='#'>@ValidSearch</a></li>
-					<li><a href='#'>@Insensitive</a></li>
+					<li><a href='#'>@InvalidQuantity</a></li>
+					<li><a href='#'>@ProductDetails</a></li>
+					<li><a href='#'>@Availability</a></li>
 					<li class='divider'></li>
 					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
 				</ul>
@@ -140,7 +139,7 @@
                 </div>
                 <div class='block text-small'>
                     <span class='tooltipped' data-position='top' data-tooltip='100%'>
-                    <span class='strong'>4</span> scenarios passed</span>
+                    <span class='strong'>7</span> scenarios passed</span>
                 </div>
                 <div class='block text-small'>
                     <span class='strong tooltipped' data-position='top' data-tooltip='0%'>
@@ -160,7 +159,7 @@
                 </div>
                 <div class='block text-small'>
                     <span class='tooltipped' data-position='top' data-tooltip='100%'>
-                    <span class='strong'>15</span> steps passed</span>
+                    <span class='strong'>42</span> steps passed</span>
                 </div>
                 <div class='block text-small'>
                     <span class='strong tooltipped' data-position='top' data-tooltip='0%'>
@@ -189,8 +188,8 @@
 			<ul id='test-collection' class='test-collection'>
 				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>Vetrivel_13MAY2025_DEMOWEBSHOP_FeatureFileforLogin</span>
-						<span class='test-time'>May 18, 2026 08:16:00 pm</span>
+						<span class='test-name'>Sowndariya_17May2026_DEMOWEBSHOP_Product Details Functionality</span>
+						<span class='test-time'>May 19, 2026 06:26:09 am</span>
 						<span class='test-status right pass'>Pass</span>
 					</div>
 					<div class='test-content hide'>
@@ -200,143 +199,281 @@
 	<a class="btn-floating waves-effect waves-light skip blue" title="skip"><i class='material-icons'>redo</i></a>
 	<a class="btn-floating waves-effect waves-light clear grey" title="clear"><i class='material-icons'>clear</i></a>
 </div>
-	<div class='test-desc'>  Description:
-  As a user,
-  I want to search an item in the search box
-  so that I can view products related to my search keyword</div>
 
-<div class='scenario node' test-id='2' status='pass'>
+<div class='scenario outline node' test-id='2' status='pass'>
 
-	<span class='duration right label'>00 00 07.747</span>
+	<span class='duration right label'>00 00 26.060</span>
 	<div class="bdd-test">
-		<div class="scenario-name"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span> Scenario: Search product using valid keyword</div>
+		<div class="scenario-name"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span> Scenario Outline: Verify product details page</div>
 	</div>
 	
+		<div class='node-desc'><br><br><table class='markup-table table '><tr><td>category</td><td>product</td></tr><tr><td>Books</td><td>Computing and Internet</td></tr><tr><td>Books</td><td>Fiction</td></tr></table></div>
 	
-		<div class='category-list'>
-				<span class='category label'>@ValidSearch</span>
-		</div>
 	
 	<ul class='steps'>
-		<li test-id='4' class='node given Pass' status='Pass'>
-			<div class="step-name" title="(com.stepdefinitions.SearchStepDefinition.user_is_on_the_home_page())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Given user is on the home page</div>
+		<li test-id='3' class='node scenario Pass' status='Pass'>
+			<div class="step-name" title="()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Verify product details page</div>
 
+				<div class='category-list'>
+						<span class='category label'>@ProductDetails</span>
+				</div>
 
+			<ul class='gc steps'>
+				<li test-id='5' class='gc given Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.launch_app()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Given User launches Demo Web Shop application</h6>
+
+				</li>
+				<li test-id='6' class='gc when Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.click_category(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>When User clicks category "Books"</h6>
+
+				</li>
+				<li test-id='7' class='gc and Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.select_product(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And User selects product "Computing and Internet"</h6>
+
+				</li>
+				<li test-id='8' class='gc then Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.product_page()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Then Product details page should be opened</h6>
+
+				</li>
+				<li test-id='9' class='gc and Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.name(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And Product name should be displayed as "Computing and Internet"</h6>
+
+				</li>
+				<li test-id='10' class='gc and Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.price()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And Product price should be displayed</h6>
+
+				</li>
+				<li test-id='11' class='gc and Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.desc()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And Product description should be displayed</h6>
+
+				</li>
+				<li test-id='12' class='gc and Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.image()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And Product image should be displayed</h6>
+
+				</li>
+			</ul>
 		</li>
-		<li test-id='5' class='node when Pass' status='Pass'>
-			<div class="step-name" title="(com.stepdefinitions.SearchStepDefinition.user_enters_keyword_from_csv(java.lang.String))"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>When user enters "valid" type keyword from csv in the search box</div>
+		<li test-id='14' class='node scenario Pass' status='Pass'>
+			<div class="step-name" title="()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Verify product details page</div>
 
+				<div class='category-list'>
+						<span class='category label'>@ProductDetails</span>
+				</div>
 
-		</li>
-		<li test-id='6' class='node and Pass' status='Pass'>
-			<div class="step-name" title="(com.stepdefinitions.SearchStepDefinition.click_search())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And clicks on Search button</div>
+			<ul class='gc steps'>
+				<li test-id='16' class='gc given Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.launch_app()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Given User launches Demo Web Shop application</h6>
 
+				</li>
+				<li test-id='17' class='gc when Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.click_category(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>When User clicks category "Books"</h6>
 
-		</li>
-		<li test-id='7' class='node then Pass' status='Pass'>
-			<div class="step-name" title="(com.stepdefinitions.SearchStepDefinition.verify_redirect())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Then user should be redirected to the search results page</div>
+				</li>
+				<li test-id='18' class='gc and Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.select_product(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And User selects product "Fiction"</h6>
 
+				</li>
+				<li test-id='19' class='gc then Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.product_page()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Then Product details page should be opened</h6>
 
+				</li>
+				<li test-id='20' class='gc and Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.name(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And Product name should be displayed as "Fiction"</h6>
+
+				</li>
+				<li test-id='21' class='gc and Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.price()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And Product price should be displayed</h6>
+
+				</li>
+				<li test-id='22' class='gc and Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.desc()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And Product description should be displayed</h6>
+
+				</li>
+				<li test-id='23' class='gc and Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.image()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And Product image should be displayed</h6>
+
+				</li>
+			</ul>
 		</li>
 	</ul>
 </div>
-<div class='scenario node' test-id='9' status='pass'>
+<div class='scenario outline node' test-id='25' status='pass'>
 
-	<span class='duration right label'>00 00 05.682</span>
+	<span class='duration right label'>00 00 17.687</span>
 	<div class="bdd-test">
-		<div class="scenario-name"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span> Scenario: Search using invalid keyword</div>
+		<div class="scenario-name"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span> Scenario Outline: Verify product availability</div>
 	</div>
 	
+		<div class='node-desc'><br><br><table class='markup-table table '><tr><td>category</td><td>product</td><td>availability</td></tr><tr><td>Books</td><td>Computing and Internet</td><td>In stock</td></tr><tr><td>Books</td><td>Fiction</td><td>In stock</td></tr></table></div>
 	
-		<div class='category-list'>
-				<span class='category label'>@InvalidSearch</span>
-		</div>
 	
 	<ul class='steps'>
-		<li test-id='11' class='node given Pass' status='Pass'>
-			<div class="step-name" title="(com.stepdefinitions.SearchStepDefinition.user_is_on_the_home_page())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Given user is on the home page</div>
+		<li test-id='26' class='node scenario Pass' status='Pass'>
+			<div class="step-name" title="()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Verify product availability</div>
 
+				<div class='category-list'>
+						<span class='category label'>@Availability</span>
+				</div>
 
+			<ul class='gc steps'>
+				<li test-id='28' class='gc given Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.launch_app()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Given User launches Demo Web Shop application</h6>
+
+				</li>
+				<li test-id='29' class='gc when Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.click_category(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>When User clicks category "Books"</h6>
+
+				</li>
+				<li test-id='30' class='gc and Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.select_product(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And User selects product "Computing and Internet"</h6>
+
+				</li>
+				<li test-id='31' class='gc then Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.availability(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Then Product availability should be displayed as "In stock"</h6>
+
+				</li>
+			</ul>
 		</li>
-		<li test-id='12' class='node when Pass' status='Pass'>
-			<div class="step-name" title="(com.stepdefinitions.SearchStepDefinition.user_enters_keyword_from_csv(java.lang.String))"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>When user enters "invalid" type keyword from csv in the search box</div>
+		<li test-id='33' class='node scenario Pass' status='Pass'>
+			<div class="step-name" title="()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Verify product availability</div>
 
+				<div class='category-list'>
+						<span class='category label'>@Availability</span>
+				</div>
 
-		</li>
-		<li test-id='13' class='node and Pass' status='Pass'>
-			<div class="step-name" title="(com.stepdefinitions.SearchStepDefinition.click_search())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And clicks on Search button</div>
+			<ul class='gc steps'>
+				<li test-id='35' class='gc given Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.launch_app()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Given User launches Demo Web Shop application</h6>
 
+				</li>
+				<li test-id='36' class='gc when Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.click_category(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>When User clicks category "Books"</h6>
 
-		</li>
-		<li test-id='14' class='node then Pass' status='Pass'>
-			<div class="step-name" title="(com.stepdefinitions.SearchStepDefinition.verify_no_products())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Then no products message should be displayed</div>
+				</li>
+				<li test-id='37' class='gc and Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.select_product(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And User selects product "Fiction"</h6>
 
+				</li>
+				<li test-id='38' class='gc then Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.availability(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Then Product availability should be displayed as "In stock"</h6>
 
+				</li>
+			</ul>
 		</li>
 	</ul>
 </div>
-<div class='scenario node' test-id='16' status='pass'>
+<div class='scenario outline node' test-id='40' status='pass'>
 
-	<span class='duration right label'>00 00 05.903</span>
+	<span class='duration right label'>00 00 29.054</span>
 	<div class="bdd-test">
-		<div class="scenario-name"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span> Scenario: Verify search is case insensitive</div>
+		<div class="scenario-name"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span> Scenario Outline: Verify quantity validation message</div>
 	</div>
 	
+		<div class='node-desc'><br><br><table class='markup-table table '><tr><td>category</td><td>product</td><td>qty</td><td>message</td></tr><tr><td>Books</td><td>Computing and Internet</td><td>0</td><td>Quantity should be positive</td></tr><tr><td>Books</td><td>Computing and Internet</td><td>-1</td><td>Quantity should be positive</td></tr><tr><td>Books</td><td>Computing and Internet</td><td>abc</td><td>Quantity should be positive</td></tr></table></div>
 	
-		<div class='category-list'>
-				<span class='category label'>@Insensitive</span>
-		</div>
 	
 	<ul class='steps'>
-		<li test-id='18' class='node given Pass' status='Pass'>
-			<div class="step-name" title="(com.stepdefinitions.SearchStepDefinition.user_is_on_the_home_page())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Given user is on the home page</div>
+		<li test-id='41' class='node scenario Pass' status='Pass'>
+			<div class="step-name" title="()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Verify quantity validation message</div>
 
+				<div class='category-list'>
+						<span class='category label'>@InvalidQuantity</span>
+				</div>
 
+			<ul class='gc steps'>
+				<li test-id='43' class='gc given Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.launch_app()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Given User launches Demo Web Shop application</h6>
+
+				</li>
+				<li test-id='44' class='gc when Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.click_category(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>When User clicks category "Books"</h6>
+
+				</li>
+				<li test-id='45' class='gc and Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.select_product(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And User selects product "Computing and Internet"</h6>
+
+				</li>
+				<li test-id='46' class='gc and Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.qty(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And User enters quantity "0"</h6>
+
+				</li>
+				<li test-id='47' class='gc and Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.add()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And User clicks add to cart button</h6>
+
+				</li>
+				<li test-id='48' class='gc then Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.validate(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Then User should see validation message "Quantity should be positive"</h6>
+
+				</li>
+			</ul>
 		</li>
-		<li test-id='19' class='node when Pass' status='Pass'>
-			<div class="step-name" title="(com.stepdefinitions.SearchStepDefinition.user_enters_keyword_from_csv(java.lang.String))"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>When user enters "insensitive" type keyword from csv in the search box</div>
+		<li test-id='50' class='node scenario Pass' status='Pass'>
+			<div class="step-name" title="()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Verify quantity validation message</div>
 
+				<div class='category-list'>
+						<span class='category label'>@InvalidQuantity</span>
+				</div>
 
+			<ul class='gc steps'>
+				<li test-id='52' class='gc given Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.launch_app()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Given User launches Demo Web Shop application</h6>
+
+				</li>
+				<li test-id='53' class='gc when Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.click_category(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>When User clicks category "Books"</h6>
+
+				</li>
+				<li test-id='54' class='gc and Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.select_product(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And User selects product "Computing and Internet"</h6>
+
+				</li>
+				<li test-id='55' class='gc and Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.qty(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And User enters quantity "-1"</h6>
+
+				</li>
+				<li test-id='56' class='gc and Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.add()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And User clicks add to cart button</h6>
+
+				</li>
+				<li test-id='57' class='gc then Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.validate(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Then User should see validation message "Quantity should be positive"</h6>
+
+				</li>
+			</ul>
 		</li>
-		<li test-id='20' class='node and Pass' status='Pass'>
-			<div class="step-name" title="(com.stepdefinitions.SearchStepDefinition.click_search())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And clicks on Search button</div>
+		<li test-id='59' class='node scenario Pass' status='Pass'>
+			<div class="step-name" title="()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Verify quantity validation message</div>
 
+				<div class='category-list'>
+						<span class='category label'>@InvalidQuantity</span>
+				</div>
 
-		</li>
-		<li test-id='21' class='node then Pass' status='Pass'>
-			<div class="step-name" title="(com.stepdefinitions.SearchStepDefinition.verify_products())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Then matching products should be displayed</div>
+			<ul class='gc steps'>
+				<li test-id='61' class='gc given Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.launch_app()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Given User launches Demo Web Shop application</h6>
 
+				</li>
+				<li test-id='62' class='gc when Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.click_category(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>When User clicks category "Books"</h6>
 
-		</li>
-	</ul>
-</div>
-<div class='scenario node' test-id='23' status='pass'>
+				</li>
+				<li test-id='63' class='gc and Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.select_product(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And User selects product "Computing and Internet"</h6>
 
-	<span class='duration right label'>00 00 05.314</span>
-	<div class="bdd-test">
-		<div class="scenario-name"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span> Scenario: Search without entering keyword</div>
-	</div>
-	
-	
-		<div class='category-list'>
-				<span class='category label'>@WithoutKeyword</span>
-		</div>
-	
-	<ul class='steps'>
-		<li test-id='25' class='node given Pass' status='Pass'>
-			<div class="step-name" title="(com.stepdefinitions.SearchStepDefinition.user_is_on_the_home_page())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Given user is on the home page</div>
+				</li>
+				<li test-id='64' class='gc and Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.qty(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And User enters quantity "abc"</h6>
 
+				</li>
+				<li test-id='65' class='gc and Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.add()"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And User clicks add to cart button</h6>
 
-		</li>
-		<li test-id='26' class='node when Pass' status='Pass'>
-			<div class="step-name" title="(com.stepdefinitions.SearchStepDefinition.user_clicks_on_search_button_without_entering_keyword())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>When user clicks on Search button without entering keyword</div>
+				</li>
+				<li test-id='66' class='gc then Pass' status='Pass'>
+					<h6 class="step-name" title="com.stepdefinitions.ProductDetailsStepDefinition.validate(java.lang.String)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Then User should see validation message "Quantity should be positive"</h6>
 
-
-		</li>
-		<li test-id='27' class='node then Pass' status='Pass'>
-			<div class="step-name" title="(com.stepdefinitions.SearchStepDefinition.warning_message_should_be_displayed_to_the_user())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Then warning message should be displayed to the user</div>
-
-
+				</li>
+			</ul>
 		</li>
 	</ul>
 </div>
@@ -384,14 +521,14 @@
 			<ul id='category-collection' class='category-collection'>
 				<li class='category displayed active'>
 					<div class='category-heading'>
-						<span class='category-name'>@InvalidSearch</span>
+						<span class='category-name'>@InvalidQuantity</span>
 						<span class='category-status right'>
-						<span class='label pass'>1</span>
+						<span class='label pass'>3</span>
 						</span>
 					</div>
 					<div class='category-content hide'>
 						<div class='category-status-counts'>
-							<span status="pass" class='label green accent-4 white-text'>Passed: 1</span>
+							<span status="pass" class='label green accent-4 white-text'>Passed: 3</span>
 							
 							
 						</div>
@@ -406,8 +543,18 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>May 18, 2026 08:16:07 pm</td>
-										<td class='linked' test-id='9'>Search using invalid keyword</td>
+										<td>May 19, 2026 06:26:53 am</td>
+										<td class='linked' test-id='41'>Verify quantity validation message</td>
+										<td><span class='test-status Pass'>Pass</span></td>
+									</tr>
+									<tr>
+										<td>May 19, 2026 06:27:02 am</td>
+										<td class='linked' test-id='50'>Verify quantity validation message</td>
+										<td><span class='test-status Pass'>Pass</span></td>
+									</tr>
+									<tr>
+										<td>May 19, 2026 06:27:12 am</td>
+										<td class='linked' test-id='59'>Verify quantity validation message</td>
 										<td><span class='test-status Pass'>Pass</span></td>
 									</tr>
 								</tbody>
@@ -417,14 +564,14 @@
 				</li>
 				<li class='category displayed active'>
 					<div class='category-heading'>
-						<span class='category-name'>@WithoutKeyword</span>
+						<span class='category-name'>@ProductDetails</span>
 						<span class='category-status right'>
-						<span class='label pass'>1</span>
+						<span class='label pass'>2</span>
 						</span>
 					</div>
 					<div class='category-content hide'>
 						<div class='category-status-counts'>
-							<span status="pass" class='label green accent-4 white-text'>Passed: 1</span>
+							<span status="pass" class='label green accent-4 white-text'>Passed: 2</span>
 							
 							
 						</div>
@@ -439,8 +586,13 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>May 18, 2026 08:16:19 pm</td>
-										<td class='linked' test-id='23'>Search without entering keyword</td>
+										<td>May 19, 2026 06:26:09 am</td>
+										<td class='linked' test-id='3'>Verify product details page</td>
+										<td><span class='test-status Pass'>Pass</span></td>
+									</tr>
+									<tr>
+										<td>May 19, 2026 06:26:23 am</td>
+										<td class='linked' test-id='14'>Verify product details page</td>
 										<td><span class='test-status Pass'>Pass</span></td>
 									</tr>
 								</tbody>
@@ -450,14 +602,14 @@
 				</li>
 				<li class='category displayed active'>
 					<div class='category-heading'>
-						<span class='category-name'>@ValidSearch</span>
+						<span class='category-name'>@Availability</span>
 						<span class='category-status right'>
-						<span class='label pass'>1</span>
+						<span class='label pass'>2</span>
 						</span>
 					</div>
 					<div class='category-content hide'>
 						<div class='category-status-counts'>
-							<span status="pass" class='label green accent-4 white-text'>Passed: 1</span>
+							<span status="pass" class='label green accent-4 white-text'>Passed: 2</span>
 							
 							
 						</div>
@@ -472,41 +624,13 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>May 18, 2026 08:16:00 pm</td>
-										<td class='linked' test-id='2'>Search product using valid keyword</td>
+										<td>May 19, 2026 06:26:35 am</td>
+										<td class='linked' test-id='26'>Verify product availability</td>
 										<td><span class='test-status Pass'>Pass</span></td>
 									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</li>
-				<li class='category displayed active'>
-					<div class='category-heading'>
-						<span class='category-name'>@Insensitive</span>
-						<span class='category-status right'>
-						<span class='label pass'>1</span>
-						</span>
-					</div>
-					<div class='category-content hide'>
-						<div class='category-status-counts'>
-							<span status="pass" class='label green accent-4 white-text'>Passed: 1</span>
-							
-							
-						</div>
-						<div class='category-tests'>
-							<table class='bordered table-results'>
-								<thead>
 									<tr>
-										<th>Timestamp</th>
-										<th>TestName</th>
-										<th>Status</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>May 18, 2026 08:16:13 pm</td>
-										<td class='linked' test-id='16'>Verify search is case insensitive</td>
+										<td>May 19, 2026 06:26:44 am</td>
+										<td class='linked' test-id='33'>Verify product availability</td>
 										<td><span class='test-status Pass'>Pass</span></td>
 									</tr>
 								</tbody>
@@ -537,31 +661,31 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Scenarios
-					<div class='panel-lead'>4</div>
+					<div class='panel-lead'>7</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>15</div>
+					<div class='panel-lead'>42</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>May 18, 2026 08:15:58 pm</div>
+					<div class='panel-lead'>May 19, 2026 06:26:08 am</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>May 18, 2026 08:16:24 pm</div>
+			 		<div class='panel-lead'>May 19, 2026 06:27:22 am</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>00 00 26.166</div>
+					<div class='panel-lead'>00 01 13.594</div>
 				</div>
 			</div>
 			<div class='col s4'>
@@ -597,8 +721,8 @@
 							<th>Passed %</th>
 						</tr>
 						<tr>
-							<td>@InvalidSearch</td>
-							<td>1</td>
+							<td>@InvalidQuantity</td>
+							<td>3</td>
 							<td>0</td>
 							<td>0</td>
 							<td>
@@ -606,8 +730,8 @@
 							</td>
 						</tr>
 						<tr>
-							<td>@WithoutKeyword</td>
-							<td>1</td>
+							<td>@ProductDetails</td>
+							<td>2</td>
 							<td>0</td>
 							<td>0</td>
 							<td>
@@ -615,17 +739,8 @@
 							</td>
 						</tr>
 						<tr>
-							<td>@ValidSearch</td>
-							<td>1</td>
-							<td>0</td>
-							<td>0</td>
-							<td>
-									100%
-							</td>
-						</tr>
-						<tr>
-							<td>@Insensitive</td>
-							<td>1</td>
+							<td>@Availability</td>
+							<td>2</td>
 							<td>0</td>
 							<td>0</td>
 							<td>
@@ -650,16 +765,16 @@
 				errorParent: 0,
 				warningParent: 0,
 				skipParent: 0,
-				childCount: 4,
-				passChild: 4,
+				childCount: 7,
+				passChild: 7,
 				failChild: 0,
 				fatalChild: 0,
 				errorChild: 0,
 				warningChild: 0,
 				skipChild: 0,
 				infoChild: 0,
-				grandChildCount: 15,
-				passGrandChild: 15,
+				grandChildCount: 42,
+				passGrandChild: 42,
 				failGrandChild: 0,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,
@@ -671,7 +786,7 @@
 		
 		<script>
 			var timeline = {
-			        "Vetrivel_13MAY2025_DEMOWEBSHOP_FeatureFileforLogin":24.712
+			        "Sowndariya_17May2026_DEMOWEBSHOP_Product Details Functionality":72.816
 			};
 		</script>
 		
