@@ -9,10 +9,9 @@ public class WishlistAction extends BaseAction {
 
     public WishlistAction(WebDriver driver) {
         super(driver);
-        this.wishlistPage = new WishlistPage();
+        this.wishlistPage=new WishlistPage();
     }
 
-    // FIXED FLOW ENTRY POINT
     public void openSearchedProduct(String productName) {
         click(wishlistPage.getProduct(productName));
     }

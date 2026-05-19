@@ -24,7 +24,12 @@ public class BaseAction {
     }
     
     public void click(By locator) {
-        wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
+        }
+        catch (Exception e) {
+            jsClick(locator);
+        }
     }
 
     public void type(By locator, String text) {
@@ -35,11 +40,10 @@ public class BaseAction {
         return waitForVisibility(locator).getText();
     }
     
-    
-    
     public void jsClick(By locator) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        WebElement element=wait.until(ExpectedConditions.elementToBeClickable(locator));
+
+        JavascriptExecutor js=(JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();", element);
     }
 }

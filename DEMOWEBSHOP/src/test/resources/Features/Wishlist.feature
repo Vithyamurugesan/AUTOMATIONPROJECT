@@ -8,10 +8,12 @@ Feature: Vetrivel_17MAY2025_DEMOWEBSHOP_WishlistFunctionality
   Background:
     Given user is on the home page
 
+  @Vetri
   @AddWishlist
   Scenario Outline: Add product to wishlist
+
     When user adds "<product>" to wishlist
-    Then success message should be displayed
+    Then success message "The product has been added to your wishlist" should be displayed
     And product should be added to wishlist
 
     Examples:
@@ -19,25 +21,26 @@ Feature: Vetrivel_17MAY2025_DEMOWEBSHOP_WishlistFunctionality
       | Health Book            |
       | Blue and green Sneaker |
 
+  @Vetri
   @RemoveWishlist
   Scenario: Remove product from wishlist
+
     When user adds product to wishlist
     And user removes product from wishlist
-    Then wishlist should be empty
+    Then wishlist message "The wishlist is empty!" should be displayed
 
+  @Vetri
   @WishlistToCart
-  Scenario Outline: Move wishlist product to cart
-    When user adds "<product>" to wishlist
-    Then success message should be displayed
+  Scenario: Move wishlist product to cart
+
+    When user adds product to wishlist
+    Then success message "The product has been added to your wishlist" should be displayed
     And product should be added to cart
 
-    Examples:
-      | product                     |
-      | Health Book                 |
-      | Black & White Diamond Heart |
-
+  @Vetri
   @DisplayWishlist
   Scenario Outline: Verify product displayed in wishlist
+
     When user adds "<product>" to wishlist
     And user navigates to wishlist page
     Then product should be displayed in wishlist
