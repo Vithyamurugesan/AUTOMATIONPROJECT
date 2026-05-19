@@ -1,35 +1,37 @@
-Feature: Vetrivel_17MAY2026_DEMOWEBSHOP_FeatureFileforWishlist
+Feature: Wishlist functionality
 
-  Description: As a user, I want to add and manage products in wishlist
+  Description:
+  As a user,
+  I want to manage products in my wishlist
   so that I can save products for future purchase
 
   Background:
     Given user is on the home page
 
-  @AddToWishlist
+  @AddWishlist
   Scenario: Add product to wishlist
-    When user navigates to a product page
-    And clicks on Add to wishlist button
-    Then success message should be displayed
-    And product should be added to the wishlist
 
-  @DisplayWishlistProduct
-  Scenario: Verify added product is displayed in wishlist
-    When user adds a product to wishlist
-    And user navigates to wishlist page
-    Then added product should be displayed in the wishlist
+    When user searches and adds product for "AddWishlist" scenario to wishlist
+    Then success message for "AddWishlist" scenario should be displayed
+    And searched product should be added to the wishlist
 
-  @RemoveWishlistProduct
+  @RemoveWishlist
   Scenario: Remove product from wishlist
-    When user adds a product to wishlist
-    And user navigates to wishlist page
-    And user removes the product from wishlist
-    Then wishlist should display empty message
 
-  @AddWishlistProductToCart
+    When user searches and adds product for "RemoveWishlist" scenario to wishlist
+    And user removes the product from wishlist
+    Then wishlist should be empty
+
+  @WishlistToCart
   Scenario: Add wishlist product to shopping cart
-    When user adds a product to wishlist
+
+    When user searches and adds product for "WishlistToCart" scenario to wishlist
+    And user moves wishlist product to cart
+    Then product should be added to shopping cart
+
+  @DisplayWishlist
+  Scenario: Verify product displayed in wishlist
+
+    When user searches and adds product for "DisplayWishlist" scenario to wishlist
     And user navigates to wishlist page
-    And user selects the product for adding to cart
-    And clicks on Add to cart button
-    Then product should be added to the shopping cart
+    Then product should be displayed in wishlist

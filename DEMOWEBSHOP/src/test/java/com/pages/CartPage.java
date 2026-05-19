@@ -1,21 +1,12 @@
 package com.pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 public class CartPage {
-
-	WebDriver driver;
-
-	public CartPage(WebDriver driver) {
-		this.driver = driver;
-	}
 
 	private By books = By.linkText("Books");
 	private By computingBook = By.linkText("Computing and Internet");
 	private By shoppingCart = By.linkText("Shopping cart");
-	private By searchBox = By.id("small-searchterms");
-	private By searchButton = By.xpath("//input[@value='Search']");
 	private By cartQty = By.className("cart-qty");
 	private By subtotal = By.xpath("//span[@class='product-price order-total']");
 	private By couponBox = By.name("discountcouponcode");
@@ -27,6 +18,8 @@ public class CartPage {
 	private By quantityBox = By.className("qty-input");
 	private By updateCartButton = By.name("updatecart");
 	private By removeCheckBox = By.name("removefromcart");
+	private By addToCartButton = By.xpath("//input[contains(@value,'Add to cart')]");
+	private By cartTable = By.cssSelector("table.cart");
 
 	public By getBooks() {
 		return books;
@@ -38,14 +31,6 @@ public class CartPage {
 
 	public By getShoppingCart() {
 		return shoppingCart;
-	}
-
-	public By getSearchBox() {
-		return searchBox;
-	}
-
-	public By getSearchButton() {
-		return searchButton;
 	}
 
 	public By getCartQty() {
@@ -79,7 +64,7 @@ public class CartPage {
 	public By getEmptyCartMsg() {
 		return emptyCartMsg;
 	}
-	
+
 	public By getQuantityBox() {
 		return quantityBox;
 	}
@@ -90,5 +75,13 @@ public class CartPage {
 
 	public By getRemoveCheckBox() {
 		return removeCheckBox;
+	}
+
+	public By getAddToCartButton() {
+		return addToCartButton;
+	}
+	
+	public By getCartTable() {
+		return cartTable;
 	}
 }

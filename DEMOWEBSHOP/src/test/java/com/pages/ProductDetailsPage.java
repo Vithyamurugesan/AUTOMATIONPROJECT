@@ -1,37 +1,60 @@
 package com.pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 public class ProductDetailsPage {
 
-    WebDriver driver;
+	private By productName = By.xpath("//div[@class='product-name']/h1");
 
-    public ProductDetailsPage(WebDriver driver) {
-        this.driver = driver;
-    }
+	private By productPrice = By.xpath("//div[@class='product-price']//span");
 
-    private By booksCategory = By.xpath("//ul[@class='top-menu']//a[contains(text(),'Books')]");
+	private By productDesc = By.xpath("//div[@class='full-description']");
 
-    private By product = By.xpath("//h2[@class='product-title']//a[contains(text(),'Computing and Internet')]");
+	private By productImage = By.xpath("//div[@class='picture']//img");
 
-    private By productName = By.xpath("//div[@class='product-name']/h1");
-    private By productPrice = By.xpath("//div[@class='product-price']//span");
-    private By productDesc = By.xpath("//div[@class='full-description']");
-    private By productImage = By.xpath("//div[@class='picture']//img");
+	private By availabilityLabel = By.xpath("//span[@class='label']");
 
-    private By availability = By.xpath("//div[contains(@class,'availability')]");
+	private By availabilityValue = By.xpath("//span[@class='value']");
 
-    private By quantity = By.xpath("//input[contains(@id,'EnteredQuantity')]");
-    private By addToCart = By.xpath("//input[@value='Add to cart']");
+	private By quantityBox = By.id("addtocart_13_EnteredQuantity");
 
-    public By booksCategory() { return booksCategory; }
-    public By product() { return product; }
-    public By name() { return productName; }
-    public By price() { return productPrice; }
-    public By desc() { return productDesc; }
-    public By image() { return productImage; }
-    public By availability() { return availability; }
-    public By quantity() { return quantity; }
-    public By addToCart() { return addToCart; }
+	private By addToCartButton = By.xpath("//input[@value='Add to cart']");
+
+	private By notificationMessage = By.cssSelector(".bar-notification");
+
+	public By getProductName() {
+		return productName;
+	}
+
+	public By getProductPrice() {
+		return productPrice;
+	}
+
+	public By getProductDesc() {
+		return productDesc;
+	}
+
+	public By getProductImage() {
+		return productImage;
+	}
+
+	public By getAvailabilityLabel() {
+		return availabilityLabel;
+	}
+
+	public By getAvailabilityValue() {
+		return availabilityValue;
+	}
+
+	public By getQuantityBox() {
+		return quantityBox;
+	}
+
+	public By getAddToCartButton() {
+		return addToCartButton;
+	}
+
+	public By getNotificationMessage() {
+		return notificationMessage;
+	}
 }
