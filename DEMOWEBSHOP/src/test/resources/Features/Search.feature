@@ -1,4 +1,4 @@
-Feature: Search functionality
+Feature: Vetrivel_14MAY2025_DEMOWEBSHOP_SearchFunctionality
 
   Description:
   As a user,
