@@ -1,90 +1,79 @@
 package com.utilities;
 
-
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import com.opencsv.CSVReader;
-import com.opencsv.CSVReaderBuilder;
 
 public class CsvReader {
 
-    // Read full CSV file and return data as list of maps
-    // Each row = (Header -> Value)
+    // Read CSV file and return all data
     public static List<Map<String, String>> getData(String filePath) {
 
-        List<Map<String, String>> result = new ArrayList<>();
+        List<Map<String, String>> dataList=new ArrayList<>();
 
-        try (CSVReader reader = new CSVReaderBuilder(new FileReader(filePath)).build()) {
+        try {
 
-            List<String[]> rows = reader.readAll();
+            CSVReader reader=new CSVReader(new FileReader(filePath));
 
-            // Check if file is empty
-            if (rows.isEmpty()) {
-                throw new RuntimeException("CSV file is empty: " + filePath);
-            }
+            List<String[]> allRows=reader.readAll();
 
-            // First row = column names
-            String[] headers = rows.get(0);
+            // First row = headers
+            String[] headers=allRows.get(0);
 
-            // Start reading from second row (actual data)
-            for (int i = 1; i < rows.size(); i++) {
+            // Start from row 1 because row 0 is header
+            for (int i=1;i<allRows.size();i++) {
 
-                String[] row = rows.get(i);
+                String[] currentRow=allRows.get(i);
 
-                // Skip empty rows
-                if (isEmpty(row)) continue;
+                Map<String, String> rowData=new HashMap<>();
 
-                Map<String, String> rowMap = new LinkedHashMap<>();
+                for (int j=0;j<headers.length;j++) {
 
-                for (int j = 0; j < headers.length; j++) {
+                    String key = headers[j];
+                    String value = "";
 
-                    String key = headers[j]; // column name
-                    String value = (j < row.length) ? row[j] : ""; // cell value
+                    if (j < currentRow.length) {
+                        value = currentRow[j];
+                    }
 
-                    rowMap.put(key, value);
+                    rowData.put(key, value);
                 }
 
-                result.add(rowMap);
+                dataList.add(rowData);
             }
 
+            reader.close();
+
         } catch (Exception e) {
-            throw new RuntimeException("Error reading CSV file: " + filePath, e);
+
+            throw new RuntimeException("Unable to read CSV file : " + filePath);
         }
 
-        return result;
+        return dataList;
     }
 
-    // Get all values from a specific column
+    // Get single column values
     public static List<String> getColumn(String filePath, String columnName) {
 
-        List<String> values = new ArrayList<>();
+        List<String> columnValues = new ArrayList<>();
 
         List<Map<String, String>> data = getData(filePath);
 
         for (Map<String, String> row : data) {
-            values.add(row.get(columnName));
+
+            columnValues.add(row.get(columnName));
         }
 
-        return values;
+        return columnValues;
     }
 
-    // Get total number of data rows (excluding header)
+    // Get total row count
     public static int getRowCount(String filePath) {
+
         return getData(filePath).size();
-    }
-
-    // Check if row is empty
-    private static boolean isEmpty(String[] row) {
-
-        for (String cell : row) {
-            if (cell != null && !cell.trim().isEmpty()) {
-                return false;
-            }
-        }
-        return true;
     }
 }

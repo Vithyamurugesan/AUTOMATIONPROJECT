@@ -8,7 +8,7 @@ Feature: Vetrivel_14MAY2025_DEMOWEBSHOP_SearchFunctionality
   Background:
     Given user is on the home page
 
-
+  @Vetri
   @ValidSearch
   Scenario: Search product using valid keyword
 
@@ -16,6 +16,7 @@ Feature: Vetrivel_14MAY2025_DEMOWEBSHOP_SearchFunctionality
     And clicks on Search button
     Then user should be redirected to the search results page
 
+  @Vetri
   @InvalidSearch
   Scenario: Search using invalid keyword
 
@@ -23,6 +24,7 @@ Feature: Vetrivel_14MAY2025_DEMOWEBSHOP_SearchFunctionality
     And clicks on Search button
     Then no products message should be displayed
 
+  @Vetri
   @Insensitive
   Scenario: Verify search is case insensitive
 
@@ -30,6 +32,7 @@ Feature: Vetrivel_14MAY2025_DEMOWEBSHOP_SearchFunctionality
     And clicks on Search button
     Then matching products should be displayed
 
+  @Vetri
   @WithoutKeyword
   Scenario: Search without entering keyword
 
