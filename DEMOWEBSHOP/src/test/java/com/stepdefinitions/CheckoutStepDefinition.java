@@ -7,6 +7,7 @@ import org.testng.Assert;
 
 import com.actions.checkoutAction;
 import com.pages.checkoutPage;
+import com.utilities.ExcelReader;
 import com.utilities.HelperClass;
 
 import io.cucumber.java.en.Given;
@@ -110,24 +111,24 @@ public void the_user_is_in_the_checkout_page() {
     System.out.println("User reached checkout page");
 }
 
-@When("the user dill the billing address form with valid credentials")
-public void the_user_dill_the_billing_address_form_with_valid_credentials(io.cucumber.datatable.DataTable dataTable) {
-	List<Map<String,String>> data=dataTable.asMaps(String.class,String.class);
-	
-	   String firstname = data.get(0).get("FirstName");
-	    String lastname = data.get(0).get("LastName");
-	    String email = data.get(0).get("Email");
-	    String company = data.get(0).get("Company");
-	    String country = data.get(0).get("Country");
-	    String state  = data.get(0).get("state");
-	    String city = data.get(0).get("City");
-	    String address1 = data.get(0).get("Address1");
-	    String address2 = data.get(0).get("Address2");
-	    String zipcode = data.get(0).get("ZipCode");
-	    String phone = data.get(0).get("Phone");
-	    String fax = data.get(0).get("Fax number");
-	    
-	    AC.billingForm(firstname, lastname, email, company, country, state, city, address1, address2, zipcode, phone, fax);
+@When("the user fill the billing address form with valid credentials using excel")
+public void the_user_fill_the_billing_address_form_with_valid_credentials_using_excel() {
+	List<Map<String,String>> data =ExcelReader.getData("src\\test\\resources\\TestData\\BillingForm.xlsx","Sheet1");
+
+	String firstname =data.get(0).get("First Name");
+	String lastname =data.get(0).get("LastName");
+	String email =data.get(0).get("Email");
+	String company =data.get(0).get("Company");
+	String country =data.get(0).get("Country");
+	String state =data.get(0).get("state");
+	String city =data.get(0).get("City");
+	String address1 =data.get(0).get("Address1");
+	String address2 =data.get(0).get("Address2");
+	String zip =data.get(0).get("ZipCode");
+	String phone =data.get(0).get("Phone");
+	String fax =data.get(0).get("Fax number");
+
+	AC.billingForm(firstname,lastname,email,company,country,state,city,address1,address2,zip,phone,fax);
 	    
 	    
 }
@@ -146,23 +147,25 @@ public void the_user_should_seen_the_shipping_addres_form_with_text_of_select_a_
 }
 
 
-@When("the user dill the billing address form with invalid credentials of email")
-public void the_user_dill_the_billing_address_form_with_invalid_credentials_of_email(io.cucumber.datatable.DataTable dataTable) {
-	List<Map<String,String>>data =dataTable.asMaps(String.class,String.class);
+@When("the user fill invalid billing data from excel")
+public void excelBilling() {
 
-	   String firstname = data.get(0).get("FirstName");
-	    String lastname = data.get(0).get("LastName");
-	    String email = data.get(0).get("Email");
-	    String company = data.get(0).get("Company");
-	    String country = data.get(0).get("Country");
-	    String state  = data.get(0).get("state");
-	    String city = data.get(0).get("City");
-	    String address1 = data.get(0).get("Address1");
-	    String address2 = data.get(0).get("Address2");
-	    String zipcode = data.get(0).get("ZipCode");
-	    String phone = data.get(0).get("Phone");
-	    String fax = data.get(0).get("Fax number");
-	    AC.billingForm(firstname, lastname, email, company, country, state, city, address1, address2, zipcode, phone, fax);
+List<Map<String,String>> data =ExcelReader.getData("src\\test\\resources\\TestData\\BillingForm.xlsx","Sheet2");
+
+String firstname =data.get(0).get("First Name");
+String lastname =data.get(0).get("LastName");
+String email =data.get(0).get("Email");
+String company =data.get(0).get("Company");
+String country =data.get(0).get("Country");
+String state =data.get(0).get("state");
+String city =data.get(0).get("City");
+String address1 =data.get(0).get("Address1");
+String address2 =data.get(0).get("Address2");
+String zip =data.get(0).get("ZipCode");
+String phone =data.get(0).get("Phone");
+String fax =data.get(0).get("Fax number");
+
+AC.billingForm(firstname,lastname,email,company,country,state,city,address1,address2,zip,phone,fax);
 
 }
 
