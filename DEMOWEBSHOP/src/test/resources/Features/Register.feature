@@ -1,69 +1,76 @@
 Feature: Vithya_13MAY2025_DEMOWEBSHOP_Registration
-  Description: As a new user, I want to register on the DemoWebShop
-  so that I can access the website features
-
   Background:
     Given the user is on the DemoWebShop homepage
-
-  @Registration @Smoke @Ignore 
-  Scenario: Successful user registration with mandatory fields
     When the user clicks the "Register" link
-    And the user fills in the mandatory registration details
-      | Field            | Value                    |
-      | First Name       | Vithya                   |
-      | Last Name        | murugesan                |
-      | Email            | vithyamurugesankmv@gmail.com|
-      | Password         | 123456                   |
-      | Confirm Password | 123456                   |
+
+
+  @Registration @ValidRegistration
+  Scenario: Verify successful user registration using excel data
+
+    And the user enters registration details from excel row "1"
     And the user clicks the "Register" button
-    Then the user should be redirected to the registration confirmation page
-    And the page should display the message "Your registration completed"
-    And the user clicks the "Continue" button
+
+    Then the page should display the message Your registration completed
+
+
 
   @Registration @InvalidEmail
-  Scenario: Verify registration with invalid email format
-    When the user clicks the "Register" link
-    And the user fills in the mandatory registration details
-      | Field            | Value            |
-      | First Name       | john             |
-      | Last Name        | jack             |
-      | Email            | john             |
-      | Password         | 987456           |
-      | Confirm Password | 987456           |
+  Scenario Outline: Verify registration with invalid email format
+
+    And the user enters firstname "<firstname>"
+    And the user enters lastname "<lastname>"
+    And the user enters email "<email>"
+    And the user enters password "<password>"
+    And the user enters confirm password "<confirmPassword>"
     And the user clicks the "Register" button
-    Then the email error message "Wrong email" should be displayed
+
+    Then the email error message "<errorMessage>" should be displayed
+
+    Examples:
+      | firstname | lastname | email | password | confirmPassword | errorMessage |
+      | john      | jack     | john  | 123456   | 123456          | Wrong email  |
+      | jen       | jeck     | jen   | 987456   | 987456          | Wrong email  |
+
+
 
   @Registration @EmptyFields
   Scenario: Verify registration with empty mandatory fields
-    When the user clicks the "Register" link
+
     And the user clicks the "Register" button
-    Then the first name error message "First name is required." should be displayed
-    And the last name error message "Last name is required." should be displayed
-    And the email error message "Email is required." should be displayed
-    And the password error message "Password is required." should be displayed
+
+    Then the following validation messages should be displayed
+
+      | Field      | Message                    |
+      | FirstName  | First name is required.    |
+      | LastName   | Last name is required.     |
+      | Email      | Email is required.         |
+      | Password   | Password is required.      |
+
+
 
   @Registration @PasswordMismatch
-  Scenario: Verify registration with password mismatch
-    When the user clicks the "Register" link
-    And the user fills in the mandatory registration details
-      | Field            | Value                    |
-      | First Name       | jessy                    |
-      | Last Name        | Kumar                    |
-      | Email            | jessy123456@gmail.com    |
-      | Password         | jessy                    |
-      | Confirm Password | jess                     |
-    And the user clicks the "Register" button
-    Then the confirm password error message "The password and confirmation password do not match." should be displayed
+  Scenario Outline: Verify registration with password mismatch
 
-  @Registration @ExistingEmail @Ignore
-  Scenario: Verify registration with existing email
-    When the user clicks the "Register" link
-    And the user fills in the mandatory registration details
-      | Field            | Value                    |
-      | First Name       | priya                    |
-      | Last Name        | dev                      |
-      | Email            |vithyamurugesankmv@gmail.com|
-      | Password         | priyadev                 |
-      | Confirm Password | priyadev                 |
+    And the user enters firstname "<firstname>"
+    And the user enters lastname "<lastname>"
+    And the user enters email "<email>"
+    And the user enters password "<password>"
+    And the user enters confirm password "<confirmPassword>"
     And the user clicks the "Register" button
-    Then the page should display the error "The specified email already exists"
+
+    Then the confirm password error message "<errorMessage>" should be displayed
+
+    Examples:
+      | firstname | lastname | email                  | password | confirmPassword | errorMessage                                         |
+      | jessy     | kumar    | jessy123@gmail.com     | abc123   | abc12           | The password and confirmation password do not match. |
+      | priya     | dev      | priya123@gmail.com     | dev123   | dev12           | The password and confirmation password do not match. |
+
+
+
+  @Registration @ExistingEmail
+  Scenario: Verify registration with existing email using properties file
+
+    And the user enters existing user data from properties file
+    And the user clicks the "Register" button
+
+    Then the page should display the error The specified email already exists
