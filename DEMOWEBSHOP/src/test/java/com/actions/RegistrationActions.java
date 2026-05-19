@@ -1,116 +1,103 @@
 package com.actions;
 
+import java.time.Duration;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.pages.RegistrationPage;
-import com.utilities.ExcelReader;
 
 public class RegistrationActions extends BaseAction {
 
+    private static final Logger log = LogManager.getLogger(RegistrationActions.class);
+
     WebDriver driver;
+    WebDriverWait wait;
     RegistrationPage registrationPage;
 
     public RegistrationActions(WebDriver driver) {
-
         super(driver);
-
         this.driver = driver;
-
-        registrationPage = new RegistrationPage();
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        this.registrationPage = new RegistrationPage();
     }
 
     public void clickRegisterLink() {
-
         click(registrationPage.getRegisterLink());
     }
 
     public void enterFirstName(String firstName) {
-
         type(registrationPage.getFirstNameField(), firstName);
     }
 
     public void enterLastName(String lastName) {
-
         type(registrationPage.getLastNameField(), lastName);
     }
 
     public void enterEmail(String email) {
-
         type(registrationPage.getEmailField(), email);
     }
 
     public void enterPassword(String password) {
-
         type(registrationPage.getPasswordField(), password);
     }
 
     public void enterConfirmPassword(String confirmPassword) {
-
-        type(registrationPage.getConfirmPasswordField(),
-                confirmPassword);
+        type(registrationPage.getConfirmPasswordField(), confirmPassword);
     }
 
     public void clickRegisterButton() {
-
         click(registrationPage.getRegisterButton());
     }
 
     public void clickContinueButton() {
-
-        click(registrationPage.getContinueButton());
+        WebElement continueBtn = waitForVisibility(registrationPage.getContinueButton());
+        continueBtn.sendKeys(Keys.ENTER);
     }
 
-    public String getRegistrationSuccessMessage() {
-
-        return getText(
-                registrationPage.getRegistrationSuccessMessage());
+    public String getSuccessMessage() {
+        String message = getText(registrationPage.getRegistrationSuccessMessage());
+        log.info("Registration success message: " + message);
+        return message;
     }
 
     public String getExistingEmailErrorMessage() {
-
-        return getText(
-                registrationPage.getExistingEmailError());
+        String message = getText(registrationPage.getExistingEmailError());
+        log.info("Existing email error: " + message);
+        return message;
     }
 
     public String getFirstNameErrorMessage() {
-
-        return getText(
-                registrationPage.getFirstNameError());
+        String message = getText(registrationPage.getFirstNameError());
+        log.info("First name error: " + message);
+        return message;
     }
 
     public String getLastNameErrorMessage() {
-
-        return getText(
-                registrationPage.getLastNameError());
+        String message = getText(registrationPage.getLastNameError());
+        log.info("Last name error: " + message);
+        return message;
     }
 
     public String getEmailErrorMessage() {
-
-        return getText(
-                registrationPage.getEmailError());
+        String message = getText(registrationPage.getEmailError());
+        log.info("Email error: " + message);
+        return message;
     }
 
     public String getPasswordErrorMessage() {
-
-        return getText(
-                registrationPage.getPasswordError());
+        String message = getText(registrationPage.getPasswordError());
+        log.info("Password error: " + message);
+        return message;
     }
 
     public String getConfirmPasswordErrorMessage() {
-
-        return getText(
-                registrationPage.getConfirmPasswordError());
-    }
-    public void enterRegistrationDetailsFromExcel(String path,String sheetName,int row) {
-
-        enterFirstName(ExcelReader.getCellData(path, sheetName, row, 0));
-
-        enterLastName(ExcelReader.getCellData(path, sheetName, row, 1));
-
-        enterEmail(ExcelReader.getCellData(path, sheetName, row, 2));
-
-        enterPassword(ExcelReader.getCellData(path, sheetName, row, 3));
-
-        enterConfirmPassword( ExcelReader.getCellData(path, sheetName, row, 4));
+        String message = getText(registrationPage.getConfirmPasswordError());
+        log.info("Confirm password error: " + message);
+        return message;
     }
 }

@@ -1,13 +1,9 @@
 package com.stepdefinitions;
 
-import java.util.List;
-import java.util.Map;
-
 import org.testng.Assert;
 
 import com.actions.SearchActions;
 import com.actions.WishlistAction;
-import com.utilities.ExcelReader;
 import com.utilities.HelperClass;
 
 import io.cucumber.java.en.And;
@@ -16,58 +12,21 @@ import io.cucumber.java.en.When;
 
 public class WishlistStepDefinition {
 
-    WishlistAction wishlistAction;
+    WishlistAction wishlistAction=new WishlistAction(HelperClass.getDriver());
 
-    static final String FILE_PATH = "src/test/resources/testdata/wishlistData.xlsx";
-    static final String SHEET_NAME = "Sheet1";
-
-    public Map<String, String> getScenarioData(String scenario) {
-    	
-        List<Map<String, String>> data=ExcelReader.getData(FILE_PATH, SHEET_NAME);
-        Map<String, String> scenarioData=null;
-
-        for (Map<String, String> row : data) {
-            if (row.get("scenario").equalsIgnoreCase(scenario)) {
-                scenarioData = row;
-                break;
-            }
-        }
-
-        if (scenarioData == null) {
-            throw new RuntimeException("No data found for scenario: " + scenario);
-        }
-
-        return scenarioData;
+    @And("user clicks on the searched product")
+    public void user_clicks_on_the_searched_product() {
+        wishlistAction.openSearchedProduct(SearchStepDefinition.searchedProduct);
     }
 
-    @When("user searches and adds product for {string} scenario to wishlist")
-    public void user_searches_and_adds_product_for_scenario_to_wishlist(String scenario) {
-
-        wishlistAction = new WishlistAction(HelperClass.getDriver());
-
-        Map<String, String> rowData = getScenarioData(scenario);
-
-        String product = rowData.get("product");
-
-        SearchStepDefinition.searchedProduct = product;
-
-        SearchActions searchActions = new SearchActions(HelperClass.getDriver());
-
-        searchActions.searchProduct(product);
-        searchActions.clickSearch();
-
-        wishlistAction.openSearchedProduct(product);
+    @And("clicks on Add to wishlist button")
+    public void clicks_on_add_to_wishlist_button() {
         wishlistAction.clickAddToWishlist();
     }
 
-    @Then("success message for {string} scenario should be displayed")
-    public void success_message_for_scenario_should_be_displayed(String scenario) {
-
-        Map<String, String> rowData = getScenarioData(scenario);
-
-        String expectedMessage = rowData.get("expectedMessage");
-        String actualMessage = wishlistAction.getSuccessMessage();
-
+    @Then("message {string} should be displayed")
+    public void message_should_be_displayed(String expectedMessage) {
+        String actualMessage=wishlistAction.getSuccessMessage();
         Assert.assertTrue(actualMessage.contains(expectedMessage));
     }
 
@@ -76,10 +35,14 @@ public class WishlistStepDefinition {
 
         wishlistAction.clickWishlistLink();
 
-        String actualProduct = wishlistAction.getWishlistProductName();
-        String expectedProduct = SearchStepDefinition.searchedProduct;
+        String actualProduct=wishlistAction.getWishlistProductName();
+        Assert.assertEquals(actualProduct,SearchStepDefinition.searchedProduct);
+    }
 
-        Assert.assertEquals(actualProduct,expectedProduct);
+    @When("user adds a product to wishlist")
+    public void user_adds_a_product_to_wishlist() {
+        wishlistAction.openSearchedProduct(SearchStepDefinition.searchedProduct);
+        wishlistAction.clickAddToWishlist();
     }
 
     @And("user removes the product from wishlist")
@@ -90,8 +53,7 @@ public class WishlistStepDefinition {
 
     @Then("wishlist should be empty")
     public void wishlist_should_be_empty() {
-
-        String actualMessage = wishlistAction.getEmptyWishlistMessage();
+        String actualMessage=wishlistAction.getEmptyWishlistMessage();
         Assert.assertTrue(actualMessage.contains("The wishlist is empty"));
     }
 
@@ -104,13 +66,10 @@ public class WishlistStepDefinition {
 
     @Then("product should be added to shopping cart")
     public void product_should_be_added_to_shopping_cart() {
-
+    	
         wishlistAction.openShoppingCart();
-
-        String actualProduct = wishlistAction.getCartProductName();
-        String expectedProduct = SearchStepDefinition.searchedProduct;
-
-        Assert.assertEquals(actualProduct,expectedProduct);
+        String actualProduct=wishlistAction.getCartProductName();
+        Assert.assertEquals(actualProduct,SearchStepDefinition.searchedProduct);
     }
 
     @And("user navigates to wishlist page")
@@ -121,21 +80,20 @@ public class WishlistStepDefinition {
     @Then("product should be displayed in wishlist")
     public void product_should_be_displayed_in_wishlist() {
 
-        String actualProduct = wishlistAction.getWishlistProductName();
-        String expectedProduct = SearchStepDefinition.searchedProduct;
-
-        Assert.assertEquals(actualProduct,expectedProduct);
+        String actualProduct=wishlistAction.getWishlistProductName();
+        Assert.assertEquals(actualProduct,SearchStepDefinition.searchedProduct);
     }
+    
+    @When("user searches and adds product {string} to wishlist")
+    public void user_searches_and_adds_product_to_wishlist(String product) {
 
-    @And("user clicks on the searched product")
-    public void user_clicks_on_the_searched_product() {
+        SearchStepDefinition.searchedProduct = product;
 
-        wishlistAction.openSearchedProduct(SearchStepDefinition.searchedProduct);
-    }
+        SearchActions searchActions=new SearchActions(HelperClass.getDriver());
+		searchActions.searchProduct(product);
+        searchActions.clickSearch();
 
-    @And("clicks on Add to wishlist button")
-    public void clicks_on_add_to_wishlist_button() {
-
+        wishlistAction.openSearchedProduct(product);
         wishlistAction.clickAddToWishlist();
     }
 }

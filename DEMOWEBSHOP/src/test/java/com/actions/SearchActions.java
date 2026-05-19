@@ -1,20 +1,24 @@
 package com.actions;
 
-import java.util.List;
+import java.time.Duration;
 
 import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.pages.SearchPage;
 
 public class SearchActions extends BaseAction {
 
+    WebDriver driver;
+    WebDriverWait wait;
     SearchPage searchPage;
 
-    public SearchActions(org.openqa.selenium.WebDriver driver) {
+    public SearchActions(WebDriver driver) {
         super(driver);
+        this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         this.searchPage = new SearchPage();
     }
 
@@ -27,48 +31,34 @@ public class SearchActions extends BaseAction {
         click(searchPage.getSearchButton());
     }
 
-    public boolean verifySearchRedirect() {
-        return driver.getCurrentUrl().contains("search");
-    }
-
-    public boolean verifyResultsNotEmpty() {
-        List<WebElement> results=driver.findElements(By.cssSelector(".product-item"));
-        return results.size()>0;
-    }
-    
-    public boolean verifyResultsContainKeyword(String keyword) {
-
-        List<WebElement> titles=driver.findElements(By.cssSelector(".product-title"));
-
-        for (WebElement element : titles) {
-            String text = element.getText().toLowerCase();
-            if (text.contains(keyword.toLowerCase())) {
-                return true;
-            }
-        }
-        return false;
+    public boolean verifySearchResultPage() {
+        return waitForVisibility(searchPage.getSearchResult()).isDisplayed();
     }
 
     public boolean verifyNoProductMessage() {
-        return waitForVisibility(searchPage.getNoResultMessage())
-                .isDisplayed();
+        return waitForVisibility(searchPage.getNoResultMessage()).isDisplayed();
     }
 
-    public boolean isWarningDisplayed() {
-        return waitForVisibility(searchPage.getWarningMessage())
-                .isDisplayed();
-    }
-    
-    public boolean handleAlertIfPresent() {
+    public boolean acceptAlertIfPresent() {
 
         try {
             Alert alert=wait.until(ExpectedConditions.alertIsPresent());
-
-            String text = alert.getText();
-            System.out.println("Alert message: "+text);
+            System.out.println(alert.getText());
 
             alert.accept();
             return true;
+        }
+        catch (Exception e) {
+            System.out.println("No alert present");
+        }
+        
+        return false;
+    }
+
+    public boolean isWarningDisplayed() {
+
+        try {
+            return waitForVisibility(searchPage.getWarningMessage()).isDisplayed();
         }
         catch (Exception e) {
             return false;

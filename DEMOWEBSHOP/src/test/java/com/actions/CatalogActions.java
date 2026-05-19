@@ -1,8 +1,9 @@
 package com.actions;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -10,79 +11,92 @@ import com.pages.CatalogPage;
 
 public class CatalogActions extends BaseAction {
 
+    private static final Logger log = LogManager.getLogger(CatalogActions.class);
+
     private WebDriver driver;
     private CatalogPage catalogPage;
 
     public CatalogActions(WebDriver driver) {
         super(driver);
         this.driver = driver;
-        catalogPage = new CatalogPage();
+        this.catalogPage = new CatalogPage();
     }
 
-    public void clickCategory(String categoryName) {
-        click(catalogPage.getCategory(categoryName));
+    public void clickComputersCategory() {
+        log.info("Clicking on Computers category from top navigation");
+        click(catalogPage.getComputersCategory());
     }
 
-    public void clickSubCategory(String name) {
-        click(catalogPage.getSubCategory(name));
+    public void clickElectronicsCategory() {
+        log.info("Clicking on Electronics category from top navigation");
+        click(catalogPage.getElectronicsCategory());
     }
 
-    public boolean verifyCurrentUrl(String expectedUrlPart) {
-        String actualUrl = driver.getCurrentUrl();
-        return actualUrl.contains(expectedUrlPart);
+    public void clickBooksCategory() {
+        log.info("Clicking on Books category from top navigation");
+        click(catalogPage.getBooksCategory());
     }
 
-    public boolean isProductGridDisplayed() {
+    public void clickApparelCategory() {
+        log.info("Clicking on Apparel & Shoes category from top navigation");
+        click(catalogPage.getApparelCategory());
+    }
+
+    public void clickGiftCardsCategory() {
+        log.info("Clicking on Gift Cards category from top navigation");
+        click(catalogPage.getGiftCardsCategory());
+    }
+
+    public boolean isCategoryPageTitleDisplayed() {
         try {
-            List<WebElement> grid = driver.findElements(catalogPage.getProductGrid());
-            if (grid.size() > 0 && grid.get(0).isDisplayed()) return true;
-
-            List<WebElement> subGrid = driver.findElements(catalogPage.getSubCategoryGrid());
-            return subGrid.size() > 0 && subGrid.get(0).isDisplayed();
+            boolean displayed = waitForVisibility(catalogPage.getCategoryPageTitle()).isDisplayed();
+            log.info("Category page title displayed: {}", displayed);
+            return displayed;
         } catch (Exception e) {
+            log.error("Category page title not found: {}", e.getMessage());
             return false;
         }
     }
 
-    public int getDisplayedProductCount() {
-       
-        List<WebElement> products = driver.findElements(catalogPage.getProductItems());
-        if (products.size() > 0) return products.size();
-
-     
-        List<WebElement> subCategories = driver.findElements(catalogPage.getSubCategoryGrid());
-        return subCategories.size();
+    public String getCategoryPageTitle() {
+        String title = getText(catalogPage.getCategoryPageTitle());
+        log.info("Category page title is: {}", title);
+        return title;
     }
 
-    public String getBreadcrumbText() {
-
-        return driver.findElement(catalogPage.getBreadcrumb()).getText().trim().toUpperCase();
-    }
-
-    public List<String> getDisplayedProducts() {
-        List<WebElement> productElements = driver.findElements(catalogPage.getProductTitles());
-        List<String> productNames = new ArrayList<>();
-        for (WebElement element : productElements) {
-            productNames.add(element.getText().trim());
+    public boolean isProductGridDisplayed() {
+        try {
+            boolean displayed = waitForVisibility(catalogPage.getProductGrid()).isDisplayed();
+            log.info("Product grid displayed: {}", displayed);
+            return displayed;
         }
-        return productNames;
-    }
-
-    public boolean verifyProducts(List<String> expectedProducts) {
-        List<String> actualProducts = getDisplayedProducts();
-        return actualProducts.containsAll(expectedProducts);
-    }
-
-    public List<String> getCategoryList() {
-        List<WebElement> categoryElements = driver.findElements(catalogPage.getCategoryList());
-        List<String> categories = new ArrayList<>();
-        for (WebElement element : categoryElements) {
-            categories.add(element.getText().trim());
+        catch (Exception e) {
+            log.error("Product grid not visible: {}", e.getMessage());
+            return false;
         }
-        return categories;
     }
 
-    public boolean verifyCategoryPresent(String expectedCategory) {
-        return getCategoryList().contains(expectedCategory);
+    public int getProductCount() {
+        List<WebElement> items = driver.findElements(catalogPage.getProductItems());
+        log.info("Total products displayed in catalog: {}", items.size());
+        return items.size();
+    }
+
+    public boolean areProductsDisplayed() {
+        int count = getProductCount();
+        boolean result = count > 0;
+        log.info("Products displayed in catalog: {}", result);
+        return result;
+    }
+
+    public boolean isBreadcrumbDisplayed() {
+        try {
+            boolean displayed = waitForVisibility(catalogPage.getBreadcrumb()).isDisplayed();
+            log.info("Breadcrumb displayed: {}", displayed);
+            return displayed;
+        } catch (Exception e) {
+            log.error("Breadcrumb not found: {}", e.getMessage());
+            return false;
+        }
     }
 }

@@ -7,7 +7,7 @@ for registered and unregistered users in the Demo Web Shop application.
   Scenario: Verify the system displays previously downloaded products in the Downloadable Products page
     Given the user is on the Demo Web Shop login page
     When user clicks loginlink
-    When the user enters a registered email "<email>"
+   When the user enters a registered email "<email>"
     And the user enters a valid password "<password>"
     And the user clicks the Log in button
     Then the user should be redirected to the homepage

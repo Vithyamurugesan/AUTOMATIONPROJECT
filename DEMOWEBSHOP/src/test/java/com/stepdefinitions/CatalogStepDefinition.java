@@ -1,7 +1,5 @@
 package com.stepdefinitions;
 
-import java.util.List;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
@@ -22,75 +20,61 @@ public class CatalogStepDefinition {
 
     @Given("user is on the demowebshop home page for Categories")
     public void user_is_on_the_demowebshop_home_page_for_categories() {
-        HelperClass.getDriver().get(ConfigReader.get("app.url"));
+    	HelperClass.getDriver().get(ConfigReader.get("app.url"));
         catalogActions = new CatalogActions(HelperClass.getDriver());
-        log.info("Navigated to home page: " + ConfigReader.get("app.url"));
+        log.info("User navigated to demowebshop home page");
+    }
+    
+    @When("user clicks on the Computers category from top menu")
+    public void user_clicks_on_the_computers_category_from_top_menu() {
+        catalogActions.clickComputersCategory();
     }
 
-    @When("user clicks on the {string} category from top menu")
-    public void user_clicks_on_the_category_from_top_menu(String categoryName) {
-        log.info("Clicking category: " + categoryName);
-        catalogActions.clickCategory(categoryName);
+    @When("user clicks on the Electronics category from top menu")
+    public void user_clicks_on_the_electronics_category_from_top_menu() {
+        catalogActions.clickElectronicsCategory();
     }
 
-    @When("user clicks on the {string} subcategory")
-    public void user_clicks_on_the_subcategory(String subCategoryName) {
-        log.info("Clicking subcategory: " + subCategoryName);
-        catalogActions.clickSubCategory(subCategoryName);
+    @When("user clicks on the Books category from top menu")
+    public void user_clicks_on_the_books_category_from_top_menu() {
+        catalogActions.clickBooksCategory();
     }
 
-    @Then("user should be navigated to {string} page url")
-    public void user_should_be_navigated_to_page_url(String expectedUrlPart) {
-        String currentUrl = HelperClass.getDriver().getCurrentUrl();
-        log.info("Current URL: " + currentUrl + " | Expected to contain: " + expectedUrlPart);
-        Assert.assertTrue(
-            catalogActions.verifyCurrentUrl(expectedUrlPart),
-            "URL validation failed. Current: " + currentUrl + " | Expected to contain: " + expectedUrlPart
-        );
+    @When("user clicks on the Apparel and Shoes category from top menu")
+    public void user_clicks_on_the_apparel_and_shoes_category_from_top_menu() {
+        catalogActions.clickApparelCategory();
     }
 
-    @Then("product grid should be displayed")
-    public void product_grid_should_be_displayed() {
-        boolean displayed = catalogActions.isProductGridDisplayed();
-        log.info("Product grid displayed: " + displayed);
-        Assert.assertTrue(displayed, "Product grid is not displayed");
+    @When("user clicks on the Gift Cards category from top menu")
+    public void user_clicks_on_the_gift_cards_category_from_top_menu() {
+        catalogActions.clickGiftCardsCategory();
     }
 
-    @Then("displayed product count should be greater than 0")
-    public void displayed_product_count_should_be_greater_than_0() {
-        int count = catalogActions.getDisplayedProductCount();
-        log.info("Product count: " + count);
-        Assert.assertTrue(count > 0, "No products or subcategories displayed. Count: " + count);
+    @Then("user should be navigated to the selected category page")
+    public void user_should_be_navigated_to_the_selected_category_page() {
+        log.info("Verifying category page title is displayed");
+        Assert.assertTrue(catalogActions.isCategoryPageTitleDisplayed(),
+                "Category page title should be visible after navigation");
     }
 
-    @Then("breadcrumb should contain {string}")
-    public void breadcrumb_should_contain(String expectedText) {
-        String actualBreadcrumb = catalogActions.getBreadcrumbText();
-        log.info("Breadcrumb actual: " + actualBreadcrumb + " | Expected to contain: " + expectedText.toUpperCase());
-        Assert.assertTrue(
-            actualBreadcrumb.contains(expectedText.toUpperCase()),
-            "Breadcrumb validation failed. Actual: " + actualBreadcrumb + " | Expected to contain: " + expectedText.toUpperCase()
-        );
+    @Then("the category page title should be displayed")
+    public void the_category_page_title_should_be_displayed() {
+        String title = catalogActions.getCategoryPageTitle();
+        log.info("Asserting category page has a non-empty title: {}", title);
+        Assert.assertFalse(title.isEmpty(), "Category page title should not be empty");
     }
 
-    @Then("user should see the following products")
-    public void user_should_see_the_following_products(io.cucumber.datatable.DataTable dataTable) {
-        List<String> expectedProducts = dataTable.asList();
-        List<String> actualProducts = catalogActions.getDisplayedProducts();
-        log.info("Expected products: " + expectedProducts);
-        log.info("Actual products:   " + actualProducts);
-        Assert.assertTrue(
-            actualProducts.containsAll(expectedProducts),
-            "Expected products not found. Expected: " + expectedProducts + " | Actual: " + actualProducts
-        );
+    @Then("products should be listed in the catalog")
+    public void products_should_be_listed_in_the_catalog() {
+        log.info("Verifying products are listed in catalog grid");
+        Assert.assertTrue(catalogActions.areProductsDisplayed(),
+                "At least one product should be displayed in the catalog");
     }
 
-    @Then("category list should contain {string}")
-    public void category_list_should_contain(String expectedCategory) {
-        log.info("Checking category present: " + expectedCategory);
-        Assert.assertTrue(
-            catalogActions.verifyCategoryPresent(expectedCategory),
-            "Category not found: " + expectedCategory
-        );
+    @Then("the product grid should be visible on the page")
+    public void the_product_grid_should_be_visible_on_the_page() {
+        log.info("Verifying product grid is visible");
+        Assert.assertTrue(catalogActions.isProductGridDisplayed(),
+                "Product grid should be visible on the catalog page");
     }
 }

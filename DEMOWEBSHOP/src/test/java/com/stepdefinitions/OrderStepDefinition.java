@@ -2,7 +2,6 @@ package com.stepdefinitions;
 
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
-
 import java.io.File;
 import java.time.Duration;
 
@@ -122,6 +121,5 @@ public class OrderStepDefinition {
 	public void the_previously_ordered_products_should_be_added_to_the_cart() {
 		String cartProduct =order.cartProductName();
 		System.out.println("the cart product nam is: "+cartProduct);
-		
 	}
 }

@@ -35,8 +35,6 @@ public class BaseAction {
         return waitForVisibility(locator).getText();
     }
     
-    
-    
     public void jsClick(By locator) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));

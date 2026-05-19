@@ -1,36 +1,64 @@
-Feature: Search functionality
+Feature: Vetrivel_13MAY2025_DEMOWEBSHOP_FeatureFileforLogin
 
-  Description:
+  Description: 
   As a user,
-  I want to search for products
+  I want to search an item in the search box
   so that I can view products related to my search keyword
 
   Background:
     Given user is on the home page
 
   @ValidSearch
-  Scenario: Search product using valid keyword
+  Scenario Outline: Search product using valid keyword
 
-    When user enters "valid" type keyword in the search box
+    When user enters product keyword in the search box
+      | keyword  |
+      | <keyword> |
+
     And clicks on Search button
     Then user should be redirected to the search results page
 
-  @InvalidSearch
-  Scenario: Search using invalid keyword
+    Examples:
+      | keyword  |
+      | Laptop   |
+      | Book     |
+      | Computer |
+      | Phone    |
 
-    When user enters "invalid" type keyword in the search box
+  @InvalidSearch
+  Scenario Outline: Search using invalid keyword
+
+    When user enters product keyword in the search box
+      | keyword  |
+      | <keyword> |
+
     And clicks on Search button
     Then no products message should be displayed
 
-  @Insensitive
-  Scenario: Verify search is case insensitive
+    Examples:
+      | keyword |
+      | abcxyz  |
+      | test123 |
+      | invalid |
 
-    When user enters "insensitive" type keyword in the search box
+  @Insensitive
+  Scenario Outline: Verify search is case insensitive
+
+    When user enters product keyword in the search box
+      | keyword  |
+      | <keyword> |
+
     And clicks on Search button
     Then matching products should be displayed
+
+    Examples:
+      | keyword  |
+      | COMPUTER |
+      | LAPTOP   |
+      | BOOK     |
 
   @WithoutKeyword
   Scenario: Search without entering keyword
 
     When user clicks on Search button without entering keyword
-    Then warning message should be displayed to the user
+    Then alert should be shown to the user

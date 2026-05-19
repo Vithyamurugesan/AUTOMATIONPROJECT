@@ -1,5 +1,4 @@
 package com.stepdefinitions;
-
 import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
@@ -168,7 +167,6 @@ public class LoginStepDefinition {
 		} else {
 			actualMessage = logaction.getValidationMessage();
 		}
-
 		System.out.println("Actual Message: " + actualMessage);
 		Assert.assertTrue(actualMessage.contains(message));
 	}

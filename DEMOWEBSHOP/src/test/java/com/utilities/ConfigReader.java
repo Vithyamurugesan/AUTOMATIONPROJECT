@@ -6,59 +6,31 @@ import java.util.Properties;
 
 public class ConfigReader {
 
-    static Properties prop;
+	static Properties prop;
 
-    public static Properties loadProperties(String filePath) {
+	public static Properties loadProperties(String filePath) {
 
-        prop = new Properties();
+		prop = new Properties();
 
-        try {
+		try {
+			FileInputStream fis = new FileInputStream(filePath);
+			prop.load(fis);
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
 
-            FileInputStream fis =
-                    new FileInputStream(filePath);
+		return prop;
+	}
 
-            prop.load(fis);
-        }
-
-        catch(IOException e) {
-
-            e.printStackTrace();
-        }
-
-        return prop;
-    }
-
-
-    public static String get(String key) {
-
-        if(prop == null) {
-
-            loadProperties(
-                    "src/test/resources/config.properties");
-        }
-
-        String value =
-                prop.getProperty(key);
-
-        if(value == null ||
-                value.trim().isEmpty()) {
-
-            throw new RuntimeException(
-
-                    "Key '" + key +
-
-                    "' not found in config.properties");
-        }
-
-        return value.trim();
-    }
-
-
-    // add this method
-    public static String getProperty(String key) {
-
-        return get(key);
-
-    }
-
+	public static String get(String key) {
+		if (prop == null) {
+			loadProperties("src/test/resources/config.properties");
+		}
+		String value = prop.getProperty(key);
+		if (value == null || value.trim().isEmpty()) {
+			throw new RuntimeException("Key '" + key + "' not found in config.properties");
+		}
+		return value.trim();
+	}
 }
