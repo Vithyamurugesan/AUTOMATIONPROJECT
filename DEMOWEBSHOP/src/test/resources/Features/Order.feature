@@ -56,6 +56,7 @@ for registered and unregistered users in the Demo Web Shop application.
     When user clicks loginlink
     When the user enters a registered email "<email>"
     And the user enters a valid password "<password>"
+    And the user clicks the Log in button
     Then the user should be redirected to the homepage
     And the logged-in user email should be displayed in the header
     When the user clicks the Orders link
