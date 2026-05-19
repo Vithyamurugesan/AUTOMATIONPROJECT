@@ -1,8 +1,8 @@
-Feature: Vetrivel_13MAY2025_DEMOWEBSHOP_FeatureFileforLogin
+Feature: Search functionality
 
   Description:
   As a user,
-  I want to search an item in the search box
+  I want to search for products
   so that I can view products related to my search keyword
 
   Background:
@@ -11,21 +11,21 @@ Feature: Vetrivel_13MAY2025_DEMOWEBSHOP_FeatureFileforLogin
   @ValidSearch
   Scenario: Search product using valid keyword
 
-    When user enters "valid" type keyword from csv in the search box
+    When user enters "valid" type keyword in the search box
     And clicks on Search button
     Then user should be redirected to the search results page
 
   @InvalidSearch
   Scenario: Search using invalid keyword
 
-    When user enters "invalid" type keyword from csv in the search box
+    When user enters "invalid" type keyword in the search box
     And clicks on Search button
     Then no products message should be displayed
 
   @Insensitive
   Scenario: Verify search is case insensitive
 
-    When user enters "insensitive" type keyword from csv in the search box
+    When user enters "insensitive" type keyword in the search box
     And clicks on Search button
     Then matching products should be displayed
 

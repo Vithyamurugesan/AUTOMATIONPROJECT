@@ -7,6 +7,7 @@ import org.testng.Assert;
 
 import com.actions.checkoutAction;
 import com.pages.checkoutPage;
+import com.utilities.ConfigReader;
 import com.utilities.HelperClass;
 
 import io.cucumber.java.en.Given;
@@ -20,7 +21,7 @@ public class CheckoutStepDefinition {
 	@Given("user is on the demoWebPage website")
 	public void user_is_on_the_demo_web_page_website() {
 		 AC= new checkoutAction(HelperClass.getDriver());
-		 HelperClass.getDriver().get("https://demowebshop.tricentis.com/");
+		 HelperClass.getDriver().get(ConfigReader.get("app.url"));
 	}
 
 	@Given("user is login the demo web shop website with minium adding of one product")
@@ -97,12 +98,10 @@ public void the_user_click_continue_button() {
 
 @Given("the user is in the checkout page")
 public void the_user_is_in_the_checkout_page() {
-    
 
-    AC.addAproductGuest();      // add product
-    AC.click_checkBox();        // accept terms
-    AC.click_checkout();        // click checkout
-    AC.GuestLogin();            // checkout as guest
+    AC.productAddInCart();      // ✔ Login flow
+    AC.click_checkBox();
+    AC.click_checkout();
 
     String act = AC.checkoutPage();
     String exp = "Checkout";
@@ -211,11 +210,10 @@ public void the_user_in_the_checkout_pages_of_shipping_section() {
 
     System.out.println("User reached Shipping Address page");
 }
-//......................
-@When("the user select the Address from the dropdown and select {string}")
-public void the_user_select_the_address_from_the_dropdown_and_select(String string) {
-	int address = Integer.parseInt(string);
-	AC.ShippingAddress(address);
+
+@When("the user selects the first address from the dropdown")
+public void the_user_selects_the_first_address_from_the_dropdown() {
+	AC.ShippingAddress();
 }
 	
 	
