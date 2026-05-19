@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 import org.testng.Assert;
 import com.actions.checkoutAction;
-import com.utilities.ExcelReader;
 import com.utilities.ConfigReader;
 import com.utilities.HelperClass;
 import io.cucumber.java.en.Given;
@@ -41,7 +40,7 @@ public class CheckoutStepDefinition {
 		String exp="Checkout";
 		String act=AC.checkoutPage();
 		Assert.assertEquals(act, exp);
-		System.out.println("Checkout page displayed");
+		
 	}
 	
 
@@ -110,22 +109,8 @@ public void the_user_is_in_the_checkout_page() {
 
 @When("the user fill the billing address form with valid credentials using excel")
 public void the_user_fill_the_billing_address_form_with_valid_credentials_using_excel() {
-	List<Map<String,String>> data =ExcelReader.getData("src\\test\\resources\\TestData\\BillingForm.xlsx","Sheet1");
-
-	String firstname =data.get(0).get("First Name");
-	String lastname =data.get(0).get("LastName");
-	String email =data.get(0).get("Email");
-	String company =data.get(0).get("Company");
-	String country =data.get(0).get("Country");
-	String state =data.get(0).get("state");
-	String city =data.get(0).get("City");
-	String address1 =data.get(0).get("Address1");
-	String address2 =data.get(0).get("Address2");
-	String zip =data.get(0).get("ZipCode");
-	String phone =data.get(0).get("Phone");
-	String fax =data.get(0).get("Fax number");
-
-	AC.billingForm(firstname,lastname,email,company,country,state,city,address1,address2,zip,phone,fax);
+	
+	AC.fillBillingFromExcel("sheet1");
 	    
 	    
 }
@@ -146,23 +131,8 @@ public void the_user_should_seen_the_shipping_addres_form_with_text_of_select_a_
 
 @When("the user fill invalid billing data from excel")
 public void the_user_fill_invalid_billing_data_from_excel() {
-
-List<Map<String,String>> data =ExcelReader.getData("src\\test\\resources\\TestData\\BillingForm.xlsx","Sheet2");
-
-String firstname =data.get(0).get("First Name");
-String lastname =data.get(0).get("LastName");
-String email =data.get(0).get("Email");
-String company =data.get(0).get("Company");
-String country =data.get(0).get("Country");
-String state =data.get(0).get("state");
-String city =data.get(0).get("City");
-String address1 =data.get(0).get("Address1");
-String address2 =data.get(0).get("Address2");
-String zip =data.get(0).get("ZipCode");
-String phone =data.get(0).get("Phone");
-String fax =data.get(0).get("Fax number");
-
-AC.billingForm(firstname,lastname,email,company,country,state,city,address1,address2,zip,phone,fax);
+	
+	AC.fillBillingFromExcel("sheet2");
 
 }
 
@@ -179,23 +149,8 @@ public void the_user_should_see_the_error_message_of_wrong_email() {
 public void the_user_in_the_checkout_pages_of_shipping_section() {
 
     the_user_is_in_the_checkout_page();
-    List<Map<String,String>> data =ExcelReader.getData("src\\test\\resources\\TestData\\BillingForm.xlsx","Sheet1");
-
-	String firstname =data.get(0).get("First Name");
-	String lastname =data.get(0).get("LastName");
-	String email =data.get(0).get("Email");
-	String company =data.get(0).get("Company");
-	String country =data.get(0).get("Country");
-	String state =data.get(0).get("state");
-	String city =data.get(0).get("City");
-	String address1 =data.get(0).get("Address1");
-	String address2 =data.get(0).get("Address2");
-	String zip =data.get(0).get("ZipCode");
-	String phone =data.get(0).get("Phone");
-	String fax =data.get(0).get("Fax number");
-
-	AC.billingForm(firstname,lastname,email,company,country,state,city,address1,address2,zip,phone,fax);
-    
+   
+    AC.fillBillingFromExcel("sheet1");
     AC.BillContinue();
 
     String act = AC.shippingText();

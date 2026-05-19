@@ -1,23 +1,24 @@
 package com.actions;
 
 
-import java.time.Duration;
+import java.util.List;
+import java.util.Map;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-
 import org.openqa.selenium.WebDriver;
 
 import com.pages.checkoutPage;
 import com.utilities.ConfigReader;
+import com.utilities.ExcelReader;
+
+//ActionClass method => actionClick
+
 
 public class checkoutAction extends BaseAction {
 
@@ -28,6 +29,7 @@ public class checkoutAction extends BaseAction {
     LoginAction login;
     Logger log = LogManager.getLogger(checkoutAction.class);
     
+    //actionClass
     public void actionClick(By locator) {
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
         ac.moveToElement(element).click().perform();
@@ -36,6 +38,7 @@ public class checkoutAction extends BaseAction {
    	 waitForVisibility(locator).clear();
    }
 
+    //constructor
     public checkoutAction(WebDriver driver) {
 		super(driver);
 		cp = new checkoutPage();
@@ -48,17 +51,10 @@ public class checkoutAction extends BaseAction {
     public void productAddInCart() {
 
         try {
-
             login.clicklogin();
-
-            login.userEmail(
-                ConfigReader.getProperty("app.username"));
-
-            login.userPassword(
-                ConfigReader.getProperty("app.password"));
-
+            login.userEmail(ConfigReader.getProperty("app.username"));
+            login.userPassword(ConfigReader.getProperty("app.password"));
             login.clickloginbtn();
-
             log.info("login successful");
 
             waitForVisibility(cp.book);
@@ -67,9 +63,7 @@ public class checkoutAction extends BaseAction {
             cart.addCart();
             cart.checkCart();
 
-            log.info("product add in cart");
-
-        
+            log.info("product add in cart");        
         }
 
         catch(Exception e){
@@ -78,7 +72,7 @@ public class checkoutAction extends BaseAction {
             throw e;
         }
     }
-
+    
     public void click_checkBox() {
         actionClick(cp.checkbox);
     }
@@ -108,6 +102,7 @@ public class checkoutAction extends BaseAction {
     		throw e;
     	}
 	}
+    
 
     public void GuestLogin() {
     	try {
@@ -165,7 +160,6 @@ public class checkoutAction extends BaseAction {
     public void contineButton() {
     	try {
     	click(cp.continueButton);
-
     	log.info("continue clicked");
     	}
     	catch(Exception e) {
@@ -178,7 +172,7 @@ public class checkoutAction extends BaseAction {
     	return getText(cp.regCompleted);
     }
 
-    public void billingForm(String str1,String str2,String str3,String str4,String str5,String str6,String str7,String str8,String str9,String str10,String str11,String str12) {
+    public void billingForm(String str1,String str2,String str3,String str4,String str5,String str7,String str8,String str9,String str10,String str11,String str12) {
 
     	try {
     		
@@ -195,22 +189,6 @@ public class checkoutAction extends BaseAction {
 
     	Select dropdown = new Select(waitForVisibility(cp.billCountry));
     	dropdown.selectByValue(str5);
-
-	By stateLocator = cp.billstate;
-	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
-	wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(stateLocator)));
-	Select dropdown2 = new Select(waitForVisibility(stateLocator));
-
-	if (str6 != null && !str6.trim().isEmpty() && !"0".equals(str6.trim())) {
-		try {
-			dropdown2.selectByValue(str6);
-		} catch (org.openqa.selenium.NoSuchElementException e) {
-			dropdown2.selectByVisibleText(str6);
-		}
-	} else {
-		log.info("Billing state selection skipped because value is placeholder '{}'.", str6);
-	}
 
 	type(cp.billCity,str7);
 	type(cp.billAddress1,str8);
@@ -336,7 +314,6 @@ public void ShippingAddress() {
 	public void fillCredit(String str,String str2,String str3) {
 
 		try {
-
 		type(cp.cardholdername,str);
 		type(cp.cardNumber,str2);
 		type(cp.cardCode,str3);
@@ -389,6 +366,22 @@ public void ShippingAddress() {
 		return getText(cp.ThankyText);
 	}
 	
-	
+	public void fillBillingFromExcel(String sheet) {
 
+	    List<Map<String,String>> data = ExcelReader.getData( "src\\test\\resources\\TestData\\BillingForm.xlsx",sheet);
+
+	    billingForm(
+	    data.get(0).get("First Name"),
+	    data.get(0).get("LastName"),
+	    data.get(0).get("Email"),
+	    data.get(0).get("Company"),
+	    data.get(0).get("Country"),
+	    data.get(0).get("City"),
+	    data.get(0).get("Address1"),
+	    data.get(0).get("Address2"),
+	    data.get(0).get("ZipCode"),
+	    data.get(0).get("Phone"),
+	    data.get(0).get("Fax number"));
+	}
+	
 }
