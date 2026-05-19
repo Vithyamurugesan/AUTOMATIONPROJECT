@@ -168,7 +168,6 @@ public class LoginStepDefinition {
 		} else {
 			actualMessage = logaction.getValidationMessage();
 		}
-
 		System.out.println("Actual Message: " + actualMessage);
 		Assert.assertTrue(actualMessage.contains(message));
 	}
