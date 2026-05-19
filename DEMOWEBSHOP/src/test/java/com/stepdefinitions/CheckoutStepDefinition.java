@@ -98,7 +98,7 @@ public void the_user_click_continue_button() {
 @Given("the user is in the checkout page")
 public void the_user_is_in_the_checkout_page() {
 
-    AC.productAddInCart();      // ✔ Login flow
+    AC.productAddInCart();     
     AC.click_checkBox();
     AC.click_checkout();
 
@@ -179,10 +179,9 @@ public void the_user_should_see_the_error_message_of_wrong_email() {
 @Given("the user in the checkout pages of shipping section")
 public void the_user_in_the_checkout_pages_of_shipping_section() {
 
-    // Reuse checkout flow
     the_user_is_in_the_checkout_page();
 
-    // Fill billing address
+    
     AC.billingForm(
             "jeeva",
             "pranesh",
@@ -198,7 +197,7 @@ public void the_user_in_the_checkout_pages_of_shipping_section() {
             "1234567890"
     );
 
-    // Move to Shipping Address section
+
     AC.BillContinue();
 
     String act = AC.shippingText();
