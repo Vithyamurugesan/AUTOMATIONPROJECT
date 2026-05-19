@@ -206,7 +206,7 @@ Installation Steps
 
 Step 1: Clone the Repository
 
-bash
+bash : 
 git clone https://github.com/Vithyamurugesan/AUTOMATIONPROJECT.git
 
 
