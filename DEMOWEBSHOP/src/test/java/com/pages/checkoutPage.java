@@ -39,6 +39,8 @@ public class checkoutPage {
 	public By continueButton = By.xpath("//input[@value='Continue']");
 	
 	//scenario-4
+	public By existAddress= By.xpath("//select[@id='billing-address-select']");
+	
 	public By billFirstName= By.xpath("//input[@id='BillingNewAddress_FirstName']");
 	public By billLastName = By.xpath("//input[@id='BillingNewAddress_LastName']");
 	public By billEmail = By.xpath("//input[@id='BillingNewAddress_Email']");
