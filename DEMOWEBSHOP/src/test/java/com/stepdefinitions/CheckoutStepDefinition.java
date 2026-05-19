@@ -7,6 +7,7 @@ import org.testng.Assert;
 
 import com.actions.checkoutAction;
 import com.pages.checkoutPage;
+import com.utilities.ConfigReader;
 import com.utilities.HelperClass;
 
 import io.cucumber.java.en.Given;
@@ -20,7 +21,7 @@ public class CheckoutStepDefinition {
 	@Given("user is on the demoWebPage website")
 	public void user_is_on_the_demo_web_page_website() {
 		 AC= new checkoutAction(HelperClass.getDriver());
-		 HelperClass.getDriver().get("https://demowebshop.tricentis.com/");
+		 HelperClass.getDriver().get(ConfigReader.get("app.url"));
 	}
 
 	@Given("user is login the demo web shop website with minium adding of one product")
