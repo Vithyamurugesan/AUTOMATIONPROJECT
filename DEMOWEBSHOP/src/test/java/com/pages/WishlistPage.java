@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 public class WishlistPage {
 
-    private By addToWishlistButton=By.xpath("//input[contains(@value,'Add to wishlist')]");
+	private By addToWishlistButton=By.xpath("//input[@value='Add to wishlist']");
     private By successMessage=By.xpath("//p[@class='content']");
     private By wishlistLink=By.linkText("Wishlist");
     private By wishlistProduct=By.xpath("//td[@class='product']/a");

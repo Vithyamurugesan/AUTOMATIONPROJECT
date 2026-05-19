@@ -74,4 +74,9 @@ public class SearchActions extends BaseAction {
             return false;
         }
     }
+
+    public void openProductFromResults(String productName) {
+        driver.findElement(By.xpath("//a[contains(text(),'" + productName + "')]")).click();
+    }
+    
 }

@@ -1,7 +1,6 @@
 package com.actions;
 
 import org.openqa.selenium.WebDriver;
-
 import com.pages.WishlistPage;
 
 public class WishlistAction extends BaseAction {
@@ -13,6 +12,7 @@ public class WishlistAction extends BaseAction {
         this.wishlistPage = new WishlistPage();
     }
 
+    // FIXED FLOW ENTRY POINT
     public void openSearchedProduct(String productName) {
         click(wishlistPage.getProduct(productName));
     }
