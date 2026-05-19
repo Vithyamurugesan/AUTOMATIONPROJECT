@@ -1,0 +1,11 @@
+type,keyword
+valid,Laptop
+valid,Book
+valid,Computer
+valid,Phone
+invalid,abcxyz
+invalid,test123
+invalid,invalid
+insensitive,COMPUTER
+insensitive,LAPTOP
+insensitive,BOOK
