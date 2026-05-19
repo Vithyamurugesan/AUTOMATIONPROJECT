@@ -14,7 +14,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelReader {
 
-    public static List<Map<String, String>> getData(String filePath,String sheetName) {
+    public static List<Map<String, String>> getCellData(String filePath,String sheetName,int row) {
 
         List<Map<String, String>> data=new ArrayList<>();
 
@@ -44,6 +44,7 @@ public class ExcelReader {
 
                     String key=formatter.formatCellValue(headerRow.getCell(j));
                     String value=formatter.formatCellValue(currentRow.getCell(j));
+
                     rowData.put(key, value);
                 }
 
@@ -58,5 +59,36 @@ public class ExcelReader {
         }
 
         return data;
+    }
+
+    public static String getCellData(String filePath,
+                                     String sheetName,
+                                     int rowNum,
+                                     int cellNum) {
+
+        String value="";
+
+        try {
+
+            FileInputStream fis=new FileInputStream(filePath);
+
+            XSSFWorkbook workbook=new XSSFWorkbook(fis);
+
+            Sheet sheet=workbook.getSheet(sheetName);
+
+            DataFormatter formatter=new DataFormatter();
+
+            Row row=sheet.getRow(rowNum);
+
+            value=formatter.formatCellValue(row.getCell(cellNum));
+
+            workbook.close();
+        }
+        catch (IOException e) {
+
+            throw new RuntimeException("Unable to read excel file: "+ filePath, e);
+        }
+
+        return value;
     }
 }
