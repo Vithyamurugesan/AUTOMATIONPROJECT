@@ -1,5 +1,4 @@
 package com.stepdefinitions;
-
 import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
