@@ -4,7 +4,7 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-        features ="src/test/resources/Features/",
+        features ="src/test/resources/Features/Search.feature",
         glue = "com.stepdefinitions",
         plugin = {
                 "pretty",
@@ -17,5 +17,5 @@ import io.cucumber.testng.CucumberOptions;
         monochrome = true
 )
 public class CucumberRunner extends AbstractTestNGCucumberTests {
-
+	
 }
