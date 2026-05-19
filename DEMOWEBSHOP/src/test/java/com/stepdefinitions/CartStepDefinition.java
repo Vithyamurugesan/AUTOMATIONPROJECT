@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 
 import com.actions.CartAction;
+import com.utilities.ConfigReader;
 import com.utilities.HelperClass;
 
 import io.cucumber.java.en.Given;
@@ -25,7 +26,7 @@ public class CartStepDefinition {
 
 		logger.info("Launching Demo Web Shop");
 
-		HelperClass.getDriver().get("https://demowebshop.tricentis.com/");
+		HelperClass.getDriver().get(ConfigReader.get("app.url"));
 
 		cartAction = new CartAction(HelperClass.getDriver());
 	}

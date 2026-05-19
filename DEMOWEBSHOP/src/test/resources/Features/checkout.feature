@@ -1,9 +1,10 @@
-Feature: JeevaPranesh_13MAY2026_To procedure check out page from cart
+Feature: JeevaPranesh_13MAY2026_To procedure check out page from cart updated_19-05-2026
 
 description: As a user, I want to be able to proceed to the checkout page from the cart so that I can complete my purchase.
 
 Background: 
 Given user is on the demoWebPage website
+
 
 @scenario_1
 Scenario: procedure to checkout as registered user
