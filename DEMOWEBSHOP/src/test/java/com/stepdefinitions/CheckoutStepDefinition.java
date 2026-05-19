@@ -2,13 +2,11 @@ package com.stepdefinitions;
 
 import java.util.List;
 import java.util.Map;
-
 import org.testng.Assert;
-
 import com.actions.checkoutAction;
-import com.pages.checkoutPage;
+import com.utilities.ExcelReader;
+import com.utilities.ConfigReader;
 import com.utilities.HelperClass;
-
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -20,7 +18,7 @@ public class CheckoutStepDefinition {
 	@Given("user is on the demoWebPage website")
 	public void user_is_on_the_demo_web_page_website() {
 		 AC= new checkoutAction(HelperClass.getDriver());
-		 HelperClass.getDriver().get("https://demowebshop.tricentis.com/");
+		 HelperClass.getDriver().get(ConfigReader.get("app.url"));
 	}
 
 	@Given("user is login the demo web shop website with minium adding of one product")
@@ -97,12 +95,10 @@ public void the_user_click_continue_button() {
 
 @Given("the user is in the checkout page")
 public void the_user_is_in_the_checkout_page() {
-    
 
-    AC.addAproductGuest();      // add product
-    AC.click_checkBox();        // accept terms
-    AC.click_checkout();        // click checkout
-    AC.GuestLogin();            // checkout as guest
+    AC.productAddInCart();     
+    AC.click_checkBox();
+    AC.click_checkout();
 
     String act = AC.checkoutPage();
     String exp = "Checkout";
@@ -112,24 +108,24 @@ public void the_user_is_in_the_checkout_page() {
     System.out.println("User reached checkout page");
 }
 
-@When("the user dill the billing address form with valid credentials")
-public void the_user_dill_the_billing_address_form_with_valid_credentials(io.cucumber.datatable.DataTable dataTable) {
-	List<Map<String,String>> data=dataTable.asMaps(String.class,String.class);
-	
-	   String firstname = data.get(0).get("FirstName");
-	    String lastname = data.get(0).get("LastName");
-	    String email = data.get(0).get("Email");
-	    String company = data.get(0).get("Company");
-	    String country = data.get(0).get("Country");
-	    String state  = data.get(0).get("state");
-	    String city = data.get(0).get("City");
-	    String address1 = data.get(0).get("Address1");
-	    String address2 = data.get(0).get("Address2");
-	    String zipcode = data.get(0).get("ZipCode");
-	    String phone = data.get(0).get("Phone");
-	    String fax = data.get(0).get("Fax number");
-	    
-	    AC.billingForm(firstname, lastname, email, company, country, state, city, address1, address2, zipcode, phone, fax);
+@When("the user fill the billing address form with valid credentials using excel")
+public void the_user_fill_the_billing_address_form_with_valid_credentials_using_excel() {
+	List<Map<String,String>> data =ExcelReader.getData("src\\test\\resources\\TestData\\BillingForm.xlsx","Sheet1");
+
+	String firstname =data.get(0).get("First Name");
+	String lastname =data.get(0).get("LastName");
+	String email =data.get(0).get("Email");
+	String company =data.get(0).get("Company");
+	String country =data.get(0).get("Country");
+	String state =data.get(0).get("state");
+	String city =data.get(0).get("City");
+	String address1 =data.get(0).get("Address1");
+	String address2 =data.get(0).get("Address2");
+	String zip =data.get(0).get("ZipCode");
+	String phone =data.get(0).get("Phone");
+	String fax =data.get(0).get("Fax number");
+
+	AC.billingForm(firstname,lastname,email,company,country,state,city,address1,address2,zip,phone,fax);
 	    
 	    
 }
@@ -148,30 +144,31 @@ public void the_user_should_seen_the_shipping_addres_form_with_text_of_select_a_
 }
 
 
-@When("the user dill the billing address form with invalid credentials of email")
-public void the_user_dill_the_billing_address_form_with_invalid_credentials_of_email(io.cucumber.datatable.DataTable dataTable) {
-	List<Map<String,String>>data =dataTable.asMaps(String.class,String.class);
+@When("the user fill invalid billing data from excel")
+public void the_user_fill_invalid_billing_data_from_excel() {
 
-	   String firstname = data.get(0).get("FirstName");
-	    String lastname = data.get(0).get("LastName");
-	    String email = data.get(0).get("Email");
-	    String company = data.get(0).get("Company");
-	    String country = data.get(0).get("Country");
-	    String state  = data.get(0).get("state");
-	    String city = data.get(0).get("City");
-	    String address1 = data.get(0).get("Address1");
-	    String address2 = data.get(0).get("Address2");
-	    String zipcode = data.get(0).get("ZipCode");
-	    String phone = data.get(0).get("Phone");
-	    String fax = data.get(0).get("Fax number");
-	    AC.billingForm(firstname, lastname, email, company, country, state, city, address1, address2, zipcode, phone, fax);
+List<Map<String,String>> data =ExcelReader.getData("src\\test\\resources\\TestData\\BillingForm.xlsx","Sheet2");
+
+String firstname =data.get(0).get("First Name");
+String lastname =data.get(0).get("LastName");
+String email =data.get(0).get("Email");
+String company =data.get(0).get("Company");
+String country =data.get(0).get("Country");
+String state =data.get(0).get("state");
+String city =data.get(0).get("City");
+String address1 =data.get(0).get("Address1");
+String address2 =data.get(0).get("Address2");
+String zip =data.get(0).get("ZipCode");
+String phone =data.get(0).get("Phone");
+String fax =data.get(0).get("Fax number");
+
+AC.billingForm(firstname,lastname,email,company,country,state,city,address1,address2,zip,phone,fax);
 
 }
 
 @Then("the user should see the error message of Wrong email")
 public void the_user_should_see_the_error_message_of_wrong_email() {
     String act = AC.billwrong();
-    
     String exp = "Wrong email";
     
     Assert.assertEquals(act, exp);
@@ -181,41 +178,35 @@ public void the_user_should_see_the_error_message_of_wrong_email() {
 @Given("the user in the checkout pages of shipping section")
 public void the_user_in_the_checkout_pages_of_shipping_section() {
 
-    // Reuse checkout flow
     the_user_is_in_the_checkout_page();
+    List<Map<String,String>> data =ExcelReader.getData("src\\test\\resources\\TestData\\BillingForm.xlsx","Sheet1");
 
-    // Fill billing address
-    AC.billingForm(
-            "jeeva",
-            "pranesh",
-            "jeeva@gmail.com",
-            "expleo",
-            "1",
-            "0",
-            "Salem",
-            "sivaji nagar",
-            "sivaji bagar",
-            "636004",
-            "9876543210",
-            "1234567890"
-    );
+	String firstname =data.get(0).get("First Name");
+	String lastname =data.get(0).get("LastName");
+	String email =data.get(0).get("Email");
+	String company =data.get(0).get("Company");
+	String country =data.get(0).get("Country");
+	String state =data.get(0).get("state");
+	String city =data.get(0).get("City");
+	String address1 =data.get(0).get("Address1");
+	String address2 =data.get(0).get("Address2");
+	String zip =data.get(0).get("ZipCode");
+	String phone =data.get(0).get("Phone");
+	String fax =data.get(0).get("Fax number");
 
-    // Move to Shipping Address section
+	AC.billingForm(firstname,lastname,email,company,country,state,city,address1,address2,zip,phone,fax);
+    
     AC.BillContinue();
 
     String act = AC.shippingText();
-    String exp =
-    "Select a shipping address from your address book or enter a new address.";
-
+    String exp ="Select a shipping address from your address book or enter a new address.";
     Assert.assertTrue(act.contains(exp));
-
     System.out.println("User reached Shipping Address page");
 }
-//......................
-@When("the user select the Address from the dropdown and select {string}")
-public void the_user_select_the_address_from_the_dropdown_and_select(String string) {
-	int address = Integer.parseInt(string);
-	AC.ShippingAddress(address);
+
+@When("the user selects the first address from the dropdown")
+public void the_user_selects_the_first_address_from_the_dropdown() {
+	AC.ShippingAddress();
 }
 	
 	

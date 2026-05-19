@@ -1,13 +1,19 @@
 package com.actions;
 
-import java.time.Duration; 
+
+import java.time.Duration;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import org.openqa.selenium.JavascriptExecutor;
+
 import org.openqa.selenium.WebDriver;
 
 import com.pages.checkoutPage;
@@ -17,17 +23,25 @@ public class checkoutAction extends BaseAction {
 
     checkoutPage cp;
 
-    Actions ac = new Actions(driver);
+    Actions ac;
     CartAction cart;
     LoginAction login;
     Logger log = LogManager.getLogger(checkoutAction.class);
-
+    
+    public void actionClick(By locator) {
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
+        ac.moveToElement(element).click().perform();
+    }
+    public void clear(By locator) {
+   	 waitForVisibility(locator).clear();
+   }
 
     public checkoutAction(WebDriver driver) {
 		super(driver);
 		cp = new checkoutPage();
 		cart= new CartAction(driver);
 		login = new LoginAction(driver);
+		ac = new Actions(driver);
 		log.info("browser open");
 	}
 
@@ -38,10 +52,10 @@ public class checkoutAction extends BaseAction {
             login.clicklogin();
 
             login.userEmail(
-                ConfigReader.get("app.username"));
+                ConfigReader.getProperty("app.username"));
 
             login.userPassword(
-                ConfigReader.get("app.password"));
+                ConfigReader.getProperty("app.password"));
 
             login.clickloginbtn();
 
@@ -66,16 +80,18 @@ public class checkoutAction extends BaseAction {
     }
 
     public void click_checkBox() {
-        jsClick(cp.checkbox);
+        actionClick(cp.checkbox);
     }
 
     public void click_checkout() {
-        jsClick(cp.checkoutButton);
+        actionClick(cp.checkoutButton);
     }
 
     public String checkoutPage() {
         return getText(cp.checkoutText);
     }
+
+   
 
 
     public void addAproductGuest() {
@@ -165,20 +181,39 @@ public class checkoutAction extends BaseAction {
     public void billingForm(String str1,String str2,String str3,String str4,String str5,String str6,String str7,String str8,String str9,String str10,String str11,String str12) {
 
     	try {
+    		
+    		Select dropdown1 = new Select(waitForVisibility(cp.existAddress));
+    		dropdown1.selectByVisibleText("New Address");
 
-    	type(cp.billFirstName,str1);
-    	type(cp.billLastName,str2);
-    	type(cp.billEmail,str3);
+    		clear(cp.billFirstName);
+    		type(cp.billFirstName,str1);
+    		clear(cp.billLastName);
+            type(cp.billLastName,str2);
+            clear(cp.billEmail);
+            type(cp.billEmail,str3); 
     	type(cp.billCompany, str4);
 
     	Select dropdown = new Select(waitForVisibility(cp.billCountry));
     	dropdown.selectByValue(str5);
 
-    	Select dropdown2 = new Select(waitForVisibility(cp.billstate));
-    	dropdown2.selectByValue(str6);
+	By stateLocator = cp.billstate;
+	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
-    	type(cp.billCity,str7);
-    	type(cp.billAddress1,str8);
+	wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(stateLocator)));
+	Select dropdown2 = new Select(waitForVisibility(stateLocator));
+
+	if (str6 != null && !str6.trim().isEmpty() && !"0".equals(str6.trim())) {
+		try {
+			dropdown2.selectByValue(str6);
+		} catch (org.openqa.selenium.NoSuchElementException e) {
+			dropdown2.selectByVisibleText(str6);
+		}
+	} else {
+		log.info("Billing state selection skipped because value is placeholder '{}'.", str6);
+	}
+
+	type(cp.billCity,str7);
+	type(cp.billAddress1,str8);
     	type(cp.billAddress2,str9);
     	type(cp.billZip, str10);
     	type(cp.billNumber,str11);
@@ -212,12 +247,12 @@ public class checkoutAction extends BaseAction {
 		return getText(cp.wrongEmail);
 	}
 
-	public void ShippingAddress(int str) {
+public void ShippingAddress() {
 
-		try {
+	try {
 
 		Select dropdown = new Select(waitForVisibility(cp.ShippingDrop));
-		dropdown.selectByIndex(str);
+		dropdown.selectByIndex(1);
 
 		log.info("shipping address selected");
 		}
@@ -245,7 +280,7 @@ public class checkoutAction extends BaseAction {
 	}
 
 	public void shippingCheckbox() {
-		click(cp.shippingcheckbox);
+		actionClick(cp.shippingcheckbox);
 	}
 
 	public String paymentText() {
@@ -256,7 +291,7 @@ public class checkoutAction extends BaseAction {
 
 		try {
 
-		click(cp.cashOnMethod);
+		actionClick(cp.cashOnMethod);
 		log.info("cash on delivery selected");
 		}
 		catch(Exception e) {
@@ -353,5 +388,7 @@ public class checkoutAction extends BaseAction {
 	public String ThankyouText() {
 		return getText(cp.ThankyText);
 	}
+	
+	
 
 }
