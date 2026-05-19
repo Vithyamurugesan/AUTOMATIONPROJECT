@@ -59,15 +59,11 @@ And the user click the Continue button
 Then the user should see the error message of Wrong email
 
 @scenario_6
-Scenario Outline: Selecting a Address in the Shipping Address section
+Scenario: Select the first address in the Shipping Address section
 Given the user in the checkout pages of shipping section
-When the user select the Address from the dropdown and select "<Address>"
+When the user selects the first address from the dropdown
 And the user click the continue button in shipping section
 Then the user move to the Shipping method and seen the text of Ground
- 
- Examples:
-|Address|
-|0		|
 
 @scenario_7
 Scenario: selecting in-store pickup checkout

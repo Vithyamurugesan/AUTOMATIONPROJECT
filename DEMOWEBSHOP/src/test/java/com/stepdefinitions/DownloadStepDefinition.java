@@ -43,5 +43,4 @@ public class DownloadStepDefinition {
 		List<String> products = download.getAllProductNames();
 		log.info("Downloaded Product List: {}", products);
 	}
-
 }
