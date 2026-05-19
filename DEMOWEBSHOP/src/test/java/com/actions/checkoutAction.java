@@ -388,5 +388,7 @@ public void ShippingAddress() {
 	public String ThankyouText() {
 		return getText(cp.ThankyText);
 	}
+	
+	
 
 }
