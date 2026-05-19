@@ -8,6 +8,7 @@ Feature: Vetrivel_14MAY2025_DEMOWEBSHOP_SearchFunctionality
   Background:
     Given user is on the home page
 
+
   @ValidSearch
   Scenario: Search product using valid keyword
 
