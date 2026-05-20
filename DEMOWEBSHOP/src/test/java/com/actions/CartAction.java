@@ -33,9 +33,12 @@ public class CartAction extends BaseAction {
 
 	public void openBookPage() {
 
-		click(cartPage.getBooks());
+	    click(cartPage.getBooks());
+	}
+	
+	public void openComputingBookPage() {
 
-		click(cartPage.getComputingBook());
+	    click(cartPage.getComputingBook());
 	}
 
 	public void addCart() {
