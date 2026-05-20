@@ -3,8 +3,7 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-      <class name="com.stepdefinitions.Hooks"/>
-      <class name="com.utilities.HelperClass"/>
+       <class name="com.runner.CucumberRunner"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
