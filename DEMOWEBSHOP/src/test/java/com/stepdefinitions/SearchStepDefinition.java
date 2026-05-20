@@ -1,5 +1,6 @@
 package com.stepdefinitions;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -20,7 +21,7 @@ public class SearchStepDefinition {
     private static final Logger log = LogManager.getLogger(SearchStepDefinition.class);
 
     SearchActions searchActions;
-    public static String searchedProduct;
+    public String searchedProduct;
 
     static final String CSV_FILE_PATH = ConfigReader.get("search.csv.path");
 
@@ -53,29 +54,60 @@ public class SearchStepDefinition {
     @When("user enters {string} type keyword in the search box")
     public void user_enters_type_keyword_in_the_search_box(String type) {
 
-        log.debug("Reading keyword from CSV for type: {}", type);
+    	 List<Map<String, String>> data = CsvReader.getData(CSV_FILE_PATH);
 
-        List<Map<String, String>> data=CsvReader.getData(CSV_FILE_PATH);
+    	    List<String> keywords = new ArrayList<>();
 
-        String keyword=null;
+    	    for (Map<String, String> row : data) {
+    	        if (row.get("type").equalsIgnoreCase(type)) {
+    	            keywords.add(row.get("keyword"));
+    	        }
+    	    }
 
-        for (Map<String, String> row : data) {
-            if (row.get("type").equalsIgnoreCase(type)) {
-                keyword=row.get("keyword");
-                break;
-            }
-        }
+    	    if (keywords.isEmpty()) {
+    	        log.error("No keyword found for type : " + type);
+    	        throw new RuntimeException("No keyword found for type : " + type);
+    	    }
 
-        if (keyword==null) {
-            log.error("No keyword found for type : "+ type);
-            throw new RuntimeException("No keyword found for type : " + type);
-        }
+    	    for (String keyword : keywords) {
 
-        searchedProduct=keyword;
+    	        searchedProduct=keyword;
+    	        log.info("Searching product : " + keyword);
 
-        log.info("Searching product : "+ keyword);
+    	        try {
+    	            searchActions.searchProduct(keyword);
+    	            searchActions.clickSearch();
 
-        searchActions.searchProduct(keyword);
+    	            if (type.equalsIgnoreCase("valid")) {
+
+    	                Assert.assertTrue(searchActions.verifySearchRedirect());
+    	                Assert.assertTrue(searchActions.verifyResultsNotEmpty());
+    	                Assert.assertTrue(searchActions.verifyResultsContainKeyword(keyword));
+    	                
+    	                log.info("Valid search assertions passed for : " + keyword);
+
+    	            }
+    	            else if (type.equalsIgnoreCase("invalid")) {
+
+    	                Assert.assertTrue(searchActions.verifyNoProductMessage());
+    	                Assert.assertFalse(searchActions.verifyResultsNotEmpty());
+    	                
+    	                log.info("Invalid search assertions passed for : " + keyword);
+
+    	            }
+    	            else if (type.equalsIgnoreCase("insensitive")) {
+
+    	                Assert.assertTrue(searchActions.verifyResultsNotEmpty());
+    	                Assert.assertTrue(searchActions.verifyResultsContainKeyword(keyword));
+    	                
+    	                log.info("Case-insensitive assertions passed for : " + keyword);
+    	            }
+
+    	        }
+    	        finally {
+    	            HelperClass.getDriver().navigate().back();
+    	        }
+    	    }
     }
 
     @When("clicks on Search button")

@@ -7,14 +7,14 @@ public class WishlistPage {
 	private By addToWishlistButton=By.xpath("//input[@value='Add to wishlist']");
     private By successMessage=By.xpath("//p[@class='content']");
     private By wishlistLink=By.linkText("Wishlist");
-    private By wishlistProduct=By.xpath("//td[@class='product']/a");
+    private By wishlistProduct=By.xpath("//td[@class='product']/child::a");
     private By removeCheckbox=By.name("removefromcart");
     private By updateWishlistButton=By.name("updatecart");
     private By emptyWishlistMessage=By.xpath("//div[@class='wishlist-content']");
     private By addToCartCheckbox=By.name("addtocart");
     private By addToCartButton=By.name("addtocartbutton");
     private By shoppingCartLink=By.linkText("Shopping cart");
-    private By cartProduct=By.xpath("//td[@class='product']/a");
+    private By cartProduct=By.xpath("//td[@class='product']/descendant::a");
 
     public By getProduct(String productName) {
         return By.linkText(productName);

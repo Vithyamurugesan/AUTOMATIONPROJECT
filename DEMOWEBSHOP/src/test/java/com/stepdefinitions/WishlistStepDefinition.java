@@ -18,7 +18,6 @@ public class WishlistStepDefinition {
     private static final Logger log=LogManager.getLogger(WishlistStepDefinition.class);
 
     WishlistAction wishlistAction=new WishlistAction(HelperClass.getDriver());
-
     SearchActions searchActions=new SearchActions(HelperClass.getDriver());
 
     String selectedProduct;
@@ -26,7 +25,7 @@ public class WishlistStepDefinition {
     @When("user adds {string} to wishlist")
     public void user_adds_to_wishlist(String product) {
 
-        log.info("Adding product to wishlist : {}", product);
+        log.info("Adding product to wishlist : "+ product);
 
         selectedProduct=product;
         searchActions.searchProduct(product);
@@ -38,7 +37,7 @@ public class WishlistStepDefinition {
 
         wishlistAction.clickAddToWishlist();
 
-        log.info("Product added to wishlist : {}", product);
+        log.info("Product added to wishlist : "+ product);
     }
 
     @When("user adds product to wishlist")
