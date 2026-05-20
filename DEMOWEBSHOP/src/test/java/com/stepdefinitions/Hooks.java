@@ -22,8 +22,10 @@ public class Hooks {
     @Before
     public void setup() {
         HelperClass.setUpDriver();
-        HelperClass.getDriver().manage().window().maximize();
-        HelperClass.getDriver() .manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        HelperClass.getDriver()
+        .manage()
+        .timeouts()
+        .implicitlyWait(Duration.ofSeconds(10));
     }
     
     @After
@@ -40,23 +42,25 @@ public class Hooks {
 
         WebDriver driver = HelperClass.getDriver();
 
-        if (driver==null) return;
+        if (driver == null) return;
 
         try {
-        	byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+            byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
 
-        	scenario.attach(screenshot,"image/png","FAILED - " + scenario.getName());
+            scenario.attach(screenshot,"image/png","FAILED - " + scenario.getName());
 
-        	String timestamp=new SimpleDateFormat("ddMMMyyyy_HH-mm-ss").format(new Date());
+            String timestamp=new SimpleDateFormat("ddMMMyyyy_HH-mm-ss").format(new Date());
 
-        	String filePath = "screenshots/"+scenario.getName()+"_"+timestamp+".png";
+            String scenarioName = scenario.getName().replaceAll("[^a-zA-Z0-9]", "_"); // remove special chars
 
-        	File dest = new File(filePath);
-        	dest.getParentFile().mkdirs();
+            String filePath = "screenshots/"+scenarioName+"_"+timestamp+".png";
 
-        	FileUtils.writeByteArrayToFile(dest, screenshot);
+            File dest = new File(filePath);
+            dest.getParentFile().mkdirs();
 
-        	System.out.println("Screenshot saved: " + filePath);
+            FileUtils.writeByteArrayToFile(dest, screenshot);
+
+            System.out.println("Screenshot saved: " + filePath);
 
         }
         catch (IOException e) {

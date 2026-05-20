@@ -148,9 +148,8 @@ public void the_user_should_see_the_error_message_of_wrong_email() {
 @Given("the user in the checkout pages of shipping section")
 public void the_user_in_the_checkout_pages_of_shipping_section() {
 
-    AC.productAddInCart();
-    AC.click_checkBox();
-    AC.click_checkout();
+    the_user_is_in_the_checkout_page();
+   
     AC.fillBillingFromExcel("sheet1");
     AC.BillContinue();
 
@@ -199,15 +198,11 @@ public void the_user_move_to_direct_to_the_payment_method() {
 @Given("the user is in the checkout page of payment method section")
 public void the_user_is_in_the_checkout_page_of_payment_method_section() {
 
-    the_user_is_in_the_checkout_page();
-
-    AC.fillBillingFromExcel("sheet1");
-    AC.BillContinue();
-    String act = AC.shippingText();
-    Assert.assertTrue(act.contains("Select a shipping address"));
-
+    the_user_in_the_checkout_pages_of_shipping_section();
     AC.shippingCheckbox();
     AC.shippingContinuebutton();
+
+    
 }
 
 @When("the user is click the cash On Delivey in the payment section")
@@ -272,14 +267,7 @@ public void the_order_conformation_page_is_dispayed_and_seen_the_text_of_total()
 
 @Given("the user is in the conform page")
 public void the_user_is_in_the_conform_page() {
-
-    AC.productAddInCart();
-    AC.click_checkBox();
-    AC.click_checkout();
-    AC.fillBillingFromExcel("sheet1");
-    AC.BillContinue();
-    AC.shippingCheckbox();
-    AC.shippingContinuebutton();
+	the_user_is_in_the_checkout_page_of_payment_method_section();
 	AC.payment_cashon();
 	AC.paymentContinue();
 	AC.payInfoContinue();
