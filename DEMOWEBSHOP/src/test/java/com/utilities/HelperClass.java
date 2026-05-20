@@ -9,10 +9,10 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class HelperClass {
 
-    private static WebDriver driver;
+    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     public static WebDriver getDriver() {
-        return driver;
+        return driver.get();
     }
 
     public static void setUpDriver() {
@@ -20,25 +20,43 @@ public class HelperClass {
         ChromeOptions options = new ChromeOptions();
 
         Map<String, Object> prefs = new HashMap<>();
+
         prefs.put("credentials_enable_service", false);
         prefs.put("profile.password_manager_enabled", false);
         prefs.put("profile.password_manager_leak_detection", false);
+
         options.setExperimentalOption("prefs", prefs);
+
         options.addArguments("--disable-notifications");
         options.addArguments("--start-maximized");
 
-        String headless = ConfigReader.get("headless");
-        if (headless.equalsIgnoreCase("true")) {
-            options.addArguments("--headless=new");
-            options.addArguments("--window-size=1920,1080");
+        try {
+
+            String headless = ConfigReader.get("headless");
+
+            if (headless != null && headless.equalsIgnoreCase("true")) {
+
+                options.addArguments("--headless=new");
+                options.addArguments("--window-size=1920,1080");
+
+                System.out.println("Running in HEADLESS mode");
+            }
+
+        } catch (Exception e) {
+
+            System.out.println("headless key not found. Running normal mode.");
         }
 
-        driver = new ChromeDriver(options);
+        driver.set(new ChromeDriver(options));
     }
 
     public static void tearDown() {
-        if (driver != null) {
-            driver.quit();
+
+        if (driver.get() != null) {
+
+            driver.get().quit();
+
+            driver.remove();
         }
     }
 }

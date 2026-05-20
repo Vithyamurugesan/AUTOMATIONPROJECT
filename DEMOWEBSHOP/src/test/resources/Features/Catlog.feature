@@ -1,3 +1,4 @@
+@Vithya
 Feature: Vithya_18MAY2026_DEMOWEBSHOP_Catalog
 
   Description: Verify category navigation and catalog products
@@ -8,12 +9,12 @@ Feature: Vithya_18MAY2026_DEMOWEBSHOP_Catalog
   @CategoryNavigation
   Scenario: Verify category navigation - Computers
 
-    When user clicks on the "Computers" category from top menu
-    Then user should be navigated to "computers" page url
-    And breadcrumb should contain "Computers"
-    When user clicks on the "Desktops" subcategory
-    Then user should be navigated to "desktops" page url
-    And breadcrumb should contain "Desktops"
+    When user clicks on the Computers category from top menu
+    Then user should be navigated to computers page url
+    And breadcrumb should contain Computers
+    When user clicks on the Desktops subcategory
+    Then user should be navigated to desktops page url
+    And breadcrumb should contain Desktops
     And product grid should be displayed
     And displayed product count should be greater than 0
 
@@ -21,7 +22,7 @@ Feature: Vithya_18MAY2026_DEMOWEBSHOP_Catalog
   @CategoryNavigation
   Scenario: Verify category navigation - Electronics
 
-    When user clicks on the "Electronics" category from top menu
+    When user clicks on the Electronics category from top menu
     Then product grid should be displayed
     And displayed product count should be greater than 0
 
@@ -29,7 +30,7 @@ Feature: Vithya_18MAY2026_DEMOWEBSHOP_Catalog
   @CategoryNavigation
   Scenario: Verify category navigation - Books
 
-    When user clicks on the "Books" category from top menu
+    When user clicks on the Books category from top menu
     Then user should see the following products
       | Computing and Internet |
       | Fiction                |
@@ -39,15 +40,15 @@ Feature: Vithya_18MAY2026_DEMOWEBSHOP_Catalog
   @CategoryNavigation
   Scenario: Verify category navigation - Apparel and Shoes
 
-    When user clicks on the "Apparel & Shoes" category from top menu
-    Then breadcrumb should contain "Apparel & Shoes"
+    When user clicks on the Apparel and Shoes category from top menu
+    Then breadcrumb should contain Apparel & Shoes
     And displayed product count should be greater than 0
 
 
   @CatalogProducts
   Scenario: Verify products displayed in catalog - Gift Cards
 
-    When user clicks on the "Gift Cards" category from top menu
+    When user clicks on the Gift Cards category from top menu
     Then product grid should be displayed
     And user should see the following products
       | $25 Virtual Gift Card   |

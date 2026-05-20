@@ -24,7 +24,7 @@ public class RegistrationStepDefinition {
 
 	RegistrationActions registrationActions;
 
-	String path = System.getProperty("user.dir") + "\\TestData\\TestData.xlsx";
+	String path = System.getProperty("user.dir")  + "/src/test/resources/TestData/TestData.xlsx";
 
 	String sheetName = "Sheet2";
 

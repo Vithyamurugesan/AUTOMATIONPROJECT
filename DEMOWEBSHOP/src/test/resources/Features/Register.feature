@@ -1,14 +1,15 @@
+@Vithya
 Feature: Vithya_13MAY2025_DEMOWEBSHOP_Registration
   Background:
     Given the user is on the DemoWebShop homepage
-    When the user clicks the "Register" link
+    When the user clicks the Register link
 
 
   @Registration @ValidRegistration
   Scenario: Verify successful user registration using excel data
 
     And the user enters registration details from excel row "1"
-    And the user clicks the "Register" button
+    And the user clicks the Register button
 
     Then the page should display the message Your registration completed
 
@@ -22,7 +23,7 @@ Feature: Vithya_13MAY2025_DEMOWEBSHOP_Registration
     And the user enters email "<email>"
     And the user enters password "<password>"
     And the user enters confirm password "<confirmPassword>"
-    And the user clicks the "Register" button
+    And the user clicks the Register button
 
     Then the email error message "<errorMessage>" should be displayed
 
@@ -36,7 +37,7 @@ Feature: Vithya_13MAY2025_DEMOWEBSHOP_Registration
   @Registration @EmptyFields
   Scenario: Verify registration with empty mandatory fields
 
-    And the user clicks the "Register" button
+    And the user clicks the Register button
 
     Then the following validation messages should be displayed
 
@@ -71,6 +72,6 @@ Feature: Vithya_13MAY2025_DEMOWEBSHOP_Registration
   Scenario: Verify registration with existing email using properties file
 
     And the user enters existing user data from properties file
-    And the user clicks the "Register" button
+    And the user clicks the Register button
 
     Then the page should display the error The specified email already exists
