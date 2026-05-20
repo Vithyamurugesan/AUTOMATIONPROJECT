@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
 
-        features ="src/test/resources/Features/",
+        features ="src/test/resources/Features/Search.feature",
         glue = "com.stepdefinitions",
         tags= "@Vetri",
         plugin = {
