@@ -18,24 +18,6 @@ public class HelperClass {
     public static void setUpDriver() {
 
         ChromeOptions options = new ChromeOptions();
-<<<<<<< Updated upstream
-        
-        Map<String,Object> prefs = new HashMap<>();
-        prefs.put( "credentials_enable_service",false);
-        prefs.put( "profile.password_manager_enabled", false);
-        prefs.put(  "profile.password_manager_leak_detection", false);
-        options.setExperimentalOption(   "prefs", prefs);
-        options.addArguments( "--disable-notifications");
-        options.addArguments("--start-maximized");
-        driver = new ChromeDriver(options);
-
-    }
-
-    public static void tearDown(){
-
-        if(driver!=null){
-            driver.quit();
-=======
 
         Map<String, Object> prefs = new HashMap<>();
 
@@ -75,7 +57,6 @@ public class HelperClass {
             driver.get().quit();
 
             driver.remove();
->>>>>>> Stashed changes
         }
     }
 }

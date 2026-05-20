@@ -6,15 +6,10 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-<<<<<<< Updated upstream
-        features ="src/test/resources/Features/Register.feature",
-        glue = "com.stepdefinitions",
-=======
 
-        features ="src/test/resources/Features/Catlog.feature",
+        features ="src/test/resources/Features/",
         glue = "com.stepdefinitions",
  
->>>>>>> Stashed changes
         plugin = {
                 "pretty",
                 "html:target/cucumber-reports/cucumber.html",
