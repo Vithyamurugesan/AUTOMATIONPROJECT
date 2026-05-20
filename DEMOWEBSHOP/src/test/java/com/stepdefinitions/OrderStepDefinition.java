@@ -72,7 +72,7 @@ public class OrderStepDefinition {
 		order.waitforpoductName();
 		String orderProduct = order.getProductText();
 		log.info("Ordered product name: {}", orderProduct);
-		Assert.assertEquals(orderProduct, "Music 2");
+		Assert.assertEquals(orderProduct, "Computing and Internet");
 	}
 
 	@When("the user clicks the PDF Invoice button")
