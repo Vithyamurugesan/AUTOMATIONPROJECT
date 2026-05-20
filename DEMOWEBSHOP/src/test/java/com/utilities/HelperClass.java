@@ -3,6 +3,7 @@ package com.utilities;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -29,6 +30,7 @@ public class HelperClass {
 
         options.addArguments("--disable-notifications");
         options.addArguments("--start-maximized");
+        options.setPageLoadStrategy(PageLoadStrategy.EAGER);
 
         try {
 
@@ -39,6 +41,7 @@ public class HelperClass {
                 options.addArguments("--headless=new");
                 options.addArguments("--window-size=1920,1080");
 
+                System.out.println("Running in HEADLESS mode");
             }
 
         } catch (Exception e) {
