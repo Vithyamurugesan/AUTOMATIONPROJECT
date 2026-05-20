@@ -40,25 +40,23 @@ public class Hooks {
 
         WebDriver driver = HelperClass.getDriver();
 
-        if (driver == null) return;
+        if (driver==null) return;
 
         try {
-            byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+        	byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
 
-            scenario.attach(screenshot,"image/png","FAILED - " + scenario.getName());
+        	scenario.attach(screenshot,"image/png","FAILED - " + scenario.getName());
 
-            String timestamp=new SimpleDateFormat("ddMMMyyyy_HH-mm-ss").format(new Date());
+        	String timestamp=new SimpleDateFormat("ddMMMyyyy_HH-mm-ss").format(new Date());
 
-            String scenarioName = scenario.getName().replaceAll("[^a-zA-Z0-9]", "_"); // remove special chars
+        	String filePath = "screenshots/"+scenario.getName()+"_"+timestamp+".png";
 
-            String filePath = "screenshots/"+scenarioName+"_"+timestamp+".png";
+        	File dest = new File(filePath);
+        	dest.getParentFile().mkdirs();
 
-            File dest = new File(filePath);
-            dest.getParentFile().mkdirs();
+        	FileUtils.writeByteArrayToFile(dest, screenshot);
 
-            FileUtils.writeByteArrayToFile(dest, screenshot);
-
-            System.out.println("Screenshot saved: " + filePath);
+        	System.out.println("Screenshot saved: " + filePath);
 
         }
         catch (IOException e) {
