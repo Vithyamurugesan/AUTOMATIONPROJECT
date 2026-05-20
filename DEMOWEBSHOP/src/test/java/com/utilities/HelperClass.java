@@ -39,7 +39,6 @@ public class HelperClass {
                 options.addArguments("--headless=new");
                 options.addArguments("--window-size=1920,1080");
 
-                System.out.println("Running in HEADLESS mode");
             }
 
         } catch (Exception e) {
