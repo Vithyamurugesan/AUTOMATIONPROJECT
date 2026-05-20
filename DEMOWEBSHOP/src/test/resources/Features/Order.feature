@@ -9,8 +9,8 @@ for registered and unregistered users in the Demo Web Shop application.
   Scenario Outline: Verify registered user can access Order History
     Given the user is on the Demo Web Shop login page
     When user clicks loginlink
-    When the user enters a registered email "<email>"
-    And the user enters a valid password "<password>"
+    When the user enters a registered email
+    And the user enters a valid password
     And the user clicks the Log in button
     Then the user should be redirected to the homepage
     And the logged-in user email should be displayed in the header
@@ -27,8 +27,8 @@ for registered and unregistered users in the Demo Web Shop application.
   Scenario Outline: Verify ordered product information is displayed correctly
     Given the user is on the Demo Web Shop login page
     When user clicks loginlink
-    When the user enters a registered email "<email>"
-    And the user enters a valid password "<password>"
+    When the user enters a registered email
+    And the user enters a valid password
     And the user clicks the Log in button
     Then the user should be redirected to the homepage
     And the logged-in user email should be displayed in the header
@@ -41,8 +41,8 @@ for registered and unregistered users in the Demo Web Shop application.
   Scenario: Verify invoice PDF is downloaded successfully
     Given the user is on the Demo Web Shop login page
     When user clicks loginlink
-    When the user enters a registered email "<email>"
-    And the user enters a valid password "<password>"
+    When the user enters a registered email
+    And the user enters a valid password
     And the user clicks the Log in button
     Then the user should be redirected to the homepage
     And the logged-in user email should be displayed in the header
@@ -55,8 +55,8 @@ for registered and unregistered users in the Demo Web Shop application.
   Scenario: Verify Re-order functionality
     Given the user is on the Demo Web Shop login page
     When user clicks loginlink
-     When the user enters a registered email "<email>"
-    And the user enters a valid password "<password>"
+    When the user enters a registered email
+    And the user enters a valid password
     And the user clicks the Log in button
     Then the user should be redirected to the homepage
     And the logged-in user email should be displayed in the header
