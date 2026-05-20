@@ -53,9 +53,7 @@ public class HelperClass {
     public static void tearDown() {
 
         if (driver.get() != null) {
-
             driver.get().quit();
-
             driver.remove();
         }
     }

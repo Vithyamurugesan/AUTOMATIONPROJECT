@@ -36,7 +36,7 @@ public class Hooks {
 
     private void takeScreenshot(Scenario scenario) {
 
-        WebDriver driver = HelperClass.getDriver();
+        WebDriver driver=HelperClass.getDriver();
 
         if (driver==null) return;
 
