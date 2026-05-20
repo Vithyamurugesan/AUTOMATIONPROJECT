@@ -74,7 +74,7 @@ public class checkoutAction extends BaseAction {
     }
     
     public void click_checkBox() {
-        actionClick(cp.checkbox);
+        click(cp.checkbox);
     }
 
     public void click_checkout() {

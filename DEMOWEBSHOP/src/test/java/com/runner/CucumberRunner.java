@@ -18,15 +18,19 @@ import io.cucumber.testng.CucumberOptions;
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
                 "rerun:target/failed_scenarios.txt"
         },
+        		//tags="@StorePickup",
         monochrome=true
+        
      )
 
 public class CucumberRunner extends AbstractTestNGCucumberTests {
 
-//    @Override
-//    @DataProvider(parallel = true)
-//    public Object[][] scenarios() {
-//        return super.scenarios();
-//    }
+
+    @Override
+    @DataProvider(parallel = false)
+    public Object[][] scenarios() {
+        return super.scenarios();
+    }
+
 	
 }

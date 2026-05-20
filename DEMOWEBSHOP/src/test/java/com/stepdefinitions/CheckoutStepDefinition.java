@@ -27,6 +27,7 @@ public class CheckoutStepDefinition {
 
 	@When("the user click the checkbox of terms and conditions")
 	public void the_user_click_the_checkbox_of_terms_and_conditions() {
+		
     AC.click_checkBox();
 	}
 
