@@ -89,7 +89,7 @@ public class checkoutPage {
 	public By payInfoContinue = By.xpath("//input[@class='button-1 payment-info-next-step-button']");
 	
 	//scenario
-	public By conformPage_conform = By.xpath("//input[@value='Confirm']");
+	public By conformPage_conform = By.xpath("//input[@class=\"button-1 confirm-order-next-step-button\"]");
 	public By ThankyText =By.xpath("//strong[normalize-space()='Your order has been successfully processed!']");
 	
 	//scenario-10

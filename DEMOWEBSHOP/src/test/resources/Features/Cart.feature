@@ -1,4 +1,6 @@
-Feature: Sowndariya_19MAY2025_DEMOWEBSHOP_Feature File ForShopping Cart Functionality
+@SowndariyaCart
+
+Feature: Sowndariya_20MAY2025_DEMOWEBSHOP_Feature File ForShopping Cart Functionality
 
   Description:
   This feature is used to verify shopping cart functions
@@ -12,6 +14,7 @@ Feature: Sowndariya_19MAY2025_DEMOWEBSHOP_Feature File ForShopping Cart Function
   Scenario: Add product to shopping cart
 
     Given User clicks on Books category
+    And User clicks on Computing and Internet product
     When User clicks on Add to Cart button
     Then User should be product added to shopping cart
 

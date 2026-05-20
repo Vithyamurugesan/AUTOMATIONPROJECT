@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import com.actions.LoginAction;
 import com.actions.OrderAction;
+import com.utilities.ConfigReader;
 import com.utilities.HelperClass;
 
 import io.cucumber.java.en.Given;
@@ -25,6 +26,7 @@ public class OrderStepDefinition {
 	LoginAction login;
 	WebDriverWait wait;
 	private static final Logger log = LogManager.getLogger(OrderStepDefinition.class);
+
 	public OrderStepDefinition() {
 
 		driver = HelperClass.getDriver();
@@ -49,7 +51,7 @@ public class OrderStepDefinition {
 	@Given("the user is on the Demo Web Shop homepage")
 	public void the_user_is_on_the_demo_web_shop_homepage() {
 		driver = HelperClass.getDriver();
-		driver.get("app.url");
+		driver.get(ConfigReader.get("app.url"));
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	}
 
@@ -71,7 +73,7 @@ public class OrderStepDefinition {
 		order.waitforpoductName();
 		String orderProduct = order.getProductText();
 		log.info("Ordered product name: {}", orderProduct);
-		Assert.assertEquals(orderProduct, "Music 2");
+		Assert.assertEquals(orderProduct, "Computing and Internet");
 	}
 
 	@When("the user clicks the PDF Invoice button")
@@ -81,40 +83,71 @@ public class OrderStepDefinition {
 	}
 
 	@Then("the invoice PDF should be downloaded successfully")
-	public void the_invoice_pdf_should_be_downloaded_successfully() throws Exception  {
-		log.info("Starting PDF download validation");
-	    Runtime.getRuntime().exec("C:\\Users\\HARITHA\\OneDrive\\Desktop\\Download.exe");
-	    //Thread.sleep(5000);
-	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-	    wait.until(d -> {
-	        File folder = new File("C:\\Users\\Haritha\\Downloads\\");
-	        File[] files = folder.listFiles((dir1, name) -> name.endsWith(".pdf"));
-	        return files != null && files.length > 0;
-	    });
-	    String downloadPath = "C:\\Users\\Haritha\\Downloads\\";
-	    File dir = new File(downloadPath);
-	    File latestPDF = null;
-	    long lastModified = 0;
+	public void the_invoice_pdf_should_be_downloaded_successfully() {
 
-	    for (File file : dir.listFiles()) {
-	        if (file.getName().endsWith(".pdf")) {
-	            if (file.lastModified() > lastModified) {
-	                lastModified = file.lastModified();
-	                latestPDF = file;
-	            }
-	        }
-	    }
-	    Assert.assertNotNull(latestPDF, "PDF not downloaded");
-	    log.info("Downloaded PDF file: {}", latestPDF.getName());
-	    PDDocument document = PDDocument.load(latestPDF);
-	    PDFTextStripper stripper = new PDFTextStripper();
-	    String pdfText = stripper.getText(document);
-	    document.close();
-	    log.info("PDF Content Retrieved Successfully");
-	    System.out.println("PDF CONTENT: " + pdfText);
-	    String orderProductName = order.getProductText();
-	    Assert.assertTrue(pdfText.contains(orderProductName),"Product name not same in  Order page and PDF");
-		
+		log.info("Starting PDF download validation");
+
+		try {
+
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+			String downloadPath = System.getProperty("user.home") + "\\Downloads\\";
+
+			wait.until(d -> {
+
+				File folder = new File(downloadPath);
+
+				File[] files = folder.listFiles((dir1, name) -> name.endsWith(".pdf"));
+
+				return files != null && files.length > 0;
+			});
+
+			File dir = new File(downloadPath);
+
+			File latestPDF = null;
+
+			long lastModified = 0;
+
+			for (File file : dir.listFiles()) {
+
+				if (file.getName().endsWith(".pdf")) {
+
+					if (file.lastModified() > lastModified) {
+
+						lastModified = file.lastModified();
+
+						latestPDF = file;
+					}
+				}
+			}
+
+			Assert.assertNotNull(latestPDF, "PDF not downloaded");
+
+			log.info("Downloaded PDF file: {}", latestPDF.getName());
+
+			PDDocument document = PDDocument.load(latestPDF);
+
+			PDFTextStripper stripper = new PDFTextStripper();
+
+			String pdfText = stripper.getText(document);
+
+			document.close();
+
+			log.info("PDF Content Retrieved Successfully");
+
+			System.out.println("PDF CONTENT: " + pdfText);
+
+			String orderProductName = order.getProductText();
+
+			Assert.assertTrue(pdfText.contains(orderProductName), "Product name not same in Order page and PDF");
+
+		} catch (Exception e) {
+
+			log.error("PDF validation failed: {}", e.getMessage());
+
+			Assert.fail("Exception during PDF validation");
+
+		}
 	}
 
 	@When("the user clicks the Re-order button")
@@ -124,8 +157,7 @@ public class OrderStepDefinition {
 
 	@Then("the previously ordered products should be added to the cart")
 	public void the_previously_ordered_products_should_be_added_to_the_cart() {
-		String cartProduct =order.cartProductName();
-		System.out.println("the cart product nam is: "+cartProduct);
+		String cartProduct = order.cartProductName();
+		System.out.println("the cart product nam is: " + cartProduct);
 	}
 }
-

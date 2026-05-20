@@ -1,23 +1,20 @@
-Feature: Haritha_19MAY2025_DEMOWEBSHOP_Feature File for Login
+@harithaLogin
+Feature: Haritha_20_MAY_2025_DEMOWEBSHOP_Feature File for Login
 Description:
 This feature verifies login authentication, invalid login handling, forgot password navigation,
 and password recovery functionality in the Demo Web Shop application.
 
   @login @smoke
-  Scenario Outline: Successful login with valid credentials
+  Scenario: Successful login with valid credentials
     Given the user is on the Demo Web Shop login page
     When user clicks loginlink
-    When the user enters a registered email "<email>"
-    And the user enters a valid password "<password>"
+    When the user enters a registered email
+    And the user enters a valid password
     And the user clicks the Log in button
     Then the user should be redirected to the homepage
     And the logged-in user email should be displayed in the header
     And the Log out link should be visible
 
-
-Examples:
-| email | password |
-| dummy | dummy    |
   @invalid
   Scenario Outline: Login with invalid credentials
     Given the user is on the Demo Web Shop login page

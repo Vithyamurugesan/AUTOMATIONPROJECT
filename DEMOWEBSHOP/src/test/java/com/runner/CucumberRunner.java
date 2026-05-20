@@ -7,6 +7,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
 
+		
         features ="src/test/resources/Features/",
         glue = "com.stepdefinitions",
         tags= "@Vetri",
@@ -18,6 +19,7 @@ import io.cucumber.testng.CucumberOptions;
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
                 "rerun:target/failed_scenarios.txt"
         },
+       
         monochrome=true
      )
 

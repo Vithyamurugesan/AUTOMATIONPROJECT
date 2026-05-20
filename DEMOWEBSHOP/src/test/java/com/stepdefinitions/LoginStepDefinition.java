@@ -39,14 +39,14 @@ public class LoginStepDefinition {
 		logaction.clicklogin();
 	}
 
-	@When("the user enters a registered email {string}")
-	public void the_user_enters_a_registered_email(String email) {
+	@When("the user enters a registered email")
+	public void the_user_enters_a_registered_email() {
 		log.info("Entering registered email");
 		logaction.userEmail(LoginTestData.email);
 	}
 
-	@When("the user enters a valid password {string}")
-	public void the_user_enters_a_valid_password(String password) {
+	@When("the user enters a valid password")
+	public void the_user_enters_a_valid_password() {
 		log.info("Entering valid password");
 		logaction.userPassword(LoginTestData.password);
 	}
