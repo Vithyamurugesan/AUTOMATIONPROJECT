@@ -39,7 +39,6 @@ public class CartPage {
 	public By getBooks() {
 		return books;
 	}
-
 	public By getComputingBook() {
 		return computingAndInternetBook;
 	}

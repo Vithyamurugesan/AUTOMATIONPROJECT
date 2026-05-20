@@ -9,7 +9,6 @@ Feature: Sowndariya_20MAY2025_DEMOWEBSHOP_Feature File ForShopping Cart Function
   Background:
     Given User is on Demo Web Shop Website
 
-
   @AddToCart
   Scenario: Add product to shopping cart
 
