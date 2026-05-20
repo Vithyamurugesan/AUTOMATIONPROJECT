@@ -30,7 +30,7 @@ public class CartStepDefinition {
 
 		cartAction = new CartAction(HelperClass.getDriver());
 	}
-
+	
 	@Given("User clicks on Books category")
 	public void user_clicks_on_books_category() {
 
