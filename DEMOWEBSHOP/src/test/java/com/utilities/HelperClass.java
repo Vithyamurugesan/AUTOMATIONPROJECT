@@ -44,7 +44,6 @@ public class HelperClass {
 
         }
         catch (Exception e) {
-
             System.out.println("headless key not found. Running normal mode.");
         }
 
