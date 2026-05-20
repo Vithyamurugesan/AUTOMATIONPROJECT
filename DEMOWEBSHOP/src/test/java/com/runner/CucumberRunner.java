@@ -7,9 +7,10 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
 
-        features ="src/test/resources/Features/checkout.feature",
+		
+        features ="src/test/resources/Features/",
         glue = "com.stepdefinitions",
- 
+        tags="@jeeva",
         plugin = {
                 "pretty",
                 "html:target/cucumber-reports/cucumber.html",
@@ -18,7 +19,7 @@ import io.cucumber.testng.CucumberOptions;
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
                 "rerun:target/failed_scenarios.txt"
         },
-        tags="@jeeva",
+       
         monochrome=true
      )
 

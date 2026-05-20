@@ -51,7 +51,6 @@ public class checkoutAction extends BaseAction {
     public void productAddInCart() {
 
         try {
-        	waitForVisibility(cp.loginLink);
             login.clicklogin();
             login.userEmail(ConfigReader.getProperty("app.username"));
             login.userPassword(ConfigReader.getProperty("app.password"));
@@ -155,7 +154,6 @@ public class checkoutAction extends BaseAction {
     }
 
     public String regsiterPage() {
-    	waitForVisibility(cp.RegisterPage);
     	return getText(cp.RegisterPage);
     }
 
@@ -264,7 +262,6 @@ public void ShippingAddress() {
 	}
 
 	public String paymentText() {
-		waitForVisibility(cp.paymentext);
 		return getText(cp.paymentext);
 	}
 
@@ -366,7 +363,6 @@ public void ShippingAddress() {
 	}
 
 	public String ThankyouText() {
-		 waitForVisibility(cp.ThankyText);
 		return getText(cp.ThankyText);
 	}
 	

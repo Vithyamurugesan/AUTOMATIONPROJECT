@@ -14,8 +14,7 @@ public class checkoutPage {
 	public By loginButton = By.xpath("//input[@value='Log in']");
 	public By book = By.xpath("//ul[@class='top-menu']//a[normalize-space()='Books']");
 
-	public By addToCart =
-			By.xpath("(//input[@value='Add to cart'])[1]");
+	public By addToCart =By.xpath("(//input[@value='Add to cart'])[1]");
 	public By cart = By.xpath("//a[@class='ico-cart']");
 	public By checkbox = By.xpath("//input[@id='termsofservice']");
 	public By checkoutButton = By.xpath("//button[@id='checkout']");
