@@ -18,7 +18,6 @@ import io.cucumber.testng.CucumberOptions;
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
                 "rerun:target/failed_scenarios.txt"
         },
-        tags="@BillingValidation",
         monochrome=true
      )
 

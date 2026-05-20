@@ -79,9 +79,12 @@ public class checkoutAction extends BaseAction {
 
     public void click_checkout() {
         actionClick(cp.checkoutButton);
+        waitForVisibility(cp.checkoutText);
     }
 
     public String checkoutPage() {
+      
+
         return getText(cp.checkoutText);
     }
 

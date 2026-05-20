@@ -140,21 +140,17 @@ public class CartAction extends BaseAction {
 	}
 
 	public void enterGiftCardCode(String code) {
-		try {
-			type(cartPage.getGiftCardBox(), code);
-		} 
-		catch (Exception e) {
-			System.out.println("Unable to enter gift card code: " + e.getMessage());
-		}
+
+		waitForVisibility(cartPage.getGiftCardBox());
+
+		type(cartPage.getGiftCardBox(), code);
 	}
 
 	public void clickApplyGiftCard() {
-		try {
-			click(cartPage.getGiftCardButton());
-		} 
-		catch (Exception e) {
-			System.out.println("Unable to click gift card button: " + e.getMessage());
-		}
+
+		waitForVisibility(cartPage.getGiftCardButton());
+
+		click(cartPage.getGiftCardButton());
 	}
 
 	public void updateQuantity(String quantity) {
