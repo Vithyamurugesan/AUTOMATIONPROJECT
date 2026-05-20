@@ -22,10 +22,10 @@ public class CartPage {
 
 	private By couponButton = By.name("applydiscountcouponcode");
 
-	private By giftCardBox = By.xpath("//label[contains(text(),'Gift cards')]/following::input[@name='giftcardcouponcode'][1]");
-
-	private By giftCardButton = By.xpath("//input[@name='giftcardcouponcode']/following-sibling::input");
-
+	private By giftCardButton = By.name("applygiftcardcouponcode");
+	
+	private By giftCardBox = By.name("giftcardcouponcode");
+	
 	private By message = By.cssSelector("div.message");
 
 	private By emptyCartMsg = By.cssSelector(".order-summary-content");
@@ -39,8 +39,9 @@ public class CartPage {
 	public By getBooks() {
 		return books;
 	}
+
 	public By getComputingBook() {
-	    return computingAndInternetBook;
+		return computingAndInternetBook;
 	}
 
 	public By getShoppingCart() {
