@@ -6,7 +6,7 @@ public class CartPage {
 
 	private By books = By.linkText("Books");
 
-	private By computingBook = By.linkText("Computing and Internet");
+	private By computingAndInternetBook = By.linkText("Computing and Internet");
 
 	private By shoppingCart = By.xpath("//span[text()='Shopping cart']/ancestor::a");
 
@@ -41,7 +41,7 @@ public class CartPage {
 	}
 
 	public By getComputingBook() {
-		return computingBook;
+	    return computingAndInternetBook;
 	}
 
 	public By getShoppingCart() {
