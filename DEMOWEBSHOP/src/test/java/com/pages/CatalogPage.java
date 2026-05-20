@@ -17,10 +17,6 @@ public class CatalogPage {
     private By categoryList = By.cssSelector("div.block-category-navigation ul.list li a");
 
     public By getCategory(String categoryName) {
-        if (categoryName.contains("&")) {
-            String before = categoryName.split("&")[0].trim();
-            return By.xpath("//ul[contains(@class,'top-menu')]//a[contains(text(),'" + before + "')]");
-        }
         return By.xpath("//ul[contains(@class,'top-menu')]//a[normalize-space()='" + categoryName + "']");
     }
 
