@@ -1,3 +1,4 @@
+@Vetri
 Feature: Vetrivel_17MAY2025_DEMOWEBSHOP_WishlistFunctionality
 
   Description:
@@ -8,7 +9,6 @@ Feature: Vetrivel_17MAY2025_DEMOWEBSHOP_WishlistFunctionality
   Background:
     Given user is on the home page
 
-  @Vetri
   @AddWishlist
   Scenario Outline: Add product to wishlist
 
@@ -21,7 +21,6 @@ Feature: Vetrivel_17MAY2025_DEMOWEBSHOP_WishlistFunctionality
       | Health Book            |
       | Blue and green Sneaker |
 
-  @Vetri
   @RemoveWishlist
   Scenario: Remove product from wishlist
 
@@ -29,7 +28,6 @@ Feature: Vetrivel_17MAY2025_DEMOWEBSHOP_WishlistFunctionality
     And user removes product from wishlist
     Then wishlist message "The wishlist is empty!" should be displayed
 
-  @Vetri
   @WishlistToCart
   Scenario: Move wishlist product to cart
 
@@ -37,7 +35,6 @@ Feature: Vetrivel_17MAY2025_DEMOWEBSHOP_WishlistFunctionality
     Then success message "The product has been added to your wishlist" should be displayed
     And product should be added to cart
 
-  @Vetri
   @DisplayWishlist
   Scenario Outline: Verify product displayed in wishlist
 
