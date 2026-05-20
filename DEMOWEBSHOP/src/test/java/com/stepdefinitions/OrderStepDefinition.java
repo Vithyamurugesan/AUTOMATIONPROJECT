@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import com.actions.LoginAction;
 import com.actions.OrderAction;
+import com.utilities.ConfigReader;
 import com.utilities.HelperClass;
 
 import io.cucumber.java.en.Given;
@@ -49,7 +50,7 @@ public class OrderStepDefinition {
 	@Given("the user is on the Demo Web Shop homepage")
 	public void the_user_is_on_the_demo_web_shop_homepage() {
 		driver = HelperClass.getDriver();
-		driver.get("app.url");
+		driver.get(ConfigReader.get("app.url"));
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	}
 

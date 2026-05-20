@@ -1,4 +1,5 @@
-Feature: Haritha_19MAY2025_DEMOWEBSHOP_Feature File order
+@harithaOrder
+Feature: Haritha_20_MAY_2025_DEMOWEBSHOP_Feature File order
 Description:
 This feature verifies Order History functionality including 
 order access, product details, PDF invoice download, and re-order operations
