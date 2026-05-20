@@ -3,6 +3,7 @@ package com.stepdefinitions;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
@@ -22,6 +23,7 @@ public class Hooks {
     public void setup() {
         HelperClass.setUpDriver();
         HelperClass.getDriver().manage().window().maximize();
+        HelperClass.getDriver() .manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
     
     @After

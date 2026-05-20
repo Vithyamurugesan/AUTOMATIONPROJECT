@@ -60,6 +60,8 @@ public class checkoutAction extends BaseAction {
             waitForVisibility(cp.book);
 
             click(cp.book);
+            waitForVisibility(cp.addToCart);
+
             cart.addCart();
             cart.checkCart();
 
