@@ -1,11 +1,20 @@
 package com.runner;
 
+import org.testng.annotations.DataProvider;
+
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
+<<<<<<< Updated upstream
         features ="src/test/resources/Features/Register.feature",
         glue = "com.stepdefinitions",
+=======
+
+        features ="src/test/resources/Features/Catlog.feature",
+        glue = "com.stepdefinitions",
+ 
+>>>>>>> Stashed changes
         plugin = {
                 "pretty",
                 "html:target/cucumber-reports/cucumber.html",
@@ -17,5 +26,11 @@ import io.cucumber.testng.CucumberOptions;
         monochrome = true
 )
 public class CucumberRunner extends AbstractTestNGCucumberTests {
+
+    @Override
+    @DataProvider(parallel = true)
+    public Object[][] scenarios() {
+        return super.scenarios();
+    }
 	
 }

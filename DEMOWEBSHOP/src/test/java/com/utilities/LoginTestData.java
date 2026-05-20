@@ -7,7 +7,7 @@ public class LoginTestData {
 
     static {
 
-        String path = "TestData/TestData.xlsx";
+    	String path = System.getProperty("user.dir") + "/src/test/resources/TestData/TestData.xlsx";
 
         email = ExcelReader.getCellData(path, "Login", 1, 0);
 

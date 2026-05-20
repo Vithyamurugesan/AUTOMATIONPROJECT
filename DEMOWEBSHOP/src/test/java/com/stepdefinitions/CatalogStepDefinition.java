@@ -10,6 +10,7 @@ import com.actions.CatalogActions;
 import com.utilities.ConfigReader;
 import com.utilities.HelperClass;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -22,75 +23,140 @@ public class CatalogStepDefinition {
 
     @Given("user is on the demowebshop home page for Categories")
     public void user_is_on_the_demowebshop_home_page_for_categories() {
+
         HelperClass.getDriver().get(ConfigReader.get("app.url"));
+
         catalogActions = new CatalogActions(HelperClass.getDriver());
-        log.info("Navigated to home page: " + ConfigReader.get("app.url"));
+
+        log.info("Navigated to home page");
     }
 
-    @When("user clicks on the {string} category from top menu")
-    public void user_clicks_on_the_category_from_top_menu(String categoryName) {
-        log.info("Clicking category: " + categoryName);
-        catalogActions.clickCategory(categoryName);
+
+    @When("user clicks on the Computers category from top menu")
+    public void click_computers_category() {
+
+        log.info("Clicking Computers category");
+
+        catalogActions.clickCategory("Computers");
     }
 
-    @When("user clicks on the {string} subcategory")
-    public void user_clicks_on_the_subcategory(String subCategoryName) {
-        log.info("Clicking subcategory: " + subCategoryName);
-        catalogActions.clickSubCategory(subCategoryName);
+    @When("user clicks on the Electronics category from top menu")
+    public void click_electronics_category() {
+
+        log.info("Clicking Electronics category");
+
+        catalogActions.clickCategory("Electronics");
     }
 
-    @Then("user should be navigated to {string} page url")
-    public void user_should_be_navigated_to_page_url(String expectedUrlPart) {
-        String currentUrl = HelperClass.getDriver().getCurrentUrl();
-        log.info("Current URL: " + currentUrl + " | Expected to contain: " + expectedUrlPart);
+    @When("user clicks on the Books category from top menu")
+    public void click_books_category() {
+
+        log.info("Clicking Books category");
+
+        catalogActions.clickCategory("Books");
+    }
+
+    @When("user clicks on the Apparel and Shoes category from top menu")
+    public void click_apparel_category() {
+
+        log.info("Clicking Apparel & Shoes category");
+
+        catalogActions.clickCategory("Apparel & Shoes");
+    }
+
+    @When("user clicks on the Gift Cards category from top menu")
+    public void click_giftcards_category() {
+
+        log.info("Clicking Gift Cards category");
+
+        catalogActions.clickCategory("Gift Cards");
+    }
+
+
+
+    @When("user clicks on the Desktops subcategory")
+    public void click_desktops_subcategory() {
+
+        log.info("Clicking Desktops subcategory");
+
+        catalogActions.clickSubCategory("Desktops");
+    }
+
+ 
+
+    @Then("user should be navigated to computers page url")
+    public void validate_computers_url() {
+
         Assert.assertTrue(
-            catalogActions.verifyCurrentUrl(expectedUrlPart),
-            "URL validation failed. Current: " + currentUrl + " | Expected to contain: " + expectedUrlPart
-        );
+                catalogActions.verifyCurrentUrl("computers"),
+                "Computers URL validation failed");
     }
+
+    @Then("user should be navigated to desktops page url")
+    public void validate_desktops_url() {
+
+        Assert.assertTrue(
+                catalogActions.verifyCurrentUrl("desktops"),
+                "Desktops URL validation failed");
+    }
+
+   
 
     @Then("product grid should be displayed")
     public void product_grid_should_be_displayed() {
-        boolean displayed = catalogActions.isProductGridDisplayed();
-        log.info("Product grid displayed: " + displayed);
-        Assert.assertTrue(displayed, "Product grid is not displayed");
+
+        Assert.assertTrue(
+                catalogActions.isProductGridDisplayed(),
+                "Product grid is not displayed");
     }
 
     @Then("displayed product count should be greater than 0")
     public void displayed_product_count_should_be_greater_than_0() {
+
         int count = catalogActions.getDisplayedProductCount();
+
         log.info("Product count: " + count);
-        Assert.assertTrue(count > 0, "No products or subcategories displayed. Count: " + count);
+
+        Assert.assertTrue(count > 0,
+                "No products displayed");
     }
 
-    @Then("breadcrumb should contain {string}")
-    public void breadcrumb_should_contain(String expectedText) {
-        String actualBreadcrumb = catalogActions.getBreadcrumbText();
-        log.info("Breadcrumb actual: " + actualBreadcrumb + " | Expected to contain: " + expectedText.toUpperCase());
+    @Then("breadcrumb should contain Computers")
+    public void breadcrumb_computers() {
+
         Assert.assertTrue(
-            actualBreadcrumb.contains(expectedText.toUpperCase()),
-            "Breadcrumb validation failed. Actual: " + actualBreadcrumb + " | Expected to contain: " + expectedText.toUpperCase()
-        );
+                catalogActions.getBreadcrumbText().contains("COMPUTERS"));
     }
+
+    @Then("breadcrumb should contain Desktops")
+    public void breadcrumb_desktops() {
+
+        Assert.assertTrue(
+                catalogActions.getBreadcrumbText().contains("DESKTOPS"));
+    }
+
+    @Then("breadcrumb should contain Apparel & Shoes")
+    public void breadcrumb_apparel() {
+
+        Assert.assertTrue(
+                catalogActions.getBreadcrumbText().contains("APPAREL & SHOES"));
+    }
+
+
 
     @Then("user should see the following products")
-    public void user_should_see_the_following_products(io.cucumber.datatable.DataTable dataTable) {
-        List<String> expectedProducts = dataTable.asList();
-        List<String> actualProducts = catalogActions.getDisplayedProducts();
-        log.info("Expected products: " + expectedProducts);
-        log.info("Actual products:   " + actualProducts);
-        Assert.assertTrue(
-            actualProducts.containsAll(expectedProducts),
-            "Expected products not found. Expected: " + expectedProducts + " | Actual: " + actualProducts
-        );
-    }
+    public void user_should_see_the_following_products(DataTable dataTable) {
 
-    @Then("category list should contain {string}")
-    public void category_list_should_contain(String expectedCategory) {
-        log.info("Checking category present: " + expectedCategory);
+        List<String> expectedProducts = dataTable.asList();
+
+        List<String> actualProducts = catalogActions.getDisplayedProducts();
+
+        log.info("Expected products: " + expectedProducts);
+
+        log.info("Actual products: " + actualProducts);
+
         Assert.assertTrue(
-            catalogActions.verifyCategoryPresent(expectedCategory),
-            "Category not found: " + expectedCategory
-        );
+                actualProducts.containsAll(expectedProducts),
+                "Expected products not found");
     }
 }

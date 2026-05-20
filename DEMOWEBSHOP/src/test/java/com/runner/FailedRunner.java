@@ -20,8 +20,7 @@ import io.cucumber.testng.CucumberOptions;
         monochrome = true
 )
 
-public class FailedRunner
-extends AbstractTestNGCucumberTests {
+public class FailedRunner extends AbstractTestNGCucumberTests {
 
 	
 }
