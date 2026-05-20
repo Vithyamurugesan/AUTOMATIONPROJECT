@@ -44,8 +44,8 @@ public class HelperClass {
                 System.out.println("Running in HEADLESS mode");
             }
 
-        } catch (Exception e) {
-
+        }
+        catch (Exception e) {
             System.out.println("headless key not found. Running normal mode.");
         }
 
@@ -55,9 +55,7 @@ public class HelperClass {
     public static void tearDown() {
 
         if (driver.get() != null) {
-
             driver.get().quit();
-
             driver.remove();
         }
     }

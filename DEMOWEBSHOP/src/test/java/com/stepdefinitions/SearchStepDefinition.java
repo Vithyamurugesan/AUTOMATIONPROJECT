@@ -39,16 +39,23 @@ public class SearchStepDefinition {
     @When("user enters product keyword in the search box")
     public void user_enters_product_keyword_in_the_search_box(DataTable dataTable) {
 
-        log.debug("Reading keyword from DataTable");
+        List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
 
-        List<Map<String, String>> data=dataTable.asMaps(String.class, String.class);
-        String keyword=data.get(0).get("keyword");
+        for (Map<String, String> row : data) {
 
-        searchedProduct=keyword;
+            String keyword=row.get("keyword");
+            searchedProduct=keyword;
 
-        log.info("Searching product : "+ keyword);
+            log.info("Searching product : " + keyword);
 
-        searchActions.searchProduct(keyword);
+            searchActions.searchProduct(keyword);
+            searchActions.clickSearch();
+
+            Assert.assertTrue(searchActions.verifyResultsNotEmpty());
+
+            log.info("Assertion passed for : " + keyword);
+            HelperClass.getDriver().navigate().back();
+        }
     }
 
     @When("user enters {string} type keyword in the search box")

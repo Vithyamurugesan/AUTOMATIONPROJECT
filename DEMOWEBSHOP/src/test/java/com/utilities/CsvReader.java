@@ -10,7 +10,7 @@ import com.opencsv.CSVReader;
 
 public class CsvReader {
 
-    // Read CSV file and return all data
+    //Read CSV file and return all data
     public static List<Map<String, String>> getData(String filePath) {
 
         List<Map<String, String>> dataList=new ArrayList<>();
@@ -21,10 +21,10 @@ public class CsvReader {
 
             List<String[]> allRows=reader.readAll();
 
-            // First row = headers
+            //First row = headers
             String[] headers=allRows.get(0);
 
-            // Start from row 1 because row 0 is header
+            //Start from row 1 because row 0 is header
             for (int i=1;i<allRows.size();i++) {
 
                 String[] currentRow=allRows.get(i);
@@ -36,10 +36,9 @@ public class CsvReader {
                     String key = headers[j];
                     String value = "";
 
-                    if (j < currentRow.length) {
-                        value = currentRow[j];
+                    if (j<currentRow.length) {
+                        value=currentRow[j];
                     }
-
                     rowData.put(key, value);
                 }
 
@@ -48,7 +47,8 @@ public class CsvReader {
 
             reader.close();
 
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
 
             throw new RuntimeException("Unable to read CSV file : " + filePath);
         }
@@ -56,7 +56,6 @@ public class CsvReader {
         return dataList;
     }
 
-    // Get single column values
     public static List<String> getColumn(String filePath, String columnName) {
 
         List<String> columnValues = new ArrayList<>();
@@ -64,16 +63,13 @@ public class CsvReader {
         List<Map<String, String>> data = getData(filePath);
 
         for (Map<String, String> row : data) {
-
             columnValues.add(row.get(columnName));
         }
 
         return columnValues;
     }
 
-    // Get total row count
     public static int getRowCount(String filePath) {
-
         return getData(filePath).size();
     }
 }
