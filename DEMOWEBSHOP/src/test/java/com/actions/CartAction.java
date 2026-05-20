@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.pages.CartPage;
+import com.utilities.ConfigReader;
 import com.utilities.ExcelReader;
 import com.utilities.HelperClass;
 
@@ -39,14 +40,25 @@ public class CartAction extends BaseAction {
 
 	public void addCart() {
 
-		click(cartPage.getAddToCartButton());
+		try{
+			click(cartPage.getAddToCartButton());
+			waitForVisibility(cartPage.getShoppingCart());
+		} 
+		catch (Exception e) {
+			System.out.println("Add to cart failed: " + e.getMessage());
+		}
 	}
 
 	public boolean checkCart() {
+		try {
+			click(cartPage.getShoppingCart());
+			return waitForVisibility(cartPage.getCartTable()).isDisplayed();
 
-		click(cartPage.getShoppingCart());
-
-		return HelperClass.getDriver().findElements(cartPage.getCartTable()).size() > 0;
+		} 
+		catch (Exception e) {
+			System.out.println("Cart verification failed: " + e.getMessage());
+			return false;
+		}
 	}
 
 	public void addProductsFromExcel(String filePath, String sheetName) {
@@ -59,7 +71,7 @@ public class CartAction extends BaseAction {
 
 			String productName = data.get("productName");
 
-			driver.get("https://demowebshop.tricentis.com/");
+			driver.get(ConfigReader.get("app.url"));
 
 			searchActions.searchProduct(productName);
 
@@ -96,12 +108,17 @@ public class CartAction extends BaseAction {
 
 	public void openEmptyCart() {
 
-		HelperClass.getDriver().get("https://demowebshop.tricentis.com/cart");
+		HelperClass.getDriver().get(ConfigReader.get("app.url") + "/cart");
 	}
 
 	public String getEmptyCartMessage() {
-
-		return getText(cartPage.getEmptyCartMsg());
+		try {
+			return getText(cartPage.getEmptyCartMsg()).trim();
+		} 
+		catch (Exception e) {
+			System.out.println("Empty cart message not found: " + e.getMessage());
+			return "";
+		}
 	}
 
 	public void enterCouponCode(String code) {
@@ -120,13 +137,21 @@ public class CartAction extends BaseAction {
 	}
 
 	public void enterGiftCardCode(String code) {
-
-		type(cartPage.getGiftCardBox(), code);
+		try {
+			type(cartPage.getGiftCardBox(), code);
+		} 
+		catch (Exception e) {
+			System.out.println("Unable to enter gift card code: " + e.getMessage());
+		}
 	}
 
 	public void clickApplyGiftCard() {
-
-		click(cartPage.getGiftCardButton());
+		try {
+			click(cartPage.getGiftCardButton());
+		} 
+		catch (Exception e) {
+			System.out.println("Unable to click gift card button: " + e.getMessage());
+		}
 	}
 
 	public void updateQuantity(String quantity) {
@@ -155,7 +180,13 @@ public class CartAction extends BaseAction {
 
 	public boolean verifyRemovedProduct() {
 
-		return getText(cartPage.getEmptyCartMsg()).contains("Your Shopping Cart is empty!");
+		try {
+			return getText(cartPage.getEmptyCartMsg()).contains(ConfigReader.get("empty.cart.message"));
+		} 
+		catch (Exception e) {
+			System.out.println("Removed product validation failed: " + e.getMessage());
+			return false;
+		}
 	}
-	
+
 }

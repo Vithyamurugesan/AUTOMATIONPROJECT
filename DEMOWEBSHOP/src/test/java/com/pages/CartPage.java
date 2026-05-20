@@ -8,7 +8,7 @@ public class CartPage {
 
 	private By computingBook = By.linkText("Computing and Internet");
 
-	private By shoppingCart = By.linkText("Shopping cart");
+	private By shoppingCart = By.xpath("//span[text()='Shopping cart']/ancestor::a");
 
 	private By addToCartButton = By.xpath("//input[contains(@value,'Add to cart')]");
 
@@ -22,15 +22,15 @@ public class CartPage {
 
 	private By couponButton = By.name("applydiscountcouponcode");
 
-	private By giftCardBox = By.name("giftcardcouponcode");
+	private By giftCardBox = By.xpath("//label[contains(text(),'Gift cards')]/following::input[@name='giftcardcouponcode'][1]");
 
-	private By giftCardButton = By.name("applygiftcardcouponcode");
+	private By giftCardButton = By.xpath("//input[@name='giftcardcouponcode']/following-sibling::input");
 
 	private By message = By.cssSelector("div.message");
 
-	private By emptyCartMsg = By.xpath("//div[@class='order-summary-content']");
+	private By emptyCartMsg = By.cssSelector(".order-summary-content");
 
-	private By quantityBox = By.className("qty-input");
+	private By quantityBox = By.cssSelector("input.qty-input");
 
 	private By updateCartButton = By.name("updatecart");
 

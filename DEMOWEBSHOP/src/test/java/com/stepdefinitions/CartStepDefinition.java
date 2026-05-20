@@ -60,9 +60,9 @@ public class CartStepDefinition {
 
 		logger.info("Adding products from excel");
 
-		String path = "src/test/resources/TestData/CartData.xlsx";
+		String path = ConfigReader.get("cart.excel.path");
 
-		cartAction.addProductsFromExcel(path, "CartProducts");
+		cartAction.addProductsFromExcel(path,ConfigReader.get("cart.sheet.name"));
 	}
 
 	@When("User clicks on Shopping Cart")
@@ -86,9 +86,9 @@ public class CartStepDefinition {
 
 		logger.info("Adding multiple products");
 
-		String path = "src/test/resources/TestData/CartData.xlsx";
+		String path = ConfigReader.get("cart.excel.path");
 
-		cartAction.addProductsFromExcel(path, "CartProducts");
+		cartAction.addProductsFromExcel(path, ConfigReader.get("cart.sheet.name"));
 	}
 
 	@Then("Added products should be displayed in shopping cart")
@@ -122,7 +122,7 @@ public class CartStepDefinition {
 
 		String actualMessage = cartAction.getEmptyCartMessage();
 
-		assertEquals(actualMessage, "Your Shopping Cart is empty!");
+		assertEquals(actualMessage,ConfigReader.get("empty.cart.message"));
 	}
 
 	@When("User enters invalid coupon code {string}")
@@ -146,8 +146,7 @@ public class CartStepDefinition {
 
 		logger.info("Checking invalid message");
 
-		Assert.assertTrue(cartAction.getValidationMessage()
-				.contains("The coupon code you entered couldn't be applied to your order"));
+		Assert.assertTrue(cartAction.getValidationMessage().contains(ConfigReader.get("invalid.coupon.message")));
 	}
 
 	@When("User enters invalid gift card code {string}")
@@ -171,7 +170,7 @@ public class CartStepDefinition {
 
 		logger.info("Updating quantity");
 
-		cartAction.updateQuantity("2");
+		cartAction.updateQuantity(ConfigReader.get("updated.quantity"));
 	}
 
 	@When("User clicks on Update Shopping Cart button")
@@ -187,7 +186,7 @@ public class CartStepDefinition {
 
 		logger.info("Checking updated quantity");
 
-		Assert.assertTrue(cartAction.verifyUpdatedQuantity("2"));
+		Assert.assertTrue(cartAction.verifyUpdatedQuantity(ConfigReader.get("updated.quantity")));
 	}
 
 	@When("User removes product from shopping cart")
