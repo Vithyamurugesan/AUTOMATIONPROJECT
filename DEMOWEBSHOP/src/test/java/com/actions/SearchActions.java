@@ -50,13 +50,11 @@ public class SearchActions extends BaseAction {
     }
 
     public boolean verifyNoProductMessage() {
-        return waitForVisibility(searchPage.getNoResultMessage())
-                .isDisplayed();
+        return waitForVisibility(searchPage.getNoResultMessage()).isDisplayed();
     }
 
     public boolean isWarningDisplayed() {
-        return waitForVisibility(searchPage.getWarningMessage())
-                .isDisplayed();
+        return waitForVisibility(searchPage.getWarningMessage()).isDisplayed();
     }
     
     public boolean handleAlertIfPresent() {
@@ -64,7 +62,7 @@ public class SearchActions extends BaseAction {
         try {
             Alert alert=wait.until(ExpectedConditions.alertIsPresent());
 
-            String text = alert.getText();
+            String text=alert.getText();
             System.out.println("Alert message: "+text);
 
             alert.accept();
@@ -74,4 +72,9 @@ public class SearchActions extends BaseAction {
             return false;
         }
     }
+
+    public void openProductFromResults(String productName) {
+        driver.findElement(By.xpath("//a[contains(text(),'" + productName + "')]")).click();
+    }
+    
 }

@@ -1,9 +1,10 @@
-Feature: JeevaPranesh_13MAY2026_To procedure check out page from cart
+Feature: JeevaPranesh_13MAY2026_To procedure check out page from cart updated_19-05-2026
 
 description: As a user, I want to be able to proceed to the checkout page from the cart so that I can complete my purchase.
 
 Background: 
 Given user is on the demoWebPage website
+
 
 @scenario_1
 Scenario: procedure to checkout as registered user
@@ -42,9 +43,7 @@ Then the user redirect to the checkout page and seen the text of checkout
 @scenario_4
 Scenario:  Completed a Billing AddressForm with Valid credentials
 Given the user is in the checkout page
-When the user dill the billing address form with valid credentials
-|FirstName|LastName|Email|Company|Country|state|City|Address1|Address2|ZipCode|Phone|Fax number|
-|jeeva|pranesh|jeeva@gmail.com|expleo|1|0|Salem| sivaji nagar| sivaji bagar|636004|9876543210|1234567890|
+When the user fill the billing address form with valid credentials using excel 
 And the user click the Continue button
 Then the user should seen the Shipping Addres form with text of Select a shipping address from your address book or enter a new address.
 
@@ -52,22 +51,16 @@ Then the user should seen the Shipping Addres form with text of Select a shippin
 @scenario_5
 Scenario: fill the billing Address with invalid credentials
 Given the user is in the checkout page
-When the user dill the billing address form with invalid credentials of email
-|FirstName|LastName|Email|Company|Country|state|City|Address1|Address2|ZipCode|Phone|Fax number|
-|jeeva|pranesh|jeevagmail.com|expleo|1|0|Salem| sivaji nagar| sivaji bagar|636004|9876543210|1234567890|
+When the user fill invalid billing data from excel
 And the user click the Continue button
 Then the user should see the error message of Wrong email
 
 @scenario_6
-Scenario Outline: Selecting a Address in the Shipping Address section
+Scenario: Select the first address in the Shipping Address section
 Given the user in the checkout pages of shipping section
-When the user select the Address from the dropdown and select "<Address>"
+When the user selects the first address from the dropdown
 And the user click the continue button in shipping section
 Then the user move to the Shipping method and seen the text of Ground
- 
- Examples:
-|Address|
-|0		|
 
 @scenario_7
 Scenario: selecting in-store pickup checkout

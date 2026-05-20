@@ -2,10 +2,11 @@ package com.stepdefinitions;
 
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
-
 import java.io.File;
 import java.time.Duration;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 import org.openqa.selenium.WebDriver;
@@ -23,7 +24,7 @@ public class OrderStepDefinition {
 	OrderAction order;
 	LoginAction login;
 	WebDriverWait wait;
-
+	private static final Logger log = LogManager.getLogger(OrderStepDefinition.class);
 	public OrderStepDefinition() {
 
 		driver = HelperClass.getDriver();
@@ -33,19 +34,22 @@ public class OrderStepDefinition {
 
 	@When("the user clicks the Orders link")
 	public void the_user_clicks_the_orders_link() {
+		log.info("User clicks Orders link");
 		order.waitfororderlink();
 		order.clickOrder();
 	}
 
 	@Then("the user should see the previously ordered details")
 	public void the_user_should_see_the_previously_ordered_details() {
-		System.out.println("the order count in the order history is:"+order.countoforders());
+		log.info("Verifying previously ordered details");
+		int orderCount = order.countoforders();
+		log.info("Order count in order history: {}", orderCount);
 	}
 
 	@Given("the user is on the Demo Web Shop homepage")
 	public void the_user_is_on_the_demo_web_shop_homepage() {
 		driver = HelperClass.getDriver();
-		driver.get("https://demowebshop.tricentis.com/");
+		driver.get("app.url");
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	}
 
@@ -54,6 +58,7 @@ public class OrderStepDefinition {
 		order.waitfororderlink();
 		order.clickOrder();
 		Assert.assertTrue(driver.getCurrentUrl().contains("login"));
+		log.info("User successfully redirected to login page");
 	}
 
 	@When("the user clicks the Details button")
@@ -65,19 +70,27 @@ public class OrderStepDefinition {
 	public void the_user_should_see_the_ordered_product_information() {
 		order.waitforpoductName();
 		String orderProduct = order.getProductText();
+		log.info("Ordered product name: {}", orderProduct);
 		Assert.assertEquals(orderProduct, "Music 2");
 	}
 
 	@When("the user clicks the PDF Invoice button")
 	public void the_user_clicks_the_pdf_invoice_button() {
+		log.info("User clicks PDF Invoice button");
 		order.clickPDF();
 	}
 
 	@Then("the invoice PDF should be downloaded successfully")
 	public void the_invoice_pdf_should_be_downloaded_successfully() throws Exception  {
+		log.info("Starting PDF download validation");
 	    Runtime.getRuntime().exec("C:\\Users\\HARITHA\\OneDrive\\Desktop\\Download.exe");
-	    Thread.sleep(5000);
-
+	    //Thread.sleep(5000);
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+	    wait.until(d -> {
+	        File folder = new File("C:\\Users\\Haritha\\Downloads\\");
+	        File[] files = folder.listFiles((dir1, name) -> name.endsWith(".pdf"));
+	        return files != null && files.length > 0;
+	    });
 	    String downloadPath = "C:\\Users\\Haritha\\Downloads\\";
 	    File dir = new File(downloadPath);
 	    File latestPDF = null;
@@ -92,11 +105,12 @@ public class OrderStepDefinition {
 	        }
 	    }
 	    Assert.assertNotNull(latestPDF, "PDF not downloaded");
+	    log.info("Downloaded PDF file: {}", latestPDF.getName());
 	    PDDocument document = PDDocument.load(latestPDF);
 	    PDFTextStripper stripper = new PDFTextStripper();
 	    String pdfText = stripper.getText(document);
 	    document.close();
-
+	    log.info("PDF Content Retrieved Successfully");
 	    System.out.println("PDF CONTENT: " + pdfText);
 	    String orderProductName = order.getProductText();
 	    Assert.assertTrue(pdfText.contains(orderProductName),"Product name not same in  Order page and PDF");
@@ -112,7 +126,6 @@ public class OrderStepDefinition {
 	public void the_previously_ordered_products_should_be_added_to_the_cart() {
 		String cartProduct =order.cartProductName();
 		System.out.println("the cart product nam is: "+cartProduct);
-		
 	}
-
 }
+

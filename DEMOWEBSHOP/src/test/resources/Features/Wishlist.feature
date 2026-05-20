@@ -1,4 +1,4 @@
-Feature: Wishlist functionality
+Feature: Vetrivel_17MAY2025_DEMOWEBSHOP_WishlistFunctionality
 
   Description:
   As a user,
@@ -8,30 +8,45 @@ Feature: Wishlist functionality
   Background:
     Given user is on the home page
 
+  @Vetri
   @AddWishlist
-  Scenario: Add product to wishlist
+  Scenario Outline: Add product to wishlist
 
-    When user searches and adds product for "AddWishlist" scenario to wishlist
-    Then success message for "AddWishlist" scenario should be displayed
-    And searched product should be added to the wishlist
+    When user adds "<product>" to wishlist
+    Then success message "The product has been added to your wishlist" should be displayed
+    And product should be added to wishlist
 
+    Examples:
+      | product                |
+      | Health Book            |
+      | Blue and green Sneaker |
+
+  @Vetri
   @RemoveWishlist
   Scenario: Remove product from wishlist
 
-    When user searches and adds product for "RemoveWishlist" scenario to wishlist
-    And user removes the product from wishlist
-    Then wishlist should be empty
+    When user adds product to wishlist
+    And user removes product from wishlist
+    Then wishlist message "The wishlist is empty!" should be displayed
 
+  @Vetri
   @WishlistToCart
-  Scenario: Add wishlist product to shopping cart
+  Scenario: Move wishlist product to cart
 
-    When user searches and adds product for "WishlistToCart" scenario to wishlist
-    And user moves wishlist product to cart
-    Then product should be added to shopping cart
+    When user adds product to wishlist
+    Then success message "The product has been added to your wishlist" should be displayed
+    And product should be added to cart
 
+  @Vetri
   @DisplayWishlist
-  Scenario: Verify product displayed in wishlist
+  Scenario Outline: Verify product displayed in wishlist
 
-    When user searches and adds product for "DisplayWishlist" scenario to wishlist
+    When user adds "<product>" to wishlist
     And user navigates to wishlist page
     Then product should be displayed in wishlist
+
+    Examples:
+      | product                     |
+      | Health Book                 |
+      | Black & White Diamond Heart |
+      | Blue and green Sneaker      |
