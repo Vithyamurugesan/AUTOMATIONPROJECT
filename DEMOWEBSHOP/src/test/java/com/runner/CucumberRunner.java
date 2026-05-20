@@ -10,7 +10,7 @@ import io.cucumber.testng.CucumberOptions;
 		
         features ="src/test/resources/Features/",
         glue = "com.stepdefinitions",
-        tags="@SowndariyaCart",
+        tags="@SowndariyaCart or @harithaLogin or @SowndariyaProductDetail or @harithaOrder or @harithaDownload",
         plugin = {
                 "pretty",
                 "html:target/cucumber-reports/cucumber.html",
