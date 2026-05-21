@@ -6,38 +6,27 @@ import java.util.Properties;
 
 public class TestDataReader {
 
-	static Properties prop;
+    private static final Properties prop = loadProperties();
 
-	public static Properties loadProperties() {
+    private static Properties loadProperties() {
+    	
+        Properties p=new Properties();
+        try {
+            FileInputStream fis = new FileInputStream("src/test/resources/testData.properties");
+            p.load(fis);
+            fis.close();
+        }
+        catch (IOException e) {
+            throw new RuntimeException("Could not load testData.properties : " + e.getMessage());
+        }
+        return p;
+    }
 
-		prop = new Properties();
-
-		try {
-			FileInputStream fis =
-					new FileInputStream("src/test/resources/testData.properties");
-
-			prop.load(fis);
-		}
-		catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		return prop;
-	}
-
-	public static String get(String key) {
-
-		if (prop == null) {
-			loadProperties();
-		}
-
-		String value = prop.getProperty(key);
-
-		if (value == null || value.trim().isEmpty()) {
-			throw new RuntimeException(
-					"Key '" + key + "' not found in testData.properties");
-		}
-
-		return value.trim();
-	}
+    public static String get(String key) {
+        String value=prop.getProperty(key);
+        if (value==null||value.trim().isEmpty()) {
+            throw new RuntimeException("Key '" + key + "' not found in testData.properties");
+        }
+        return value.trim();
+    }
 }

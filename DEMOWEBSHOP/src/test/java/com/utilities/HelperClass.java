@@ -35,7 +35,7 @@ public class HelperClass {
         try {
 
             String headless = ConfigReader.get("headless");
-
+             
             if (headless != null && headless.equalsIgnoreCase("true")) {
 
                 options.addArguments("--headless=new");

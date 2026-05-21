@@ -7,7 +7,7 @@ public class WishlistPage {
 	private By addToWishlistButton=By.xpath("//input[@value='Add to wishlist']");
     private By successMessage=By.xpath("//p[@class='content']");
     private By wishlistLink=By.linkText("Wishlist");
-    private By wishlistProduct=By.xpath("//td[@class='product']/child::a");
+    private By wishlistProduct=By.xpath("//td[@class='product']//a");
     private By removeCheckbox=By.name("removefromcart");
     private By updateWishlistButton=By.name("updatecart");
     private By emptyWishlistMessage=By.xpath("//div[@class='wishlist-content']");
