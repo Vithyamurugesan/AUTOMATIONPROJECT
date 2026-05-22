@@ -19,6 +19,8 @@ import io.cucumber.testng.CucumberOptions;
                 "rerun:target/failed_scenarios.txt"
         },
 
+		tags="@LoginCheckout",
+		
         monochrome=true
         
      )
