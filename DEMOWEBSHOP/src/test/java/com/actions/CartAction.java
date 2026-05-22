@@ -187,5 +187,4 @@ public class CartAction extends BaseAction {
 			return false;
 		}
 	}
-
 }
