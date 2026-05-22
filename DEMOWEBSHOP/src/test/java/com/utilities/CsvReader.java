@@ -49,7 +49,6 @@ public class CsvReader {
 
         }
         catch (Exception e) {
-
             throw new RuntimeException("Unable to read CSV file : " + filePath);
         }
 
