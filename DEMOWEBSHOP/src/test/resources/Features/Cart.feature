@@ -25,7 +25,6 @@ Feature: Sowndariya_22MAY2025_DEMOWEBSHOP_Feature File ForShopping Cart Function
     And User clicks on Shopping Cart
     Then User should see added products should be displayed in shopping cart
 
-
   @CartTotal
   Scenario: Verify shopping cart total amount
 
