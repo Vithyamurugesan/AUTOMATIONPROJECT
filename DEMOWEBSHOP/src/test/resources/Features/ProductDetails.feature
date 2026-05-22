@@ -1,6 +1,6 @@
 @SowndariyaProductDetail
 
-Feature: Sowndariya_20May2026_DEMOWEBSHOP_Product Details Functionality
+Feature: Sowndariya_21May2026_DEMOWEBSHOP_Product Details Functionality
 
   Background:
     Given User launches Demo Web Shop application
