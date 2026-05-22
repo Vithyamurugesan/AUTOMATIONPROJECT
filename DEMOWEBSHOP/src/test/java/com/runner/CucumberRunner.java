@@ -7,8 +7,8 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
 
-		
         features ="src/test/resources/Features/",
+        tags="@Vithya",
         glue = "com.stepdefinitions",
         plugin = {
                 "pretty",
