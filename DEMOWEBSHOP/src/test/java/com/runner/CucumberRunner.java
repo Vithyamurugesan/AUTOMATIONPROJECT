@@ -7,15 +7,10 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
 
-<<<<<<< HEAD
-		
-        features ="src/test/resources/Features/checkout.feature",
-        glue = "com.stepdefinitions",
 
-=======
         features ="src/test/resources/Features/",
         glue = "com.stepdefinitions",
->>>>>>> 6a338dbc275b0738e435a626184f04ae6a74f36b
+
         plugin = {
                 "pretty",
                 "html:target/cucumber-reports/cucumber.html",
