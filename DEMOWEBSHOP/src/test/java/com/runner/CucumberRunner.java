@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
 
 
-        features ="src/test/resources/Features/",
+        features ="src/test/resources/Features/ProductReview.feature",
         glue = "com.stepdefinitions",
 
         plugin = {
@@ -19,7 +19,7 @@ import io.cucumber.testng.CucumberOptions;
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
                 "rerun:target/failed_scenarios.txt"
         },
-      
+        //tags="@LoginCheckout",
         monochrome=true
         
      )
@@ -28,7 +28,7 @@ public class CucumberRunner extends AbstractTestNGCucumberTests {
 
 
     @Override
-    @DataProvider(parallel = true)
+    @DataProvider(parallel = false)
     public Object[][] scenarios() {
         return super.scenarios();
     }
