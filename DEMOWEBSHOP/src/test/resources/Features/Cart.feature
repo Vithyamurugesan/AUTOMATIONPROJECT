@@ -1,6 +1,6 @@
 @SowndariyaCart
 
-Feature: Sowndariya_20MAY2025_DEMOWEBSHOP_Feature File ForShopping Cart Functionality
+Feature: Sowndariya_22MAY2025_DEMOWEBSHOP_Feature File ForShopping Cart Functionality
 
   Description:
   This feature is used to verify shopping cart functions
@@ -8,7 +8,6 @@ Feature: Sowndariya_20MAY2025_DEMOWEBSHOP_Feature File ForShopping Cart Function
 
   Background:
     Given User is on Demo Web Shop Website
-
 
   @AddToCart
   Scenario: Add product to shopping cart
@@ -25,7 +24,6 @@ Feature: Sowndariya_20MAY2025_DEMOWEBSHOP_Feature File ForShopping Cart Function
     Given User adds multiple products from test data
     And User clicks on Shopping Cart
     Then User should see added products should be displayed in shopping cart
-
 
   @CartTotal
   Scenario: Verify shopping cart total amount
