@@ -1,5 +1,6 @@
 package com.utilities;
 
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,33 +30,50 @@ public class HelperClass {
         options.setExperimentalOption("prefs", prefs);
 
         options.addArguments("--disable-notifications");
-        options.addArguments("--start-maximized");
-        options.setPageLoadStrategy(PageLoadStrategy.EAGER);
+
+        options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--no-sandbox");
+
+        options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 
         try {
 
             String headless = ConfigReader.get("headless");
-             
+
             if (headless != null && headless.equalsIgnoreCase("true")) {
 
                 options.addArguments("--headless=new");
+
                 options.addArguments("--window-size=1920,1080");
 
                 System.out.println("Running in HEADLESS mode");
             }
+            else {
+
+                options.addArguments("--start-maximized");
+            }
 
         }
         catch (Exception e) {
+
             System.out.println("headless key not found. Running normal mode.");
+
+            options.addArguments("--start-maximized");
         }
 
         driver.set(new ChromeDriver(options));
+
+        getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
+        getDriver().manage().timeouts().scriptTimeout(Duration.ofSeconds(30));
     }
 
     public static void tearDown() {
 
         if (driver.get() != null) {
+
             driver.get().quit();
+
             driver.remove();
         }
     }
