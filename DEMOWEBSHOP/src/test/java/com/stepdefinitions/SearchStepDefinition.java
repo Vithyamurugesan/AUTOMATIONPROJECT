@@ -111,6 +111,9 @@ public class SearchStepDefinition {
     	            }
 
     	        }
+    	        catch(Exception e) {
+    	        	e.printStackTrace();
+    	        }
     	        finally {
     	            HelperClass.getDriver().navigate().back();
     	        }

@@ -10,6 +10,7 @@ import io.cucumber.testng.CucumberOptions;
 
         glue =
         "com.stepdefinitions",
+        tags=("@vetri"),
 
         plugin = {
                 "pretty",
