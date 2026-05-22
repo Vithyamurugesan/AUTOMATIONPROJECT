@@ -74,17 +74,14 @@ public class checkoutAction extends BaseAction {
     }
     
     public void click_checkBox() {
-        click(cp.checkbox);
+        actionClick(cp.checkbox);
     }
 
     public void click_checkout() {
         actionClick(cp.checkoutButton);
-        waitForVisibility(cp.checkoutText);
     }
 
     public String checkoutPage() {
-      
-
         return getText(cp.checkoutText);
     }
 

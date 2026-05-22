@@ -20,7 +20,7 @@ public class checkoutPage {
 	public By checkbox = By.xpath("//input[@id='termsofservice']");
 	public By checkoutButton = By.xpath("//button[@id='checkout']");
 
-	public By checkoutText = By.xpath("//div[@class='page-title']/child::h1");
+	public By checkoutText = By.xpath("//h1[normalize-space()='Checkout']");
 	
 	public By GuestButton =By.xpath("//input[@value='Checkout as Guest']");
 	public By loginPageReDirect =By.xpath("//h1[normalize-space()='Welcome, Please Sign In!']");
