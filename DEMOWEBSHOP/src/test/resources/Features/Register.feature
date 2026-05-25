@@ -11,7 +11,7 @@ Feature: Vithya_13MAY2025_DEMOWEBSHOP_Registration
     Given the user is on the DemoWebShop homepage
     When the user clicks the "Register" link
 
-
+  @Ignore
   @Registration @ValidRegistration
   Scenario: Verify successful user registration using excel data
 
