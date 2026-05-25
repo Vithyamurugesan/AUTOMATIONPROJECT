@@ -9,7 +9,11 @@ import io.cucumber.testng.CucumberOptions;
 
         features ="src/test/resources/Features/",
         glue = "com.stepdefinitions",
+<<<<<<< HEAD
 	   
+=======
+	 
+>>>>>>> 246a2897ac9c8ff6aa2b92462b761ef26217a70f
 
         plugin = {
                 "pretty",
