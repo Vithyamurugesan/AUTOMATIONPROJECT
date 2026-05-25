@@ -31,5 +31,22 @@ public class ProductReviewAction extends BaseAction {
 		return getText(ReviewPage.reviewFailText);
 	}
 	
+	public void reviewTitle(String str) {
+		type(ReviewPage.reviewTitle,str);
+	}
+	
+	public void RevieGtext(String str) {
+		type(ReviewPage.reviewGText,str);
+	}
+	
+	public void SubmitBtn() {
+		click(ReviewPage.submitBTN);
+	}
+	
+	public String getReviewSuccess () {
+		return getText(ReviewPage.productReviewSucces);
+	}
+
+	
 	
 }
