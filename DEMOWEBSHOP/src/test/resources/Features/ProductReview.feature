@@ -1,5 +1,5 @@
 @jeeva
-Feature: Product Review validation
+Feature: JeevaPranesh_22May2026_Product Review validationupdated_25May2026
 
 Background: 
 Given user is on the demoWebshop website
