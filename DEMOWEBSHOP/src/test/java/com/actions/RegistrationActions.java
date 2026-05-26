@@ -103,14 +103,23 @@ public class RegistrationActions extends BaseAction {
     }
     public void enterRegistrationDetailsFromExcel(String path,String sheetName,int row) {
 
-        enterFirstName(ExcelReader.getCellData(path, sheetName, row, 0));
+        enterFirstName(
+                ExcelReader.getCellData(path, sheetName, row, 0));
 
-        enterLastName(ExcelReader.getCellData(path, sheetName, row, 1));
+        enterLastName(
+                ExcelReader.getCellData(path, sheetName, row, 1));
 
-        enterEmail(ExcelReader.getCellData(path, sheetName, row, 2));
+        String email =
+                ExcelReader.getCellData(path, sheetName, row, 2);
 
-        enterPassword(ExcelReader.getCellData(path, sheetName, row, 3));
+        String uniqueEmail =email.split("@")[0] + System.currentTimeMillis()+ "@gmail.com";
+        enterEmail(uniqueEmail);
 
-        enterConfirmPassword( ExcelReader.getCellData(path, sheetName, row, 4));
+
+        enterPassword(
+                ExcelReader.getCellData(path, sheetName, row, 3));
+
+        enterConfirmPassword(
+                ExcelReader.getCellData(path, sheetName, row, 4));
     }
 }
