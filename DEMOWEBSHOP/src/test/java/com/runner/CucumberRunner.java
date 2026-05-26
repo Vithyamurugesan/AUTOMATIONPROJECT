@@ -9,7 +9,6 @@ import io.cucumber.testng.CucumberOptions;
 
         features ="src/test/resources/Features/",
         glue = "com.stepdefinitions",
-        tags="@harithaLogin",
         plugin = {
                 "pretty",
                 "html:target/cucumber-reports/cucumber.html",
@@ -18,9 +17,7 @@ import io.cucumber.testng.CucumberOptions;
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
                 "rerun:target/failed_scenarios.txt"
         },
-
         monochrome=true
-        
      )
 
 public class CucumberRunner extends AbstractTestNGCucumberTests {
