@@ -36,6 +36,7 @@ public class SearchActions extends BaseAction {
         return results.size()>0;
     }
     
+    
     public boolean verifyResultsContainKeyword(String keyword) {
 
         List<WebElement> titles=driver.findElements(By.cssSelector(".product-title"));
