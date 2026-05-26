@@ -4,48 +4,47 @@ import org.openqa.selenium.By;
 
 public class CatalogPage {
 
-    private By productGrid = By.cssSelector("div.product-grid");
+    private By productGrid =By.xpath("//div[@class='product-grid']");
 
-    private By subCategoryGrid = By.cssSelector("div.sub-category-item, div.category-grid");
+    private By subCategoryGrid =By.xpath("//div[contains(@class,'page-body')]/descendant::div[contains(@class,'sub-category-item') or contains(@class,'category-grid')]");
 
-    private By productItems = By.cssSelector("div.product-item");
+    private By productItems =By.xpath("//div[contains(@class,'product-item')]");
 
-    private By productTitles = By.cssSelector("div.product-item .product-title a");
+    private By productTitles =By.xpath("//h2[@class='product-title']/a");
 
-    private By breadcrumb = By.cssSelector("div.breadcrumb");
+    private By breadcrumb =By.xpath("//div[contains(@class,'breadcrumb')]");
 
-    private By categoryList = By.cssSelector("div.block-category-navigation ul.list li a");
+    private By categoryList = By.xpath("//div[contains(@class,'block-category-navigation')]/descendant::a");
 
     public By getCategory(String categoryName) {
-        return By.xpath("//ul[contains(@class,'top-menu')]//a[normalize-space()='" + categoryName + "']");
+    	    return By.xpath( "//ul[contains(@class,'top-menu')]//a[normalize-space()='"+ categoryName + "']");
     }
 
     public By getSubCategory(String name) {
-        return By.xpath("//div[contains(@class,'sub-category-item')]//a[normalize-space()='" + name + "']");
+        return By.xpath( "//div[contains(@class,'sub-category-item')]"+ "/descendant::a[normalize-space()='"+ name + "']");
     }
 
-    public By getProductGrid() { 
-    	return productGrid; 
-    	}
+    public By getProductGrid() {
+        return productGrid;
+    }
 
     public By getSubCategoryGrid() {
-    	return subCategoryGrid; 
-    	}
+        return subCategoryGrid;
+    }
 
-    public By getProductItems() { 
-    	return productItems; 
-    	}
+    public By getProductItems() {
+        return productItems;
+    }
 
-    public By getProductTitles() { 
-    	return productTitles;
-    	}
+    public By getProductTitles() {
+        return productTitles;
+    }
 
-    
     public By getBreadcrumb() {
-    	return breadcrumb; 
-    	}
+        return breadcrumb;
+    }
 
-    public By getCategoryList() { 
-    	return categoryList; 
-    	}
+    public By getCategoryList() {
+        return categoryList;
+    }
 }

@@ -1,5 +1,5 @@
 @harithaDownload
-Feature: Haritha_20_MAY_2025_DEMOWEBSHOP_Feature File downloadableProduct
+Feature: Haritha_26_MAY_2025_DEMOWEBSHOP_Feature File downloadableProduct
 Description:
 This feature verifies downloadable product access 
 for registered and unregistered users in the Demo Web Shop application.
