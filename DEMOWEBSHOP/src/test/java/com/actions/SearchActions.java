@@ -36,16 +36,20 @@ public class SearchActions extends BaseAction {
         return results.size()>0;
     }
     
+    
     public boolean verifyResultsContainKeyword(String keyword) {
 
-        List<WebElement> titles=driver.findElements(By.cssSelector(".product-title"));
+        List<WebElement> titles=driver.findElements(By.cssSelector(".product-title a"));
 
         for (WebElement element : titles) {
-            String text = element.getText().toLowerCase();
-            if (text.contains(keyword.toLowerCase())) {
+            String actualText = element.getText().trim().toLowerCase();
+            System.out.println("Product Title : " + actualText);
+            
+            if (actualText.contains(keyword.toLowerCase().trim())) {
                 return true;
             }
         }
+
         return false;
     }
 
