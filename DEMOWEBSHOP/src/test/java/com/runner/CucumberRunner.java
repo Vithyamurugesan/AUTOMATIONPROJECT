@@ -20,7 +20,7 @@ import io.cucumber.testng.CucumberOptions;
         },
 
 	
-		tags="@Vetri",
+		tags="not @Ignore"
 		
         monochrome=true
         
