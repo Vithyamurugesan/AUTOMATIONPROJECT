@@ -19,7 +19,7 @@ import io.cucumber.testng.CucumberOptions;
                 "rerun:target/failed_scenarios.txt"
         },
 
-        tags="not @Ignore",
+        tags="@jeeva",
 		
         monochrome=true
         
