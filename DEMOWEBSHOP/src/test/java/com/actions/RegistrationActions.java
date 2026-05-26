@@ -109,17 +109,10 @@ public class RegistrationActions extends BaseAction {
         enterLastName(
                 ExcelReader.getCellData(path, sheetName, row, 1));
 
-
-        // Read email from excel
         String email =
                 ExcelReader.getCellData(path, sheetName, row, 2);
 
-        // Generate unique email
-        String uniqueEmail =
-                email.split("@")[0]
-                + System.currentTimeMillis()
-                + "@gmail.com";
-
+        String uniqueEmail =email.split("@")[0] + System.currentTimeMillis()+ "@gmail.com";
         enterEmail(uniqueEmail);
 
 
