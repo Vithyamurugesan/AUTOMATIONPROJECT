@@ -4,36 +4,72 @@ import org.openqa.selenium.By;
 
 public class RegistrationPage {
 
-    private By registerLink =By.linkText("Register");
+    // Register Link
+    private By registerLink =
+            By.xpath("//a[contains(@class,'ico-register')]");
 
-    private By firstNameField =By.id("FirstName");
+    // First Name Field
+    private By firstNameField =
+            By.xpath("//label[text()='First name:']/following::input[@id='FirstName']");
 
-    private By lastNameField =By.id("LastName");
+    // Last Name Field
+    private By lastNameField =
+            By.xpath("//label[text()='Last name:']/following::input[@id='LastName']");
 
-    private By emailField =By.id("Email");
+    // Email Field
+    private By emailField =
+            By.xpath("//label[text()='Email:']/following::input[@id='Email']");
 
-    private By passwordField =By.id("Password");
+    // Password Field
+    private By passwordField =
+            By.xpath("//label[text()='Password:']/following::input[@id='Password']");
 
-    private By confirmPasswordField =By.id("ConfirmPassword");
+    // Confirm Password Field
+    private By confirmPasswordField =
+            By.xpath("//label[text()='Confirm password:']/following::input[@id='ConfirmPassword']");
 
-    private By registerButton =By.id("register-button");
+    // Register Button
+    private By registerButton =
+            By.xpath("//div[@class='buttons']/descendant::input[@id='register-button']");
 
-    private By continueButton =By.xpath("//input[@value='Continue']");
-    
-    private By registrationSuccessMessage = By.xpath("//div[@class='result']");
+    // Continue Button
+    private By continueButton =
+            By.xpath("//div[@class='buttons']/descendant::input[@value='Continue']");
+
+    // SUCCESS MESSAGE  ✅ FIXED
+    private By registrationSuccessMessage =
+            By.xpath("//div[@class='result']");
+
+    // Existing Email Error
+    private By existingEmailError =
+            By.xpath("//div[@class='validation-summary-errors']/descendant::li");
 
 
-    private By existingEmailError = By.xpath("//div[@class='validation-summary-errors']//li");
 
-    private By firstNameError =By.xpath("//span[@data-valmsg-for='FirstName']");
+    // ===========================
+    // VALIDATION ERRORS ✅ FIXED
+    // ===========================
 
-    private By lastNameError =By.xpath("//span[@data-valmsg-for='LastName']");
+    // First Name Error
+    private By firstNameError =
+            By.xpath("//span[@for='FirstName']");
 
-    private By emailError =By.xpath("//span[@data-valmsg-for='Email']");
+    // Last Name Error
+    private By lastNameError =
+            By.xpath("//span[@for='LastName']");
 
-    private By passwordError =By.xpath("//span[@data-valmsg-for='Password']");
+    // Email Error
+    private By emailError =
+            By.xpath("//span[@for='Email']");
 
-    private By confirmPasswordError =By.xpath("//span[@data-valmsg-for='ConfirmPassword']");
+    // Password Error
+    private By passwordError =
+            By.xpath("//span[@for='Password']");
+
+    // Confirm Password Error
+    private By confirmPasswordError =
+            By.xpath("//span[@for='ConfirmPassword']");
+
 
 
     public By getRegisterLink() {

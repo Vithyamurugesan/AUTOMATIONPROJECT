@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
 
-        features ="src/test/resources/Features/",
+        features ="src/test/resources/Features/Register.feature",
         glue = "com.stepdefinitions",
         plugin = {
                 "pretty",
@@ -18,6 +18,7 @@ import io.cucumber.testng.CucumberOptions;
                 "rerun:target/failed_scenarios.txt"
         },
         monochrome=true
+       
      )
 
 public class CucumberRunner extends AbstractTestNGCucumberTests {
