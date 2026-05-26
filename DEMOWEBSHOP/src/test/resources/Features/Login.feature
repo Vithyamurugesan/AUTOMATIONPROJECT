@@ -1,5 +1,5 @@
 @harithaLogin
-Feature: Haritha_20_MAY_2025_DEMOWEBSHOP_Feature File for Login
+Feature: Haritha_26_MAY_2025_DEMOWEBSHOP_Feature File for Login
 Description:
 This feature verifies login authentication, invalid login handling, forgot password navigation,
 and password recovery functionality in the Demo Web Shop application.

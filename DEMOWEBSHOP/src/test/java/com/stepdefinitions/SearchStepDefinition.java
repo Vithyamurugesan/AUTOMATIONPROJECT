@@ -149,7 +149,10 @@ public class SearchStepDefinition {
 
     @Then("matching products should be displayed")
     public void verify_products() {
+        log.info("Validating results for: {}", searchedProduct);
         Assert.assertTrue(searchActions.verifyResultsNotEmpty());
+        Assert.assertTrue(searchActions.verifyResultsContainKeyword(searchedProduct));
+        log.info("Matching products validated successfully");
     }
 
     @When("user clicks on Search button without entering keyword")
@@ -171,21 +174,4 @@ public class SearchStepDefinition {
         Assert.assertTrue(searchActions.handleAlertIfPresent());
         log.info("Warning message verified");
     }
-    @When("user clicks {string} in category")
-    public void user_clicks_in_category(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
-
-    @When("user selects {int} as a limit")
-    public void user_selects_as_a_limit(Integer int1) {
-    	
-    }
-
-    @Then("pagination should be displayed if search results exceed page limit")
-    public void pagination_should_be_displayed_if_search_results_exceed_page_limit() {
-    	
-    }
-    
-    
 }

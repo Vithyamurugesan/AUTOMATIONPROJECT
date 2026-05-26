@@ -4,19 +4,29 @@ import org.openqa.selenium.By;
 
 public class LoginPage {
 
-    private static By loginLink = By.cssSelector(".ico-login");
-    private static By email = By.id("Email");
-    private static By password = By.id("Password");
-    private static By loginbtn = By.cssSelector("input[value='Log in']");
-    private static By useraccountname = By.cssSelector(".header-links .account");
-    private static By logoutLink = By.cssSelector(".ico-logout");
-    private static By forgotpasswordlink = By.linkText("Forgot password?");
-    private static By recoveryemail = By.id("Email");
-    private static By recoverbtn = By.cssSelector("input[value='Recover']");
-    private static By loginErrorMessage = By.cssSelector(".validation-summary-errors");
-    private static By recoverySuccessMessage = By.cssSelector(".result");
-    private static By validationMessage = By.cssSelector(".field-validation-error");
+	private static By loginLink =By.xpath("//a[contains(@class,'login')]");
 
+	private static By email =By.id("Email");
+
+	private static By password =By.xpath("//input[@id='Password']/parent::div/input");
+
+	private static By loginbtn =By.cssSelector("input[value='Log in']");
+
+	private static By useraccountname =By.cssSelector(".header-links .account");
+
+	private static By logoutLink =By.cssSelector(".ico-logout");
+
+	private static By forgotpasswordlink =By.xpath("//div[@class='inputs reversed']/child::span/a");
+
+	private static By recoveryemail =By.id("Email");
+
+	private static By recoverbtn =By.xpath("//div[@class='buttons']/child::input[@value='Recover']");
+
+	private static By loginErrorMessage =By.cssSelector(".validation-summary-errors");
+
+	private static By recoverySuccessMessage =By.xpath("//div[@class='result']/ancestor::div[@class='page-body']/div");
+
+	private static By validationMessage =By.xpath("//input[@id='Email']/following-sibling::span[2]/span");
     
     public static By getLoginLink() {
         return loginLink;
