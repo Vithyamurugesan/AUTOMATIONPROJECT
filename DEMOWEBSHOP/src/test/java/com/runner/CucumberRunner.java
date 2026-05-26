@@ -18,12 +18,8 @@ import io.cucumber.testng.CucumberOptions;
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
                 "rerun:target/failed_scenarios.txt"
         },
-
-	
-		tags="@Vetri",
-		
+		tags="@Address",
         monochrome=true
-        
      )
 
 public class CucumberRunner extends AbstractTestNGCucumberTests {
