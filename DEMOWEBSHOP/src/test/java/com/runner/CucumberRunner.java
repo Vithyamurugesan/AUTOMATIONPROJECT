@@ -9,7 +9,6 @@ import io.cucumber.testng.CucumberOptions;
 
         features ="src/test/resources/Features/",
         glue = "com.stepdefinitions",
-	   tags="not @Ignore",
 
         plugin = {
                 "pretty",
@@ -20,7 +19,7 @@ import io.cucumber.testng.CucumberOptions;
                 "rerun:target/failed_scenarios.txt"
         },
 
-	
+        tags="not @Ignore",
 		
         monochrome=true
         
