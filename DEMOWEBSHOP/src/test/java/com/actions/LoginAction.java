@@ -7,7 +7,6 @@ import com.pages.LoginPage;
 public class LoginAction extends BaseAction {
 
     WebDriver driver;
-
     public LoginAction(WebDriver driver) {
         super(driver);
         this.driver = driver;
