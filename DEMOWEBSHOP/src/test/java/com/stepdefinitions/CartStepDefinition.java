@@ -38,13 +38,6 @@ public class CartStepDefinition {
 
 		cartAction.openBookPage();
 	}
-	@Given("User clicks on Computing and Internet product")
-	public void user_clicks_on_computing_and_internet_product() {
-
-	    logger.info("Clicking Computing and Internet product");
-
-	    cartAction.openComputingBookPage();
-	}
 
 	@When("User clicks on Add to Cart button")
 	public void user_clicks_on_add_to_cart_button() {

@@ -1,4 +1,3 @@
-@Vetri
 Feature: Vetrivel_17MAY2025_DEMOWEBSHOP_WishlistFunctionality
 
   Description:
