@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
 
-        features ="src/test/resources/Features/checkout.feature",
+        features ="src/test/resources/Features/",
         glue = "com.stepdefinitions",
 
         plugin = {
@@ -20,16 +20,15 @@ import io.cucumber.testng.CucumberOptions;
         },
 
         tags="@jeeva",
-		
         monochrome=true
         
      )
-
+	
 public class CucumberRunner extends AbstractTestNGCucumberTests {
 
 
     @Override
-    @DataProvider(parallel = false)
+    @DataProvider(parallel = true)
     public Object[][] scenarios() {
         return super.scenarios();
     }

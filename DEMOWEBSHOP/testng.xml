@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite
+name="Suite"
+parallel="methods"
+thread-count="2">
 
-<suite name="Suite">
+<test name="CucumberTests">
 
-    <test name="CucumberTests">
+<classes>
 
-        <classes>
+<class
+name="com.runner.CucumberRunner"/>
 
-            <class name="com.runner.CucumberRunner"/>
-        </classes>
-        
-    </test>
+</classes>
+
+</test>
 
 </suite>
 
