@@ -5,12 +5,12 @@ import org.openqa.selenium.By;
 public class OrderPage {
 	
 	private static By orderlink=By.xpath("//a[text()='Orders']");
-	private static By ordersCount = By.xpath("//div[@class='section order-item']");
-	private static By deatilsButton=By.xpath("(//input[@value='Details'])[1]");
-	private static By productname=By.xpath("(//td[@class='a-left name']//a)[1]");
+	private static By ordersCount = By.xpath("//div[@class='page account-page order-list-page']/descendant::div[@class='section order-item']");
+	private static By deatilsButton=By.xpath("(//div[@class='buttons']/child::input[@value='Details'])[1]");
+	private static By productname=By.xpath("//td[@class='a-left name']/child::em/a");
 	private static By Reorder=By.cssSelector("input[value='Re-order']");
 	private static By pdf=By.cssSelector(".pdf-order-button");
-	private static By productId=By.cssSelector("div[class='order-number'] strong");
+	private static By productId=By.cssSelector("//div[@class='order-number']/child::strong");
 	private static By cartproductName=By.cssSelector(".product-name");
 	
     public static By getOrderlink() {

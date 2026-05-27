@@ -9,7 +9,6 @@ import io.cucumber.testng.CucumberOptions;
 
         features ="src/test/resources/Features/",
         glue = "com.stepdefinitions",
-
         plugin = {
                 "pretty",
                 "html:target/cucumber-reports/cucumber.html",
@@ -20,8 +19,9 @@ import io.cucumber.testng.CucumberOptions;
         },
 
         tags="@jeeva",
+
         monochrome=true
-        
+       
      )
 	
 public class CucumberRunner extends AbstractTestNGCucumberTests {

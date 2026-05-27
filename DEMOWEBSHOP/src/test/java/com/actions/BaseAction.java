@@ -7,6 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BaseAction {
@@ -45,5 +46,15 @@ public class BaseAction {
 
         JavascriptExecutor js=(JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();", element);
+    }
+    
+    public void select(By locator,String option) {
+		Select select=new Select(driver.findElement(locator));
+		select.selectByVisibleText(option);
+	}
+    
+    public String getValue(By locator) {
+        waitForVisibility(locator);
+        return driver.findElement(locator).getAttribute("value");
     }
 }

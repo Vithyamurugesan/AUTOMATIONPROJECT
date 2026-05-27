@@ -1,6 +1,6 @@
 AUTOMATIONPROJECT
 
-AUTOMATIONPROJECT is a web automation testing project developed using Selenium WebDriver, Java, TestNG, and Cucumber BDD for automating the Demo Web Shop application.
+DEMOWEBSHOP is a web automation testing project developed using Selenium WebDriver, Java, TestNG, and Cucumber BDD for automating the Demo Web Shop application.
 The framework automates important web application functionalities such as registration, login, shopping cart operations, and catalog navigation using reusable automation components and Page Object Model design.
 
 About the Project
