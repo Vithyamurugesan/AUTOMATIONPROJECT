@@ -1,0 +1,34 @@
+Feature: Address Functionality
+
+  Background:
+    Given user is on the address page
+
+  @ValidAddress
+  Scenario Outline: Add valid address
+    When user clicks on Add new button
+    And user enters address details from excel "<RowNumber>"
+    And user clicks on Save button
+    Then address should be added successfully
+
+    Examples:
+      | RowNumber |
+      | 1 |
+
+  @Address @InvalidAddress
+  Scenario Outline: Add invalid address
+    When user clicks on Add new button
+    And user enters address details from excel "<RowNumber>"
+    And user clicks on Save button
+    Then address validation should be displayed
+
+    Examples:
+      | RowNumber |
+      | 2 |
+      | 3 |
+      | 4 |
+
+  @Address @EmptyAddress
+  Scenario: Verify validation messages for empty address form
+    When user clicks on Add new button
+    And user clicks on Save button
+    Then address validation should be displayed
