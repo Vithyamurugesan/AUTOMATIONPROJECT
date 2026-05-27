@@ -51,7 +51,7 @@ public class AddressAction extends BaseAction {
     }
 
     public void enterCity(String value) {
-        type(addressPage.getCity(), value == null ? "" : value);
+        type(addressPage.getCity(), value==null? "":value);
     }
 
     public void enterAddress1(String value) {

@@ -1,8 +1,9 @@
-Feature: Address Functionality
+Feature: Vetrivel_26MAY2025_DEMOWEBSHOP_WishlistFunctionality
 
   Background:
     Given user is on the address page
 
+  @Vetri
   @ValidAddress
   Scenario Outline: Add valid address
     When user clicks on Add new button
@@ -13,6 +14,8 @@ Feature: Address Functionality
     Examples:
       | RowNumber |
       | 1 |
+      | 5 |
+      | 6 |
 
   @Address @InvalidAddress
   Scenario Outline: Add invalid address

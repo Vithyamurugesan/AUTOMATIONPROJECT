@@ -81,15 +81,20 @@ public class AddressStepDefinition {
 
         WebDriver driver = HelperClass.getDriver();
 
-        Assert.assertTrue(driver.getCurrentUrl().contains("/customer/addresses"),"Address save failed");
-        
-        List<WebElement> cards=addressAction.getAddressCards();
+        String currentUrl = driver.getCurrentUrl();
+
+        System.out.println("Current URL : " + currentUrl);
+
+        Assert.assertTrue(currentUrl.contains("/customer/addresses"));
+
+        List<WebElement> cards = addressAction.getAddressCards();
 
         boolean found = false;
 
         for (WebElement card : cards) {
 
-            String text=card.getText();
+            String text = card.getText();
+            System.out.println("Card Text : " + text);
 
             if (text.contains(savedFirstName)&& text.contains(savedLastName)) {
                 found = true;
@@ -99,7 +104,6 @@ public class AddressStepDefinition {
 
         Assert.assertTrue(found);
     }
-
     @Then("address validation should be displayed")
     public void address_validation_should_be_displayed() {
         List<WebElement> validations=addressAction.getValidationMessages();
