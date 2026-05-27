@@ -14,6 +14,7 @@ Feature: Address Functionality
       | RowNumber |
       | 1 |
 
+  @Vetri
   @Address @InvalidAddress
   Scenario Outline: Add invalid address
     When user clicks on Add new button
@@ -27,6 +28,7 @@ Feature: Address Functionality
       | 3 |
       | 4 |
 
+  @Vetri
   @Address @EmptyAddress
   Scenario: Verify validation messages for empty address form
     When user clicks on Add new button
