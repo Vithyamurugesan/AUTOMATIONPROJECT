@@ -57,8 +57,8 @@ public class ProductReviewStepDefinition {
 	@When("the user login with valid creditials information")
 	public void the_user_login_with_valid_creditials_information() {	
 		login.clicklogin();
-        login.userEmail(ConfigReader.getProperty("app.username"));
-        login.userPassword(ConfigReader.getProperty("app.password"));
+        login.userEmail(ConfigReader.get("app.username"));
+        login.userPassword(ConfigReader.get("app.password"));
         login.clickloginbtn();
         
 

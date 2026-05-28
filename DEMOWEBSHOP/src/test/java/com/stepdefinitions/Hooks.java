@@ -21,15 +21,15 @@ public class Hooks {
     @Before
     public void setup() {
         HelperClass.setUpDriver();
-        HelperClass.getDriver().manage().window().maximize();
+      
     }
     
     @After
     public void tearDown(Scenario scenario) {
 
-        if (scenario.isFailed()) {
-            takeScreenshot(scenario);
-        }
+    	if (scenario.isFailed() && HelperClass.getDriver() != null) {
+    	    takeScreenshot(scenario);
+    	}
 
         HelperClass.tearDown();
     }

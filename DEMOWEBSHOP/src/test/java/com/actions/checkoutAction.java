@@ -52,8 +52,8 @@ public class checkoutAction extends BaseAction {
 
         try {
             login.clicklogin();
-            login.userEmail(ConfigReader.getProperty("app.username"));
-            login.userPassword(ConfigReader.getProperty("app.password"));
+            login.userEmail(ConfigReader.get("app.username"));
+            login.userPassword(ConfigReader.get("app.password"));
             login.clickloginbtn();
             log.info("login successful");
 
