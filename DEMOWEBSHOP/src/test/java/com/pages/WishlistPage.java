@@ -4,17 +4,15 @@ import org.openqa.selenium.By;
 
 public class WishlistPage {
 
-	private By addToWishlistButton=By.xpath("//input[@value='Add to wishlist']");
+    private By addToWishlistButton=By.xpath("//input[@value='Add to wishlist']");
     private By successMessage=By.xpath("//p[@class='content']");
     private By wishlistLink=By.linkText("Wishlist");
-    private By wishlistProduct=By.xpath("//td[@class='product']//a");
-    private By removeCheckbox=By.name("removefromcart");
+    private By wishlistProducts=By.xpath("//table[@class='cart']//td[@class='product']/a");
     private By updateWishlistButton=By.name("updatecart");
     private By emptyWishlistMessage=By.xpath("//div[@class='wishlist-content']");
-    private By addToCartCheckbox=By.name("addtocart");
     private By addToCartButton=By.name("addtocartbutton");
     private By shoppingCartLink=By.linkText("Shopping cart");
-    private By cartProduct=By.xpath("//td[@class='product']/descendant::a");
+    private By cartProduct=By.xpath("//td[@class='product']/a");
 
     public By getProduct(String productName) {
         return By.linkText(productName);
@@ -32,12 +30,8 @@ public class WishlistPage {
         return wishlistLink;
     }
 
-    public By getWishlistProduct() {
-        return wishlistProduct;
-    }
-
-    public By getRemoveCheckbox() {
-        return removeCheckbox;
+    public By getWishlistProducts() {
+        return wishlistProducts;
     }
 
     public By getUpdateWishlistButton() {
@@ -46,10 +40,6 @@ public class WishlistPage {
 
     public By getEmptyWishlistMessage() {
         return emptyWishlistMessage;
-    }
-
-    public By getAddToCartCheckbox() {
-        return addToCartCheckbox;
     }
 
     public By getAddToCartButton() {
@@ -62,5 +52,13 @@ public class WishlistPage {
 
     public By getCartProduct() {
         return cartProduct;
+    }
+
+    public By getAddToCartCheckbox(String productName) {
+        return By.xpath( "//a[text()='" +productName+"']/ancestor::tr//input[@name='addtocart']");
+    }
+
+    public By getRemoveCheckbox(String productName) {
+        return By.xpath("//a[text()='" +productName+"']/ancestor::tr//input[@name='removefromcart']");
     }
 }

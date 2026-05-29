@@ -15,132 +15,130 @@ import io.cucumber.java.en.When;
 
 public class WishlistStepDefinition {
 
-    private static final Logger log=LogManager.getLogger(WishlistStepDefinition.class);
+	private static final Logger log = LogManager.getLogger(WishlistStepDefinition.class);
 
-    WishlistAction wishlistAction=new WishlistAction(HelperClass.getDriver());
-    SearchActions searchActions=new SearchActions(HelperClass.getDriver());
+	WishlistAction wishlistAction = new WishlistAction(HelperClass.getDriver());
+	SearchActions searchActions = new SearchActions(HelperClass.getDriver());
 
-    String selectedProduct;
+	String selectedProduct;
 
-    @When("user adds {string} to wishlist")
-    public void user_adds_to_wishlist(String product) {
+	@When("user adds {string} to wishlist")
+	public void user_adds_to_wishlist(String product) {
 
-        log.info("Adding product to wishlist : "+ product);
+		log.info("Adding product to wishlist : " + product);
 
-        selectedProduct=product;
-        searchActions.searchProduct(product);
+		selectedProduct = product;
+		searchActions.searchProduct(product);
 
-        log.debug("Searching product : "+ product);
+		log.debug("Searching product : " + product);
 
-        searchActions.clickSearch();
-        searchActions.openProductFromResults(product);
+		searchActions.clickSearch();
+		searchActions.openProductFromResults(product);
+		wishlistAction.clickAddToWishlist();
 
-        wishlistAction.clickAddToWishlist();
+		log.info("Product added to wishlist : " + product);
+	}
 
-        log.info("Product added to wishlist : "+ product);
-    }
+	@When("user adds product to wishlist")
+	public void user_adds_product_to_wishlist() {
 
-    @When("user adds product to wishlist")
-    public void user_adds_product_to_wishlist() {
+		selectedProduct = TestDataReader.get("wishlist.product");
 
-        selectedProduct=TestDataReader.get("wishlist.product");
+		log.info("Adding product from test data : " + selectedProduct);
 
-        log.info("Adding product from test data : "+ selectedProduct);
+		searchActions.searchProduct(selectedProduct);
+		searchActions.clickSearch();
+		searchActions.openProductFromResults(selectedProduct);
+		wishlistAction.clickAddToWishlist();
 
-        searchActions.searchProduct(selectedProduct);
-        searchActions.clickSearch();
-        searchActions.openProductFromResults(selectedProduct);
+		log.info("Product added successfully");
+	}
 
-        wishlistAction.clickAddToWishlist();
+	@Then("success message {string} should be displayed")
+	public void success_message_should_be_displayed(String expectedMessage) {
 
-        log.info("Product added successfully");
-    }
+		String actualMessage = wishlistAction.getSuccessMessage();
 
-    @Then("success message {string} should be displayed")
-    public void success_message_should_be_displayed(
-            String expectedMessage) {
+		log.debug("Actual success message : " + actualMessage);
 
-        String actualMessage = wishlistAction.getSuccessMessage();
+		Assert.assertTrue(actualMessage.contains(expectedMessage));
 
-        log.debug("Actual success message : "+ actualMessage);
+		log.info("Success message validation passed");
+	}
 
-        Assert.assertTrue(actualMessage.contains(expectedMessage));
+	@Then("product should be added to wishlist")
+	public void product_should_be_added_to_wishlist() {
 
-        log.info("Success message validation passed");
-    }
+		boolean status = wishlistAction.isProductPresentInWishlist(selectedProduct);
 
-    @Then("product should be added to wishlist")
-    public void product_should_be_added_to_wishlist() {
+		log.debug("Checking wishlist product : " + selectedProduct);
 
-        wishlistAction.clickWishlistLink();
+		Assert.assertTrue(status);
 
-        String actual = wishlistAction.getWishlistProductName();
+		log.info("Wishlist validation passed for : " + selectedProduct);
+	}
 
-        log.debug("Wishlist product : "+ actual);
+	@When("user removes product from wishlist")
+	public void user_removes_product_from_wishlist() {
 
-        Assert.assertEquals(actual, selectedProduct);
+		log.info("Removing product from wishlist");
 
-        log.info("Wishlist validation passed for : "+selectedProduct);
-    }
+		wishlistAction.removeProductFromWishlist(selectedProduct);
 
-    @When("user removes product from wishlist")
-    public void user_removes_product_from_wishlist() {
+		log.info("Product removed from wishlist");
+	}
 
-        log.info("Removing product from wishlist");
+	@Then("wishlist message {string} should be displayed")
+	public void wishlist_message_should_be_displayed(String expectedMessage) {
 
-        wishlistAction.clickWishlistLink();
-        wishlistAction.removeProductFromWishlist();
+		String actualMessage = wishlistAction.getEmptyWishlistMessage();
 
-        log.info("Product removed from wishlist");
-    }
+		log.debug("Wishlist message : {}", actualMessage);
 
-    @Then("wishlist message {string} should be displayed")
-    public void wishlist_message_should_be_displayed(String expectedMessage) {
+		Assert.assertEquals(actualMessage, expectedMessage);
 
-        String actualMessage=wishlistAction.getEmptyWishlistMessage();
+		log.info("Wishlist empty validation passed");
+	}
 
-        log.debug("Wishlist message : {}", actualMessage);
+	@And("product should be added to cart")
+	public void product_should_be_added_to_cart() {
 
-        Assert.assertEquals(actualMessage, expectedMessage);
+		log.info("Moving product to cart : " + selectedProduct);
 
-        log.info("Wishlist empty validation passed");
-    }
+		wishlistAction.clickWishlistLink();
 
-    @And("product should be added to cart")
-    public void product_should_be_added_to_cart() {
+		wishlistAction.selectProductForAddToCart(selectedProduct);
 
-        log.info("Moving product to cart : "+selectedProduct);
+		wishlistAction.clickAddToCartButton();
 
-        wishlistAction.clickWishlistLink();
-        wishlistAction.selectProductForAddToCart();
-        wishlistAction.clickAddToCartButton();
+		wishlistAction.openShoppingCart();
 
-        wishlistAction.openShoppingCart();
+		String actual = wishlistAction.getCartProductName();
 
-        String actual = wishlistAction.getCartProductName();
+		log.debug("Cart product : " + actual);
 
-        log.debug("Cart product : "+ actual);
+		Assert.assertEquals(actual, selectedProduct);
 
-        Assert.assertEquals(actual,selectedProduct);
+		log.info("Cart validation passed for : " + selectedProduct);
+	}
 
-        log.info("Cart validation passed for : "+selectedProduct);
-    }
+	@When("user navigates to wishlist page")
+	public void user_navigates_to_wishlist_page() {
 
-    @When("user navigates to wishlist page")
-    public void user_navigates_to_wishlist_page() {
-        log.info("Navigating to wishlist page");
-        wishlistAction.clickWishlistLink();
-    }
+		log.info("Navigating to wishlist page");
 
-    @Then("product should be displayed in wishlist")
-    public void product_should_be_displayed_in_wishlist() {
+		wishlistAction.clickWishlistLink();
+	}
 
-        String actual = wishlistAction.getWishlistProductName();
-        
-        log.debug("Displayed wishlist product : "+actual);
+	@Then("product should be displayed in wishlist")
+	public void product_should_be_displayed_in_wishlist() {
 
-        Assert.assertEquals(actual, selectedProduct);
+		boolean status = wishlistAction.isProductPresentInWishlist(selectedProduct);
 
-        log.info("Wishlist display validation passed");
-    }
+		log.debug("Displayed wishlist product : " + selectedProduct);
+
+		Assert.assertTrue(status);
+
+		log.info("Wishlist display validation passed");
+	}
 }
