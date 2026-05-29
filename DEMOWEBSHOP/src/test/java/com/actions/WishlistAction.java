@@ -1,6 +1,8 @@
 package com.actions;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
 import com.pages.WishlistPage;
 
 public class WishlistAction extends BaseAction {
@@ -9,7 +11,7 @@ public class WishlistAction extends BaseAction {
 
     public WishlistAction(WebDriver driver) {
         super(driver);
-        this.wishlistPage=new WishlistPage();
+        this.wishlistPage = new WishlistPage();
     }
 
     public void openSearchedProduct(String productName) {
@@ -28,21 +30,27 @@ public class WishlistAction extends BaseAction {
         click(wishlistPage.getWishlistLink());
     }
 
-    public String getWishlistProductName() {
-        return getText(wishlistPage.getWishlistProduct());
-    }
+    public boolean isProductPresentInWishlist(String productName) {
 
-    public void removeProductFromWishlist() {
-        click(wishlistPage.getRemoveCheckbox());
-        click(wishlistPage.getUpdateWishlistButton());
+        clickWishlistLink();
+
+        return driver.findElements(
+                By.linkText(productName)
+        ).size() > 0;
     }
 
     public String getEmptyWishlistMessage() {
         return getText(wishlistPage.getEmptyWishlistMessage());
     }
 
-    public void selectProductForAddToCart() {
-        click(wishlistPage.getAddToCartCheckbox());
+    public void selectProductForAddToCart(String productName) {
+
+        By checkbox =
+                wishlistPage.getAddToCartCheckbox(productName);
+
+        waitForVisibility(checkbox);
+
+        click(checkbox);
     }
 
     public void clickAddToCartButton() {
@@ -55,5 +63,19 @@ public class WishlistAction extends BaseAction {
 
     public String getCartProductName() {
         return getText(wishlistPage.getCartProduct());
+    }
+
+    public void removeProductFromWishlist(String productName) {
+
+        clickWishlistLink();
+
+        By checkbox =
+                wishlistPage.getRemoveCheckbox(productName);
+
+        waitForVisibility(checkbox);
+
+        click(checkbox);
+
+        click(wishlistPage.getUpdateWishlistButton());
     }
 }
