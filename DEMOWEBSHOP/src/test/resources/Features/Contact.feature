@@ -16,5 +16,3 @@ Feature: Haritha_26_MAY_2025_DEMOWEBSHOP_Feature File contact
     Given the user is on the Demo Web Shop homepage
     When the user clicks the Contact us link
     Then the user should see empty Name and Email fields
-
-    
