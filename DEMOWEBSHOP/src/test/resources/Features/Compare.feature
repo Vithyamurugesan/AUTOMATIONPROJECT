@@ -23,32 +23,34 @@ Scenario: Verify user can add single product to compare list
 
   @AddMultipleCompareProducts
   Scenario: Verify user can add multiple products to compare list
-
     When User adds multiple compare products from test data
     And User clicks on Compare Products link
-
     Then User should navigate to compare products page
     And User should see all added products in compare products page
 
+@remove
+ @RemoveCompareProduct
+Scenario: Verify user can remove compared product
 
-  @RemoveCompareProduct
-  Scenario: Verify user can remove compared product
+  Given User clicks on Jewelry category
 
-    Given User clicks on Jewelry category
+  When User adds below compare products to compare list
+    | product                     |
+    | Black & White Diamond Heart |
+    | Diamond Tennis Bracelet     |
 
-    When User adds below compare products to compare list
-      | product                    |
-      | Black & White Diamond Heart |
-      | Diamond Tennis Bracelet     |
+  And User clicks on Compare Products link
 
-    And User clicks on Compare Products link
+  And User removes below compare product
+    | product                  |
+    | Diamond Tennis Bracelet  |
 
-    And User removes below compare product
-      | product                  |
-      | Diamond Tennis Bracelet  |
-    And User click the remove button 
-    Then User should not see removed product in compare products page
-    And User should see remaining products in compare products page
+  Then User should not see removed product in compare products page
+    | product                 |
+    | Diamond Tennis Bracelet |
+  And User should see remaining products in compare products page
+    | product                     |
+    | Black & White Diamond Heart |
 
 
   @ClearCompareList

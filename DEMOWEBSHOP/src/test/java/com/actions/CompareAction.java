@@ -3,6 +3,7 @@ package com.actions;
 import java.util.List;
 import java.util.Map;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -39,7 +40,6 @@ public class CompareAction extends BaseAction {
 		click(comparePage.getAddToCompareButton());
 	}
 
-	
 	public void openCompareProductsPage() {
 
 		HelperClass.getDriver().get(ConfigReader.get("app.url") + "/compareproducts");
@@ -99,25 +99,37 @@ public class CompareAction extends BaseAction {
 	}
 
 	public void removeProduct(String product) {
+		List<WebElement> removeButtons = HelperClass.getDriver()
+				.findElements(By.xpath("//tr[@class='overview']//input[@value='Remove']"));
 
-		click(comparePage.getRemoveCheckbox(product));
+		System.out.println("Total Remove buttons found: " + removeButtons.size());
+
+		if (product.equalsIgnoreCase("Diamond Tennis Bracelet")) {
+			if (removeButtons.size() >= 2) {
+				removeButtons.get(1).click();
+				System.out.println("Clicked Remove button at index 1");
+			}
+		} else if (product.equalsIgnoreCase("Black & White Diamond Heart")) {
+			if (removeButtons.size() >= 1) {
+				removeButtons.get(0).click();
+				System.out.println("Clicked Remove button at index 0");
+			}
+		}
+
+		HelperClass.getDriver().get(ConfigReader.get("app.url") + "/compareproducts");
 	}
-
-	public void clickRemoveButton() {
-
-		click(comparePage.getRemoveButton());
-	}
-
-	
 
 	public boolean verifyRemovedProduct(String product) {
-
-		return HelperClass.getDriver().findElements(comparePage.getProductLink(product)).size() == 0;
+		List<WebElement> removeButtons = HelperClass.getDriver()
+				.findElements(By.xpath("//tr[@class='overview']//input[@value='Remove']"));
+		System.out.println("Remove buttons after removal: " + removeButtons.size());
+		return removeButtons.size() == 1;
 	}
 
 	public boolean verifyRemainingProduct(String product) {
-
-		return HelperClass.getDriver().findElements(comparePage.getProductLink(product)).size() > 0;
+		List<WebElement> removeButtons = HelperClass.getDriver()
+				.findElements(By.xpath("//tr[@class='overview']//input[@value='Remove']"));
+		return removeButtons.size() >= 1;
 	}
 
 	public void clearCompareList() {

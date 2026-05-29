@@ -82,24 +82,22 @@ public class CompareStepDefinition {
 		compareAction.removeProduct(product);
 	}
 
-	@When("User click the remove button")
-	public void user_click_the_remove_button() {
-
-		compareAction.clickRemoveButton();
-	}
-
 	@Then("User should not see removed product in compare products page")
-	public void user_should_not_see_removed_product_in_compare_products_page() {
+	public void user_should_not_see_removed_product_in_compare_products_page(DataTable table) {
 
-		Assert.assertTrue(compareAction.verifyRemovedProduct("Diamond Tennis Bracelet"));
+	    String product = table.asMaps().get(0).get("product");
+
+	    Assert.assertTrue(compareAction.verifyRemovedProduct(product));
 	}
 
 	@Then("User should see remaining products in compare products page")
-	public void user_should_see_remaining_products_in_compare_products_page() {
+	public void user_should_see_remaining_products_in_compare_products_page(DataTable table) {
 
-		Assert.assertTrue(compareAction.verifyRemainingProduct("Black & White Diamond Heart"));
+	    String product = table.asMaps().get(0).get("product");
+
+	    Assert.assertTrue(compareAction.verifyRemainingProduct(product));
 	}
-
+	
 	@When("User adds {string} product to compare list")
 	public void user_adds_product_to_compare_list(String product) {
 
