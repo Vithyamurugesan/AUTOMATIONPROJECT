@@ -8,15 +8,15 @@ public class ComparePage {
 
 	private By addToCompareButton = By.xpath("//input[contains(@value,'Add to compare list')]");
 
-	private By compareProductsLink = By.xpath("//a[contains(text(),'product comparison')]");
-
-	private By removeButton = By.xpath("//input[@value='Update']");
-
 	private By clearListButton = By.linkText("Clear list");
 
-	private By compareProducts = By.xpath("//table[contains(@class,'compare-products')]//td/a");
+	private By compareProducts = By.xpath("//table[contains(@class,'compare-products')]//a");
 
 	private By emptyCompareMessage = By.cssSelector(".page-body");
+
+	private By firstRemoveButton = By.xpath("(//tr[@class='overview']//input[@value='Remove'])[1]");
+
+	private By secondRemoveButton = By.xpath("(//tr[@class='overview']//input[@value='Remove'])[2]");
 
 	public By getJewelryLink() {
 		return jewelryLink;
@@ -24,14 +24,6 @@ public class ComparePage {
 
 	public By getAddToCompareButton() {
 		return addToCompareButton;
-	}
-
-	public By getCompareProductsLink() {
-		return compareProductsLink;
-	}
-
-	public By getRemoveButton() {
-		return removeButton;
 	}
 
 	public By getClearListButton() {
@@ -46,13 +38,15 @@ public class ComparePage {
 		return emptyCompareMessage;
 	}
 
-	public By getProductLink(String product) {
-
-		return By.xpath("//a[text()='" + product + "']");
+	public By getFirstRemoveButton() {
+		return firstRemoveButton;
 	}
 
-	public By getRemoveCheckbox(String product) {
+	public By getSecondRemoveButton() {
+		return secondRemoveButton;
+	}
 
-		return By.xpath("//a[text()='" + product + "']/ancestor::tr//input[@name='removefromcompare']");
+	public By getProductLink(String product) {
+		return By.xpath("//a[text()='" + product + "']");
 	}
 }
