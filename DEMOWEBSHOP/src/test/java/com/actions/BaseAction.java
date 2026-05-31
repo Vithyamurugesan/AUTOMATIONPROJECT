@@ -52,4 +52,9 @@ public class BaseAction {
 		Select select=new Select(driver.findElement(locator));
 		select.selectByVisibleText(option);
 	}
+    
+    public String getValue(By locator) {
+        waitForVisibility(locator);
+        return driver.findElement(locator).getAttribute("value");
+    }
 }

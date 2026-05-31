@@ -17,6 +17,7 @@ Feature: Vetrivel_26MAY2025_DEMOWEBSHOP_AddressFunctionality
       | 5 |
       | 6 |
 
+  @Vetri
   @Address @InvalidAddress
   Scenario Outline: Add invalid address
     When user clicks on Add new button
@@ -30,6 +31,7 @@ Feature: Vetrivel_26MAY2025_DEMOWEBSHOP_AddressFunctionality
       | 3 |
       | 4 |
 
+  @Vetri
   @Address @EmptyAddress
   Scenario: Verify validation messages for empty address form
     When user clicks on Add new button
