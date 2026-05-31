@@ -104,9 +104,14 @@ public class AddressStepDefinition {
 
         Assert.assertTrue(found);
     }
+    
     @Then("address validation should be displayed")
     public void address_validation_should_be_displayed() {
+
+        Assert.assertTrue(HelperClass.getDriver().getCurrentUrl().contains("/customer/addressadd"));
+
         List<WebElement> validations=addressAction.getValidationMessages();
+
         Assert.assertFalse(validations.isEmpty());
     }
 }

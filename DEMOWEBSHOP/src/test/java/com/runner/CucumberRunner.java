@@ -9,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
 
         features ="src/test/resources/Features/",
         glue = "com.stepdefinitions",
-        tags="@SowndariyaCompare" ,
+        tags="@Vetri" ,
         plugin = {
                 "pretty",
                 "html:target/cucumber-reports/cucumber.html",
@@ -23,7 +23,6 @@ import io.cucumber.testng.CucumberOptions;
      )
 
 public class CucumberRunner extends AbstractTestNGCucumberTests {
-
 
     @Override
     @DataProvider(parallel = true)
