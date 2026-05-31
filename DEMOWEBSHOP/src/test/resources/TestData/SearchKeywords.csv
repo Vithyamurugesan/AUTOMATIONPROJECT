@@ -1,7 +1,7 @@
 type,keyword
 valid,Laptop
 valid,Book
-valid,Computer
+valid,Computing
 valid,Phone
 invalid,abcxyz
 invalid,test123

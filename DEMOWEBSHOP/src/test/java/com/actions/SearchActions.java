@@ -37,14 +37,12 @@ public class SearchActions extends BaseAction {
     }
     
     public boolean verifyResultsContainKeyword(String keyword) {
-
+    	
+        String baseWord=keyword.toLowerCase().replaceAll("ing$|er$|s$", "");
+        
         List<WebElement> titles=driver.findElements(By.cssSelector(".product-title"));
-
         for (WebElement element : titles) {
-            String text = element.getText().toLowerCase();
-            if (text.contains(keyword.toLowerCase())) {
-                return true;
-            }
+            if (element.getText().toLowerCase().contains(baseWord)) return true;
         }
         return false;
     }

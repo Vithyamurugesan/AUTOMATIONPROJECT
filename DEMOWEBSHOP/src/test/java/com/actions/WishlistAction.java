@@ -31,12 +31,8 @@ public class WishlistAction extends BaseAction {
     }
 
     public boolean isProductPresentInWishlist(String productName) {
-
         clickWishlistLink();
-
-        return driver.findElements(
-                By.linkText(productName)
-        ).size() > 0;
+        return driver.findElements(By.linkText(productName)).size() > 0;
     }
 
     public String getEmptyWishlistMessage() {
@@ -45,11 +41,8 @@ public class WishlistAction extends BaseAction {
 
     public void selectProductForAddToCart(String productName) {
 
-        By checkbox =
-                wishlistPage.getAddToCartCheckbox(productName);
-
+        By checkbox=wishlistPage.getAddToCartCheckbox(productName);
         waitForVisibility(checkbox);
-
         click(checkbox);
     }
 
@@ -66,16 +59,10 @@ public class WishlistAction extends BaseAction {
     }
 
     public void removeProductFromWishlist(String productName) {
-
         clickWishlistLink();
-
-        By checkbox =
-                wishlistPage.getRemoveCheckbox(productName);
-
+        By checkbox=wishlistPage.getRemoveCheckbox(productName);
         waitForVisibility(checkbox);
-
         click(checkbox);
-
         click(wishlistPage.getUpdateWishlistButton());
     }
 }
