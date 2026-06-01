@@ -7,9 +7,9 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
 
-        features ="src/test/resources/Features/productReview.feature",
+        features ="src/test/resources/Features/",
         glue = "com.stepdefinitions",
-        tags = "@jeeva",
+        tags = "@Ignore",
         plugin = {
                 "pretty",
                 "html:target/cucumber-reports/cucumber.html",
