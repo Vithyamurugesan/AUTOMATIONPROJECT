@@ -91,5 +91,21 @@ public class ProductReviewStepDefinition {
 	    System.out.println("Review done successful");
 		
 	}
+	
+	@Then("the user should see validation messages of  Review title is required")
+	public void the_user_should_see_validation_messages_of_review_title_is_required() {
+	   String act = reviewAction.getReviewTitleValidation();
+	    String exp = "Review title is required.";
+	    Assert.assertEquals(act, exp);
+	    System.out.println("the review title validation message is occures");
+	}
+
+	@Then("the user should see validation messages of Review text is required")
+	public void the_user_should_see_validation_messages_of_review_text_is_required() {
+	    String act = reviewAction.getReviewTextValidation();
+	    String exp = "Review text is required.";
+	    Assert.assertEquals(act, exp);
+	    System.out.println("the review text validation message is occures");
+	}
 
 }

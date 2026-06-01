@@ -28,3 +28,13 @@ Examples:
 |average product |it is not over hype|
 |bad product | it is very worst|
 |not recomendal| it is not preferable one|
+
+
+@productReview_empty_fields
+Scenario: Submit review with empty fields
+When the user login with valid creditials information
+When the user clicks on a product to view its details
+When the user click  the review button 
+And the user click the submit review button
+Then the user should see validation messages of  Review title is required
+And the user should see validation messages of Review text is required
