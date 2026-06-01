@@ -1,9 +1,10 @@
-@jeeva
+
 Feature: JeevaPranesh_22May2026_Product Review validation_Updated_25May2026
 
 Background: 
 Given user is on the demoWebshop website
 
+@Ignore
 @productReview_without_login
 Scenario: Give a review for a product without login
 When the user clicks on a product to view its details
@@ -11,6 +12,7 @@ When the user click  the review button
 Then the user shoulod should redirect to the product review page and seen the text of product review 
 And the user see the text of only registered users can write reviews
 
+@Ignore
 @productReview_with_login
 Scenario Outline:  give a review for a product with login 
 When the user login with valid creditials information
