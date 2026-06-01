@@ -1,5 +1,6 @@
 Feature: Vithya_26MAY2026_DEMOWEBSHOP_GiftCardPurchase
 
+
   Description:
   This feature verifies the Gift Card purchase functionality
   of the DemoWebShop application.
