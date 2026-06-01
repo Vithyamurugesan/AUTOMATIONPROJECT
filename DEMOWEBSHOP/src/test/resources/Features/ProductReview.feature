@@ -1,10 +1,10 @@
-
+@jeeva
 Feature: JeevaPranesh_22May2026_Product Review validation_Updated_25May2026
 
 Background: 
 Given user is on the demoWebshop website
 
-@Ignore
+
 @productReview_without_login
 Scenario: Give a review for a product without login
 When the user clicks on a product to view its details
