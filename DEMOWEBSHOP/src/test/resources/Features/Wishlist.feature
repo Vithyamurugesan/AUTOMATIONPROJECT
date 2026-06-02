@@ -1,5 +1,5 @@
 @Vetri
-Feature: Vetrivel_17MAY2025_DEMOWEBSHOP_WishlistFunctionality
+Feature: Vetrivel_17MAY2026_DEMOWEBSHOP_WishlistFunctionality
 
   Description:
   As a user,

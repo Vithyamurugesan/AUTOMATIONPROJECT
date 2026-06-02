@@ -57,4 +57,25 @@ public class BaseAction {
         waitForVisibility(locator);
         return driver.findElement(locator).getAttribute("value");
     }
+    
+    public void clickLink(String linkText) {
+    	jsClick(By.partialLinkText(linkText));
+    }
+    
+    public String getCurrentWindow() {
+        return driver.getWindowHandle();
+    }
+
+    public void switchToNewWindow(String parentWindow) {
+        for (String window : driver.getWindowHandles()) {
+            if (!window.equals(parentWindow)) {
+                driver.switchTo().window(window);
+                break;
+            }
+        }
+    }
+    
+    public void switchToWindow(String window) {
+        driver.switchTo().window(window);
+    }
 }
