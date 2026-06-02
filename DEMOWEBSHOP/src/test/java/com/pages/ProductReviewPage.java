@@ -13,6 +13,10 @@ public class ProductReviewPage {
 	public By reviewTitle = By.xpath("//div[@class=\"inputs\"]/child::input[@class=\"review-title\"]");
 	public By reviewGText = By.xpath("//div[@class=\"inputs\"]/child::textarea[@class=\"review-text\"]");
 	public By submitBTN =By.xpath("//div[@class=\"buttons\"]/child::input[@type=\"submit\"]");
+	public By reviewTitleValidation = By.xpath("//div[@class=\"inputs\"]/child::span[text()=\"Review title is required.\"]");
+	
+	public By reviewTextValidation = By.xpath("//div[@class=\"inputs\"]/child::span[text()=\"Review text is required.\"]");
+	
 	
 }
  
