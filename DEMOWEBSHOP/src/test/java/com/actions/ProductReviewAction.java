@@ -46,6 +46,14 @@ public class ProductReviewAction extends BaseAction {
 	public String getReviewSuccess () {
 		return getText(ReviewPage.productReviewSucces);
 	}
+	
+	public String getReviewTitleValidation() {
+		return getText(ReviewPage.reviewTitleValidation);
+	}
+	
+	public String getReviewTextValidation() {
+		return getText(ReviewPage.reviewTextValidation);
+	}
 
 	
 	
