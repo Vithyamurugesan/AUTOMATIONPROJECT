@@ -29,6 +29,7 @@ public class ConfigReader {
 
         if(prop == null) {
         	loadProperties("src/test/resources/config.properties");
+      
         }
 
         String value=prop.getProperty(key);

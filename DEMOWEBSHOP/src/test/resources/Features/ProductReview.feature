@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+@Ignore 
+>>>>>>> ff573e677f4bb1478002b42212fabf0ad81f4a53
 @jeeva
 Feature: JeevaPranesh_22May2026_Product Review validation_Updated_25May2026
 
