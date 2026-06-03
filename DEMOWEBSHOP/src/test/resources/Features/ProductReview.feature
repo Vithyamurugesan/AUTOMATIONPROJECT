@@ -1,4 +1,4 @@
-@Ignore
+@jeeva
 Feature: JeevaPranesh_22May2026_Product Review validation_Updated_25May2026
 
 Background: 
@@ -12,7 +12,7 @@ When the user click  the review button
 Then the user shoulod should redirect to the product review page and seen the text of product review 
 And the user see the text of only registered users can write reviews
 
-@Ignore
+
 @productReview_with_login
 Scenario Outline:  give a review for a product with login 
 When the user login with valid creditials information
@@ -38,5 +38,16 @@ When the user login with valid creditials information
 When the user clicks on a product to view its details
 When the user click  the review button 
 And the user click the submit review button
-Then the user should see validation messages of  Review title is required
+Then the user should see validation messages of Review title is required
 And the user should see validation messages of Review text is required
+
+
+@productReview_empty_title
+Scenario: Submit review without review title
+When the user login with valid creditials information
+When the user clicks on a product to view its details
+When the user click  the review button 
+Then the user shoulod should redirect to the product review page and seen the text of product review
+And the user give the reviewText as "it is very nice and usefull"
+And the user click the submit review button
+Then the user should see validation messages of Review title is required
