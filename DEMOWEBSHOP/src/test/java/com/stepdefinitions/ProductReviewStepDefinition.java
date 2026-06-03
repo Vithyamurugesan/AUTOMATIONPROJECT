@@ -92,7 +92,7 @@ public class ProductReviewStepDefinition {
 		
 	}
 	
-	@Then("the user should see validation messages of  Review title is required")
+	@Then("the user should see validation messages of Review title is required")
 	public void the_user_should_see_validation_messages_of_review_title_is_required() {
 	   String act = reviewAction.getReviewTitleValidation();
 	    String exp = "Review title is required.";
@@ -107,5 +107,7 @@ public class ProductReviewStepDefinition {
 	    Assert.assertEquals(act, exp);
 	    System.out.println("the review text validation message is occures");
 	}
+	
+	
 
 }
