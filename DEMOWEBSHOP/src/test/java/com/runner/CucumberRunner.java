@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
 
-        features ="src/test/resources/Features/checkout_JeevaPranesh",
+        features ="src/test/resources/Features/checkout.feature",
         glue = "com.stepdefinitions",
      tags="@jeeva",
         plugin = {
