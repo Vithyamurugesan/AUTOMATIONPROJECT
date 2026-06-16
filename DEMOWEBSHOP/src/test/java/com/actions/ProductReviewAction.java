@@ -3,6 +3,7 @@ package com.actions;
 import org.openqa.selenium.WebDriver;
 
 import com.pages.ProductReviewPage;
+import com.utilities.ConfigReader;
 
 public class ProductReviewAction extends BaseAction {
 	
@@ -16,8 +17,7 @@ public class ProductReviewAction extends BaseAction {
 	}
 	
 	public void OpenReview() {
-		cart.openBookPage();
-		cart.openComputingBookPage();
+		driver.get(ConfigReader.get("app.url") + "/computing-and-internet");
 	}
 	
 	public void clickReviewLink() {
