@@ -14,8 +14,7 @@ public class checkoutPage {
 	public By loginButton = By.xpath("//input[@value='Log in']");
 	public By book = By.xpath("//ul[@class='top-menu']//a[normalize-space()='Books']");
 
-	public By addToCart =
-			By.xpath("(//input[@value='Add to cart'])[1]");
+	public By addToCart =By.xpath("//input[contains(@class,'product-box-add-to-cart-button')]");
 	public By cart = By.xpath("//a[@class='ico-cart']");
 	public By checkbox = By.xpath("//input[@id='termsofservice']");
 	public By checkoutButton = By.xpath("//button[@id='checkout']");
@@ -39,8 +38,7 @@ public class checkoutPage {
 	public By continueButton = By.xpath("//input[@value='Continue']");
 	
 	//scenario-4
-	public By existAddress= By.xpath("//select[@id='billing-address-select']");
-	
+	public By existAddress = By.id("billing-address-select");
 	public By billFirstName= By.xpath("//input[@id='BillingNewAddress_FirstName']");
 	public By billLastName = By.xpath("//input[@id='BillingNewAddress_LastName']");
 	public By billEmail = By.xpath("//input[@id='BillingNewAddress_Email']");
@@ -56,7 +54,6 @@ public class checkoutPage {
 	public By billContinue = By.xpath("//input[@onclick='Billing.save()']");
 	
 	public By shippingText = By.xpath("//label[@for='shipping-address-select']");
-	
 	public By wrongEmail =By.xpath("//span[@class='field-validation-error']");
 	
 	
@@ -64,7 +61,7 @@ public class checkoutPage {
 	public By ShippingDrop= By.xpath("//select[@id='shipping-address-select']");
 	public By shippingContinue =By.xpath("//input[@onclick='Shipping.save()']");
 	public By ShippingMethodtext = By.xpath("//label[normalize-space()='Ground (0.00)']");
-	public By addSuccess = By.xpath("//p[contains(text(),'The product has been added to your shopping cart')]");
+	
 	
 	//scenario-6
 	public By shippingcheckbox = By.xpath("//input[@id='PickUpInStore']");
@@ -89,7 +86,7 @@ public class checkoutPage {
 	public By payInfoContinue = By.xpath("//input[@class='button-1 payment-info-next-step-button']");
 	
 	//scenario
-	public By conformPage_conform = By.xpath("//input[@class=\"button-1 confirm-order-next-step-button\"]");
+	public By conformPage_conform = By.xpath("//input[@value='Confirm']");
 	public By ThankyText =By.xpath("//strong[normalize-space()='Your order has been successfully processed!']");
 	
 	//scenario-10
