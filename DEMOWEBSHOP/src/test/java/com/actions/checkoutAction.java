@@ -51,11 +51,35 @@ public class checkoutAction extends BaseAction {
     public void productAddInCart() {
 
         try {
+            long threadId = Thread.currentThread().getId();
+            String email = "haritha_parallel_" + threadId + "@gmail.com";
+            String password = "Password123!";
+
             login.clicklogin();
-            login.userEmail(ConfigReader.getProperty("app.username"));
-            login.userPassword(ConfigReader.getProperty("app.password"));
+            login.userEmail(email);
+            login.userPassword(password);
             login.clickloginbtn();
-            log.info("login successful");
+
+            boolean loggedIn = false;
+            try {
+                if (driver.findElements(By.xpath("//a[@class='ico-logout']")).size() > 0) {
+                    loggedIn = true;
+                }
+            } catch (Exception e) {
+                // ignore
+            }
+
+            if (!loggedIn) {
+                log.info("Unique user " + email + " not logged in or doesn't exist. Registering and setting up profile...");
+                registerUniqueUserIfNeeded(email, password);
+                
+                login.clicklogin();
+                login.userEmail(email);
+                login.userPassword(password);
+                login.clickloginbtn();
+            } else {
+                log.info("Successfully logged in with existing unique user: " + email);
+            }
 
             waitForVisibility(cp.book);
 
@@ -65,12 +89,51 @@ public class checkoutAction extends BaseAction {
 
             log.info("product add in cart");        
         }
-
         catch(Exception e){
-
             log.error("product add fail",e);
             throw e;
         }
+    }
+
+    public void registerUniqueUserIfNeeded(String email, String password) {
+        driver.get(ConfigReader.get("app.url") + "/register");
+
+        click(cp.gender);
+        type(cp.firestName, "haritha");
+        type(cp.lastName, "sr");
+        type(cp.email, email);
+        type(cp.Regpassword, password);
+        type(cp.conformPassword, password);
+        click(cp.regButton);
+        click(cp.continueButton);
+
+        AddressAction addressAction = new AddressAction(driver);
+
+        driver.get(ConfigReader.get("app.url") + "/customer/addresses");
+
+        addressAction.clickAddNewButton();
+        addressAction.enterFirstName("haritha");
+        addressAction.enterLastName("sr");
+        addressAction.enterEmail(email);
+        addressAction.selectCountry("India");
+        addressAction.enterCity("Chennai");
+        addressAction.enterAddress1("123 Main St");
+        addressAction.enterPostalCode("600001");
+        addressAction.enterPhone("1234567890");
+        addressAction.clickSave();
+
+        addressAction.clickAddNewButton();
+        addressAction.enterFirstName("haritha");
+        addressAction.enterLastName("sr");
+        addressAction.enterEmail(email);
+        addressAction.selectCountry("India");
+        addressAction.enterCity("Chennai");
+        addressAction.enterAddress1("456 Second St");
+        addressAction.enterPostalCode("600001");
+        addressAction.enterPhone("9876543210");
+        addressAction.clickSave();
+
+        click(By.xpath("//a[@class='ico-logout']"));
     }
     
     public void click_checkBox() {

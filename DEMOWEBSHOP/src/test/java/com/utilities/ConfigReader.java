@@ -9,23 +9,21 @@ public class ConfigReader {
     static Properties prop;
 
     public static Properties loadProperties(String filePath) {
-
-        prop=new Properties();
-
+        if (prop == null) {
+            prop = new Properties();
+        }
         try {
             FileInputStream fis=new FileInputStream(filePath);
             prop.load(fis);
         }
-
         catch(IOException e) {
             e.printStackTrace();
         }
-
         return prop;
     }
 
 
-    public static String get(String key) {
+    public static synchronized String get(String key) {
 
         if(prop == null) {
         	loadProperties("src/test/resources/config.properties");
