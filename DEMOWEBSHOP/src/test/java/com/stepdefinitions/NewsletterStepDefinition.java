@@ -23,6 +23,7 @@ public class NewsletterStepDefinition {
     List<Map<String, String>> testData =
             CsvReader.getData(filePath);
 
+
     @Given("User opens Demo Web Shop homepage")
     public void user_opens_demo_web_shop_homepage() {
 
