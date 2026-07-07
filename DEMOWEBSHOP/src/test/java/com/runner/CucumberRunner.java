@@ -8,9 +8,8 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
 
         features ="src/test/resources/Features/",
-        tags ="@SowndariyaNewsletter",
         glue = "com.stepdefinitions",
-        tags="@harithaContact",
+       
         plugin = {
                 "pretty",
                 "html:target/cucumber-reports/cucumber.html",
