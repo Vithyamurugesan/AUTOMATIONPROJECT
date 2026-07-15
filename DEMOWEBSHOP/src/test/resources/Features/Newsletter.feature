@@ -1,6 +1,6 @@
 @SowndariyaNewsletter
 
-Feature: Sowndariya_22MAY2025_DEMOWEBSHOP_Feature File For Newsletter Functionality
+Feature: Sowndariya_06JUL2026_DEMOWEBSHOP_Feature File For Newsletter Functionality
 
   Description:
   This feature is used to verify newsletter subscription functionality.
