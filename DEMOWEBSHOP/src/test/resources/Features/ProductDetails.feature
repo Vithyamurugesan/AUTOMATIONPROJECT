@@ -1,4 +1,4 @@
-@SowndariyaProductDetail
+@Sowndariya
 
 Feature: Sowndariya_21May2026_DEMOWEBSHOP_Product Details Functionality
 
