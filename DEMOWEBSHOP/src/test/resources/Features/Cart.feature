@@ -1,4 +1,4 @@
-@SowndariyaCart
+@Sowndariya
 
 Feature: Sowndariya_22MAY2025_DEMOWEBSHOP_Feature File ForShopping Cart Functionality
 
