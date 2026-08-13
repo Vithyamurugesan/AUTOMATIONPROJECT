@@ -9,6 +9,7 @@ import io.cucumber.testng.CucumberOptions;
 
         features ="src/test/resources/Features/PollVoting.feature",
         glue = "com.stepdefinitions",
+	    tags="@Vithya",
        
         plugin = {
                 "pretty",
