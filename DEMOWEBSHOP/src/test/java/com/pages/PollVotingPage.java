@@ -4,34 +4,27 @@ import org.openqa.selenium.By;
 
 public class PollVotingPage {
 
-    private By pollOptionExcellent =
-            By.xpath("//div[@id='poll-block-1']//label[normalize-space()='Excellent']");
+    private By pollOptionExcellent =By.xpath("//div[@id='poll-block-1']//label[normalize-space()='Excellent']");
 
-    private By pollOptionGood =
-            By.xpath("//div[@id='poll-block-1']//label[normalize-space()='Good']");
+    private By pollOptionGood =By.xpath("//div[@id='poll-block-1']//label[normalize-space()='Good']");
 
-    private By pollOptionPoor =
-            By.xpath("//div[@id='poll-block-1']//label[normalize-space()='Poor']");
+    private By pollOptionPoor = By.xpath("//div[@id='poll-block-1']//label[normalize-space()='Poor']");
 
-    private By pollOptionVeryBad =
-            By.xpath("//div[@id='poll-block-1']//label[normalize-space()='Very bad']");
+    private By pollOptionVeryBad = By.xpath("//div[@id='poll-block-1']//label[normalize-space()='Very bad']");
 
 
     private By pollVoteButton =
             By.xpath("//div[@id='poll-block-1']//input[@value='Vote']");
 
 
-    private By pollVotingResult =
-            By.xpath("//div[@id='poll-block-1']//ul[contains(@class,'poll-results')]");
+    private By pollVotingResult =By.xpath("//div[@id='poll-block-1']//ul[contains(@class,'poll-results')]");
 
 
 
-    private By pollResultPercentages =
-            By.xpath("//div[@id='poll-block-1']//ul[contains(@class,'poll-results')]/li[contains(@class,'answer')]");
+    private By pollResultPercentages =By.xpath("//div[@id='poll-block-1']//ul[contains(@class,'poll-results')]/li[contains(@class,'answer')]");
 
 
-    private By pollVoteError =
-            By.xpath("//div[@id='poll-block-1']//div[contains(@id,'block-poll-vote-error')]");
+    private By pollVoteError =By.xpath("//div[@id='poll-block-1']//div[contains(@id,'block-poll-vote-error')]");
 
 
     public By getPollOptionExcellent() {

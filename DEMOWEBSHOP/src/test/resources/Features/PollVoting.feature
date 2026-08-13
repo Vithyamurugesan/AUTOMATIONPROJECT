@@ -15,8 +15,10 @@ Feature: Vithya_07_JULY_2026_DEMOWEBSHOP_PollVoting
     Given the user is on the Demo Web Shop login page
     When user clicks loginlink
     When the user enters a registered email
+    
     And the user enters a valid password
     And the user clicks the Log in button
+    
 
     When the user selects the poll option
     And the user clicks the poll "Vote" button
