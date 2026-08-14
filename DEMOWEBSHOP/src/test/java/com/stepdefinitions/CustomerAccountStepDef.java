@@ -60,4 +60,18 @@ public class CustomerAccountStepDef {
         Assert.assertEquals(actualName, expectedName,
                 "Updated first name does not match!");
     }
+    
+
+@When("the user update email to {string}")
+public void the_user_update_email_to(String string) {
+	accountAction.updateEmail(string);
+}
+
+@Then("the user should remain on the customer info page and see the updated email  {string} in the email field")
+public void the_user_should_remain_on_the_customer_info_page_and_see_the_updated_email_in_the_email_field(String string) {
+    
+	String actEmail= accountAction.getEmailValue();
+	 Assert.assertEquals(actEmail, string,"Updated email does not match!");
+}
+
 }

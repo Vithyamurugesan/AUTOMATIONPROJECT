@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
 
-        features ="src/test/resources/Features/",
+        features ="src/test/resources/Features/CustomerAccount.feature",
         glue = "com.stepdefinitions",
 		tags="@CustomerAccount",
         plugin = {
@@ -25,7 +25,7 @@ import io.cucumber.testng.CucumberOptions;
 public class CucumberRunner extends AbstractTestNGCucumberTests {
 
     @Override
-    @DataProvider(parallel = true)
+    @DataProvider(parallel = false)
     public Object[][] scenarios() {
         return super.scenarios();
     }
