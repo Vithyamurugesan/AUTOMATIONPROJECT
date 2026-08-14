@@ -11,6 +11,8 @@ Feature: Vetrivel_13AUG_2026_DEMOWEBSHOP_SortingFunctionality
     Then the products should be sorted in "<Order>" order
 
     Examples:
-      | Order |
-      | Name: Z to A  |
-      | Name: A to Z  |
+      | Order          |
+      | AtoZ           |
+      | ZtoA           |
+      | PriceLowToHigh |
+      | PriceHighToLow |
