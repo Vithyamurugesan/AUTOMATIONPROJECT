@@ -28,4 +28,22 @@ public class ContactAction extends BaseAction {
     public String getEmailValue() {
         return getValue(ContactPage.getEmailField());
     }
+
+    // New methods for Scenario 3 and Scenario 4
+
+    public void enterEnquiryDetails(String enquiry) {
+        type(ContactPage.getEnquiryField(), enquiry);
+    }
+
+    public void clickSubmit() {
+        click(ContactPage.getSubmitButton());
+    }
+
+    public String getSuccessMessage() {
+        return getText(ContactPage.getSuccessMessage());
+    }
+
+    public String getValidationError() {
+        return getText(ContactPage.getValidationError());
+    }
 }

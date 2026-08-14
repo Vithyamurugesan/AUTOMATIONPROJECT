@@ -30,7 +30,6 @@ Feature: Haritha_26_MAY_2025_DEMOWEBSHOP_Feature File contact
     When the user enters enquiry details
     And the user clicks the "Submit" button
     Then the user should see an appropriate successful message
-
   Scenario: Verify the system behaviour when submitting the enquiry form with empty fields
     Given the user is on the Demo Web Shop homepage
     When the user clicks the "Contact us" link
