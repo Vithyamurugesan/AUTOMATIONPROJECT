@@ -7,9 +7,9 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
 
-        features ="src/test/resources/Features/CustomerAccount.feature",
+        features ="src/test/resources/Features/,
         glue = "com.stepdefinitions",
-		tags="@CustomerAccount",
+		
         plugin = {
                 "pretty",
                 "html:target/cucumber-reports/cucumber.html",
