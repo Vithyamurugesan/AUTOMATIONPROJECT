@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
 
-        features ="src/test/resources/Features/PollVoting.feature",
+        features ="src/test/resources/Features/",
         glue = "com.stepdefinitions",
 	    tags="@Vithya",
        
