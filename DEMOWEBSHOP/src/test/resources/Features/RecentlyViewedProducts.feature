@@ -1,4 +1,4 @@
-@SowndariyaRecentlyViewedProducts
+@Sowndariya
 
 Feature: Sowndariya_14Aug2026_DEMOWEBSHOP_Feature File For Recently Viewed Products Functionality
 
