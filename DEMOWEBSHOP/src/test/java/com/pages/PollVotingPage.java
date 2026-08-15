@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 
 public class PollVotingPage {
 
+    private By loginLink = By.xpath("//a[contains(@class,'ico-login')]");
+
     private By pollOptionExcellent =
             By.xpath("//div[@id='poll-block-1']//label[normalize-space()='Excellent']");
 
@@ -16,38 +18,21 @@ public class PollVotingPage {
     private By pollOptionVeryBad =
             By.xpath("//div[@id='poll-block-1']//label[normalize-space()='Very bad']");
 
-
     private By pollVoteButton =
             By.xpath("//div[@id='poll-block-1']//input[@value='Vote']");
 
-
     private By pollVotingResult =
-            By.xpath("//div[@id='poll-block-1']//ul[contains(@class,'poll-results')]");
-
-
+            By.xpath("//div[@id='poll-block-1']//div[contains(@class,'poll-results')]");
 
     private By pollResultPercentages =
-            By.xpath("//div[@id='poll-block-1']//ul[contains(@class,'poll-results')]/li[contains(@class,'answer')]");
-
+            By.xpath("//div[@id='poll-block-1']//*[contains(text(),'%')]");
 
     private By pollVoteError =
             By.xpath("//div[@id='poll-block-1']//div[contains(@id,'block-poll-vote-error')]");
 
 
-    public By getPollOptionExcellent() {
-        return pollOptionExcellent;
-    }
-
-    public By getPollOptionGood() {
-        return pollOptionGood;
-    }
-
-    public By getPollOptionPoor() {
-        return pollOptionPoor;
-    }
-
-    public By getPollOptionVeryBad() {
-        return pollOptionVeryBad;
+    public By getLoginLink() {
+        return loginLink;
     }
 
     public By getPollVoteButton() {
@@ -66,13 +51,9 @@ public class PollVotingPage {
         return pollVoteError;
     }
 
-
     public By getPollOption(String pollOption) {
-
         return By.xpath(
-                "//div[@id='poll-block-1']//label[normalize-space()='"
-                + pollOption
-                + "']"
+            "//div[@id='poll-block-1']//label[normalize-space()='" + pollOption + "']"
         );
     }
 }

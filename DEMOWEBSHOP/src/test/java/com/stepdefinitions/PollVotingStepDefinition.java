@@ -5,10 +5,12 @@ import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 
 import com.actions.PollVotingAction;
+import com.utilities.ConfigReader;
 import com.utilities.HelperClass;
 import com.utilities.TestDataReader;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -17,7 +19,37 @@ public class PollVotingStepDefinition {
     private static final Logger logger =
             LogManager.getLogger(PollVotingStepDefinition.class);
 
-    PollVotingAction pollVotingAction;
+    private PollVotingAction pollVotingAction;
+
+
+    @Given("the user is logged in to the Demo Web Shop")
+    public void the_user_is_logged_in_to_the_demo_web_shop() {
+
+        logger.info("Logging in as registered user");
+
+        pollVotingAction =
+                new PollVotingAction(HelperClass.getDriver());
+
+        pollVotingAction.loginRegisteredUser();
+
+        logger.info("Registered user logged in successfully");
+    }
+
+
+    @Given("the user is on the Demo Web Shop home page")
+    public void the_user_is_on_the_demo_web_shop_home_page() {
+
+        logger.info("Opening Demo Web Shop home page");
+
+        pollVotingAction =
+                new PollVotingAction(HelperClass.getDriver());
+
+        HelperClass.getDriver().get(
+                ConfigReader.get("app.url")
+        );
+
+        logger.info("Demo Web Shop home page opened successfully");
+    }
 
 
     @When("the user selects the poll option")
@@ -25,13 +57,8 @@ public class PollVotingStepDefinition {
 
         logger.info("Selecting poll option");
 
-        pollVotingAction =
-                new PollVotingAction(HelperClass.getDriver());
-
         String pollOption =
                 TestDataReader.get("pollOption");
-
-        logger.info("Poll option: " + pollOption);
 
         pollVotingAction.selectPollOption(pollOption);
 

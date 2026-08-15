@@ -31,4 +31,15 @@ public class CustomerAccountAction extends BaseAction {
     public String getFirstNameValue() {
         return getValue(cap.firstNameInput);
     }
+    
+    public void updateEmail(String newEmail) {
+
+        waitForVisibility(cap.EmailFiled);
+        waitForVisibility(cap.EmailFiled).clear();
+        type(cap.EmailFiled, newEmail);
+    }
+    
+    public String getEmailValue() {
+        return getValue(cap.EmailFiled);
+    }
 }
