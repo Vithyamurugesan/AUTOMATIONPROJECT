@@ -10,6 +10,7 @@ import io.cucumber.testng.CucumberOptions;
         features ="src/test/resources/Features/",
         tags ="@Sowndariya",
         glue = "com.stepdefinitions",
+	    
        
         plugin = {
                 "pretty",
