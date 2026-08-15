@@ -68,6 +68,14 @@ public class RecentlyViewedProductsStepDefinition {
 
 		Assert.assertTrue(recentlyViewedProductsAction.verifyFirstVisitedProductDisplayed());
 	}
+	
+	@Then("User should see all products from test data displayed in Recently Viewed Products")
+	public void user_should_see_all_products_from_test_data_displayed_in_recently_viewed_products() {
+
+		logger.info("Checking all viewed products are displayed");
+
+		Assert.assertTrue(recentlyViewedProductsAction.verifyAllVisitedProductsDisplayed());
+	}
 
 	
 }
