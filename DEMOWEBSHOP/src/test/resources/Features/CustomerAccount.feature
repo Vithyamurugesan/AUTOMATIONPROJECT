@@ -21,4 +21,8 @@ Feature: JeevaPranesh_06_07_2026_Customer Account Management
       When  the user update email to "Jeeva11@gmail.com"
        And the user clicks the Save button on the customer info page
        Then the user should remain on the customer info page and see the updated email  "Jeeva11@gmail.com" in the email field
-    
+       
+       Scenario: user update invalid Email in the personal information
+       When the user update email to "Jeeva11gmail.com"
+       And the user clicks the Save button on the customer info page
+    Then the user should remain on the customer info page and see the error message "Wrong email" in the email field

@@ -74,4 +74,11 @@ public void the_user_should_remain_on_the_customer_info_page_and_see_the_updated
 	 Assert.assertEquals(actEmail, string,"Updated email does not match!");
 }
 
+@Then("the user should remain on the customer info page and see the error message {string} in the email field")
+public void the_user_should_remain_on_the_customer_info_page_and_see_the_error_message_in_the_email_field(String string) {
+	String wrongEmail= accountAction.getWrongEmailMsg();
+	Assert.assertEquals(wrongEmail, string,"Error message does not match!");
+
+}
+
 }

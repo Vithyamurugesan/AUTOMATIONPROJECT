@@ -42,4 +42,7 @@ public class CustomerAccountAction extends BaseAction {
     public String getEmailValue() {
         return getValue(cap.EmailFiled);
     }
+    public String getWrongEmailMsg() {
+		return getText(cap.WrongEmailMsg);
+	}
 }
