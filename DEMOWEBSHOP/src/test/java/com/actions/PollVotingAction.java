@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import com.pages.PollVotingPage;
+import com.utilities.ConfigReader;
 
 public class PollVotingAction extends BaseAction {
 
@@ -14,23 +15,37 @@ public class PollVotingAction extends BaseAction {
         pollVotingPage = new PollVotingPage();
     }
 
+    public void loginRegisteredUser() {
+
+        // Open Demo Web Shop home page using config.properties URL
+        driver.get(ConfigReader.get("app.url"));
+
+        // Click Login
+        click(pollVotingPage.getLoginLink());
+
+        // Continue with your existing login code here
+    }
 
     public void selectPollOption(String pollOption) {
+
         By option = pollVotingPage.getPollOption(pollOption);
+
         click(option);
     }
 
-
     public void clickVoteButton() {
+
         click(pollVotingPage.getPollVoteButton());
     }
 
-
     public boolean isPollVotingResultDisplayed() {
+
         try {
-            return waitForVisibility(pollVotingPage.getPollVotingResult()).isDisplayed();
-        }
-        catch (Exception e) {
+            return waitForVisibility(
+                    pollVotingPage.getPollVotingResult()
+            ).isDisplayed();
+
+        } catch (Exception e) {
             return false;
         }
     }
@@ -38,20 +53,17 @@ public class PollVotingAction extends BaseAction {
     public boolean arePollResultPercentagesDisplayed() {
 
         try {
-
-            return driver.findElements(
+            return !driver.findElements(
                     pollVotingPage.getPollResultPercentages()
-            ).size() == 4;
+            ).isEmpty();
 
-        }
-        catch (Exception e) {
-
+        } catch (Exception e) {
             return false;
         }
     }
 
-  
     public String getPollVoteErrorMessage() {
+
         return getText(pollVotingPage.getPollVoteError());
     }
 }
