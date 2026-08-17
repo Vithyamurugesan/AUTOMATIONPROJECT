@@ -1,3 +1,4 @@
+@Vetri
 Feature: Vetrivel_2JUNE2026_DEMOWEBSHOP_SocialMediaLinkFunctionality
 
   Background:
