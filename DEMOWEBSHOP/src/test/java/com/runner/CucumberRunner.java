@@ -8,9 +8,9 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
 
         features ="src/test/resources/Features/",
-        tags ="@Sowndariya",
+   
         glue = "com.stepdefinitions",
-       
+
         plugin = {
                 "pretty",
                 "html:target/cucumber-reports/cucumber.html",
@@ -26,7 +26,7 @@ import io.cucumber.testng.CucumberOptions;
 public class CucumberRunner extends AbstractTestNGCucumberTests {
 
     @Override
-    @DataProvider(parallel = true)
+    @DataProvider(parallel = false)
     public Object[][] scenarios() {
         return super.scenarios();
     }
