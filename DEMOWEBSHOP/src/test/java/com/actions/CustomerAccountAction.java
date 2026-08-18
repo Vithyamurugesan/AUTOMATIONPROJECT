@@ -42,4 +42,17 @@ public class CustomerAccountAction extends BaseAction {
     public String getEmailValue() {
         return getValue(cap.EmailFiled);
     }
+    public String getWrongEmailMsg() {
+		return getText(cap.WrongEmailMsg);
+	}
+    public String getLastNameValue() {
+		return getValue(cap.Lastnameinput);
+	}
+    
+    public void updateLastName(String newLastName) {
+
+		waitForVisibility(cap.Lastnameinput);
+		waitForVisibility(cap.Lastnameinput).clear();
+		type(cap.Lastnameinput, newLastName);
+	}
 }

@@ -8,5 +8,8 @@ public class CustomerAccountPage {
     public By firstNameInput = By.id("FirstName");
     public By saveInfoButton = By.name("save-info-button");
     public By EmailFiled = By.xpath("//input[@id=\"Email\"]");
+    public By WrongEmailMsg= By.xpath("//span[@data-valmsg-for=\"Email\"]");
+    public By Lastnameinput = By.xpath("//span[@for=\"LastName\"]");
+    public By Lastnameinput1 = By.xpath("//input[@id=\"LastName\"]");
 
 }
