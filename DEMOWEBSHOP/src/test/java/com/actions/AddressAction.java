@@ -2,8 +2,10 @@ package com.actions;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.pages.AddressPage;
 
@@ -18,6 +20,17 @@ public class AddressAction extends BaseAction {
 
     public void clickAddNewButton() {
         click(addressPage.getAddNewButton());
+    }
+    public boolean isLoginSuccessful() {
+        wait.until(ExpectedConditions.or(ExpectedConditions.presenceOfElementLocated(By.linkText("Log out")),ExpectedConditions.presenceOfElementLocated(By.cssSelector(".message-error"))));
+
+        List<WebElement> logoutLink = driver.findElements(By.linkText("Log out"));
+
+        if (!logoutLink.isEmpty()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public void enterFirstName(String value) {
