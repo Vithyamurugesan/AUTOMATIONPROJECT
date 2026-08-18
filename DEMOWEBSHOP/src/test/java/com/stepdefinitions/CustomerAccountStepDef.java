@@ -81,4 +81,19 @@ public void the_user_should_remain_on_the_customer_info_page_and_see_the_error_m
 
 }
 
+@When("the user enter lastname of {string}")
+public void the_user_enter_lastname_of(String string) {
+	accountAction.updateLastName(string);
+}
+
+@Then("the user see the updated last name in the customer info page")
+public void the_user_see_the_updated_last_name_in_the_customer_info_page() {
+	String act =accountAction.getLastNameValue();
+	Assert.assertEquals(act, "peter");
+	
+}
+
+
+
+
 }
