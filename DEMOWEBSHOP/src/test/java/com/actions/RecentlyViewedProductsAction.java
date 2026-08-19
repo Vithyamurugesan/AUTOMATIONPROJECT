@@ -101,6 +101,10 @@ public class RecentlyViewedProductsAction extends BaseAction {
 		return verifyProductDisplayed(visitedProducts.get(0));
 	}
 
+	public boolean verifyAllVisitedProductsDisplayed() {
+
+		return verifyProductsDisplayed(visitedProducts);
+	}
 
 	public int getViewedProductsCount() {
 		return HelperClass.getDriver().findElements(recentlyViewedProductsPage.getProductItems()).size();

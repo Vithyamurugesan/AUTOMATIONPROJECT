@@ -26,6 +26,13 @@ Feature: Sowndariya_14Aug2026_DEMOWEBSHOP_Feature File For Recently Viewed Produ
     Given User views the first product from recently viewed products test data
     When User clicks on Recently viewed products link
     Then User should see the first product from test data displayed in Recently Viewed Products
+    
+  @MultipleViewedProducts
+  Scenario: Verify multiple viewed products are displayed in Recently Viewed Products
+
+    Given User views all products from recently viewed products test data
+    When User clicks on Recently viewed products link
+    Then User should see all products from test data displayed in Recently Viewed Products
 
 
 
