@@ -1,4 +1,4 @@
-@SowndariyaCompare
+@Sowndariya
 
 Feature: Sowndariya_27MAY2026_DEMOWEBSHOP_Compare Product Functionality
 

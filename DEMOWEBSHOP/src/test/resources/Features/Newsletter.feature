@@ -1,4 +1,4 @@
-@SowndariyaNewsletter
+@Sowndariya
 
 Feature: Sowndariya_06JUL2026_DEMOWEBSHOP_Feature File For Newsletter Functionality
 
