@@ -1,11 +1,14 @@
 package com.stepdefinitions;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import com.actions.AddressAction;
@@ -17,11 +20,11 @@ import io.cucumber.java.en.*;
 
 public class AddressStepDefinition {
 
-    AddressAction addressAction=new AddressAction(HelperClass.getDriver());
+    AddressAction addressAction = new AddressAction(HelperClass.getDriver());
 
-    String filePath="src/test/resources/TestData/Address_TestData.xlsx";
+    String filePath = "src/test/resources/TestData/Address_TestData.xlsx";
 
-    List<Map<String, String>> testData=ExcelReader.getData(filePath, "Address");
+    List<Map<String, String>> testData = ExcelReader.getData(filePath, "Address");
 
     String savedFirstName;
     String savedLastName;
@@ -30,25 +33,74 @@ public class AddressStepDefinition {
     public void user_is_on_the_address_page() {
 
         WebDriver driver = HelperClass.getDriver();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
         driver.get(ConfigReader.get("app.url"));
 
-        driver.findElement(By.linkText("Log in")).click();
-        driver.findElement(By.id("Email")).sendKeys(ConfigReader.get("app.username"));
-        driver.findElement(By.id("Password")).sendKeys(ConfigReader.get("app.password"));
-        driver.findElement(By.cssSelector("input.login-button")).click();
-        driver.get(ConfigReader.get("app.url")+"/customer/addresses");
+        wait.until(ExpectedConditions.elementToBeClickable(
+                By.linkText("Log in"))).click();
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.id("Email"))).clear();
+
+        driver.findElement(By.id("Email"))
+                .sendKeys(ConfigReader.get("app.username"));
+
+        driver.findElement(By.id("Password")).clear();
+
+        driver.findElement(By.id("Password"))
+                .sendKeys(ConfigReader.get("app.password"));
+
+        wait.until(ExpectedConditions.elementToBeClickable(
+                By.cssSelector("input.login-button"))).click();
+
+        boolean loginSuccessful = isLoginSuccessful(driver, wait);
+
+        if (!loginSuccessful) {
+
+            String currentUrl = driver.getCurrentUrl();
+            String pageTitle = driver.getTitle();
+            String pageText = driver.findElement(By.tagName("body")).getText();
+
+            Assert.fail(
+                    "Login failed.\n"
+                    + "URL: " + currentUrl + "\n"
+                    + "Title: " + pageTitle + "\n"
+                    + "Username: " + ConfigReader.get("app.username") + "\n"
+                    + "The 'Log out' link was not found after login.\n"
+                    + "Page message:\n"
+                    + pageText.substring(0, Math.min(pageText.length(), 1000))
+            );
+        }
+
+        driver.get(ConfigReader.get("app.url") + "/customer/addresses");
+
+        wait.until(ExpectedConditions.urlContains("/customer/addresses"));
+
+        wait.until(ExpectedConditions.presenceOfElementLocated(
+                By.cssSelector("input.button-1.add-address-button")));
+    }
+
+    private boolean isLoginSuccessful(WebDriver driver, WebDriverWait wait) {
+
+        try {
+            wait.until(ExpectedConditions.presenceOfElementLocated(
+                    By.linkText("Log out")));
+
+            return true;
+
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     @When("user clicks on Add new button")
     public void user_clicks_on_add_new_button() {
-
         addressAction.clickAddNewButton();
     }
 
     @When("user enters address details from excel {string}")
-    public void user_enters_address_details_from_excel(
-            String rowNumber) {
+    public void user_enters_address_details_from_excel(String rowNumber) {
 
         Map<String, String> data =
                 testData.get(Integer.parseInt(rowNumber) - 1);
@@ -72,7 +124,6 @@ public class AddressStepDefinition {
 
     @When("user clicks on Save button")
     public void user_clicks_on_save_button() {
-
         addressAction.clickSave();
     }
 
@@ -81,11 +132,23 @@ public class AddressStepDefinition {
 
         WebDriver driver = HelperClass.getDriver();
 
+        WebDriverWait wait = new WebDriverWait(
+                driver,
+                Duration.ofSeconds(30)
+        );
+
+        wait.until(ExpectedConditions.urlContains(
+                "/customer/addresses"
+        ));
+
         String currentUrl = driver.getCurrentUrl();
 
         System.out.println("Current URL : " + currentUrl);
 
-        Assert.assertTrue(currentUrl.contains("/customer/addresses"));
+        Assert.assertTrue(
+                currentUrl.contains("/customer/addresses"),
+                "User is not on the customer addresses page."
+        );
 
         List<WebElement> cards = addressAction.getAddressCards();
 
@@ -94,24 +157,45 @@ public class AddressStepDefinition {
         for (WebElement card : cards) {
 
             String text = card.getText();
+
             System.out.println("Card Text : " + text);
 
-            if (text.contains(savedFirstName)&& text.contains(savedLastName)) {
+            if (text.contains(savedFirstName)
+                    && text.contains(savedLastName)) {
+
                 found = true;
                 break;
             }
         }
 
-        Assert.assertTrue(found);
+        Assert.assertTrue(
+                found,
+                "Saved address was not found for: "
+                + savedFirstName + " "
+                + savedLastName
+        );
     }
-    
+
     @Then("address validation should be displayed")
     public void address_validation_should_be_displayed() {
 
-        Assert.assertTrue(HelperClass.getDriver().getCurrentUrl().contains("/customer/addressadd"));
+        WebDriver driver = HelperClass.getDriver();
 
-        List<WebElement> validations=addressAction.getValidationMessages();
+        WebDriverWait wait = new WebDriverWait(
+                driver,
+                Duration.ofSeconds(30)
+        );
 
-        Assert.assertFalse(validations.isEmpty());
+        wait.until(ExpectedConditions.urlContains(
+                "/customer/addressadd"
+        ));
+
+        List<WebElement> validations =
+                addressAction.getValidationMessages();
+
+        Assert.assertFalse(
+                validations.isEmpty(),
+                "Expected address validation messages, but none were displayed."
+        );
     }
 }

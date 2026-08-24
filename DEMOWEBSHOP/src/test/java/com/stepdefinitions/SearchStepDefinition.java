@@ -146,17 +146,13 @@ public class SearchStepDefinition {
         Assert.assertTrue(searchActions.handleAlertIfPresent(),"Expected alert was not displayed.");
         log.info("Alert handled successfully");
     }
-
+    
     @Then("warning message should be displayed to the user")
     public void warning_message_should_be_displayed_to_the_user() {
-
-        Assert.assertTrue(searchActions.isWarningDisplayed(),"Warning message is not displayed.");
-        log.info("Warning message verified");
+        Assert.assertTrue(searchActions.handleAlertIfPresent(), "Expected alert was not displayed.");
+        log.info("Warning message (native alert) verified");
     }
 
-    // =======================
-    // Helper Methods
-    // =======================
 
     private void performSearch(String keyword) {
         searchedProduct = keyword;
